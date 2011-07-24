@@ -1,0 +1,6 @@
+
+project : requirements <library>/usr/lib/libboost_python.so
+	<include>/usr/include/python2.4 ;
+
+python-extension rfidsim : python_wrapper.cpp ;
+

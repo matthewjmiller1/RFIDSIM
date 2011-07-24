@@ -1,0 +1,188 @@
+\section{Node\-Id Class Reference}
+\label{classNodeId}\index{NodeId@{NodeId}}
+The node ID class provides a representation of the node's identifier.  
+
+
+{\tt \#include $<$node.hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Node\-Id} (\bf{t\_\-uint} numeric\-Value)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Node\-Id} (const \bf{t\_\-uchar} $\ast$byte\-Array, \bf{t\_\-uint} byte\-Count)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+virtual \bf{$\sim$Node\-Id} ()\label{classNodeId_b9cd5fb8a7dad73afca44e06f84a9c5c}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+void \bf{write\-To\-Byte\-Array} (\bf{t\_\-uchar} $\ast$byte\-Array, \bf{t\_\-uint} byte\-Count) const 
+\begin{CompactList}\small\item\em Write the Node\-Id's numeric value to the given byte array. \item\end{CompactList}\item 
+virtual string \bf{get\-String\-Value} () const 
+\begin{CompactList}\small\item\em Get a string representation of the ID. \item\end{CompactList}\item 
+virtual \bf{t\_\-uint} \bf{get\-Numeric\-Value} () const 
+\begin{CompactList}\small\item\em Get a numeric representation of the ID. \item\end{CompactList}\item 
+bool \bf{operator==} (const \bf{Node\-Id} \&rhs) const 
+\begin{CompactList}\small\item\em Compare two IDs for equality. \item\end{CompactList}\item 
+bool \bf{operator$<$} (const \bf{Node\-Id} \&rhs) const 
+\begin{CompactList}\small\item\em Compare two IDs for inequality. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{t\_\-uint} \bf{broadcast\-Destination} ()
+\begin{CompactList}\small\item\em Return the value that indicates the broadcast destination. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\bf{t\_\-uint} \bf{m\_\-numeric\-Value}
+\begin{CompactList}\small\item\em The internal representation of the ID. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The node ID class provides a representation of the node's identifier. 
+
+
+
+Definition at line 27 of file node.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{NodeId@{Node\-Id}!NodeId@{NodeId}}
+\index{NodeId@{NodeId}!NodeId@{Node\-Id}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Node\-Id::Node\-Id (\bf{t\_\-uint} {\em numeric\-Value})\hspace{0.3cm}{\tt  [inline]}}\label{classNodeId_098f076be9769fb7a8d5b4e6c58ed1af}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em numeric\-Value}]the numeric value for the node's ID. \end{description}
+\end{Desc}
+
+
+Definition at line 39 of file node.hpp.\index{NodeId@{Node\-Id}!NodeId@{NodeId}}
+\index{NodeId@{NodeId}!NodeId@{Node\-Id}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Node\-Id::Node\-Id (const \bf{t\_\-uchar} $\ast$ {\em byte\-Array}, \bf{t\_\-uint} {\em byte\-Count})\hspace{0.3cm}{\tt  [inline]}}\label{classNodeId_fcc86164845ea39dfe838ffbfc9c020f}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em byte\-Array}]a pointer to the first element of the byte array with which to construct the \doxyref{Node\-Id}{p.}{classNodeId}. The zero-th element is the least significant byte. \item[{\em byte\-Count}]the number of bytes in the array. \end{description}
+\end{Desc}
+
+
+Definition at line 51 of file node.hpp.
+
+References m\_\-numeric\-Value.
+
+\subsection{Member Function Documentation}
+\index{NodeId@{Node\-Id}!broadcastDestination@{broadcastDestination}}
+\index{broadcastDestination@{broadcastDestination}!NodeId@{Node\-Id}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static \bf{t\_\-uint} Node\-Id::broadcast\-Destination ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classNodeId_51e12a62df26c56ffcbab9f96ea5b07c}
+
+
+Return the value that indicates the broadcast destination. 
+
+\begin{Desc}
+\item[Returns:]the address of the broadcast destination. \end{Desc}
+
+
+Definition at line 91 of file node.hpp.
+
+Referenced by Rfid\-Reader\-Mac::create\-Request\-Packet(), get\-String\-Value(), Rfid\-Tag\-Mac::handle\-Recvd\-Mac\-Packet(), Rfid\-Reader\-Mac::handle\-Recvd\-Upper\-Layer\-Packet(), Rfid\-Tag\-Mac::packet\-Is\-For\-Me(), and Rfid\-Reader\-Mac::packet\-Is\-For\-Me().\index{NodeId@{Node\-Id}!getNumericValue@{getNumericValue}}
+\index{getNumericValue@{getNumericValue}!NodeId@{Node\-Id}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual \bf{t\_\-uint} Node\-Id::get\-Numeric\-Value () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classNodeId_390c660d929ebe5801a7cc04ea4aa7a6}
+
+
+Get a numeric representation of the ID. 
+
+\begin{Desc}
+\item[Returns:]the numeric representation. \end{Desc}
+
+
+Definition at line 114 of file node.hpp.
+
+References m\_\-numeric\-Value.
+
+Referenced by write\-To\-Byte\-Array().\index{NodeId@{Node\-Id}!getStringValue@{getStringValue}}
+\index{getStringValue@{getStringValue}!NodeId@{Node\-Id}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual string Node\-Id::get\-String\-Value () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classNodeId_544ad375b4440d8c20e8c7ef48fe8d25}
+
+
+Get a string representation of the ID. 
+
+\begin{Desc}
+\item[Returns:]the string representation. \end{Desc}
+
+
+Definition at line 100 of file node.hpp.
+
+References broadcast\-Destination(), and m\_\-numeric\-Value.\index{NodeId@{Node\-Id}!operator<@{operator$<$}}
+\index{operator<@{operator$<$}!NodeId@{Node\-Id}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Node\-Id::operator$<$ (const \bf{Node\-Id} \& {\em rhs}) const\hspace{0.3cm}{\tt  [inline]}}\label{classNodeId_9bfcc3f4ee45c9edfc71d730a6749b88}
+
+
+Compare two IDs for inequality. 
+
+\begin{Desc}
+\item[Returns:]true if the left hand ID is less than the right hand ID. \end{Desc}
+
+
+Definition at line 133 of file node.hpp.
+
+References m\_\-numeric\-Value.\index{NodeId@{Node\-Id}!operator==@{operator==}}
+\index{operator==@{operator==}!NodeId@{Node\-Id}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Node\-Id::operator== (const \bf{Node\-Id} \& {\em rhs}) const\hspace{0.3cm}{\tt  [inline]}}\label{classNodeId_8ee78492b5a20d53cd141dd567183008}
+
+
+Compare two IDs for equality. 
+
+\begin{Desc}
+\item[Returns:]true if they are equal. \end{Desc}
+
+
+Definition at line 123 of file node.hpp.
+
+References m\_\-numeric\-Value.\index{NodeId@{Node\-Id}!writeToByteArray@{writeToByteArray}}
+\index{writeToByteArray@{writeToByteArray}!NodeId@{Node\-Id}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Node\-Id::write\-To\-Byte\-Array (\bf{t\_\-uchar} $\ast$ {\em byte\-Array}, \bf{t\_\-uint} {\em byte\-Count}) const\hspace{0.3cm}{\tt  [inline]}}\label{classNodeId_034ffeef37855802c66d1c9c52ad7074}
+
+
+Write the Node\-Id's numeric value to the given byte array. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em byte\-Array}]a pointer to the first element of the byte array to be written. The zero-th byte will be the least signficant byte. \item[{\em byte\-Count}]the number of bytes in the array. \end{description}
+\end{Desc}
+
+
+Definition at line 71 of file node.hpp.
+
+References get\-Numeric\-Value().
+
+Referenced by Rfid\-Reader\-App\-Data::set\-Reader\-Id(), Rfid\-Tag\-Mac\-Data::set\-Receiver\-Id(), Rfid\-Reader\-Mac\-Data::set\-Receiver\-Id(), Rfid\-Tag\-Mac\-Data::set\-Sender\-Id(), Rfid\-Reader\-Mac\-Data::set\-Sender\-Id(), and Rfid\-Tag\-App\-Data::set\-Tag\-Id().
+
+\subsection{Member Data Documentation}
+\index{NodeId@{Node\-Id}!m_numericValue@{m\_\-numericValue}}
+\index{m_numericValue@{m\_\-numericValue}!NodeId@{Node\-Id}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} \bf{Node\-Id::m\_\-numeric\-Value}\hspace{0.3cm}{\tt  [protected]}}\label{classNodeId_91002284aaeaac3868e419344e459f96}
+
+
+The internal representation of the ID. 
+
+\begin{Desc}
+\item[See also:]\doxyref{get\-Numeric\-Value()}{p.}{classNodeId_390c660d929ebe5801a7cc04ea4aa7a6} 
+
+\doxyref{get\-String\-Value()}{p.}{classNodeId_544ad375b4440d8c20e8c7ef48fe8d25} \end{Desc}
+
+
+Definition at line 143 of file node.hpp.
+
+Referenced by get\-Numeric\-Value(), get\-String\-Value(), Node\-Id(), operator$<$(), and operator==().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+node.hpp\end{CompactItemize}

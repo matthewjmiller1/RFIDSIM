@@ -1,0 +1,62 @@
+\section{Layer\-Recv\-Event Class Reference}
+\label{classLayerRecvEvent}\index{LayerRecvEvent@{LayerRecvEvent}}
+This is the event for when a layer receives a packet from one of its adjacent layers.  
+
+
+{\tt \#include $<$communication\_\-layer.hpp$>$}
+
+Inheritance diagram for Layer\-Recv\-Event::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classLayerRecvEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Layer\-Recv\-Event} $>$ \bf{Layer\-Recv\-Event\-Ptr}\label{classLayerRecvEvent_1260b2ab8b905d1f002e9df71975ae17}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{execute} ()
+\begin{CompactList}\small\item\em The code that gets executed for the event. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Layer\-Recv\-Event\-Ptr} \bf{create} (\bf{Communication\-Layer::Directions} send\-Direction, Packet\-Ptr packet, Communication\-Layer\-Ptr recving\-Layer, Communication\-Layer\-Ptr sending\-Layer)\label{classLayerRecvEvent_037d1385362c178b27c8923aca959e4e}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Layer\-Recv\-Event} (\bf{Communication\-Layer::Directions} send\-Direction, Packet\-Ptr packet, Communication\-Layer\-Ptr recving\-Layer, Communication\-Layer\-Ptr sending\-Layer)\label{classLayerRecvEvent_1af5f36f92b8bf5bb498535ca82c5a6e}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This is the event for when a layer receives a packet from one of its adjacent layers. 
+
+
+
+Definition at line 649 of file communication\_\-layer.hpp.
+
+\subsection{Member Function Documentation}
+\index{LayerRecvEvent@{Layer\-Recv\-Event}!execute@{execute}}
+\index{execute@{execute}!LayerRecvEvent@{Layer\-Recv\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Layer\-Recv\-Event::execute ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classLayerRecvEvent_079b7b23f668b15675c688b6d9bcbc12}
+
+
+The code that gets executed for the event. 
+
+Subclasses can override this to define their own actions. 
+
+Implements \bf{Event} \doxyref{p.}{classEvent_b53a925ac3b000c6f017a4a951aff3c7}.
+
+Definition at line 669 of file communication\_\-layer.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+communication\_\-layer.hpp\end{CompactItemize}

@@ -1,0 +1,639 @@
+\section{Communication\-Layer Class Reference}
+\label{classCommunicationLayer}\index{CommunicationLayer@{CommunicationLayer}}
+The communication layer class which is a superclass of classes implemented layers in the network stack.  
+
+
+{\tt \#include $<$communication\_\-layer.hpp$>$}
+
+Inheritance diagram for Communication\-Layer::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.88889cm]{classCommunicationLayer}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Communication\-Layer} $>$ \bf{Communication\-Layer\-Ptr}\label{classCommunicationLayer_81a0d144a97da5cd90fd3b2ec54fcdc6}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\item 
+typedef boost::shared\_\-ptr$<$ \bf{Simulation\-End\-Listener} $>$ \bf{Simulation\-End\-Listener\-Ptr}\label{classCommunicationLayer_c193c9f1b512787509359eb87ae745c5}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\item 
+\bf{Directions\_\-Lower}
+\begin{CompactList}\small\item\em enum value Directions\_\-Lower. \item\end{CompactList}\item 
+\bf{Directions\_\-Upper}
+\begin{CompactList}\small\item\em enum value Direction\_\-Upper. \item\end{CompactList}\item 
+\bf{Types\_\-Physical}
+\begin{CompactList}\small\item\em enum value Types\_\-Physical. \item\end{CompactList}\item 
+\bf{Types\_\-Link}
+\begin{CompactList}\small\item\em enum value Types\_\-Link. \item\end{CompactList}\item 
+\bf{Types\_\-Network}
+\begin{CompactList}\small\item\em enum value Types\_\-Network. \item\end{CompactList}\item 
+\bf{Types\_\-Transport}
+\begin{CompactList}\small\item\em enum value Types\_\-Transport. \item\end{CompactList}\item 
+\bf{Types\_\-Application}
+\begin{CompactList}\small\item\em enum value Types\_\-Application. \item\end{CompactList}\item 
+enum \bf{Directions} \{ \bf{Directions\_\-Lower}, 
+\bf{Directions\_\-Upper}
+ \}
+\begin{CompactList}\small\item\em Directions enum. \item\end{CompactList}\item 
+enum \bf{Types} \{ \par
+\bf{Types\_\-Physical}, 
+\bf{Types\_\-Link}, 
+\bf{Types\_\-Network}, 
+\bf{Types\_\-Transport}, 
+\par
+\bf{Types\_\-Application}
+ \}
+\begin{CompactList}\small\item\em Types enum. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Communication\-Layer} ()
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual \bf{Simulation\-End\-Listener\-Ptr} \bf{this\-Simulation\-End\-Listener} ()=0
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Simulation\-End\-Listener}{p.}{classSimulationEndListener}} object. \item\end{CompactList}\item 
+void \bf{insert\-Lower\-Layer} (\bf{Communication\-Layer\-Ptr} layer\-To\-Insert)
+\begin{CompactList}\small\item\em Add a layer below this layer. \item\end{CompactList}\item 
+\bf{t\_\-uint} \bf{number\-Of\-Layers} (\bf{Directions} direction) const 
+\begin{CompactList}\small\item\em The number of layers available in the given direction. \item\end{CompactList}\item 
+bool \bf{set\-Default\-Layer} (\bf{Directions} direction, \bf{t\_\-uint} new\-Default\-Idx)
+\begin{CompactList}\small\item\em Set the layer being used as the default for communication. \item\end{CompactList}\item 
+\bf{t\_\-uint} \bf{get\-Default\-Layer} (\bf{Directions} direction) const 
+\begin{CompactList}\small\item\em Get the index of the layer being used as the default. \item\end{CompactList}\item 
+void \bf{set\-Layer\-Delay} (\bf{Directions} direction, const \bf{Sim\-Time} \&delay)
+\begin{CompactList}\small\item\em Set the time delay before a sent packet is received by the next layer. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{get\-Layer\-Delay} (\bf{Directions} direction) const 
+\begin{CompactList}\small\item\em Get the time delay before a sent packet is received by the next layer. \item\end{CompactList}\item 
+bool \bf{send\-To\-Queue} (Packet\-Ptr packet)
+\begin{CompactList}\small\item\em Send a packet to the default lower layer using a queue. \item\end{CompactList}\item 
+bool \bf{send\-To\-Queue} (Packet\-Ptr packet, \bf{t\_\-uint} lower\-Layer\-Idx)
+\begin{CompactList}\small\item\em Send a packet to the specified lower layer using a queue. \item\end{CompactList}\item 
+void \bf{unblock\-Queue} ()\label{classCommunicationLayer_3cdc193a177fa4728f8b7a0eb73121fa}
+
+\begin{CompactList}\small\item\em Unblock this layer's packet queue so that it can resume sending. \item\end{CompactList}\item 
+void \bf{block\-Queue} ()\label{classCommunicationLayer_8e5223a8bba2940517f4e616b5ceb7db}
+
+\begin{CompactList}\small\item\em Block this layer's packet queue so that it can no longer pass packet to lower layers. \item\end{CompactList}\item 
+bool \bf{get\-Queue\-Is\-Blocked} () const 
+\begin{CompactList}\small\item\em Determine whether of not the queue is currently blocked. \item\end{CompactList}\item 
+void \bf{set\-Max\-Queue\-Length} (\bf{t\_\-uint} max\-Queue\-Length)
+\begin{CompactList}\small\item\em Set the maximum packet queue size. \item\end{CompactList}\item 
+\bf{t\_\-uint} \bf{get\-Max\-Queue\-Length} () const 
+\begin{CompactList}\small\item\em Get the maximum packet queue size. \item\end{CompactList}\item 
+bool \bf{send\-To\-Layer} (\bf{Directions} direction, Packet\-Ptr packet)
+\begin{CompactList}\small\item\em Send a packet to the default next layer. \item\end{CompactList}\item 
+bool \bf{send\-To\-Layer} (\bf{Directions} direction, Packet\-Ptr packet, \bf{t\_\-uint} recving\-Layer\-Idx)
+\begin{CompactList}\small\item\em Send a packet to the specified next layer. \item\end{CompactList}\item 
+bool \bf{send\-To\-All\-Layers} (\bf{Directions} direction, Packet\-Ptr packet)
+\begin{CompactList}\small\item\em Send a packet to {\em all\/} adjacent layers. \item\end{CompactList}\item 
+bool \bf{recv\-From\-Layer} (\bf{Directions} direction, Packet\-Ptr packet, \bf{Communication\-Layer\-Ptr} sending\-Layer)
+\begin{CompactList}\small\item\em Receives a packet from a sending layer. \item\end{CompactList}\item 
+virtual bool \bf{recv\-From\-Layer} (\bf{Directions} direction, Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Receives a packet from a sending layer. \item\end{CompactList}\item 
+virtual \bf{Types} \bf{get\-Layer\-Type} () const =0
+\begin{CompactList}\small\item\em Get the layer type for an object. \item\end{CompactList}\item 
+\bf{Node\-Id} \bf{get\-Node\-Id} () const 
+\begin{CompactList}\small\item\em Get the node ID associated with this object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Communication\-Layer} (Node\-Ptr node)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+Node\-Ptr \bf{get\-Node} () const \label{classCommunicationLayer_39c60778d7fb9f62cda84eae80bf0395}
+
+\begin{CompactList}\small\item\em Get the node that contains this object. \item\end{CompactList}\item 
+bool \bf{queue\-Is\-Full} () const 
+\begin{CompactList}\small\item\em Check if the packet queue is full. \item\end{CompactList}\item 
+void \bf{block\-Upper\-Queues} ()\label{classCommunicationLayer_5b2fa56571241dad4558136d3587cb8b}
+
+\begin{CompactList}\small\item\em Block the queues of each of our upper layers. \item\end{CompactList}\item 
+void \bf{unblock\-Upper\-Queues} ()\label{classCommunicationLayer_766619acc497c60a27919a7038ce5da7}
+
+\begin{CompactList}\small\item\em Unblock the queue of each upper layer or until the queue fills up. \item\end{CompactList}\item 
+void \bf{send\-From\-Queue} ()\label{classCommunicationLayer_86c3c9f905fa39c1193e1f51a1d24a99}
+
+\begin{CompactList}\small\item\em Send a packets from the queue while it is not empty and not blocked. \item\end{CompactList}\item 
+void \bf{set\-Lower\-Layer\-Recv\-Event\-Pending} (bool is\-Pending)
+\begin{CompactList}\small\item\em Set whether or not their is a packet currently pending for the lower layer. \item\end{CompactList}\item 
+void \bf{remove\-Layer\-Data} (Packet\-Ptr packet) const 
+\begin{CompactList}\small\item\em Remove the layer specific data from a packet. \item\end{CompactList}\item 
+\bf{Communication\-Layer\-Ptr} \bf{get\-Layer} (\bf{Directions} direction, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Get a pointer to the specified communication layer object. \item\end{CompactList}\item 
+void \bf{insert\-Layer} (\bf{Directions} direction, \bf{Communication\-Layer\-Ptr} layer\-To\-Insert)
+\begin{CompactList}\small\item\em Add an adjacent layer in the specified direction. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+bool \bf{m\_\-lower\-Layer\-Recv\-Event\-Pending}\label{classCommunicationLayer_ab2bcbf24c42ad6054d5920ebf108026}
+
+\begin{CompactList}\small\item\em Determines if a lower layer receive event has been scheduled. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class \bf{Node}\label{classCommunicationLayer_6db9d28bd448a131448276ee03de1e6d}
+
+\item 
+class \bf{Layer\-Recv\-Event}\label{classCommunicationLayer_505b310ab9d3b3e2f5667729b3d4ae55}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The communication layer class which is a superclass of classes implemented layers in the network stack. 
+
+This is the superclass for each of the layers in the network stack in a node. A communiation layer follows the OSI model where layers communicate with layers adjacent to it both above and below. Our class supports multiple adjacent layers. This allows, for example, a MAC layer to have multiple interfaces (PHY layers) with which it can communicate or multiple applications to share lower layers. 
+
+
+
+Definition at line 35 of file communication\_\-layer.hpp.
+
+\subsection{Member Enumeration Documentation}
+\index{CommunicationLayer@{Communication\-Layer}!Directions@{Directions}}
+\index{Directions@{Directions}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum \bf{Communication\-Layer::Directions}}\label{classCommunicationLayer_5076652ba2dc2a5f8c0b912baa2e9127}
+
+
+Directions enum. 
+
+Used to specify which direction an operation should operate on. \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{Directions_Lower@{Directions\_\-Lower}!CommunicationLayer@{CommunicationLayer}}\index{CommunicationLayer@{CommunicationLayer}!Directions_Lower@{Directions\_\-Lower}}\item[{\em 
+Directions\_\-Lower\label{classCommunicationLayer_5076652ba2dc2a5f8c0b912baa2e9127e110d3be994645ed51372e4be52ff311}
+}]enum value Directions\_\-Lower. \index{Directions_Upper@{Directions\_\-Upper}!CommunicationLayer@{CommunicationLayer}}\index{CommunicationLayer@{CommunicationLayer}!Directions_Upper@{Directions\_\-Upper}}\item[{\em 
+Directions\_\-Upper\label{classCommunicationLayer_5076652ba2dc2a5f8c0b912baa2e91272ee130c439543c6b244d33b8745c6741}
+}]enum value Direction\_\-Upper. \end{description}
+\end{Desc}
+
+
+
+Definition at line 54 of file communication\_\-layer.hpp.\index{CommunicationLayer@{Communication\-Layer}!Types@{Types}}
+\index{Types@{Types}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum \bf{Communication\-Layer::Types}}\label{classCommunicationLayer_4cbb01eeaddc7b36151fe34379aa56e6}
+
+
+Types enum. 
+
+Used to classify the type of a \doxyref{Communication\-Layer}{p.}{classCommunicationLayer} object. \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{Types_Physical@{Types\_\-Physical}!CommunicationLayer@{CommunicationLayer}}\index{CommunicationLayer@{CommunicationLayer}!Types_Physical@{Types\_\-Physical}}\item[{\em 
+Types\_\-Physical\label{classCommunicationLayer_4cbb01eeaddc7b36151fe34379aa56e642f157e36bc169d12ccc314cbbca49a9}
+}]enum value Types\_\-Physical. \index{Types_Link@{Types\_\-Link}!CommunicationLayer@{CommunicationLayer}}\index{CommunicationLayer@{CommunicationLayer}!Types_Link@{Types\_\-Link}}\item[{\em 
+Types\_\-Link\label{classCommunicationLayer_4cbb01eeaddc7b36151fe34379aa56e6f18b7936d0f2478bd354224444cb993f}
+}]enum value Types\_\-Link. \index{Types_Network@{Types\_\-Network}!CommunicationLayer@{CommunicationLayer}}\index{CommunicationLayer@{CommunicationLayer}!Types_Network@{Types\_\-Network}}\item[{\em 
+Types\_\-Network\label{classCommunicationLayer_4cbb01eeaddc7b36151fe34379aa56e620a9f99157d61bce3a7d5782ca467150}
+}]enum value Types\_\-Network. \index{Types_Transport@{Types\_\-Transport}!CommunicationLayer@{CommunicationLayer}}\index{CommunicationLayer@{CommunicationLayer}!Types_Transport@{Types\_\-Transport}}\item[{\em 
+Types\_\-Transport\label{classCommunicationLayer_4cbb01eeaddc7b36151fe34379aa56e6ef54f2c3aeee1b552ef0d77b1cf964d4}
+}]enum value Types\_\-Transport. \index{Types_Application@{Types\_\-Application}!CommunicationLayer@{CommunicationLayer}}\index{CommunicationLayer@{CommunicationLayer}!Types_Application@{Types\_\-Application}}\item[{\em 
+Types\_\-Application\label{classCommunicationLayer_4cbb01eeaddc7b36151fe34379aa56e6283a1bc99f61ba8edc4f587c36becf7f}
+}]enum value Types\_\-Application. \end{description}
+\end{Desc}
+
+
+
+Definition at line 63 of file communication\_\-layer.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{CommunicationLayer@{Communication\-Layer}!~CommunicationLayer@{$\sim$CommunicationLayer}}
+\index{~CommunicationLayer@{$\sim$CommunicationLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Communication\-Layer::$\sim$Communication\-Layer ()\hspace{0.3cm}{\tt  [virtual]}}\label{classCommunicationLayer_667f64b773558eed05caf25d9151ee18}
+
+
+A destructor. 
+
+A virtual destructor is recommended since the class has virtual functions. 
+
+Definition at line 18 of file communication\_\-layer.cpp.\index{CommunicationLayer@{Communication\-Layer}!CommunicationLayer@{CommunicationLayer}}
+\index{CommunicationLayer@{CommunicationLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Communication\-Layer::Communication\-Layer (Node\-Ptr {\em node})\hspace{0.3cm}{\tt  [protected]}}\label{classCommunicationLayer_d24e26b4c193152da4a445af30d0ecc1}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node}]the container of this object. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{get\-Node()}{p.}{classCommunicationLayer_39c60778d7fb9f62cda84eae80bf0395} \end{Desc}
+
+
+Definition at line 9 of file communication\_\-layer.cpp.
+
+\subsection{Member Function Documentation}
+\index{CommunicationLayer@{Communication\-Layer}!getDefaultLayer@{getDefaultLayer}}
+\index{getDefaultLayer@{getDefaultLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Communication\-Layer::get\-Default\-Layer (\bf{Directions} {\em direction}) const\hspace{0.3cm}{\tt  [inline]}}\label{classCommunicationLayer_a8660c7360286ab21093f1f0e75b09d9}
+
+
+Get the index of the layer being used as the default. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction being queried. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the index of the default communication layer. \end{Desc}
+
+
+Definition at line 538 of file communication\_\-layer.hpp.
+
+References Directions\_\-Lower, and Directions\_\-Upper.
+
+Referenced by Link\-Layer::channel\-Is\-Busy(), send\-To\-Layer(), and send\-To\-Queue().\index{CommunicationLayer@{Communication\-Layer}!getLayer@{getLayer}}
+\index{getLayer@{getLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Communication\-Layer\-Ptr} Communication\-Layer::get\-Layer (\bf{Directions} {\em direction}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [inline, protected]}}\label{classCommunicationLayer_7518faba7445c8c61d283575d2962283}
+
+
+Get a pointer to the specified communication layer object. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction the packet was sent. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]a pointer to the communication layer. \end{Desc}
+
+
+Definition at line 479 of file communication\_\-layer.hpp.
+
+References Directions\_\-Lower, Directions\_\-Upper, and number\-Of\-Layers().
+
+Referenced by Link\-Layer::channel\-Is\-Busy().\index{CommunicationLayer@{Communication\-Layer}!getLayerDelay@{getLayerDelay}}
+\index{getLayerDelay@{getLayerDelay}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Communication\-Layer::get\-Layer\-Delay (\bf{Directions} {\em direction}) const\hspace{0.3cm}{\tt  [inline]}}\label{classCommunicationLayer_d068c81501292c66601e900dbe2ca120}
+
+
+Get the time delay before a sent packet is received by the next layer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction being queried. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the time delay. \end{Desc}
+
+
+Definition at line 569 of file communication\_\-layer.hpp.
+
+References Directions\_\-Lower, and Directions\_\-Upper.
+
+Referenced by send\-To\-Layer().\index{CommunicationLayer@{Communication\-Layer}!getLayerType@{getLayerType}}
+\index{getLayerType@{getLayerType}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual \bf{Types} Communication\-Layer::get\-Layer\-Type () const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classCommunicationLayer_d03db488bd723170a093700a58cb3c9e}
+
+
+Get the layer type for an object. 
+
+\begin{Desc}
+\item[Returns:]the type of the layer. \end{Desc}
+
+
+Implemented in \bf{Application\-Layer} \doxyref{p.}{classApplicationLayer_69d6493129bd56a70e3f8c8933f596a9}, \bf{Link\-Layer} \doxyref{p.}{classLinkLayer_6198fd2b6d31eafc3d49fbf1afd97128}, and \bf{Physical\-Layer} \doxyref{p.}{classPhysicalLayer_6bb17b6ee633bea231bdd35f9e668587}.
+
+Referenced by recv\-From\-Layer(), remove\-Layer\-Data(), and send\-To\-Layer().\index{CommunicationLayer@{Communication\-Layer}!getMaxQueueLength@{getMaxQueueLength}}
+\index{getMaxQueueLength@{getMaxQueueLength}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Communication\-Layer::get\-Max\-Queue\-Length () const\hspace{0.3cm}{\tt  [inline]}}\label{classCommunicationLayer_1263c7097c8587a490cb90518d4d7585}
+
+
+Get the maximum packet queue size. 
+
+\begin{Desc}
+\item[Returns:]the maximum number of packet that the queue can hold. \end{Desc}
+
+
+Definition at line 474 of file communication\_\-layer.hpp.\index{CommunicationLayer@{Communication\-Layer}!getNodeId@{getNodeId}}
+\index{getNodeId@{getNodeId}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Id} Communication\-Layer::get\-Node\-Id () const}\label{classCommunicationLayer_5a5bf986675df016c3aa8817868ed787}
+
+
+Get the node ID associated with this object. 
+
+\begin{Desc}
+\item[Returns:]the node ID. \end{Desc}
+
+
+Definition at line 191 of file communication\_\-layer.cpp.
+
+References get\-Node().
+
+Referenced by Physical\-Layer::capture\-Signal(), Wireless\-Channel::get\-Recvd\-Strength(), recv\-From\-Layer(), Physical\-Layer::recv\-Pending\-Signal(), send\-To\-Layer(), and Rfid\-Reader\-App::simulation\-End\-Handler().\index{CommunicationLayer@{Communication\-Layer}!getQueueIsBlocked@{getQueueIsBlocked}}
+\index{getQueueIsBlocked@{getQueueIsBlocked}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Communication\-Layer::get\-Queue\-Is\-Blocked () const\hspace{0.3cm}{\tt  [inline]}}\label{classCommunicationLayer_dbb99928c467117bd35b1c4b71330ade}
+
+
+Determine whether of not the queue is currently blocked. 
+
+\begin{Desc}
+\item[Returns:]true if the queue is blocked. \end{Desc}
+
+
+Definition at line 457 of file communication\_\-layer.hpp.\index{CommunicationLayer@{Communication\-Layer}!insertLayer@{insertLayer}}
+\index{insertLayer@{insertLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Communication\-Layer::insert\-Layer (\bf{Directions} {\em direction}, \bf{Communication\-Layer\-Ptr} {\em layer\-To\-Insert})\hspace{0.3cm}{\tt  [inline, protected]}}\label{classCommunicationLayer_deb8715ec00969db08c80cb20c065d02}
+
+
+Add an adjacent layer in the specified direction. 
+
+The layer being inserted must be owned by the same node as this object. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction of the action. \item[{\em layer\-To\-Insert}]a pointer to the neighboring layer. \end{description}
+\end{Desc}
+
+
+Definition at line 413 of file communication\_\-layer.hpp.
+
+References Directions\_\-Lower, Directions\_\-Upper, get\-Node(), number\-Of\-Layers(), and set\-Default\-Layer().
+
+Referenced by insert\-Lower\-Layer().\index{CommunicationLayer@{Communication\-Layer}!insertLowerLayer@{insertLowerLayer}}
+\index{insertLowerLayer@{insertLowerLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Communication\-Layer::insert\-Lower\-Layer (\bf{Communication\-Layer\-Ptr} {\em layer\-To\-Insert})\hspace{0.3cm}{\tt  [inline]}}\label{classCommunicationLayer_e8d7522ba2ec2991d7302fe60b0ecbf0}
+
+
+Add a layer below this layer. 
+
+This object will be inserted as the upper layer for {\tt layer\-To\-Insert}. The layer being inserted must be owned by the same node as this object. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em layer\-To\-Insert}]a pointer to the lower layer. \end{description}
+\end{Desc}
+
+
+Definition at line 403 of file communication\_\-layer.hpp.
+
+References Directions\_\-Lower, Directions\_\-Upper, get\-Node(), and insert\-Layer().\index{CommunicationLayer@{Communication\-Layer}!numberOfLayers@{numberOfLayers}}
+\index{numberOfLayers@{numberOfLayers}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Communication\-Layer::number\-Of\-Layers (\bf{Directions} {\em direction}) const\hspace{0.3cm}{\tt  [inline]}}\label{classCommunicationLayer_f99fc2c30b2e3f08d02d7c60a6b85927}
+
+
+The number of layers available in the given direction. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction being queried. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the number of layers. \end{Desc}
+
+
+Definition at line 501 of file communication\_\-layer.hpp.
+
+References Directions\_\-Lower, and Directions\_\-Upper.
+
+Referenced by get\-Layer(), insert\-Layer(), recv\-From\-Layer(), send\-To\-All\-Layers(), send\-To\-Layer(), and set\-Default\-Layer().\index{CommunicationLayer@{Communication\-Layer}!queueIsFull@{queueIsFull}}
+\index{queueIsFull@{queueIsFull}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Communication\-Layer::queue\-Is\-Full () const\hspace{0.3cm}{\tt  [inline, protected]}}\label{classCommunicationLayer_92b821de3192e463f7850bc6626e6f86}
+
+
+Check if the packet queue is full. 
+
+\begin{Desc}
+\item[Returns:]true if the packet queue is full. \end{Desc}
+
+
+Definition at line 462 of file communication\_\-layer.hpp.
+
+Referenced by send\-From\-Queue(), send\-To\-Queue(), and unblock\-Upper\-Queues().\index{CommunicationLayer@{Communication\-Layer}!recvFromLayer@{recvFromLayer}}
+\index{recvFromLayer@{recvFromLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Communication\-Layer::recv\-From\-Layer (\bf{Directions} {\em direction}, Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [virtual]}}\label{classCommunicationLayer_2f9736c44dce2f49dbb83eafeb418b74}
+
+
+Receives a packet from a sending layer. 
+
+This is the function that subclasses should override to receive packets since it specifies the index of the sending layer rather than a pointer. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction the packet was sent. \item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the specified layer was able to receive the packet. \end{Desc}
+
+
+Reimplemented in \bf{Application\-Layer} \doxyref{p.}{classApplicationLayer_0e454dc59a287f3b1459762f0a9d645c}, \bf{Link\-Layer} \doxyref{p.}{classLinkLayer_d88a2b3a9613e00d9dff9d34cee313ee}, and \bf{Physical\-Layer} \doxyref{p.}{classPhysicalLayer_8b73c1305c681ec28abb81867694dc7a}.
+
+Definition at line 166 of file communication\_\-layer.cpp.
+
+References Directions\_\-Lower, Directions\_\-Upper, number\-Of\-Layers(), and send\-To\-Layer().\index{CommunicationLayer@{Communication\-Layer}!recvFromLayer@{recvFromLayer}}
+\index{recvFromLayer@{recvFromLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Communication\-Layer::recv\-From\-Layer (\bf{Directions} {\em direction}, Packet\-Ptr {\em packet}, \bf{Communication\-Layer\-Ptr} {\em sending\-Layer})}\label{classCommunicationLayer_dd3166bab801aacdaafa3e7ba460a216}
+
+
+Receives a packet from a sending layer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction the packet was sent. \item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer}]a pointer to the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the specified layer was able to receive the packet. \end{Desc}
+
+
+Definition at line 129 of file communication\_\-layer.cpp.
+
+References Directions\_\-Lower, Directions\_\-Upper, get\-Layer\-Type(), get\-Node\-Id(), Log\-Stream\-Manager::instance(), and number\-Of\-Layers().\index{CommunicationLayer@{Communication\-Layer}!removeLayerData@{removeLayerData}}
+\index{removeLayerData@{removeLayerData}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Communication\-Layer::remove\-Layer\-Data (Packet\-Ptr {\em packet}) const\hspace{0.3cm}{\tt  [protected]}}\label{classCommunicationLayer_f03887be4e5b8e06a8a071413d199115}
+
+
+Remove the layer specific data from a packet. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the packet whose layer data will be removed. \end{description}
+\end{Desc}
+
+
+Definition at line 198 of file communication\_\-layer.cpp.
+
+References Packet::Data\-Types\_\-Application, Packet::Data\-Types\_\-Link, Packet::Data\-Types\_\-Network, Packet::Data\-Types\_\-Physical, Packet::Data\-Types\_\-Transport, get\-Layer\-Type(), Types\_\-Application, Types\_\-Link, Types\_\-Network, Types\_\-Physical, and Types\_\-Transport.
+
+Referenced by send\-To\-Layer().\index{CommunicationLayer@{Communication\-Layer}!sendToAllLayers@{sendToAllLayers}}
+\index{sendToAllLayers@{sendToAllLayers}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Communication\-Layer::send\-To\-All\-Layers (\bf{Directions} {\em direction}, Packet\-Ptr {\em packet})}\label{classCommunicationLayer_d28fa38cc73236fb7430560459d8d383}
+
+
+Send a packet to {\em all\/} adjacent layers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction of the action. \item[{\em packet}]a pointer to the packet being sent. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was successfully scheduled to be sent to all layers. \end{Desc}
+
+
+Definition at line 85 of file communication\_\-layer.cpp.
+
+References number\-Of\-Layers(), and send\-To\-Layer().\index{CommunicationLayer@{Communication\-Layer}!sendToLayer@{sendToLayer}}
+\index{sendToLayer@{sendToLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Communication\-Layer::send\-To\-Layer (\bf{Directions} {\em direction}, Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em recving\-Layer\-Idx})}\label{classCommunicationLayer_bdafd7878f299705e8c480c7c13bde42}
+
+
+Send a packet to the specified next layer. 
+
+Packets send to upper layers will have their header data removed. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction of the action. \item[{\em packet}]a pointer to the packet being sent. \item[{\em recving\-Layer\-Idx}]the index of the layer to which the packet is being sent. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was successfully scheduled to be sent to the next layer. \end{Desc}
+
+
+Definition at line 96 of file communication\_\-layer.cpp.
+
+References Layer\-Recv\-Event::create(), Directions\_\-Lower, Directions\_\-Upper, get\-Layer\-Delay(), get\-Layer\-Type(), get\-Node\-Id(), Log\-Stream\-Manager::instance(), Log\-Stream\-Manager::log\-Pkt\-Send\-Item(), number\-Of\-Layers(), remove\-Layer\-Data(), and set\-Lower\-Layer\-Recv\-Event\-Pending().\index{CommunicationLayer@{Communication\-Layer}!sendToLayer@{sendToLayer}}
+\index{sendToLayer@{sendToLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Communication\-Layer::send\-To\-Layer (\bf{Directions} {\em direction}, Packet\-Ptr {\em packet})}\label{classCommunicationLayer_85034666eb2f18a65bf4089f9a93fee9}
+
+
+Send a packet to the default next layer. 
+
+Packets send to upper layers will have their header data removed. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction of the action. \item[{\em packet}]a pointer to the packet being sent. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was successfully scheduled to be sent to the next layer. \end{Desc}
+
+
+Definition at line 79 of file communication\_\-layer.cpp.
+
+References get\-Default\-Layer().
+
+Referenced by recv\-From\-Layer(), Link\-Layer::recv\-From\-Mac\-Protocol(), Physical\-Layer::recv\-Pending\-Signal(), send\-From\-Queue(), and send\-To\-All\-Layers().\index{CommunicationLayer@{Communication\-Layer}!sendToQueue@{sendToQueue}}
+\index{sendToQueue@{sendToQueue}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Communication\-Layer::send\-To\-Queue (Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em lower\-Layer\-Idx})}\label{classCommunicationLayer_e75355ba7659c934c4baa5b373e4ee76}
+
+
+Send a packet to the specified lower layer using a queue. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the packet being sent. \item[{\em lower\-Layer\-Idx}]the index of the lower layer to which we are sending. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was successfully queued. \end{Desc}
+
+
+Definition at line 59 of file communication\_\-layer.cpp.
+
+References block\-Upper\-Queues(), queue\-Is\-Full(), and send\-From\-Queue().\index{CommunicationLayer@{Communication\-Layer}!sendToQueue@{sendToQueue}}
+\index{sendToQueue@{sendToQueue}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Communication\-Layer::send\-To\-Queue (Packet\-Ptr {\em packet})}\label{classCommunicationLayer_92a648495057eea34fb42ddbce0440bd}
+
+
+Send a packet to the default lower layer using a queue. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the packet being sent. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was successfully queued. \end{Desc}
+
+
+Definition at line 53 of file communication\_\-layer.cpp.
+
+References Directions\_\-Lower, and get\-Default\-Layer().\index{CommunicationLayer@{Communication\-Layer}!setDefaultLayer@{setDefaultLayer}}
+\index{setDefaultLayer@{setDefaultLayer}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Communication\-Layer::set\-Default\-Layer (\bf{Directions} {\em direction}, \bf{t\_\-uint} {\em new\-Default\-Idx})\hspace{0.3cm}{\tt  [inline]}}\label{classCommunicationLayer_1c49b67142c7ce48284d2cceed4353fb}
+
+
+Set the layer being used as the default for communication. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction of the action. \item[{\em new\-Default\-Idx}]the index of the layer to be used as the default. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the desired layer was set as the default. \end{Desc}
+
+
+Definition at line 517 of file communication\_\-layer.hpp.
+
+References Directions\_\-Lower, Directions\_\-Upper, and number\-Of\-Layers().
+
+Referenced by insert\-Layer().\index{CommunicationLayer@{Communication\-Layer}!setLayerDelay@{setLayerDelay}}
+\index{setLayerDelay@{setLayerDelay}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Communication\-Layer::set\-Layer\-Delay (\bf{Directions} {\em direction}, const \bf{Sim\-Time} \& {\em delay})\hspace{0.3cm}{\tt  [inline]}}\label{classCommunicationLayer_062a1403bdaf80498283039a872b20b1}
+
+
+Set the time delay before a sent packet is received by the next layer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction of the action. \item[{\em delay}]the time delay. \end{description}
+\end{Desc}
+
+
+Definition at line 554 of file communication\_\-layer.hpp.
+
+References Directions\_\-Lower, and Directions\_\-Upper.\index{CommunicationLayer@{Communication\-Layer}!setLowerLayerRecvEventPending@{setLowerLayerRecvEventPending}}
+\index{setLowerLayerRecvEventPending@{setLowerLayerRecvEventPending}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Communication\-Layer::set\-Lower\-Layer\-Recv\-Event\-Pending (bool {\em is\-Pending})\hspace{0.3cm}{\tt  [inline, protected]}}\label{classCommunicationLayer_b1a9429e4031d925ed2f1eea070147ef}
+
+
+Set whether or not their is a packet currently pending for the lower layer. 
+
+For example, if their is a layer delay then this will be pending until the lower layer actually receives the packet. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em is\-Pending}]whether of not such an event is pending. \end{description}
+\end{Desc}
+
+
+Definition at line 446 of file communication\_\-layer.hpp.
+
+References m\_\-lower\-Layer\-Recv\-Event\-Pending, and send\-From\-Queue().
+
+Referenced by send\-To\-Layer().\index{CommunicationLayer@{Communication\-Layer}!setMaxQueueLength@{setMaxQueueLength}}
+\index{setMaxQueueLength@{setMaxQueueLength}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Communication\-Layer::set\-Max\-Queue\-Length (\bf{t\_\-uint} {\em max\-Queue\-Length})\hspace{0.3cm}{\tt  [inline]}}\label{classCommunicationLayer_857d6b46cce18e15099a4eaa7246176a}
+
+
+Set the maximum packet queue size. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em max\-Queue\-Length}]the maximimum number of packets that the queue can hold. \end{description}
+\end{Desc}
+
+
+Definition at line 468 of file communication\_\-layer.hpp.
+
+Referenced by Link\-Layer::Link\-Layer(), and Physical\-Layer::Physical\-Layer().\index{CommunicationLayer@{Communication\-Layer}!thisSimulationEndListener@{thisSimulationEndListener}}
+\index{thisSimulationEndListener@{thisSimulationEndListener}!CommunicationLayer@{Communication\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual \bf{Simulation\-End\-Listener\-Ptr} Communication\-Layer::this\-Simulation\-End\-Listener ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classCommunicationLayer_4a1f85319b7945b9b2c481c026bc69a8}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Simulation\-End\-Listener}{p.}{classSimulationEndListener}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implemented in \bf{Link\-Layer} \doxyref{p.}{classLinkLayer_7f72ea3fecd80ab4cd0d35a825d02fdd}, \bf{Rfid\-Reader\-App} \doxyref{p.}{classRfidReaderApp_8bb50077a41feb035b295453154c0951}, \bf{Rfid\-Reader\-Phy} \doxyref{p.}{classRfidReaderPhy_8029ad13843c39be10835174a4a9ae62}, \bf{Rfid\-Tag\-App} \doxyref{p.}{classRfidTagApp_ce043a4e499221e7e8e85042326d4fba}, and \bf{Rfid\-Tag\-Phy} \doxyref{p.}{classRfidTagPhy_9f092f0c2d97dca6ebb3af39ac9c58c6}.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+communication\_\-layer.hpp\item 
+communication\_\-layer.cpp\end{CompactItemize}

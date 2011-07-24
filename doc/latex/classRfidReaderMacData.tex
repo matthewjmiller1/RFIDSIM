@@ -1,0 +1,263 @@
+\section{Rfid\-Reader\-Mac\-Data Class Reference}
+\label{classRfidReaderMacData}\index{RfidReaderMacData@{RfidReaderMacData}}
+The representation of the MAC data in a Rfid\-Reader\-Mac's packet.  
+
+
+{\tt \#include $<$rfid\_\-reader\_\-mac.hpp$>$}
+
+Inheritance diagram for Rfid\-Reader\-Mac\-Data::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classRfidReaderMacData}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Reader\-Mac\-Data} $>$ \bf{Rfid\-Reader\-Mac\-Data\-Ptr}\label{classRfidReaderMacData_6c9ab9fe198db259402b6e264f4981ce}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\item 
+\bf{Types\_\-Generic}
+\begin{CompactList}\small\item\em enum value Types\_\-Generic. \item\end{CompactList}\item 
+\bf{Types\_\-Request}
+\begin{CompactList}\small\item\em enum value Types\_\-Request. \item\end{CompactList}\item 
+\bf{Types\_\-Ack}
+\begin{CompactList}\small\item\em enum value Types\_\-Ack. \item\end{CompactList}\item 
+\bf{Types\_\-Select}
+\begin{CompactList}\small\item\em enum value Types\_\-Select. \item\end{CompactList}\item 
+enum \bf{Types} \{ \bf{Types\_\-Generic}, 
+\bf{Types\_\-Request}, 
+\bf{Types\_\-Ack}, 
+\bf{Types\_\-Select}
+ \}
+\begin{CompactList}\small\item\em Types enum. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{t\_\-uint} \bf{get\-Size\-In\-Bytes} () const 
+\begin{CompactList}\small\item\em Get the size of this data. \item\end{CompactList}\item 
+void \bf{set\-Sender\-Id} (const \bf{Node\-Id} \&node\-Id)
+\begin{CompactList}\small\item\em Write the sender node ID to the packet data. \item\end{CompactList}\item 
+\bf{Node\-Id} \bf{get\-Sender\-Id} () const 
+\begin{CompactList}\small\item\em Read the sender node ID from the packet data. \item\end{CompactList}\item 
+void \bf{set\-Receiver\-Id} (const \bf{Node\-Id} \&node\-Id)
+\begin{CompactList}\small\item\em Write the receiver node ID to the packet data. \item\end{CompactList}\item 
+\bf{Node\-Id} \bf{get\-Receiver\-Id} () const 
+\begin{CompactList}\small\item\em Read the receiver node ID from the packet data. \item\end{CompactList}\item 
+void \bf{set\-Type} (\bf{Types} type)
+\begin{CompactList}\small\item\em Write the type field to this packet data. \item\end{CompactList}\item 
+\bf{Types} \bf{get\-Type} () const 
+\begin{CompactList}\small\item\em Read the type field from this packet data. \item\end{CompactList}\item 
+void \bf{set\-Number\-Of\-Slots} (\bf{t\_\-uchar} number\-Of\-Slots)
+\begin{CompactList}\small\item\em Write the number of slots field to this packet data. \item\end{CompactList}\item 
+\bf{t\_\-uchar} \bf{get\-Number\-Of\-Slots} () const 
+\begin{CompactList}\small\item\em Read the number of slots field from this packet data. \item\end{CompactList}\item 
+ostream \& \bf{print} (ostream \&s) const \label{classRfidReaderMacData_8c6cf09b98151ed60fce895951a71bdb}
+
+\begin{CompactList}\small\item\em Return the stream representation of the object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Reader\-Mac\-Data\-Ptr} \bf{create} ()\label{classRfidReaderMacData_8d6a175e88236084d32fa0cc1cdc8d0f}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Rfid\-Reader\-Mac\-Data\-Ptr} \bf{create} (const \bf{Rfid\-Reader\-Mac\-Data} \&rhs)\label{classRfidReaderMacData_5b62fe15a642b5debbad24492e0280ba}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Reader\-Mac\-Data} ()\label{classRfidReaderMacData_a8bf2af669f323f0d99a531e4a62fb87}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Rfid\-Reader\-Mac\-Data} (const \bf{Rfid\-Reader\-Mac\-Data} \&rhs)\label{classRfidReaderMacData_4bc1c55787299eab995ebab600e0abec}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\item 
+virtual \bf{Packet\-Data\-Ptr} \bf{clone} () const 
+\begin{CompactList}\small\item\em Returns a pointer to a deep copy of this object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+ostream \& \textbf{operator$<$$<$} (ostream \&s, const \bf{Rfid\-Reader\-Mac\-Data} \&data)\label{classRfidReaderMacData_9c7a3094f75fd8744f0e87359c829ef4}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The representation of the MAC data in a Rfid\-Reader\-Mac's packet. 
+
+
+
+Definition at line 26 of file rfid\_\-reader\_\-mac.hpp.
+
+\subsection{Member Enumeration Documentation}
+\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!Types@{Types}}
+\index{Types@{Types}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum \bf{Rfid\-Reader\-Mac\-Data::Types}}\label{classRfidReaderMacData_c207973b9d7252d1ef638e90404c32ad}
+
+
+Types enum. 
+
+Specifies the types of packets that are sent. \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{Types_Generic@{Types\_\-Generic}!RfidReaderMacData@{RfidReaderMacData}}\index{RfidReaderMacData@{RfidReaderMacData}!Types_Generic@{Types\_\-Generic}}\item[{\em 
+Types\_\-Generic\label{classRfidReaderMacData_c207973b9d7252d1ef638e90404c32ad87bc5f3377e4ddad355d27711c60f018}
+}]enum value Types\_\-Generic. \index{Types_Request@{Types\_\-Request}!RfidReaderMacData@{RfidReaderMacData}}\index{RfidReaderMacData@{RfidReaderMacData}!Types_Request@{Types\_\-Request}}\item[{\em 
+Types\_\-Request\label{classRfidReaderMacData_c207973b9d7252d1ef638e90404c32ad90f1bae1ca01fa6042cc56f9c3cbdcd5}
+}]enum value Types\_\-Request. \index{Types_Ack@{Types\_\-Ack}!RfidReaderMacData@{RfidReaderMacData}}\index{RfidReaderMacData@{RfidReaderMacData}!Types_Ack@{Types\_\-Ack}}\item[{\em 
+Types\_\-Ack\label{classRfidReaderMacData_c207973b9d7252d1ef638e90404c32ad7758df7828fd23db2951614706a3a4f4}
+}]enum value Types\_\-Ack. \index{Types_Select@{Types\_\-Select}!RfidReaderMacData@{RfidReaderMacData}}\index{RfidReaderMacData@{RfidReaderMacData}!Types_Select@{Types\_\-Select}}\item[{\em 
+Types\_\-Select\label{classRfidReaderMacData_c207973b9d7252d1ef638e90404c32ad77eabd8df576a7e6fa84b87a6b237443}
+}]enum value Types\_\-Select. \end{description}
+\end{Desc}
+
+
+
+Definition at line 36 of file rfid\_\-reader\_\-mac.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!clone@{clone}}
+\index{clone@{clone}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Packet\-Data\-Ptr} Rfid\-Reader\-Mac\-Data::clone () const\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classRfidReaderMacData_89652d1662200a62c5c987f70e48816c}
+
+
+Returns a pointer to a deep copy of this object. 
+
+This is addresses the slicing problem with copy construction. \begin{Desc}
+\item[Returns:]a pointer to a deep copy of this object. \end{Desc}
+
+
+Reimplemented from \bf{Packet\-Data} \doxyref{p.}{classPacketData_b338f746c8a3825158c554b1468e7a13}.
+
+Definition at line 457 of file rfid\_\-reader\_\-mac.cpp.
+
+References Rfid\-Reader\-Mac\-Data().
+
+Referenced by create().\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!getNumberOfSlots@{getNumberOfSlots}}
+\index{getNumberOfSlots@{getNumberOfSlots}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uchar} Rfid\-Reader\-Mac\-Data::get\-Number\-Of\-Slots () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderMacData_8648d46eef85536438e91ba1584a9867}
+
+
+Read the number of slots field from this packet data. 
+
+\begin{Desc}
+\item[Returns:]the number of slots field of the packet. \end{Desc}
+
+
+Definition at line 568 of file rfid\_\-reader\_\-mac.hpp.\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!getReceiverId@{getReceiverId}}
+\index{getReceiverId@{getReceiverId}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Id} Rfid\-Reader\-Mac\-Data::get\-Receiver\-Id () const}\label{classRfidReaderMacData_298abcc8e55279379f2990b3fb71ac94}
+
+
+Read the receiver node ID from the packet data. 
+
+\begin{Desc}
+\item[Returns:]the ID of the receiver. \end{Desc}
+
+
+Definition at line 479 of file rfid\_\-reader\_\-mac.cpp.\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!getSenderId@{getSenderId}}
+\index{getSenderId@{getSenderId}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Id} Rfid\-Reader\-Mac\-Data::get\-Sender\-Id () const}\label{classRfidReaderMacData_87951415ed49953476a2c4cb09c0f325}
+
+
+Read the sender node ID from the packet data. 
+
+\begin{Desc}
+\item[Returns:]the ID of the sender. \end{Desc}
+
+
+Definition at line 468 of file rfid\_\-reader\_\-mac.cpp.\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!getSizeInBytes@{getSizeInBytes}}
+\index{getSizeInBytes@{getSizeInBytes}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Rfid\-Reader\-Mac\-Data::get\-Size\-In\-Bytes () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderMacData_75fc23ca5463199f4f9ed9ad5482e0a0}
+
+
+Get the size of this data. 
+
+\begin{Desc}
+\item[Returns:]the size of the data in bytes. \end{Desc}
+
+
+Reimplemented from \bf{Packet\-Data} \doxyref{p.}{classPacketData_d011a84f410ffd8fe2da792934fb77f2}.
+
+Definition at line 538 of file rfid\_\-reader\_\-mac.hpp.
+
+References get\-Type(), and Types\_\-Request.\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!getType@{getType}}
+\index{getType@{getType}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Reader\-Mac\-Data::Types} Rfid\-Reader\-Mac\-Data::get\-Type () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderMacData_895b7c88098f06a19383ba4d85bf2af7}
+
+
+Read the type field from this packet data. 
+
+\begin{Desc}
+\item[Returns:]the type field of the packet. \end{Desc}
+
+
+Definition at line 558 of file rfid\_\-reader\_\-mac.hpp.
+
+Referenced by get\-Size\-In\-Bytes().\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!setNumberOfSlots@{setNumberOfSlots}}
+\index{setNumberOfSlots@{setNumberOfSlots}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-Mac\-Data::set\-Number\-Of\-Slots (\bf{t\_\-uchar} {\em number\-Of\-Slots})\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderMacData_e40d268d343a12fc9b817b71bd8009e6}
+
+
+Write the number of slots field to this packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em number\-Of\-Slots}]the value of the number of slots field. \end{description}
+\end{Desc}
+
+
+Definition at line 563 of file rfid\_\-reader\_\-mac.hpp.\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!setReceiverId@{setReceiverId}}
+\index{setReceiverId@{setReceiverId}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-Mac\-Data::set\-Receiver\-Id (const \bf{Node\-Id} \& {\em node\-Id})}\label{classRfidReaderMacData_6e75def9bd82e6c8028d189bd3a12e70}
+
+
+Write the receiver node ID to the packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node\-Id}]the ID of the receiver. \end{description}
+\end{Desc}
+
+
+Definition at line 474 of file rfid\_\-reader\_\-mac.cpp.
+
+References Node\-Id::write\-To\-Byte\-Array().\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!setSenderId@{setSenderId}}
+\index{setSenderId@{setSenderId}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-Mac\-Data::set\-Sender\-Id (const \bf{Node\-Id} \& {\em node\-Id})}\label{classRfidReaderMacData_1543a4da317a8b9b81616f15a4428cb7}
+
+
+Write the sender node ID to the packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node\-Id}]the ID of the sender. \end{description}
+\end{Desc}
+
+
+Definition at line 463 of file rfid\_\-reader\_\-mac.cpp.
+
+References Node\-Id::write\-To\-Byte\-Array().\index{RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}!setType@{setType}}
+\index{setType@{setType}!RfidReaderMacData@{Rfid\-Reader\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-Mac\-Data::set\-Type (\bf{Types} {\em type})\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderMacData_ed0c9b893e1a5181cfc9e26dee1a7335}
+
+
+Write the type field to this packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em type}]the value for the type field. \end{description}
+\end{Desc}
+
+
+Definition at line 553 of file rfid\_\-reader\_\-mac.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rfid\_\-reader\_\-mac.hpp\item 
+rfid\_\-reader\_\-mac.cpp\end{CompactItemize}

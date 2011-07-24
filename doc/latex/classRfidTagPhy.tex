@@ -1,0 +1,209 @@
+\section{Rfid\-Tag\-Phy Class Reference}
+\label{classRfidTagPhy}\index{RfidTagPhy@{RfidTagPhy}}
+The physical layer class for a RFID tag.  
+
+
+{\tt \#include $<$rfid\_\-tag\_\-phy.hpp$>$}
+
+Inheritance diagram for Rfid\-Tag\-Phy::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classRfidTagPhy}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Tag\-Phy} $>$ \bf{Rfid\-Tag\-Phy\-Ptr}\label{classRfidTagPhy_8205140c89cad65878763f47e3e2badf}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Rfid\-Tag\-Phy} ()\label{classRfidTagPhy_4eae1832aca1a71e555a76214221a92e}
+
+\begin{CompactList}\small\item\em A destructor A virtual destructor is recommended since the class has virtual functions. \item\end{CompactList}\item 
+\bf{Rfid\-Tag\-Phy\-Ptr} \bf{this\-Rfid\-Tag\-Phy} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Tag\-Phy}{p.}{classRfidTagPhy}} object. \item\end{CompactList}\item 
+virtual \bf{Physical\-Layer\-Ptr} \bf{this\-Physical\-Layer} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Physical\-Layer}{p.}{classPhysicalLayer}} object. \item\end{CompactList}\item 
+virtual \bf{Simulation\-End\-Listener\-Ptr} \bf{this\-Simulation\-End\-Listener} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Simulation\-End\-Listener}{p.}{classSimulationEndListener}} object. \item\end{CompactList}\item 
+virtual void \bf{simulation\-End\-Handler} ()\label{classRfidTagPhy_d25211474b03b340bfa845252bac7e1a}
+
+\begin{CompactList}\small\item\em The function called when the simulation ends. \item\end{CompactList}\item 
+bool \bf{set\-Sending\-Channel} (\bf{t\_\-uint} channel\-Id)
+\begin{CompactList}\small\item\em Set the sending for the RFID tag. \item\end{CompactList}\item 
+void \bf{reset\-Sending\-Channel} ()
+\begin{CompactList}\small\item\em Invalidate the current sending channel. \item\end{CompactList}\item 
+bool \bf{set\-All\-Listeners\-Channel} (\bf{t\_\-uint} channel\-Id)
+\begin{CompactList}\small\item\em Set the channel on which this (and, presumably, all) tags are listening on. \item\end{CompactList}\item 
+void \bf{reset\-All\-Listeners\-Channel} ()
+\begin{CompactList}\small\item\em Invalidate the current all listeners channel. \item\end{CompactList}\item 
+virtual void \bf{recvd\-Error\-Free\-Signal} (Wireless\-Comm\-Signal\-Ptr signal, double recvd\-Signal\-Strength)
+\begin{CompactList}\small\item\em This function is called when an error free signal is received, just before its packet is passed to the upper layer. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Tag\-Phy\-Ptr} \bf{create} (Node\-Ptr node, Wireless\-Channel\-Manager\-Ptr wireless\-Channel\-Manager)\label{classRfidTagPhy_6f7e8b9ba4971dc0f65f66913f951cf5}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Tag\-Phy} (Node\-Ptr node, Wireless\-Channel\-Manager\-Ptr wireless\-Channel\-Manager)\label{classRfidTagPhy_59564ae7fac4a9a0e167e243b85c3267}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The physical layer class for a RFID tag. 
+
+
+
+Definition at line 13 of file rfid\_\-tag\_\-phy.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidTagPhy@{Rfid\-Tag\-Phy}!recvdErrorFreeSignal@{recvdErrorFreeSignal}}
+\index{recvdErrorFreeSignal@{recvdErrorFreeSignal}!RfidTagPhy@{Rfid\-Tag\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-Phy::recvd\-Error\-Free\-Signal (Wireless\-Comm\-Signal\-Ptr {\em signal}, double {\em recvd\-Signal\-Strength})\hspace{0.3cm}{\tt  [virtual]}}\label{classRfidTagPhy_50d54306eee24835918c4717808a339e}
+
+
+This function is called when an error free signal is received, just before its packet is passed to the upper layer. 
+
+The transmit power is set to the received power of the signal since the tag reflects the power back to the reader. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]the signal that was successfully received. \item[{\em recvd\-Signal\-Strength}]the strength of the signal at the receiver. \end{description}
+\end{Desc}
+
+
+Reimplemented from \bf{Physical\-Layer} \doxyref{p.}{classPhysicalLayer_da8f7573bc3b656dcba72f555d3e9cda}.
+
+Definition at line 90 of file rfid\_\-tag\_\-phy.cpp.
+
+References Physical\-Layer::set\-Current\-Tx\-Power(), and set\-Sending\-Channel().\index{RfidTagPhy@{Rfid\-Tag\-Phy}!resetAllListenersChannel@{resetAllListenersChannel}}
+\index{resetAllListenersChannel@{resetAllListenersChannel}!RfidTagPhy@{Rfid\-Tag\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-Phy::reset\-All\-Listeners\-Channel ()}\label{classRfidTagPhy_c1df3c2d6ba4bcb934001ed0d15c0826}
+
+
+Invalidate the current all listeners channel. 
+
+After calling this function, the tag is no longer listening to any channels. \begin{Desc}
+\item[See also:]\doxyref{set\-All\-Listeners\-Channel()}{p.}{classRfidTagPhy_18f4864458997356e7a39cfbb2fc5277} 
+
+\doxyref{set\-Sending\-Channel()}{p.}{classRfidTagPhy_b3b52d322483b59feb0785157340ec6b} \end{Desc}
+
+
+Definition at line 78 of file rfid\_\-tag\_\-phy.cpp.
+
+References Physical\-Layer::m\_\-wireless\-Channel\-Manager\-Ptr, and this\-Physical\-Layer().
+
+Referenced by set\-All\-Listeners\-Channel().\index{RfidTagPhy@{Rfid\-Tag\-Phy}!resetSendingChannel@{resetSendingChannel}}
+\index{resetSendingChannel@{resetSendingChannel}!RfidTagPhy@{Rfid\-Tag\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-Phy::reset\-Sending\-Channel ()}\label{classRfidTagPhy_2bf3cdd03c098d52b9ac44e114f92fa9}
+
+
+Invalidate the current sending channel. 
+
+After calling this function, the tag is no longer sending to any channels. \begin{Desc}
+\item[See also:]\doxyref{set\-Sending\-Channel()}{p.}{classRfidTagPhy_b3b52d322483b59feb0785157340ec6b} 
+
+\doxyref{set\-All\-Listeners\-Channel()}{p.}{classRfidTagPhy_18f4864458997356e7a39cfbb2fc5277} \end{Desc}
+
+
+Definition at line 32 of file rfid\_\-tag\_\-phy.cpp.
+
+References Physical\-Layer::m\_\-wireless\-Channel\-Manager\-Ptr, and this\-Physical\-Layer().
+
+Referenced by set\-Sending\-Channel().\index{RfidTagPhy@{Rfid\-Tag\-Phy}!setAllListenersChannel@{setAllListenersChannel}}
+\index{setAllListenersChannel@{setAllListenersChannel}!RfidTagPhy@{Rfid\-Tag\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Tag\-Phy::set\-All\-Listeners\-Channel (\bf{t\_\-uint} {\em channel\-Id})}\label{classRfidTagPhy_18f4864458997356e7a39cfbb2fc5277}
+
+
+Set the channel on which this (and, presumably, all) tags are listening on. 
+
+All tags should be set to listen on this channel, though they will send on a different channel where not necessarily all tags are sending. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel\-Id}]the ID of the channel on which the tags will listen. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the object is attached to the channel successfully. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Sending\-Channel()}{p.}{classRfidTagPhy_b3b52d322483b59feb0785157340ec6b} 
+
+\doxyref{reset\-All\-Listeners\-Channel()}{p.}{classRfidTagPhy_c1df3c2d6ba4bcb934001ed0d15c0826} \end{Desc}
+
+
+Definition at line 61 of file rfid\_\-tag\_\-phy.cpp.
+
+References Physical\-Layer::m\_\-wireless\-Channel\-Manager\-Ptr, reset\-All\-Listeners\-Channel(), and this\-Physical\-Layer().\index{RfidTagPhy@{Rfid\-Tag\-Phy}!setSendingChannel@{setSendingChannel}}
+\index{setSendingChannel@{setSendingChannel}!RfidTagPhy@{Rfid\-Tag\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Tag\-Phy::set\-Sending\-Channel (\bf{t\_\-uint} {\em channel\-Id})}\label{classRfidTagPhy_b3b52d322483b59feb0785157340ec6b}
+
+
+Set the sending for the RFID tag. 
+
+This corresponds to setting the channel on which the tag is sending since we model the tags's listening channel as being on which all tags listeng and all readers transmit on. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel\-Id}]the ID of the channel on which the RFID tag will transmit. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the object is attached to the channel successfully. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-All\-Listeners\-Channel()}{p.}{classRfidTagPhy_18f4864458997356e7a39cfbb2fc5277} 
+
+\doxyref{reset\-Sending\-Channel()}{p.}{classRfidTagPhy_2bf3cdd03c098d52b9ac44e114f92fa9} \end{Desc}
+
+
+Definition at line 43 of file rfid\_\-tag\_\-phy.cpp.
+
+References Physical\-Layer::m\_\-wireless\-Channel\-Manager\-Ptr, reset\-Sending\-Channel(), and this\-Physical\-Layer().
+
+Referenced by recvd\-Error\-Free\-Signal().\index{RfidTagPhy@{Rfid\-Tag\-Phy}!thisPhysicalLayer@{thisPhysicalLayer}}
+\index{thisPhysicalLayer@{thisPhysicalLayer}!RfidTagPhy@{Rfid\-Tag\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Physical\-Layer\-Ptr} Rfid\-Tag\-Phy::this\-Physical\-Layer ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagPhy_983e1873d2452b319e99a5fb01f53d75}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Physical\-Layer}{p.}{classPhysicalLayer}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Physical\-Layer} \doxyref{p.}{classPhysicalLayer_c9bc7a479ec06eb05894d6b24a6c6f33}.
+
+Definition at line 176 of file rfid\_\-tag\_\-phy.hpp.
+
+Referenced by reset\-All\-Listeners\-Channel(), reset\-Sending\-Channel(), set\-All\-Listeners\-Channel(), set\-Sending\-Channel(), and $\sim$Rfid\-Tag\-Phy().\index{RfidTagPhy@{Rfid\-Tag\-Phy}!thisRfidTagPhy@{thisRfidTagPhy}}
+\index{thisRfidTagPhy@{thisRfidTagPhy}!RfidTagPhy@{Rfid\-Tag\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Tag\-Phy\-Ptr} Rfid\-Tag\-Phy::this\-Rfid\-Tag\-Phy ()\hspace{0.3cm}{\tt  [inline]}}\label{classRfidTagPhy_7cd9ae02be8c616b5621e250dfcf0ad1}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Tag\-Phy}{p.}{classRfidTagPhy}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Definition at line 170 of file rfid\_\-tag\_\-phy.hpp.\index{RfidTagPhy@{Rfid\-Tag\-Phy}!thisSimulationEndListener@{thisSimulationEndListener}}
+\index{thisSimulationEndListener@{thisSimulationEndListener}!RfidTagPhy@{Rfid\-Tag\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Simulation\-End\-Listener\-Ptr} Rfid\-Tag\-Phy::this\-Simulation\-End\-Listener ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagPhy_9f092f0c2d97dca6ebb3af39ac9c58c6}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Simulation\-End\-Listener}{p.}{classSimulationEndListener}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Communication\-Layer} \doxyref{p.}{classCommunicationLayer_4a1f85319b7945b9b2c481c026bc69a8}.
+
+Definition at line 182 of file rfid\_\-tag\_\-phy.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rfid\_\-tag\_\-phy.hpp\item 
+rfid\_\-tag\_\-phy.cpp\end{CompactItemize}

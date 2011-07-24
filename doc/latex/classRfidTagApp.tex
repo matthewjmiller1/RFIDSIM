@@ -1,0 +1,156 @@
+\section{Rfid\-Tag\-App Class Reference}
+\label{classRfidTagApp}\index{RfidTagApp@{RfidTagApp}}
+The RFID tag application class.  
+
+
+{\tt \#include $<$rfid\_\-tag\_\-app.hpp$>$}
+
+Inheritance diagram for Rfid\-Tag\-App::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classRfidTagApp}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Tag\-App} $>$ \bf{Rfid\-Tag\-App\-Ptr}\label{classRfidTagApp_706e4d1d490a717dc45101e0b7efa224}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{Rfid\-Tag\-App\-Ptr} \bf{this\-Rfid\-Tag\-App} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Tag\-App}{p.}{classRfidTagApp}} object. \item\end{CompactList}\item 
+virtual \bf{Application\-Layer\-Ptr} \bf{this\-Application\-Layer} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Application\-Layer}{p.}{classApplicationLayer}} object. \item\end{CompactList}\item 
+virtual \bf{Simulation\-End\-Listener\-Ptr} \bf{this\-Simulation\-End\-Listener} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Simulation\-End\-Listener}{p.}{classSimulationEndListener}} object. \item\end{CompactList}\item 
+void \bf{start\-Handler} ()\label{classRfidTagApp_cdf65bde874c045f6de8d8a05a22df37}
+
+\begin{CompactList}\small\item\em Function to execute when the application is started. \item\end{CompactList}\item 
+void \bf{stop\-Handler} ()\label{classRfidTagApp_103ad20ae2af1bc33126a9a52a404a5e}
+
+\begin{CompactList}\small\item\em Function to execute when the application is stopped. \item\end{CompactList}\item 
+bool \bf{get\-Reply\-To\-Reads} () const 
+\begin{CompactList}\small\item\em Determine whether or not the state of this tag allows it to reply to read requests. \item\end{CompactList}\item 
+void \bf{set\-Reply\-To\-Reads} (bool reply\-To\-Reads)
+\begin{CompactList}\small\item\em Set whether or not the state of this tag allows it to reply to read requests. \item\end{CompactList}\item 
+virtual void \bf{simulation\-End\-Handler} ()\label{classRfidTagApp_26d5f4e591fbcd3a3fb9f887ef0c2821}
+
+\begin{CompactList}\small\item\em The function called when the simulation ends. \item\end{CompactList}\item 
+ostream \& \bf{print} (ostream \&s) const \label{classRfidTagApp_ff8f0c722ce3c5f049f21b82b27eeabd}
+
+\begin{CompactList}\small\item\em Return the stream representation of the object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Tag\-App\-Ptr} \bf{create} (Node\-Ptr node)\label{classRfidTagApp_33b6ad4da4c02196d3aa7efd2f06c52e}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Tag\-App} (Node\-Ptr node)\label{classRfidTagApp_96e26a4c9e10c62b1bf9340c5eac7838}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+bool \bf{handle\-Recvd\-Packet} (Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Handle a received packet. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The RFID tag application class. 
+
+
+
+Definition at line 16 of file rfid\_\-tag\_\-app.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidTagApp@{Rfid\-Tag\-App}!getReplyToReads@{getReplyToReads}}
+\index{getReplyToReads@{getReplyToReads}!RfidTagApp@{Rfid\-Tag\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Tag\-App::get\-Reply\-To\-Reads () const}\label{classRfidTagApp_7ae79c0d33ebdb17ab1566bc6370e5b4}
+
+
+Determine whether or not the state of this tag allows it to reply to read requests. 
+
+\begin{Desc}
+\item[Returns:]true if the tag can reply to read requests. \end{Desc}
+
+
+Definition at line 31 of file rfid\_\-tag\_\-app.cpp.\index{RfidTagApp@{Rfid\-Tag\-App}!handleRecvdPacket@{handleRecvdPacket}}
+\index{handleRecvdPacket@{handleRecvdPacket}!RfidTagApp@{Rfid\-Tag\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Tag\-App::handle\-Recvd\-Packet (Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classRfidTagApp_0358000672e15afdb13f58bbc09095aa}
+
+
+Handle a received packet. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was handled successfully. \end{Desc}
+
+
+Implements \bf{Application\-Layer} \doxyref{p.}{classApplicationLayer_f660987e884efe4b88d14429eb731fff}.
+
+Definition at line 41 of file rfid\_\-tag\_\-app.cpp.
+
+References Packet::Data\-Types\_\-Application, Application\-Layer::m\_\-is\-Running, Rfid\-Reader\-App\-Data::Types\_\-Read, and Rfid\-Reader\-App\-Data::Types\_\-Reset.\index{RfidTagApp@{Rfid\-Tag\-App}!setReplyToReads@{setReplyToReads}}
+\index{setReplyToReads@{setReplyToReads}!RfidTagApp@{Rfid\-Tag\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-App::set\-Reply\-To\-Reads (bool {\em reply\-To\-Reads})}\label{classRfidTagApp_8802fc7080bd0e12acfe7d0a90e809c1}
+
+
+Set whether or not the state of this tag allows it to reply to read requests. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em reply\-To\-Reads}]whether the tag can reply to read requests. \end{description}
+\end{Desc}
+
+
+Definition at line 36 of file rfid\_\-tag\_\-app.cpp.\index{RfidTagApp@{Rfid\-Tag\-App}!thisApplicationLayer@{thisApplicationLayer}}
+\index{thisApplicationLayer@{thisApplicationLayer}!RfidTagApp@{Rfid\-Tag\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Application\-Layer\-Ptr} Rfid\-Tag\-App::this\-Application\-Layer ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagApp_716b586bba3264ddf2e6cc5e1d404ced}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Application\-Layer}{p.}{classApplicationLayer}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Application\-Layer} \doxyref{p.}{classApplicationLayer_5def2dfec3b265c90545869d923be41d}.
+
+Definition at line 139 of file rfid\_\-tag\_\-app.hpp.\index{RfidTagApp@{Rfid\-Tag\-App}!thisRfidTagApp@{thisRfidTagApp}}
+\index{thisRfidTagApp@{thisRfidTagApp}!RfidTagApp@{Rfid\-Tag\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Tag\-App\-Ptr} Rfid\-Tag\-App::this\-Rfid\-Tag\-App ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagApp_9ca8aed489b330c84ff7af05b296eefa}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Tag\-App}{p.}{classRfidTagApp}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Definition at line 133 of file rfid\_\-tag\_\-app.hpp.\index{RfidTagApp@{Rfid\-Tag\-App}!thisSimulationEndListener@{thisSimulationEndListener}}
+\index{thisSimulationEndListener@{thisSimulationEndListener}!RfidTagApp@{Rfid\-Tag\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Simulation\-End\-Listener\-Ptr} Rfid\-Tag\-App::this\-Simulation\-End\-Listener ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagApp_ce043a4e499221e7e8e85042326d4fba}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Simulation\-End\-Listener}{p.}{classSimulationEndListener}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Communication\-Layer} \doxyref{p.}{classCommunicationLayer_4a1f85319b7945b9b2c481c026bc69a8}.
+
+Definition at line 145 of file rfid\_\-tag\_\-app.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rfid\_\-tag\_\-app.hpp\item 
+rfid\_\-tag\_\-app.cpp\end{CompactItemize}

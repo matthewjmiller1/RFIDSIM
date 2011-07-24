@@ -1,0 +1,74 @@
+\section{Fading Class Reference}
+\label{classFading}\index{Fading@{Fading}}
+This computes the fading for a given signal at a receiver.  
+
+
+{\tt \#include $<$fading.hpp$>$}
+
+Inheritance diagram for Fading::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classFading}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Fading} $>$ \bf{Fading\-Ptr}\label{classFading_7bb536f4bf6c8d80da1cab1071b35a28}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Fading} ()\label{classFading_e1cde1e60f192b4f947b73c4de16070d}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual double \bf{fading\-Factor} (const \bf{Wireless\-Comm\-Signal} \&signal, const \bf{Node\-Id} \&node\-Id)=0
+\begin{CompactList}\small\item\em Compute the fading factor for the signal. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Fading} ()\label{classFading_2e7728bffa71ae092ecbb6ee645d0ef6}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Fading} (const \bf{Fading} \&rhs)\label{classFading_4e550e5e28a1b8e75a551192d7d0374b}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+map$<$ \bf{Node\-Id}, int $>$ \bf{m\_\-node\-Offset}\label{classFading_05d0193fe9d34c240de9ec0044e4af64}
+
+\begin{CompactList}\small\item\em To avoid a global correlation in fading, we need a randomly choosen offset for each receiver. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This computes the fading for a given signal at a receiver. 
+
+
+
+Definition at line 19 of file fading.hpp.
+
+\subsection{Member Function Documentation}
+\index{Fading@{Fading}!fadingFactor@{fadingFactor}}
+\index{fadingFactor@{fadingFactor}!Fading@{Fading}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual double Fading::fading\-Factor (const \bf{Wireless\-Comm\-Signal} \& {\em signal}, const \bf{Node\-Id} \& {\em node\-Id})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classFading_130c2e91eaabeabe25f850e20fd713ae}
+
+
+Compute the fading factor for the signal. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]the signal being transmitted. \item[{\em node\-Id}]the ID of the receiver for which fading is being calculated. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the fading factor. \end{Desc}
+
+
+Implemented in \bf{Ricean} \doxyref{p.}{classRicean_b855b93dce316ab317c2f039c6d8d692}.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+fading.hpp\item 
+fading.cpp\end{CompactItemize}

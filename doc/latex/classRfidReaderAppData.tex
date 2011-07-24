@@ -1,0 +1,225 @@
+\section{Rfid\-Reader\-App\-Data Class Reference}
+\label{classRfidReaderAppData}\index{RfidReaderAppData@{RfidReaderAppData}}
+The representation of the application data in an Rfid\-Reader\-App's data packet.  
+
+
+{\tt \#include $<$rfid\_\-reader\_\-app.hpp$>$}
+
+Inheritance diagram for Rfid\-Reader\-App\-Data::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classRfidReaderAppData}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Reader\-App\-Data} $>$ \bf{Rfid\-Reader\-App\-Data\-Ptr}\label{classRfidReaderAppData_d662ccfe0afb506f9dee5ee1e5603901}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\item 
+\bf{Types\_\-No\-Type}
+\begin{CompactList}\small\item\em enum value Types\_\-No\-Type. \item\end{CompactList}\item 
+\bf{Types\_\-Read}
+\begin{CompactList}\small\item\em enum value Types\_\-Read. \item\end{CompactList}\item 
+\bf{Types\_\-Reset}
+\begin{CompactList}\small\item\em enum value Types\_\-Reset. \item\end{CompactList}\item 
+enum \bf{Types} \{ \bf{Types\_\-No\-Type}, 
+\bf{Types\_\-Read}, 
+\bf{Types\_\-Reset}
+ \}
+\begin{CompactList}\small\item\em Types enum. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{t\_\-uint} \bf{get\-Size\-In\-Bytes} () const 
+\begin{CompactList}\small\item\em Get the size of this data. \item\end{CompactList}\item 
+void \bf{set\-Reader\-Id} (const \bf{Node\-Id} \&node\-Id)
+\begin{CompactList}\small\item\em Write the node ID to the packet data. \item\end{CompactList}\item 
+\bf{Node\-Id} \bf{get\-Reader\-Id} () const 
+\begin{CompactList}\small\item\em Read the node ID from the packet data. \item\end{CompactList}\item 
+void \bf{set\-Type} (\bf{Types} type)
+\begin{CompactList}\small\item\em Write the type field to this packet data. \item\end{CompactList}\item 
+\bf{Types} \bf{get\-Type} () const 
+\begin{CompactList}\small\item\em Read the type field from this packet data. \item\end{CompactList}\item 
+void \bf{set\-Do\-Entire\-Read\-Cycle} (bool do\-Entire\-Read\-Cycle)
+\begin{CompactList}\small\item\em Sets whether the entire read cycle must be done or if the read cycle can end early in response to several consecutive unsuccessful contention intervals. \item\end{CompactList}\item 
+bool \bf{get\-Do\-Entire\-Read\-Cycle} () const 
+\begin{CompactList}\small\item\em Gets whether the entire read cycle must be done or if the read cycle can end early in response to several consecutive unsuccessful contention intervals. \item\end{CompactList}\item 
+ostream \& \bf{print} (ostream \&s) const \label{classRfidReaderAppData_660061eebe39f45cc902402fa670da35}
+
+\begin{CompactList}\small\item\em Return the stream representation of the object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Reader\-App\-Data\-Ptr} \bf{create} ()\label{classRfidReaderAppData_f16c14675522fd6bf52688828920f6f8}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Rfid\-Reader\-App\-Data\-Ptr} \bf{create} (const \bf{Rfid\-Reader\-App\-Data} \&rhs)\label{classRfidReaderAppData_13ae3aa3760567f986aa90339c684c1d}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Reader\-App\-Data} ()\label{classRfidReaderAppData_4f3f584e721ff902330210b30f8238a1}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Rfid\-Reader\-App\-Data} (const \bf{Rfid\-Reader\-App\-Data} \&rhs)\label{classRfidReaderAppData_f507c52a741f0ad37eca5a72edfcdee5}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\item 
+virtual \bf{Packet\-Data\-Ptr} \bf{clone} () const 
+\begin{CompactList}\small\item\em Returns a pointer to a deep copy of this object. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The representation of the application data in an Rfid\-Reader\-App's data packet. 
+
+
+
+Definition at line 489 of file rfid\_\-reader\_\-app.hpp.
+
+\subsection{Member Enumeration Documentation}
+\index{RfidReaderAppData@{Rfid\-Reader\-App\-Data}!Types@{Types}}
+\index{Types@{Types}!RfidReaderAppData@{Rfid\-Reader\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum \bf{Rfid\-Reader\-App\-Data::Types}}\label{classRfidReaderAppData_d808c1e2ee53819e7ba2455ea4217936}
+
+
+Types enum. 
+
+Specifies the types of packets that are sent. \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{Types_NoType@{Types\_\-NoType}!RfidReaderAppData@{RfidReaderAppData}}\index{RfidReaderAppData@{RfidReaderAppData}!Types_NoType@{Types\_\-NoType}}\item[{\em 
+Types\_\-No\-Type\label{classRfidReaderAppData_d808c1e2ee53819e7ba2455ea4217936f3c058dc08d0a16d3f349e2fff4a9f9f}
+}]enum value Types\_\-No\-Type. \index{Types_Read@{Types\_\-Read}!RfidReaderAppData@{RfidReaderAppData}}\index{RfidReaderAppData@{RfidReaderAppData}!Types_Read@{Types\_\-Read}}\item[{\em 
+Types\_\-Read\label{classRfidReaderAppData_d808c1e2ee53819e7ba2455ea4217936c46f4decb70ae02b42387dbf2308b477}
+}]enum value Types\_\-Read. \index{Types_Reset@{Types\_\-Reset}!RfidReaderAppData@{RfidReaderAppData}}\index{RfidReaderAppData@{RfidReaderAppData}!Types_Reset@{Types\_\-Reset}}\item[{\em 
+Types\_\-Reset\label{classRfidReaderAppData_d808c1e2ee53819e7ba2455ea4217936a43996ebb3977b43f3f18e69702fdb6e}
+}]enum value Types\_\-Reset. \end{description}
+\end{Desc}
+
+
+
+Definition at line 498 of file rfid\_\-reader\_\-app.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidReaderAppData@{Rfid\-Reader\-App\-Data}!clone@{clone}}
+\index{clone@{clone}!RfidReaderAppData@{Rfid\-Reader\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Packet\-Data\-Ptr} Rfid\-Reader\-App\-Data::clone () const\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classRfidReaderAppData_1c473b9597db1f246869f53869237853}
+
+
+Returns a pointer to a deep copy of this object. 
+
+This is addresses the slicing problem with copy construction. \begin{Desc}
+\item[Returns:]a pointer to a deep copy of this object. \end{Desc}
+
+
+Reimplemented from \bf{Packet\-Data} \doxyref{p.}{classPacketData_b338f746c8a3825158c554b1468e7a13}.
+
+Definition at line 311 of file rfid\_\-reader\_\-app.cpp.
+
+References Rfid\-Reader\-App\-Data().
+
+Referenced by create().\index{RfidReaderAppData@{Rfid\-Reader\-App\-Data}!getDoEntireReadCycle@{getDoEntireReadCycle}}
+\index{getDoEntireReadCycle@{getDoEntireReadCycle}!RfidReaderAppData@{Rfid\-Reader\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-App\-Data::get\-Do\-Entire\-Read\-Cycle () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderAppData_361e84865c9c2293b66eb0f19803ade0}
+
+
+Gets whether the entire read cycle must be done or if the read cycle can end early in response to several consecutive unsuccessful contention intervals. 
+
+\begin{Desc}
+\item[Returns:]true if the entire read cycle must be performed. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Do\-Entire\-Read\-Cycle()}{p.}{classRfidReaderAppData_f1f7497db53dffa96c8295d04e868de0} \end{Desc}
+
+
+Definition at line 661 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderAppData@{Rfid\-Reader\-App\-Data}!getReaderId@{getReaderId}}
+\index{getReaderId@{getReaderId}!RfidReaderAppData@{Rfid\-Reader\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Id} Rfid\-Reader\-App\-Data::get\-Reader\-Id () const}\label{classRfidReaderAppData_6a0c9d20e0303a92c3c8d4607849c3d4}
+
+
+Read the node ID from the packet data. 
+
+\begin{Desc}
+\item[Returns:]the ID of the node in the packet. \end{Desc}
+
+
+Definition at line 322 of file rfid\_\-reader\_\-app.cpp.\index{RfidReaderAppData@{Rfid\-Reader\-App\-Data}!getSizeInBytes@{getSizeInBytes}}
+\index{getSizeInBytes@{getSizeInBytes}!RfidReaderAppData@{Rfid\-Reader\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Rfid\-Reader\-App\-Data::get\-Size\-In\-Bytes () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderAppData_77263b9a9467130801da5cfe5e40700a}
+
+
+Get the size of this data. 
+
+\begin{Desc}
+\item[Returns:]the size of the data in bytes. \end{Desc}
+
+
+Reimplemented from \bf{Packet\-Data} \doxyref{p.}{classPacketData_d011a84f410ffd8fe2da792934fb77f2}.
+
+Definition at line 633 of file rfid\_\-reader\_\-app.hpp.
+
+References get\-Type().\index{RfidReaderAppData@{Rfid\-Reader\-App\-Data}!getType@{getType}}
+\index{getType@{getType}!RfidReaderAppData@{Rfid\-Reader\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Reader\-App\-Data::Types} Rfid\-Reader\-App\-Data::get\-Type () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderAppData_246457d64892db971eca0f4482770c6c}
+
+
+Read the type field from this packet data. 
+
+\begin{Desc}
+\item[Returns:]the type field of the packet. \end{Desc}
+
+
+Definition at line 650 of file rfid\_\-reader\_\-app.hpp.
+
+Referenced by get\-Size\-In\-Bytes().\index{RfidReaderAppData@{Rfid\-Reader\-App\-Data}!setDoEntireReadCycle@{setDoEntireReadCycle}}
+\index{setDoEntireReadCycle@{setDoEntireReadCycle}!RfidReaderAppData@{Rfid\-Reader\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-App\-Data::set\-Do\-Entire\-Read\-Cycle (bool {\em do\-Entire\-Read\-Cycle})\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderAppData_f1f7497db53dffa96c8295d04e868de0}
+
+
+Sets whether the entire read cycle must be done or if the read cycle can end early in response to several consecutive unsuccessful contention intervals. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em do\-Entire\-Read\-Cycle}]determines if the entire read cycle must be performed. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{get\-Do\-Entire\-Read\-Cycle()}{p.}{classRfidReaderAppData_361e84865c9c2293b66eb0f19803ade0} \end{Desc}
+
+
+Definition at line 655 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderAppData@{Rfid\-Reader\-App\-Data}!setReaderId@{setReaderId}}
+\index{setReaderId@{setReaderId}!RfidReaderAppData@{Rfid\-Reader\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-App\-Data::set\-Reader\-Id (const \bf{Node\-Id} \& {\em node\-Id})}\label{classRfidReaderAppData_ad05f2c039cdc5e35791ad779b45c677}
+
+
+Write the node ID to the packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node\-Id}]the ID to be written. \end{description}
+\end{Desc}
+
+
+Definition at line 317 of file rfid\_\-reader\_\-app.cpp.
+
+References Node\-Id::write\-To\-Byte\-Array().\index{RfidReaderAppData@{Rfid\-Reader\-App\-Data}!setType@{setType}}
+\index{setType@{setType}!RfidReaderAppData@{Rfid\-Reader\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-App\-Data::set\-Type (\bf{Types} {\em type})\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderAppData_f19932736161a0169a70099a5788fe39}
+
+
+Write the type field to this packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em type}]the value for the type field. \end{description}
+\end{Desc}
+
+
+Definition at line 645 of file rfid\_\-reader\_\-app.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rfid\_\-reader\_\-app.hpp\item 
+rfid\_\-reader\_\-app.cpp\end{CompactItemize}

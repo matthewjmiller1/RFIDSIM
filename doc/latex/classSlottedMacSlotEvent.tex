@@ -1,0 +1,62 @@
+\section{Slotted\-Mac\-Slot\-Event Class Reference}
+\label{classSlottedMacSlotEvent}\index{SlottedMacSlotEvent@{SlottedMacSlotEvent}}
+The event for when a discrete slot begins.  
+
+
+{\tt \#include $<$mac\_\-protocol.hpp$>$}
+
+Inheritance diagram for Slotted\-Mac\-Slot\-Event::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classSlottedMacSlotEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Slotted\-Mac\-Slot\-Event} $>$ \bf{Slotted\-Mac\-Slot\-Event\-Ptr}\label{classSlottedMacSlotEvent_3a70bbc7f929dfca62625a6c22adc198}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{execute} ()
+\begin{CompactList}\small\item\em The code that gets executed for the event. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Slotted\-Mac\-Slot\-Event\-Ptr} \bf{create} (Slotted\-Mac\-Ptr slotted\-Mac)\label{classSlottedMacSlotEvent_2a1ce36563b8b07c162292fc9af60b3d}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Slotted\-Mac\-Slot\-Event} (Slotted\-Mac\-Ptr slotted\-Mac)\label{classSlottedMacSlotEvent_88ef335ae5e8c6485f94627226e81357}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The event for when a discrete slot begins. 
+
+
+
+Definition at line 279 of file mac\_\-protocol.hpp.
+
+\subsection{Member Function Documentation}
+\index{SlottedMacSlotEvent@{Slotted\-Mac\-Slot\-Event}!execute@{execute}}
+\index{execute@{execute}!SlottedMacSlotEvent@{Slotted\-Mac\-Slot\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Slotted\-Mac\-Slot\-Event::execute ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classSlottedMacSlotEvent_a168d542f2fd2a9e0a130b5a70a26fe9}
+
+
+The code that gets executed for the event. 
+
+Subclasses can override this to define their own actions. 
+
+Implements \bf{Event} \doxyref{p.}{classEvent_b53a925ac3b000c6f017a4a951aff3c7}.
+
+Definition at line 295 of file mac\_\-protocol.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+mac\_\-protocol.hpp\end{CompactItemize}

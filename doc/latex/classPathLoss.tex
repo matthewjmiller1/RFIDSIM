@@ -1,0 +1,71 @@
+\section{Path\-Loss Class Reference}
+\label{classPathLoss}\index{PathLoss@{PathLoss}}
+This computes the path loss for a given signal at a receiver.  
+
+
+{\tt \#include $<$path\_\-loss.hpp$>$}
+
+Inheritance diagram for Path\-Loss::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classPathLoss}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Path\-Loss} $>$ \bf{Path\-Loss\-Ptr}\label{classPathLoss_bc95a640f6b1b63a4de3dc7f4752acc0}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Path\-Loss} ()\label{classPathLoss_5985aa956a941bc0405dc5c2f4e31a18}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual double \bf{get\-Recvd\-Strength} (const \bf{Wireless\-Comm\-Signal} \&signal, const \bf{Physical\-Layer} \&receiver) const =0
+\begin{CompactList}\small\item\em Compute the signal strength for the signal at the receiver. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Path\-Loss} ()\label{classPathLoss_b5d8bd17bbb7b4286b02fc1e900018c8}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static const bool \bf{m\_\-DEBUG\_\-SIGNAL\_\-STRENGTH} = false\label{classPathLoss_a1c0e780d9e07c466ec6ebb54d822806}
+
+\begin{CompactList}\small\item\em Determine when debugging info gets printed. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This computes the path loss for a given signal at a receiver. 
+
+
+
+Definition at line 15 of file path\_\-loss.hpp.
+
+\subsection{Member Function Documentation}
+\index{PathLoss@{Path\-Loss}!getRecvdStrength@{getRecvdStrength}}
+\index{getRecvdStrength@{getRecvdStrength}!PathLoss@{Path\-Loss}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual double Path\-Loss::get\-Recvd\-Strength (const \bf{Wireless\-Comm\-Signal} \& {\em signal}, const \bf{Physical\-Layer} \& {\em receiver}) const\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPathLoss_0bbf29f4653d6584331b2377934d9d93}
+
+
+Compute the signal strength for the signal at the receiver. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]the signal being transmitted. \item[{\em receiver}]the object receiving the signal. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the signal strength in Watts. \end{Desc}
+
+
+Implemented in \bf{Free\-Space} \doxyref{p.}{classFreeSpace_d5c42c93d44098bd496fa66bf3facdb4}, and \bf{Two\-Ray} \doxyref{p.}{classTwoRay_84918f64853e520d837424d01f0915a4}.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+path\_\-loss.hpp\item 
+path\_\-loss.cpp\end{CompactItemize}

@@ -1,0 +1,113 @@
+\section{Two\-Ray Class Reference}
+\label{classTwoRay}\index{TwoRay@{TwoRay}}
+This computes the received signal strength using the \doxyref{Two\-Ray}{p.}{classTwoRay} Ground Refelection model at longer distances and \doxyref{Free\-Space}{p.}{classFreeSpace} for shorter distances.  
+
+
+{\tt \#include $<$path\_\-loss.hpp$>$}
+
+Inheritance diagram for Two\-Ray::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classTwoRay}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Two\-Ray} $>$ \bf{Two\-Ray\-Ptr}\label{classTwoRay_4292d747a6428a85a370901d7c486259}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual double \bf{get\-Recvd\-Strength} (const \bf{Wireless\-Comm\-Signal} \&signal, const \bf{Physical\-Layer} \&receiver) const 
+\begin{CompactList}\small\item\em Compute the signal strength for the signal at the receiver. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Two\-Ray\-Ptr} \bf{create} ()\label{classTwoRay_a0af7a7bad110b44de5aa46183458604}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Two\-Ray\-Ptr} \bf{create} (double loss\-Factor)
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Two\-Ray} ()\label{classTwoRay_a1cd49986d2dd599306c12b7f718ed1a}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Two\-Ray} (double loss\-Factor)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This computes the received signal strength using the \doxyref{Two\-Ray}{p.}{classTwoRay} Ground Refelection model at longer distances and \doxyref{Free\-Space}{p.}{classFreeSpace} for shorter distances. 
+
+The equation for the Two-Ray model is given by: \[ P_r = \frac{P_t G_t G_r H_t H_r}{d^4 L} \] where $P_r$ is the receiver power, $P_t$ is the transmitted power, $G_t$ and $G_r$ are the gains of the transmitter and receiver antennas, respectively, $H_t$ and $H_r$ is the transmitter and receiver antenna heights, $d$ is the distance between the transmitter and receiver, and $L$ is the loss factor. By default, $H_t = H_r = 0.0$. 
+
+
+
+Definition at line 126 of file path\_\-loss.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{TwoRay@{Two\-Ray}!TwoRay@{TwoRay}}
+\index{TwoRay@{TwoRay}!TwoRay@{Two\-Ray}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Two\-Ray::Two\-Ray (double {\em loss\-Factor})\hspace{0.3cm}{\tt  [protected]}}\label{classTwoRay_b1bd64a521c081528b482cd1948e3448}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em loss\-Factor}]the loss factor of the model (must be $>$= 1). \end{description}
+\end{Desc}
+
+
+Definition at line 40 of file path\_\-loss.cpp.
+
+\subsection{Member Function Documentation}
+\index{TwoRay@{Two\-Ray}!create@{create}}
+\index{create@{create}!TwoRay@{Two\-Ray}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Two\-Ray\-Ptr} Two\-Ray::create (double {\em loss\-Factor})\hspace{0.3cm}{\tt  [inline, static]}}\label{classTwoRay_1c024cdcab4941e43d4bd99a546941c0}
+
+
+A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em loss\-Factor}]the loss factor of the model (must be $>$= 1). \end{description}
+\end{Desc}
+
+
+Reimplemented from \bf{Free\-Space} \doxyref{p.}{classFreeSpace_54b4c79b5864b7beff884779f652d400}.
+
+Definition at line 196 of file path\_\-loss.hpp.
+
+References Two\-Ray().\index{TwoRay@{Two\-Ray}!getRecvdStrength@{getRecvdStrength}}
+\index{getRecvdStrength@{getRecvdStrength}!TwoRay@{Two\-Ray}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Two\-Ray::get\-Recvd\-Strength (const \bf{Wireless\-Comm\-Signal} \& {\em signal}, const \bf{Physical\-Layer} \& {\em receiver}) const\hspace{0.3cm}{\tt  [virtual]}}\label{classTwoRay_84918f64853e520d837424d01f0915a4}
+
+
+Compute the signal strength for the signal at the receiver. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]the signal being transmitted. \item[{\em receiver}]the object receiving the signal. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the signal strength in Watts. \end{Desc}
+
+
+Reimplemented from \bf{Free\-Space} \doxyref{p.}{classFreeSpace_d5c42c93d44098bd496fa66bf3facdb4}.
+
+Definition at line 62 of file path\_\-loss.cpp.
+
+References decibels\-To\-Power(), Location::distance(), Signal::get\-Db\-Strength(), Physical\-Layer::get\-Gain(), Physical\-Layer::get\-Location(), Signal::get\-Location(), Free\-Space::get\-Recvd\-Strength(), Wireless\-Comm\-Signal::get\-Transmitter\-Gain(), Wireless\-Comm\-Signal::get\-Wavelength(), Log\-Stream\-Manager::instance(), Log\-Stream\-Manager::log\-Debug\-Item(), Path\-Loss::m\_\-DEBUG\_\-SIGNAL\_\-STRENGTH, Free\-Space::m\_\-loss\-Factor, and PI.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+path\_\-loss.hpp\item 
+path\_\-loss.cpp\end{CompactItemize}

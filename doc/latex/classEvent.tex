@@ -1,0 +1,106 @@
+\section{Event Class Reference}
+\label{classEvent}\index{Event@{Event}}
+The interface for events which are scheduled in the simulator's event queue.  
+
+
+{\tt \#include $<$event.hpp$>$}
+
+Inheritance diagram for Event::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10cm]{classEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Event} $>$ \bf{Event\-Ptr}\label{classEvent_1a82a86bd9945cb8e97b7026dcafc75e}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Event} ()
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual void \bf{execute} ()=0
+\begin{CompactList}\small\item\em The code that gets executed for the event. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{get\-Fire\-Time} () const 
+\begin{CompactList}\small\item\em Get the time at which the event will fire. \item\end{CompactList}\item 
+bool \bf{in\-Event\-Queue} () const 
+\begin{CompactList}\small\item\em True if the event is currently pending in an event queue. \item\end{CompactList}\item 
+bool \bf{operator$<$} (const \bf{Event} \&e) const \label{classEvent_4021ac707375884f969acac0161152fc}
+
+\begin{CompactList}\small\item\em One event is less than another event if its fire time is smaller. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Event} ()\label{classEvent_5a40dd4708297f7031e29b39e039ae10}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class \bf{Simulator}\label{classEvent_4ba4278eee9a6776d60f4aa6b42c3a76}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The interface for events which are scheduled in the simulator's event queue. 
+
+Individual sublcasses will override the execute function to do their scheduled action. 
+
+
+
+Definition at line 19 of file event.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Event@{Event}!~Event@{$\sim$Event}}
+\index{~Event@{$\sim$Event}!Event@{Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Event::$\sim$Event ()\hspace{0.3cm}{\tt  [virtual]}}\label{classEvent_7704ec01ce91e673885792054214b3d2}
+
+
+A destructor. 
+
+A virtual destructor is recommended since the class has virtual functions. 
+
+Definition at line 9 of file event.cpp.
+
+\subsection{Member Function Documentation}
+\index{Event@{Event}!execute@{execute}}
+\index{execute@{execute}!Event@{Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Event::execute ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classEvent_b53a925ac3b000c6f017a4a951aff3c7}
+
+
+The code that gets executed for the event. 
+
+Subclasses can override this to define their own actions. 
+
+Implemented in \bf{App\-Epoch\-Event} \doxyref{p.}{classAppEpochEvent_462a31e7050b68b1e1a8be2275c69286}, \bf{Layer\-Recv\-Event} \doxyref{p.}{classLayerRecvEvent_079b7b23f668b15675c688b6d9bcbc12}, \bf{Dummy\-Event} \doxyref{p.}{classDummyEvent_ef3e38f724c5bc69104f17223ae27aeb}, \bf{Slotted\-Mac\-Slot\-Event} \doxyref{p.}{classSlottedMacSlotEvent_a168d542f2fd2a9e0a130b5a70a26fe9}, \bf{Send\-To\-Link\-Layer\-Event} \doxyref{p.}{classSendToLinkLayerEvent_c1da52db74223b3280b95c9f8c2bdf45}, \bf{Signal\-Recv\-Event} \doxyref{p.}{classSignalRecvEvent_463f85c5ed9c184b3fb431c1a681340b}, \bf{Rfid\-Reader\-App\-Read\-Event} \doxyref{p.}{classRfidReaderAppReadEvent_e0256ca851f172e09cb950c5c3d5d656}, \bf{Rfid\-Mac\-Cycle\-Event} \doxyref{p.}{classRfidMacCycleEvent_ee2ce93e9d16324c5edddcdbb928fc83}, and \bf{Signal\-End\-Event} \doxyref{p.}{classSignalEndEvent_5ef729ef7837eb7aa6c974524bb3bfee}.\index{Event@{Event}!getFireTime@{getFireTime}}
+\index{getFireTime@{getFireTime}!Event@{Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Event::get\-Fire\-Time () const\hspace{0.3cm}{\tt  [inline]}}\label{classEvent_5730cf661984b97b451a31cd592d1f9a}
+
+
+Get the time at which the event will fire. 
+
+\begin{Desc}
+\item[Returns:]The time at which the event will fire. \end{Desc}
+
+
+Definition at line 102 of file event.hpp.\index{Event@{Event}!inEventQueue@{inEventQueue}}
+\index{inEventQueue@{inEventQueue}!Event@{Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Event::in\-Event\-Queue () const\hspace{0.3cm}{\tt  [inline]}}\label{classEvent_8a9444d5adf668e7f7c1509b83b88ef2}
+
+
+True if the event is currently pending in an event queue. 
+
+\begin{Desc}
+\item[Returns:]true if the event is in an event queue. \end{Desc}
+
+
+Definition at line 107 of file event.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+event.hpp\item 
+event.cpp\end{CompactItemize}

@@ -1,0 +1,349 @@
+\section{Rfid\-Reader\-App Class Reference}
+\label{classRfidReaderApp}\index{RfidReaderApp@{RfidReaderApp}}
+The RFID reader application class.  
+
+
+{\tt \#include $<$rfid\_\-reader\_\-app.hpp$>$}
+
+Inheritance diagram for Rfid\-Reader\-App::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classRfidReaderApp}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Reader\-App} $>$ \bf{Rfid\-Reader\-App\-Ptr}\label{classRfidReaderApp_b48fe2fb0c36c2965c93a7ba23c61a82}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\item 
+typedef multimap$<$ \bf{t\_\-uint}, \bf{Read\-Tag\-Data} $>$::const\_\-iterator \bf{Tag\-Iterator}\label{classRfidReaderApp_08b913f095f7ddf3ae825697e4e050cb}
+
+\begin{CompactList}\small\item\em The iterator for tag data which we are storing. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Rfid\-Reader\-App} ()\label{classRfidReaderApp_7ea0e9b00f8cd2b78882e15eb0ccee09}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual \bf{Rfid\-Reader\-App\-Ptr} \bf{this\-Rfid\-Reader\-App} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Reader\-App}{p.}{classRfidReaderApp}} object. \item\end{CompactList}\item 
+virtual \bf{Application\-Layer\-Ptr} \bf{this\-Application\-Layer} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Application\-Layer}{p.}{classApplicationLayer}} object. \item\end{CompactList}\item 
+virtual \bf{Simulation\-End\-Listener\-Ptr} \bf{this\-Simulation\-End\-Listener} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Simulation\-End\-Listener}{p.}{classSimulationEndListener}} object. \item\end{CompactList}\item 
+void \bf{start\-Handler} ()\label{classRfidReaderApp_de4ff1c419e4071ec416fe71a5e518d4}
+
+\begin{CompactList}\small\item\em Function to execute when the application is started. \item\end{CompactList}\item 
+void \bf{stop\-Handler} ()\label{classRfidReaderApp_48c215e46c7a85a29ca3657c97c48d4f}
+
+\begin{CompactList}\small\item\em Function to execute when the application is stopped. \item\end{CompactList}\item 
+virtual void \bf{simulation\-End\-Handler} ()\label{classRfidReaderApp_d1325ca1b92eb22e65b3bbe2d3572c3c}
+
+\begin{CompactList}\small\item\em The function called when the simulation ends. \item\end{CompactList}\item 
+void \bf{set\-Read\-Period} (\bf{Sim\-Time} read\-Period)
+\begin{CompactList}\small\item\em Set the period with which the read command will be issued. \item\end{CompactList}\item 
+void \bf{set\-Do\-Repeated\-Reads} (bool do\-Repeated\-Reads)
+\begin{CompactList}\small\item\em Set whether or not reads are repeated or one-shot. \item\end{CompactList}\item 
+void \bf{set\-Do\-Reset} (bool do\-Reset)
+\begin{CompactList}\small\item\em Set whether or not a reset packet is send before beginning the read process. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{get\-Next\-Read\-Time} () const 
+\begin{CompactList}\small\item\em Get the next (absolute) time in a cycle that the read command is issued. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{get\-Read\-Period} () const 
+\begin{CompactList}\small\item\em The period with which the reads are being done. \item\end{CompactList}\item 
+bool \bf{get\-Do\-Repeated\-Reads} () const 
+\begin{CompactList}\small\item\em Whether the application is doing repeated, cyclic reads or one-shot. \item\end{CompactList}\item 
+bool \bf{get\-Do\-Reset} () const 
+\begin{CompactList}\small\item\em Whether the application is sends a reset packet before the read process. \item\end{CompactList}\item 
+void \bf{set\-Num\-Power\-Control\-Levels} (\bf{t\_\-uint} num\-Power\-Control\-Levels)
+\begin{CompactList}\small\item\em Set the number of power control levels that the application will use for its reads. \item\end{CompactList}\item 
+\bf{t\_\-uint} \bf{get\-Num\-Power\-Control\-Levels} () const 
+\begin{CompactList}\small\item\em Get the number of power control levels that the application will use for its reads. \item\end{CompactList}\item 
+void \bf{signal\-Read\-End} ()
+\begin{CompactList}\small\item\em The handler for when the MAC layer finishes a read request send by the application. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Reader\-App\-Ptr} \bf{create} (Node\-Ptr node, Physical\-Layer\-Ptr physical\-Layer)\label{classRfidReaderApp_d72afeaa0a59826cca421540280061f1}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Reader\-App} (Node\-Ptr node, Physical\-Layer\-Ptr physical\-Layer)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+bool \bf{handle\-Recvd\-Packet} (Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Handle a received packet. \item\end{CompactList}\item 
+virtual void \bf{do\-Read\-Process} ()\label{classRfidReaderApp_ca935314825755a7bcce0863ff15e6b3}
+
+\begin{CompactList}\small\item\em Do the read process for the application. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\bf{Sim\-Time} \bf{m\_\-first\-Read\-Sent\-Time}\label{classRfidReaderApp_3706e16192e0b44af9df57234e5ba0d4}
+
+\begin{CompactList}\small\item\em The first time a read packet was sent. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{m\_\-previous\-Read\-Sent\-Time}\label{classRfidReaderApp_679fa81689a007b11e206a2a5d5fc37b}
+
+\begin{CompactList}\small\item\em The previous time a read packet was sent. \item\end{CompactList}\item 
+multimap$<$ \bf{t\_\-uint}, \bf{Read\-Tag\-Data} $>$ \bf{m\_\-read\-Tags}\label{classRfidReaderApp_9072f6ce87cf655b4bffbcbc2e41b658}
+
+\begin{CompactList}\small\item\em The data for the tags we read, indexed by the power level at which it was read. \item\end{CompactList}\item 
+pair$<$ \bf{t\_\-uint}, \bf{Read\-Tag\-Data} $>$ \bf{m\_\-last\-Tag\-Read}\label{classRfidReaderApp_84ea314e592c15665f7e39bc0cc6d928}
+
+\begin{CompactList}\small\item\em Keep track of the last tag that was read. \item\end{CompactList}\item 
+set$<$ \bf{Node\-Id} $>$ \bf{m\_\-read\-Tag\-Ids}\label{classRfidReaderApp_c58661f820a3978cddf54cae59b50a8d}
+
+\begin{CompactList}\small\item\em A hash to keep track of whether an ID has been seen already. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{Indent}{\bf }\par
+\begin{CompactItemize}
+\item 
+static const string \bf{m\_\-TAGS\_\-READ\_\-COUNT\_\-STRING} = \char`\"{}tags\-Read\-Count\char`\"{}\label{classRfidReaderApp_36f511666e4a2f7d41857c61f53ae584}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-TAGS\_\-READ\_\-AT\_\-POWER\_\-COUNT\_\-STRING} = \char`\"{}tags\-Read\-Count\-At\-Level\_\-\char`\"{}\label{classRfidReaderApp_2d0060aa37706a7e0644e98368fef748}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-TAGS\_\-READ\_\-AVG\_\-LATENCY\_\-STRING} = \char`\"{}avg\-Tag\-Read\-Latency\char`\"{}\label{classRfidReaderApp_8182b65d59e7798fc208db1ed1ed0cfd}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-TAGS\_\-READ\_\-PROCESS\_\-AVG\_\-LATENCY\_\-STRING} = \char`\"{}avg\-Tag\-Read\-Process\-Latency\char`\"{}\label{classRfidReaderApp_3edcb22a9f2224a6ca474033d94cde8e}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-LAST\_\-TAG\_\-READ\_\-LATENCY\_\-STRING} = \char`\"{}last\-Tag\-Read\-Latency\char`\"{}\label{classRfidReaderApp_cd2af600d718e12cd719a75119406ad5}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-TAG\_\-READ\_\-PROCESS\_\-LATENCY\_\-STRING} = \char`\"{}tag\-Read\-Process\-Latency\char`\"{}\label{classRfidReaderApp_ca372bb3d9157354e494b86e71a0bc1d}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-TAG\_\-READ\_\-LATENCY\_\-STRING} = \char`\"{}tag\-Read\-Latency\char`\"{}\label{classRfidReaderApp_8d3efe43d76180e40c095f90f58876aa}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-TAG\_\-READ\_\-ID\_\-STRING} = \char`\"{}tag\-Read\-Id\char`\"{}\label{classRfidReaderApp_1cf3bda217143927a6c4db634821bd30}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-TAG\_\-READ\_\-LEVEL\_\-STRING} = \char`\"{}tag\-Read\-Power\-Level\char`\"{}\label{classRfidReaderApp_43f68703e93067fc1e19926d63a3ca93}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-TAG\_\-READ\_\-TIME\_\-STRING} = \char`\"{}tag\-Read\-Time\char`\"{}\label{classRfidReaderApp_eae7ab86d1a46867f77e405f65429797}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\end{CompactItemize}
+\end{Indent}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class \bf{Rfid\-Reader\-App\-Read\-Event}\label{classRfidReaderApp_b72a0a1434a93fb061c8c0299ab69f77}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The RFID reader application class. 
+
+
+
+Definition at line 85 of file rfid\_\-reader\_\-app.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{RfidReaderApp@{Rfid\-Reader\-App}!RfidReaderApp@{RfidReaderApp}}
+\index{RfidReaderApp@{RfidReaderApp}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Rfid\-Reader\-App::Rfid\-Reader\-App (Node\-Ptr {\em node}, Physical\-Layer\-Ptr {\em physical\-Layer})\hspace{0.3cm}{\tt  [protected]}}\label{classRfidReaderApp_e649533f4f7610fb99d23a35ff1d2abf}
+
+
+A constructor. 
+
+Allows readers to request that tags reset their state and send a read request to all tags within range. 
+
+Definition at line 29 of file rfid\_\-reader\_\-app.cpp.
+
+Referenced by create().
+
+\subsection{Member Function Documentation}
+\index{RfidReaderApp@{Rfid\-Reader\-App}!getDoRepeatedReads@{getDoRepeatedReads}}
+\index{getDoRepeatedReads@{getDoRepeatedReads}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-App::get\-Do\-Repeated\-Reads () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderApp_37a3468cf9cde45db458da2b1653b5e2}
+
+
+Whether the application is doing repeated, cyclic reads or one-shot. 
+
+\begin{Desc}
+\item[Returns:]true if repeated reads are being done. \end{Desc}
+
+
+Definition at line 455 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!getDoReset@{getDoReset}}
+\index{getDoReset@{getDoReset}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-App::get\-Do\-Reset () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderApp_235c8178b31bcc681c1ff018f6bc8690}
+
+
+Whether the application is sends a reset packet before the read process. 
+
+\begin{Desc}
+\item[Returns:]true if reset packets are sent. \end{Desc}
+
+
+Definition at line 460 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!getNextReadTime@{getNextReadTime}}
+\index{getNextReadTime@{getNextReadTime}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Rfid\-Reader\-App::get\-Next\-Read\-Time () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderApp_32586e31c1ecd00471e7debe63024c1d}
+
+
+Get the next (absolute) time in a cycle that the read command is issued. 
+
+\begin{Desc}
+\item[Returns:]the next (absolute) time in the cycle that the read command is issued. Returns zero if no reads are pending. \end{Desc}
+
+
+Definition at line 440 of file rfid\_\-reader\_\-app.hpp.
+
+References Simulator::current\-Time(), and Simulator::instance().\index{RfidReaderApp@{Rfid\-Reader\-App}!getNumPowerControlLevels@{getNumPowerControlLevels}}
+\index{getNumPowerControlLevels@{getNumPowerControlLevels}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Rfid\-Reader\-App::get\-Num\-Power\-Control\-Levels () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderApp_50ca98ea6851e18e63b4ea4c297d11b7}
+
+
+Get the number of power control levels that the application will use for its reads. 
+
+\begin{Desc}
+\item[Returns:]the number of power save levels being used. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Num\-Power\-Control\-Levels()}{p.}{classRfidReaderApp_690e473e32d2caabb512ee658b7bfdc5} \end{Desc}
+
+
+Definition at line 472 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!getReadPeriod@{getReadPeriod}}
+\index{getReadPeriod@{getReadPeriod}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Rfid\-Reader\-App::get\-Read\-Period () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderApp_482906d821a8729bbe3d18157d5aef29}
+
+
+The period with which the reads are being done. 
+
+\begin{Desc}
+\item[Returns:]the read period for the cycle (if it is repeated). \end{Desc}
+
+
+Definition at line 450 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!handleRecvdPacket@{handleRecvdPacket}}
+\index{handleRecvdPacket@{handleRecvdPacket}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-App::handle\-Recvd\-Packet (Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classRfidReaderApp_bb4d0d13fb8d5e6827f137056917e9d2}
+
+
+Handle a received packet. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was handled successfully. \end{Desc}
+
+
+Implements \bf{Application\-Layer} \doxyref{p.}{classApplicationLayer_f660987e884efe4b88d14429eb731fff}.
+
+Definition at line 160 of file rfid\_\-reader\_\-app.cpp.
+
+References Simulator::current\-Time(), Packet::Data\-Types\_\-Application, Simulator::instance(), Application\-Layer::m\_\-is\-Running, m\_\-last\-Tag\-Read, m\_\-previous\-Read\-Sent\-Time, m\_\-read\-Tag\-Ids, and m\_\-read\-Tags.\index{RfidReaderApp@{Rfid\-Reader\-App}!setDoRepeatedReads@{setDoRepeatedReads}}
+\index{setDoRepeatedReads@{setDoRepeatedReads}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-App::set\-Do\-Repeated\-Reads (bool {\em do\-Repeated\-Reads})\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderApp_19d3017e1834f65645d86addab44a67a}
+
+
+Set whether or not reads are repeated or one-shot. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em do\-Repeated\-Reads}]true if repeated read commands are to be issued. \end{description}
+\end{Desc}
+
+
+Definition at line 430 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!setDoReset@{setDoReset}}
+\index{setDoReset@{setDoReset}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-App::set\-Do\-Reset (bool {\em do\-Reset})\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderApp_39b004dd6dae1cc0e22b51461439603c}
+
+
+Set whether or not a reset packet is send before beginning the read process. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em do\-Reset}]true if a reset packet should be sent. \end{description}
+\end{Desc}
+
+
+Definition at line 435 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!setNumPowerControlLevels@{setNumPowerControlLevels}}
+\index{setNumPowerControlLevels@{setNumPowerControlLevels}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-App::set\-Num\-Power\-Control\-Levels (\bf{t\_\-uint} {\em num\-Power\-Control\-Levels})\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderApp_690e473e32d2caabb512ee658b7bfdc5}
+
+
+Set the number of power control levels that the application will use for its reads. 
+
+The reader will start with the lowest transmit power level and continue increasing it on each successive read command until it reaches the initial power save level of the physical layer. The increments of the power level increase are uniformly spaced. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em num\-Power\-Control\-Levels}]the number of transmit power levels to be used (must be greater than 0). \end{description}
+\end{Desc}
+
+
+Definition at line 465 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!setReadPeriod@{setReadPeriod}}
+\index{setReadPeriod@{setReadPeriod}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-App::set\-Read\-Period (\bf{Sim\-Time} {\em read\-Period})\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderApp_60cf3377d06abe939ac73bfa2a075727}
+
+
+Set the period with which the read command will be issued. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em read\-Period}]the period of the read time if repeted reads are done. \end{description}
+\end{Desc}
+
+
+Definition at line 425 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!signalReadEnd@{signalReadEnd}}
+\index{signalReadEnd@{signalReadEnd}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-App::signal\-Read\-End ()}\label{classRfidReaderApp_d511c3b73622ce876412b1562b0ab454}
+
+
+The handler for when the MAC layer finishes a read request send by the application. 
+
+This is required when power control is used so that the application adjusts the power level to the appropriate level at the appropriate time. 
+
+Definition at line 203 of file rfid\_\-reader\_\-app.cpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!thisApplicationLayer@{thisApplicationLayer}}
+\index{thisApplicationLayer@{thisApplicationLayer}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Application\-Layer\-Ptr} Rfid\-Reader\-App::this\-Application\-Layer ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderApp_9dd696a4aad14434ce1a72c1d12b6203}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Application\-Layer}{p.}{classApplicationLayer}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Application\-Layer} \doxyref{p.}{classApplicationLayer_5def2dfec3b265c90545869d923be41d}.
+
+Definition at line 414 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!thisRfidReaderApp@{thisRfidReaderApp}}
+\index{thisRfidReaderApp@{thisRfidReaderApp}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Reader\-App\-Ptr} Rfid\-Reader\-App::this\-Rfid\-Reader\-App ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderApp_cb6a8baaacdfbaaefe3e5ee3d85ba3f1}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Reader\-App}{p.}{classRfidReaderApp}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Definition at line 408 of file rfid\_\-reader\_\-app.hpp.\index{RfidReaderApp@{Rfid\-Reader\-App}!thisSimulationEndListener@{thisSimulationEndListener}}
+\index{thisSimulationEndListener@{thisSimulationEndListener}!RfidReaderApp@{Rfid\-Reader\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Simulation\-End\-Listener\-Ptr} Rfid\-Reader\-App::this\-Simulation\-End\-Listener ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderApp_8bb50077a41feb035b295453154c0951}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Simulation\-End\-Listener}{p.}{classSimulationEndListener}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Communication\-Layer} \doxyref{p.}{classCommunicationLayer_4a1f85319b7945b9b2c481c026bc69a8}.
+
+Definition at line 420 of file rfid\_\-reader\_\-app.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rfid\_\-reader\_\-app.hpp\item 
+rfid\_\-reader\_\-app.cpp\end{CompactItemize}

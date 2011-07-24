@@ -1,0 +1,62 @@
+\section{Rfid\-Mac\-Cycle\-Event Class Reference}
+\label{classRfidMacCycleEvent}\index{RfidMacCycleEvent@{RfidMacCycleEvent}}
+The event for when the timer fires signaling a timeout for an application layer's read request.  
+
+
+{\tt \#include $<$rfid\_\-reader\_\-mac.hpp$>$}
+
+Inheritance diagram for Rfid\-Mac\-Cycle\-Event::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classRfidMacCycleEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Mac\-Cycle\-Event} $>$ \bf{Rfid\-Mac\-Cycle\-Event\-Ptr}\label{classRfidMacCycleEvent_b2f35a0df6b091212bedceecc26194e1}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{execute} ()
+\begin{CompactList}\small\item\em The code that gets executed for the event. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Mac\-Cycle\-Event\-Ptr} \bf{create} (Rfid\-Reader\-Mac\-Ptr rfid\-Reader\-Mac)\label{classRfidMacCycleEvent_5c22fbe007599e2a15f6911373be913a}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Mac\-Cycle\-Event} (Rfid\-Reader\-Mac\-Ptr rfid\-Reader\-Mac)\label{classRfidMacCycleEvent_2ecea33bee471f9f558cbe117d4315b8}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The event for when the timer fires signaling a timeout for an application layer's read request. 
+
+
+
+Definition at line 424 of file rfid\_\-reader\_\-mac.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidMacCycleEvent@{Rfid\-Mac\-Cycle\-Event}!execute@{execute}}
+\index{execute@{execute}!RfidMacCycleEvent@{Rfid\-Mac\-Cycle\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Mac\-Cycle\-Event::execute ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidMacCycleEvent_ee2ce93e9d16324c5edddcdbb928fc83}
+
+
+The code that gets executed for the event. 
+
+Subclasses can override this to define their own actions. 
+
+Implements \bf{Event} \doxyref{p.}{classEvent_b53a925ac3b000c6f017a4a951aff3c7}.
+
+Definition at line 442 of file rfid\_\-reader\_\-mac.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+rfid\_\-reader\_\-mac.hpp\end{CompactItemize}

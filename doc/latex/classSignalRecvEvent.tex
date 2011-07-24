@@ -1,0 +1,55 @@
+\section{Signal\-Recv\-Event Class Reference}
+\label{classSignalRecvEvent}\index{SignalRecvEvent@{SignalRecvEvent}}
+The event for when a signal is transmitted onto the channel.  
+
+
+{\tt \#include $<$physical\_\-layer.hpp$>$}
+
+Inheritance diagram for Signal\-Recv\-Event::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classSignalRecvEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Signal\-Recv\-Event} $>$ \bf{Signal\-Recv\-Event\-Ptr}\label{classSignalRecvEvent_11a45c5690eff2eef002cf250d5a58a1}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Signal\-Recv\-Event} (Wireless\-Channel\-Manager\-Ptr channel\-Manager, Physical\-Layer\-Ptr sender, Wireless\-Comm\-Signal\-Ptr signal)\label{classSignalRecvEvent_d8a344916e62c8bd2c9b70420dac031b}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+void \bf{execute} ()
+\begin{CompactList}\small\item\em The code that gets executed for the event. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The event for when a signal is transmitted onto the channel. 
+
+
+
+Definition at line 676 of file physical\_\-layer.hpp.
+
+\subsection{Member Function Documentation}
+\index{SignalRecvEvent@{Signal\-Recv\-Event}!execute@{execute}}
+\index{execute@{execute}!SignalRecvEvent@{Signal\-Recv\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Signal\-Recv\-Event::execute ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classSignalRecvEvent_463f85c5ed9c184b3fb431c1a681340b}
+
+
+The code that gets executed for the event. 
+
+Subclasses can override this to define their own actions. 
+
+Implements \bf{Event} \doxyref{p.}{classEvent_b53a925ac3b000c6f017a4a951aff3c7}.
+
+Definition at line 690 of file physical\_\-layer.hpp.
+
+References Log\-Stream\-Manager::instance(), and Log\-Stream\-Manager::log\-Pkt\-Send\-Item().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+physical\_\-layer.hpp\end{CompactItemize}

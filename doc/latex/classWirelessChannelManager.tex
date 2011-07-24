@@ -1,0 +1,184 @@
+\section{Wireless\-Channel\-Manager Class Reference}
+\label{classWirelessChannelManager}\index{WirelessChannelManager@{WirelessChannelManager}}
+This class manages which nodes are listening and transmitting on which channels.  
+
+
+{\tt \#include $<$wireless\_\-channel\_\-manager.hpp$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Wireless\-Channel\-Manager} $>$ \bf{Wireless\-Channel\-Manager\-Ptr}\label{classWirelessChannelManager_edd59ec3ea8cd2f10c265fbdf76e7492}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{recv\-Signal} (Physical\-Layer\-Ptr sender, Wireless\-Comm\-Signal\-Ptr signal)
+\begin{CompactList}\small\item\em Receive a signal from a physical layer that will sent on all channels to which the sender is attached as a sender. \item\end{CompactList}\item 
+void \bf{pass\-Signal\-To\-Receiver} (Physical\-Layer\-Ptr receiver, Wireless\-Comm\-Signal\-Ptr signal) const 
+\begin{CompactList}\small\item\em When the signal is finished, pass it on to the receiver if it was the captured signal for that receiver. \item\end{CompactList}\item 
+bool \bf{attach\-As\-Sender} (Physical\-Layer\-Ptr physical\-Layer, \bf{t\_\-uint} channel\-Id)
+\begin{CompactList}\small\item\em Add the physical layer as a sender on the given channel. \item\end{CompactList}\item 
+bool \bf{attach\-As\-Listener} (Physical\-Layer\-Ptr physical\-Layer, \bf{t\_\-uint} channel\-Id)
+\begin{CompactList}\small\item\em Add the physical layer as a listener of the given channel. \item\end{CompactList}\item 
+bool \bf{detach\-As\-Sender} (Physical\-Layer\-Ptr physical\-Layer, \bf{t\_\-uint} channel\-Id)
+\begin{CompactList}\small\item\em Remove the physical layer as a sender on the given channel. \item\end{CompactList}\item 
+bool \bf{detach\-As\-Listener} (Physical\-Layer\-Ptr physical\-Layer, \bf{t\_\-uint} channel\-Id)
+\begin{CompactList}\small\item\em Remove the physical layer as a listener of the given channel. \item\end{CompactList}\item 
+void \bf{add\-Channel} (\bf{t\_\-uint} channel\-Id, Wireless\-Channel\-Ptr channel)
+\begin{CompactList}\small\item\em Add the given channel to this manager with the specified ID. \item\end{CompactList}\item 
+bool \bf{remove\-Channel} (\bf{t\_\-uint} channel\-Id)
+\begin{CompactList}\small\item\em Remove the channel with the given ID from this manager. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Wireless\-Channel\-Manager\-Ptr} \bf{create} ()\label{classWirelessChannelManager_1cd120bf30a3cd8fa885bdc8857bc2cc}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Wireless\-Channel\-Manager} ()\label{classWirelessChannelManager_c70e105a3fde80ca22297f9211ce7028}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class manages which nodes are listening and transmitting on which channels. 
+
+
+
+Definition at line 36 of file wireless\_\-channel\_\-manager.hpp.
+
+\subsection{Member Function Documentation}
+\index{WirelessChannelManager@{Wireless\-Channel\-Manager}!addChannel@{addChannel}}
+\index{addChannel@{addChannel}!WirelessChannelManager@{Wireless\-Channel\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Wireless\-Channel\-Manager::add\-Channel (\bf{t\_\-uint} {\em channel\-Id}, Wireless\-Channel\-Ptr {\em channel})}\label{classWirelessChannelManager_b6f5b1981bde593e91469ad995a03a6a}
+
+
+Add the given channel to this manager with the specified ID. 
+
+If a different already exists with the specified ID, it will be replaced with the newly specified channel. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel\-Id}]the ID to identify the channel. \item[{\em channel}]a pointer to the channel to be added. \end{description}
+\end{Desc}
+
+
+Definition at line 295 of file wireless\_\-channel\_\-manager.cpp.\index{WirelessChannelManager@{Wireless\-Channel\-Manager}!attachAsListener@{attachAsListener}}
+\index{attachAsListener@{attachAsListener}!WirelessChannelManager@{Wireless\-Channel\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Wireless\-Channel\-Manager::attach\-As\-Listener (Physical\-Layer\-Ptr {\em physical\-Layer}, \bf{t\_\-uint} {\em channel\-Id})}\label{classWirelessChannelManager_1f0dcd565143650f59ae492f58f8dc83}
+
+
+Add the physical layer as a listener of the given channel. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em physical\-Layer}]a pointer to the physical layer. \item[{\em channel\-Id}]the ID of the channel on which the physical layer will listen. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the layer is successfully added as a listener on the channel. \end{Desc}
+
+
+Definition at line 249 of file wireless\_\-channel\_\-manager.cpp.\index{WirelessChannelManager@{Wireless\-Channel\-Manager}!attachAsSender@{attachAsSender}}
+\index{attachAsSender@{attachAsSender}!WirelessChannelManager@{Wireless\-Channel\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Wireless\-Channel\-Manager::attach\-As\-Sender (Physical\-Layer\-Ptr {\em physical\-Layer}, \bf{t\_\-uint} {\em channel\-Id})}\label{classWirelessChannelManager_553dfc07549055977273ddd8b6ee0f60}
+
+
+Add the physical layer as a sender on the given channel. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em physical\-Layer}]a pointer to the physical layer. \item[{\em channel\-Id}]the ID of the channel on which the physical layer will transmit. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the channel is successfully added on which the physical layer can transmit. \end{Desc}
+
+
+Definition at line 203 of file wireless\_\-channel\_\-manager.cpp.\index{WirelessChannelManager@{Wireless\-Channel\-Manager}!detachAsListener@{detachAsListener}}
+\index{detachAsListener@{detachAsListener}!WirelessChannelManager@{Wireless\-Channel\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Wireless\-Channel\-Manager::detach\-As\-Listener (Physical\-Layer\-Ptr {\em physical\-Layer}, \bf{t\_\-uint} {\em channel\-Id})}\label{classWirelessChannelManager_e4f246bb2427df688ae55b693fd82ad4}
+
+
+Remove the physical layer as a listener of the given channel. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em physical\-Layer}]a pointer to the physical layer. \item[{\em channel\-Id}]the ID of the channel from which the physical layer will stop listening. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the layer is successfully removed as a listener on the channel. \end{Desc}
+
+
+Definition at line 267 of file wireless\_\-channel\_\-manager.cpp.\index{WirelessChannelManager@{Wireless\-Channel\-Manager}!detachAsSender@{detachAsSender}}
+\index{detachAsSender@{detachAsSender}!WirelessChannelManager@{Wireless\-Channel\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Wireless\-Channel\-Manager::detach\-As\-Sender (Physical\-Layer\-Ptr {\em physical\-Layer}, \bf{t\_\-uint} {\em channel\-Id})}\label{classWirelessChannelManager_8652d5f6eb293be4d4475bbea3d1487b}
+
+
+Remove the physical layer as a sender on the given channel. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em physical\-Layer}]a pointer to the physical layer. \item[{\em channel\-Id}]the ID of the channel from which the physical layer will be removed. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the channel is successfully removed from the physical layer's list of channels on which it can transmit. \end{Desc}
+
+
+Definition at line 221 of file wireless\_\-channel\_\-manager.cpp.\index{WirelessChannelManager@{Wireless\-Channel\-Manager}!passSignalToReceiver@{passSignalToReceiver}}
+\index{passSignalToReceiver@{passSignalToReceiver}!WirelessChannelManager@{Wireless\-Channel\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Wireless\-Channel\-Manager::pass\-Signal\-To\-Receiver (Physical\-Layer\-Ptr {\em receiver}, Wireless\-Comm\-Signal\-Ptr {\em signal}) const}\label{classWirelessChannelManager_865bbde680eea14c28e17a9a84ffcf0b}
+
+
+When the signal is finished, pass it on to the receiver if it was the captured signal for that receiver. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em receiver}]the physical layer that may potentially receive the signal. \item[{\em signal}]the signal that may be received. \end{description}
+\end{Desc}
+
+
+Definition at line 184 of file wireless\_\-channel\_\-manager.cpp.
+
+References Wireless\-Comm\-Signal::create().\index{WirelessChannelManager@{Wireless\-Channel\-Manager}!recvSignal@{recvSignal}}
+\index{recvSignal@{recvSignal}!WirelessChannelManager@{Wireless\-Channel\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Wireless\-Channel\-Manager::recv\-Signal (Physical\-Layer\-Ptr {\em sender}, Wireless\-Comm\-Signal\-Ptr {\em signal})}\label{classWirelessChannelManager_97254e8ed05330d05a3ea02940e60a3f}
+
+
+Receive a signal from a physical layer that will sent on all channels to which the sender is attached as a sender. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sender}]a pointer to the physical layer sending the signal. \item[{\em signal}]the signal being sent. \end{description}
+\end{Desc}
+
+
+Definition at line 56 of file wireless\_\-channel\_\-manager.cpp.\index{WirelessChannelManager@{Wireless\-Channel\-Manager}!removeChannel@{removeChannel}}
+\index{removeChannel@{removeChannel}!WirelessChannelManager@{Wireless\-Channel\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Wireless\-Channel\-Manager::remove\-Channel (\bf{t\_\-uint} {\em channel\-Id})}\label{classWirelessChannelManager_8a0d90f1053c2de6bf5c1bf1358bd889}
+
+
+Remove the channel with the given ID from this manager. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel\-Id}]the ID of the channel to be removed. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the channel was found and successfully removed. \end{Desc}
+
+
+Definition at line 302 of file wireless\_\-channel\_\-manager.cpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+wireless\_\-channel\_\-manager.hpp\item 
+wireless\_\-channel\_\-manager.cpp\end{CompactItemize}

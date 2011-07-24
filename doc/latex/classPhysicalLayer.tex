@@ -1,0 +1,853 @@
+\section{Physical\-Layer Class Reference}
+\label{classPhysicalLayer}\index{PhysicalLayer@{PhysicalLayer}}
+The class for the physical layer of a node (i.e., the radio).  
+
+
+{\tt \#include $<$physical\_\-layer.hpp$>$}
+
+Inheritance diagram for Physical\-Layer::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classPhysicalLayer}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Physical\-Layer} $>$ \bf{Physical\-Layer\-Ptr}\label{classPhysicalLayer_1a2fcb7658e5f7c036577e96770058e6}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Physical\-Layer} ()\label{classPhysicalLayer_4cc84a8d4418797e725154786a785ef4}
+
+\begin{CompactList}\small\item\em A destructor A virtual destructor is recommended since the class has virtual functions. \item\end{CompactList}\item 
+virtual \bf{Physical\-Layer\-Ptr} \bf{this\-Physical\-Layer} ()=0
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Physical\-Layer}{p.}{classPhysicalLayer}} object. \item\end{CompactList}\item 
+void \bf{set\-Wireless\-Channel\-Manager} (Wireless\-Channel\-Manager\-Ptr wireless\-Channel\-Manager)
+\begin{CompactList}\small\item\em Add the channel manager. \item\end{CompactList}\item 
+bool \bf{recv\-Pending\-Signal} (Wireless\-Comm\-Signal\-Ptr signal, double recvd\-Signal\-Strength)
+\begin{CompactList}\small\item\em Handle the successfully received signal. \item\end{CompactList}\item 
+virtual bool \bf{send\-Signal} (Wireless\-Comm\-Signal\-Ptr signal)
+\begin{CompactList}\small\item\em Send a wireless signal on the channel. \item\end{CompactList}\item 
+bool \bf{is\-Transmitting} () const 
+\begin{CompactList}\small\item\em Determine if this layer is currently transmitting a signal. \item\end{CompactList}\item 
+void \bf{set\-Signal\-Sending\-Delay} (\bf{Sim\-Time} signal\-Sending\-Delay)
+\begin{CompactList}\small\item\em Set the delay for how long it takes before a signal is transmitted on the channel. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{get\-Signal\-Sending\-Delay} () const 
+\begin{CompactList}\small\item\em Get the delay for how long it takes to send a signal on the channel. \item\end{CompactList}\item 
+bool \bf{recv\-From\-Layer} (\bf{Communication\-Layer::Directions} direction, Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Receives a packet from a sending layer. \item\end{CompactList}\item 
+\bf{Location} \bf{get\-Location} () const 
+\begin{CompactList}\small\item\em Return the geographic location of this physical layer. \item\end{CompactList}\item 
+void \bf{add\-Signal} (Wireless\-Comm\-Signal\-Ptr signal, double signal\-Strength)
+\begin{CompactList}\small\item\em Add a signal currently being received and its computed signal strength. \item\end{CompactList}\item 
+void \bf{remove\-Signal} (Wireless\-Comm\-Signal\-Ptr signal)
+\begin{CompactList}\small\item\em Remove a signal from the signals currently being received by this object. \item\end{CompactList}\item 
+bool \bf{pending\-Signal\-Is\-Weak} ()
+\begin{CompactList}\small\item\em Determine if the currently pending signal is still sufficiently strong to be captured at this object. \item\end{CompactList}\item 
+bool \bf{capture\-Signal} (double signal\-Strength) const 
+\begin{CompactList}\small\item\em Determine whether of not a given signal is strong enough to be captured at this object. \item\end{CompactList}\item 
+double \bf{get\-Culmulative\-Signal\-Strength} () const 
+\begin{CompactList}\small\item\em Return the total signal strength of all signals currently being received by this object. \item\end{CompactList}\item 
+double \bf{get\-Noise\-Floor} () const 
+\begin{CompactList}\small\item\em Return the noise floor for the radio. \item\end{CompactList}\item 
+void \bf{set\-Pending\-Signal} (Wireless\-Comm\-Signal\-Ptr signal)
+\begin{CompactList}\small\item\em Set a signal as the signal which would be received if it were to end right now. \item\end{CompactList}\item 
+void \bf{set\-Pending\-Signal\-Error} (bool has\-Error)
+\begin{CompactList}\small\item\em Set whether or not the currently pending signal will have an error when/if received. \item\end{CompactList}\item 
+bool \bf{get\-Pending\-Signal\-Error} () const 
+\begin{CompactList}\small\item\em Get whether or not the currently pending signal will have an error upon reception. \item\end{CompactList}\item 
+Const\-Wireless\-Comm\-Signal\-Ptr \bf{get\-Pending\-Signal} () const 
+\begin{CompactList}\small\item\em Get a pointer to the signal which would be received if it were to end right now. \item\end{CompactList}\item 
+double \bf{get\-Pending\-Signal\-Strength} ()
+\begin{CompactList}\small\item\em Get the signal strength of the signal which would be received if it were to end right now. \item\end{CompactList}\item 
+double \bf{get\-Pending\-Signal\-Sinr} ()
+\begin{CompactList}\small\item\em Get the SINR of the signal which would be received if it were to end right now. \item\end{CompactList}\item 
+void \bf{reset\-Pending\-Signal} ()
+\begin{CompactList}\small\item\em Reset this object such that there is no currently pending signal which is strong enough to receive right now. \item\end{CompactList}\item 
+void \bf{reset\-Recv\-Signals} ()
+\begin{CompactList}\small\item\em Reset this object such that there are {\em no\/} signals currently pending. \item\end{CompactList}\item 
+bool \bf{channel\-Carrier\-Sensed\-Busy} () const 
+\begin{CompactList}\small\item\em Determine whether the channel is carrier sensed busy. \item\end{CompactList}\item 
+void \bf{set\-Current\-Tx\-Power} (double tx\-Power)
+\begin{CompactList}\small\item\em Set the current transmit power for the physical layer. \item\end{CompactList}\item 
+double \bf{get\-Current\-Tx\-Power} () const 
+\begin{CompactList}\small\item\em Get the current transmit power in watts. \item\end{CompactList}\item 
+double \bf{get\-Max\-Tx\-Power} () const 
+\begin{CompactList}\small\item\em Get the maximum transmit power in watts. \item\end{CompactList}\item 
+void \bf{set\-Rx\-Threshold} (double rx\-Threshold)
+\begin{CompactList}\small\item\em Set the power threshold for receiving a packet. \item\end{CompactList}\item 
+double \bf{get\-Rx\-Threshold} () const 
+\begin{CompactList}\small\item\em Get the power threshold for receiving a packet. \item\end{CompactList}\item 
+void \bf{set\-Cs\-Threshold} (double cs\-Threshold)
+\begin{CompactList}\small\item\em Set the power threshold for carrier sensing a channel busy. \item\end{CompactList}\item 
+double \bf{get\-Cs\-Threshold} () const 
+\begin{CompactList}\small\item\em Get the power threshold for carrier sensing a channel busy. \item\end{CompactList}\item 
+void \bf{set\-Capture\-Threshold} (double capture\-Threshold)
+\begin{CompactList}\small\item\em Set the capture threshold for considering a SINR sufficiently strong. \item\end{CompactList}\item 
+double \bf{get\-Capture\-Threshold} () const 
+\begin{CompactList}\small\item\em Get the capture threshold for considering a SINR sufficiently strong. \item\end{CompactList}\item 
+void \bf{set\-Minimum\-Signal\-Strength} (double minimum\-Signal\-Strength)
+\begin{CompactList}\small\item\em Set the minimum signal strength for considering a signal stronger than thermal noise. \item\end{CompactList}\item 
+double \bf{get\-Minimum\-Signal\-Strength} () const 
+\begin{CompactList}\small\item\em Get the minimum signal strength for considering a signal stronger than thermal noise. \item\end{CompactList}\item 
+void \bf{set\-Data\-Rate} (double data\-Rate)
+\begin{CompactList}\small\item\em Set the current data rate in bits per second. \item\end{CompactList}\item 
+double \bf{get\-Data\-Rate} () const 
+\begin{CompactList}\small\item\em Get the current data rate. \item\end{CompactList}\item 
+void \bf{set\-Bandwidth} (double bandwidth)
+\begin{CompactList}\small\item\em Set the current radio bandwidth in Hz. \item\end{CompactList}\item 
+double \bf{get\-Bandwidth} () const 
+\begin{CompactList}\small\item\em Get the current radio bandwidth in Hz. \item\end{CompactList}\item 
+double \bf{get\-Gain} () const 
+\begin{CompactList}\small\item\em Get the gain of the antenna. \item\end{CompactList}\item 
+double \bf{get\-Wavelength} () const 
+\begin{CompactList}\small\item\em Get the wavelength of the antenna based on the current bandwidth. \item\end{CompactList}\item 
+\bf{Communication\-Layer::Types} \bf{get\-Layer\-Type} () const 
+\begin{CompactList}\small\item\em Get the layer type for an object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Physical\-Layer} (Node\-Ptr node)\label{classPhysicalLayer_f02d459d3518c59d54add50d7dc56549}
+
+\begin{CompactList}\small\item\em A constructor This is protected to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+virtual void \bf{recvd\-Error\-Free\-Signal} (Wireless\-Comm\-Signal\-Ptr signal, double recvd\-Signal\-Strength)
+\begin{CompactList}\small\item\em This function is called when an error free signal is received, just before its packet is passed to the upper layer. \item\end{CompactList}\item 
+void \bf{set\-Max\-Tx\-Power} (double tx\-Power)
+\begin{CompactList}\small\item\em Set the maximum transmit power for the physical layer. \item\end{CompactList}\item 
+bool \bf{schedule\-Signal} (Wireless\-Comm\-Signal\-Ptr signal)
+\begin{CompactList}\small\item\em Schedule the signal to be received by the channel manager. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+Wireless\-Channel\-Manager\-Ptr \bf{m\_\-wireless\-Channel\-Manager\-Ptr}
+\begin{CompactList}\small\item\em The channel manager being used by this object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class \bf{Signal\-Recv\-Event}\label{classPhysicalLayer_75f7479a0ce569054bd69df7cfba42e2}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The class for the physical layer of a node (i.e., the radio). 
+
+
+
+Definition at line 22 of file physical\_\-layer.hpp.
+
+\subsection{Member Function Documentation}
+\index{PhysicalLayer@{Physical\-Layer}!addSignal@{addSignal}}
+\index{addSignal@{addSignal}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::add\-Signal (Wireless\-Comm\-Signal\-Ptr {\em signal}, double {\em signal\-Strength})}\label{classPhysicalLayer_d60020ca7c16de6a08ddcc60b2efc9c0}
+
+
+Add a signal currently being received and its computed signal strength. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]a pointer to the signal to add. \item[{\em signal\-Strength}]the strength of the signal. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{remove\-Signal()}{p.}{classPhysicalLayer_3121ad16184a8da1d7efda14480c5e53} 
+
+\doxyref{get\-Culmulative\-Signal\-Strength()}{p.}{classPhysicalLayer_8abef29ab25bd26f5800e29d6e739682} \end{Desc}
+
+
+Definition at line 144 of file physical\_\-layer.cpp.
+
+References get\-Minimum\-Signal\-Strength().\index{PhysicalLayer@{Physical\-Layer}!captureSignal@{captureSignal}}
+\index{captureSignal@{captureSignal}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Physical\-Layer::capture\-Signal (double {\em signal\-Strength}) const}\label{classPhysicalLayer_06f60afa6a53f974fc3233d4f9e24173}
+
+
+Determine whether of not a given signal is strong enough to be captured at this object. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal\-Strength}]the strength of the signal at this receiver. This signal should {\em not\/} have been added (via add\-Signal) at the time this function is called. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the signal is strong enough for the receiver to capture it. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{add\-Signal()}{p.}{classPhysicalLayer_d60020ca7c16de6a08ddcc60b2efc9c0} \end{Desc}
+
+
+\begin{Desc}
+\item[\bf{Todo}]When a full BER model is implemented, this signal can just be captured if its signal stength is stronger than the currently pending signal signal strength. The BER model will take care of whether or not the packet is received in error based on the SINR and rate. \end{Desc}
+
+
+Definition at line 202 of file physical\_\-layer.cpp.
+
+References get\-Capture\-Threshold(), get\-Cs\-Threshold(), get\-Culmulative\-Signal\-Strength(), Communication\-Layer::get\-Node\-Id(), get\-Noise\-Floor(), get\-Rx\-Threshold(), Log\-Stream\-Manager::instance(), and Log\-Stream\-Manager::log\-Debug\-Item().\index{PhysicalLayer@{Physical\-Layer}!channelCarrierSensedBusy@{channelCarrierSensedBusy}}
+\index{channelCarrierSensedBusy@{channelCarrierSensedBusy}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Physical\-Layer::channel\-Carrier\-Sensed\-Busy () const}\label{classPhysicalLayer_fb7587ad33a36082d1fe1234d1757684}
+
+
+Determine whether the channel is carrier sensed busy. 
+
+\begin{Desc}
+\item[Returns:]true if the channel is carrier sensed busy. \end{Desc}
+
+
+Definition at line 284 of file physical\_\-layer.cpp.
+
+References get\-Cs\-Threshold(), and get\-Culmulative\-Signal\-Strength().\index{PhysicalLayer@{Physical\-Layer}!getBandwidth@{getBandwidth}}
+\index{getBandwidth@{getBandwidth}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Bandwidth () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_5057abae7d633ce8b56b58919a824579}
+
+
+Get the current radio bandwidth in Hz. 
+
+\begin{Desc}
+\item[Returns:]the radio bandwidth in Hz. \end{Desc}
+
+
+Definition at line 617 of file physical\_\-layer.hpp.
+
+Referenced by get\-Noise\-Floor().\index{PhysicalLayer@{Physical\-Layer}!getCaptureThreshold@{getCaptureThreshold}}
+\index{getCaptureThreshold@{getCaptureThreshold}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Capture\-Threshold () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_6f32a0aacbdf51396b94eb4ee73e5fff}
+
+
+Get the capture threshold for considering a SINR sufficiently strong. 
+
+\begin{Desc}
+\item[Returns:]the current capture threshold. \end{Desc}
+
+
+Definition at line 583 of file physical\_\-layer.hpp.
+
+Referenced by capture\-Signal(), and pending\-Signal\-Is\-Weak().\index{PhysicalLayer@{Physical\-Layer}!getCsThreshold@{getCsThreshold}}
+\index{getCsThreshold@{getCsThreshold}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Cs\-Threshold () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_e2bbabfad75920bb75fb9c4ed0b05045}
+
+
+Get the power threshold for carrier sensing a channel busy. 
+
+\begin{Desc}
+\item[Returns:]the current carrier sense power threshold. \end{Desc}
+
+
+Definition at line 572 of file physical\_\-layer.hpp.
+
+Referenced by capture\-Signal(), and channel\-Carrier\-Sensed\-Busy().\index{PhysicalLayer@{Physical\-Layer}!getCulmulativeSignalStrength@{getCulmulativeSignalStrength}}
+\index{getCulmulativeSignalStrength@{getCulmulativeSignalStrength}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Culmulative\-Signal\-Strength () const}\label{classPhysicalLayer_8abef29ab25bd26f5800e29d6e739682}
+
+
+Return the total signal strength of all signals currently being received by this object. 
+
+\begin{Desc}
+\item[Returns:]the culmulative signal strength of the signals. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{add\-Signal()}{p.}{classPhysicalLayer_d60020ca7c16de6a08ddcc60b2efc9c0} 
+
+\doxyref{remove\-Signal()}{p.}{classPhysicalLayer_3121ad16184a8da1d7efda14480c5e53} \end{Desc}
+
+
+Definition at line 235 of file physical\_\-layer.cpp.
+
+Referenced by capture\-Signal(), channel\-Carrier\-Sensed\-Busy(), and get\-Pending\-Signal\-Sinr().\index{PhysicalLayer@{Physical\-Layer}!getCurrentTxPower@{getCurrentTxPower}}
+\index{getCurrentTxPower@{getCurrentTxPower}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Current\-Tx\-Power () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_f7f3cf42948289a951869132600db62d}
+
+
+Get the current transmit power in watts. 
+
+\begin{Desc}
+\item[Returns:]the current transmit power in watts. \end{Desc}
+
+
+Definition at line 538 of file physical\_\-layer.hpp.\index{PhysicalLayer@{Physical\-Layer}!getDataRate@{getDataRate}}
+\index{getDataRate@{getDataRate}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Data\-Rate () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_b0e19bc0240be005415f32f225acb97b}
+
+
+Get the current data rate. 
+
+\begin{Desc}
+\item[Returns:]data rate in bits per second. \end{Desc}
+
+
+Definition at line 606 of file physical\_\-layer.hpp.
+
+Referenced by recv\-From\-Layer().\index{PhysicalLayer@{Physical\-Layer}!getGain@{getGain}}
+\index{getGain@{getGain}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Gain () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_1ea165fa472a02b81c99128d56a589ef}
+
+
+Get the gain of the antenna. 
+
+\begin{Desc}
+\item[Returns:]the gain (unit-less). \end{Desc}
+
+
+Definition at line 628 of file physical\_\-layer.hpp.
+
+Referenced by Two\-Ray::get\-Recvd\-Strength(), Free\-Space::get\-Recvd\-Strength(), and recv\-From\-Layer().\index{PhysicalLayer@{Physical\-Layer}!getLayerType@{getLayerType}}
+\index{getLayerType@{getLayerType}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Communication\-Layer::Types} Physical\-Layer::get\-Layer\-Type () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classPhysicalLayer_6bb17b6ee633bea231bdd35f9e668587}
+
+
+Get the layer type for an object. 
+
+\begin{Desc}
+\item[Returns:]the type of the layer. \end{Desc}
+
+
+Implements \bf{Communication\-Layer} \doxyref{p.}{classCommunicationLayer_d03db488bd723170a093700a58cb3c9e}.
+
+Definition at line 660 of file physical\_\-layer.hpp.
+
+References Communication\-Layer::Types\_\-Physical.
+
+Referenced by recv\-Pending\-Signal().\index{PhysicalLayer@{Physical\-Layer}!getLocation@{getLocation}}
+\index{getLocation@{getLocation}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Location} Physical\-Layer::get\-Location () const}\label{classPhysicalLayer_2feac1ad84432e383fe6db969ae8374b}
+
+
+Return the geographic location of this physical layer. 
+
+This is needed to compute received signal strength. \begin{Desc}
+\item[Returns:]a pointer to the location of the node that owns this physical layer. \end{Desc}
+
+
+Definition at line 290 of file physical\_\-layer.cpp.
+
+References Communication\-Layer::get\-Node().
+
+Referenced by Two\-Ray::get\-Recvd\-Strength(), Free\-Space::get\-Recvd\-Strength(), and Channel::propagation\-Delay().\index{PhysicalLayer@{Physical\-Layer}!getMaxTxPower@{getMaxTxPower}}
+\index{getMaxTxPower@{getMaxTxPower}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Max\-Tx\-Power () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_0bbf81299ddc9dab2cc190e0985b160e}
+
+
+Get the maximum transmit power in watts. 
+
+\begin{Desc}
+\item[Returns:]the maximum transmit power in watts. \end{Desc}
+
+
+Definition at line 550 of file physical\_\-layer.hpp.\index{PhysicalLayer@{Physical\-Layer}!getMinimumSignalStrength@{getMinimumSignalStrength}}
+\index{getMinimumSignalStrength@{getMinimumSignalStrength}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Minimum\-Signal\-Strength () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_3b5c93b27429f92837c1ab96fcf44b29}
+
+
+Get the minimum signal strength for considering a signal stronger than thermal noise. 
+
+\begin{Desc}
+\item[Returns:]the current minimum signal strength. \end{Desc}
+
+
+Definition at line 595 of file physical\_\-layer.hpp.
+
+Referenced by add\-Signal().\index{PhysicalLayer@{Physical\-Layer}!getNoiseFloor@{getNoiseFloor}}
+\index{getNoiseFloor@{getNoiseFloor}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Noise\-Floor () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_f2510cb4ea8b5b400831f1d6ee754f0f}
+
+
+Return the noise floor for the radio. 
+
+\begin{Desc}
+\item[Returns:]the noise floor in watts. \end{Desc}
+
+
+Definition at line 622 of file physical\_\-layer.hpp.
+
+References get\-Bandwidth().
+
+Referenced by capture\-Signal(), and get\-Pending\-Signal\-Sinr().\index{PhysicalLayer@{Physical\-Layer}!getPendingSignal@{getPendingSignal}}
+\index{getPendingSignal@{getPendingSignal}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Const\-Wireless\-Comm\-Signal\-Ptr Physical\-Layer::get\-Pending\-Signal () const}\label{classPhysicalLayer_76199f0741683e3b0d3dd2c6e21730f8}
+
+
+Get a pointer to the signal which would be received if it were to end right now. 
+
+\begin{Desc}
+\item[Returns:]a pointer to the signal. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Pending\-Signal()}{p.}{classPhysicalLayer_2112ec7ca280fb6e253cac1f4ce16497} 
+
+\doxyref{reset\-Pending\-Signal()}{p.}{classPhysicalLayer_f653514f9bc43de102b7203fed6868bf} 
+
+\doxyref{get\-Pending\-Signal\-Strength()}{p.}{classPhysicalLayer_e6370bde18a9a21488d8b482adb09d9b} \end{Desc}
+
+
+Definition at line 252 of file physical\_\-layer.cpp.\index{PhysicalLayer@{Physical\-Layer}!getPendingSignalError@{getPendingSignalError}}
+\index{getPendingSignalError@{getPendingSignalError}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Physical\-Layer::get\-Pending\-Signal\-Error () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_b119ad2d9807ae31d9f2ad8111149d62}
+
+
+Get whether or not the currently pending signal will have an error upon reception. 
+
+\begin{Desc}
+\item[Returns:]true if the signal will have an error upon reception. \end{Desc}
+
+
+Definition at line 639 of file physical\_\-layer.hpp.\index{PhysicalLayer@{Physical\-Layer}!getPendingSignalSinr@{getPendingSignalSinr}}
+\index{getPendingSignalSinr@{getPendingSignalSinr}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Pending\-Signal\-Sinr ()}\label{classPhysicalLayer_d8b6fc811791c0035685687de242b8b7}
+
+
+Get the SINR of the signal which would be received if it were to end right now. 
+
+\begin{Desc}
+\item[Returns:]the SINR of the signal or zero if no such signal is being received. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Pending\-Signal()}{p.}{classPhysicalLayer_2112ec7ca280fb6e253cac1f4ce16497} 
+
+\doxyref{get\-Pending\-Signal()}{p.}{classPhysicalLayer_76199f0741683e3b0d3dd2c6e21730f8} 
+
+\doxyref{reset\-Pending\-Signal()}{p.}{classPhysicalLayer_f653514f9bc43de102b7203fed6868bf} \end{Desc}
+
+
+Definition at line 171 of file physical\_\-layer.cpp.
+
+References get\-Culmulative\-Signal\-Strength(), get\-Noise\-Floor(), and get\-Pending\-Signal\-Strength().
+
+Referenced by pending\-Signal\-Is\-Weak().\index{PhysicalLayer@{Physical\-Layer}!getPendingSignalStrength@{getPendingSignalStrength}}
+\index{getPendingSignalStrength@{getPendingSignalStrength}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Pending\-Signal\-Strength ()}\label{classPhysicalLayer_e6370bde18a9a21488d8b482adb09d9b}
+
+
+Get the signal strength of the signal which would be received if it were to end right now. 
+
+\begin{Desc}
+\item[Returns:]the signal strength of the signal or zero if no such signal is being received. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Pending\-Signal()}{p.}{classPhysicalLayer_2112ec7ca280fb6e253cac1f4ce16497} 
+
+\doxyref{get\-Pending\-Signal()}{p.}{classPhysicalLayer_76199f0741683e3b0d3dd2c6e21730f8} 
+
+\doxyref{reset\-Pending\-Signal()}{p.}{classPhysicalLayer_f653514f9bc43de102b7203fed6868bf} \end{Desc}
+
+
+Definition at line 257 of file physical\_\-layer.cpp.
+
+Referenced by get\-Pending\-Signal\-Sinr(), and pending\-Signal\-Is\-Weak().\index{PhysicalLayer@{Physical\-Layer}!getRxThreshold@{getRxThreshold}}
+\index{getRxThreshold@{getRxThreshold}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Rx\-Threshold () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_4fc39d541f286f8b5bb797922b645d11}
+
+
+Get the power threshold for receiving a packet. 
+
+\begin{Desc}
+\item[Returns:]the current receive power threshold. \end{Desc}
+
+
+Definition at line 561 of file physical\_\-layer.hpp.
+
+Referenced by capture\-Signal(), and pending\-Signal\-Is\-Weak().\index{PhysicalLayer@{Physical\-Layer}!getSignalSendingDelay@{getSignalSendingDelay}}
+\index{getSignalSendingDelay@{getSignalSendingDelay}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Physical\-Layer::get\-Signal\-Sending\-Delay () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_fd364286f9bc1882b48bb810b6fa7503}
+
+
+Get the delay for how long it takes to send a signal on the channel. 
+
+\begin{Desc}
+\item[Returns:]the delay from the time a signal is sent by this object until it actually reaches the channel. \end{Desc}
+
+
+Definition at line 655 of file physical\_\-layer.hpp.
+
+Referenced by schedule\-Signal().\index{PhysicalLayer@{Physical\-Layer}!getWavelength@{getWavelength}}
+\index{getWavelength@{getWavelength}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Physical\-Layer::get\-Wavelength () const\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_db93819a1d019894935ea48905ee5cdb}
+
+
+Get the wavelength of the antenna based on the current bandwidth. 
+
+\begin{Desc}
+\item[Returns:]the wavelength in meters. \end{Desc}
+
+
+Definition at line 644 of file physical\_\-layer.hpp.
+
+References SPEED\_\-OF\_\-LIGHT.
+
+Referenced by recv\-From\-Layer().\index{PhysicalLayer@{Physical\-Layer}!isTransmitting@{isTransmitting}}
+\index{isTransmitting@{isTransmitting}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Physical\-Layer::is\-Transmitting () const}\label{classPhysicalLayer_cad4fc7a1f16b54fa004d9772b488962}
+
+
+Determine if this layer is currently transmitting a signal. 
+
+\begin{Desc}
+\item[Returns:]true if the layer is transmitting a signal. \end{Desc}
+
+
+Definition at line 123 of file physical\_\-layer.cpp.\index{PhysicalLayer@{Physical\-Layer}!pendingSignalIsWeak@{pendingSignalIsWeak}}
+\index{pendingSignalIsWeak@{pendingSignalIsWeak}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Physical\-Layer::pending\-Signal\-Is\-Weak ()}\label{classPhysicalLayer_5b50bae0901964f6e150552b4289d3f9}
+
+
+Determine if the currently pending signal is still sufficiently strong to be captured at this object. 
+
+\begin{Desc}
+\item[Returns:]true if the currently pending signal is now too weak to be captured to be received or there is no currently pending signal. \end{Desc}
+
+
+Definition at line 190 of file physical\_\-layer.cpp.
+
+References get\-Capture\-Threshold(), get\-Pending\-Signal\-Sinr(), get\-Pending\-Signal\-Strength(), and get\-Rx\-Threshold().\index{PhysicalLayer@{Physical\-Layer}!recvdErrorFreeSignal@{recvdErrorFreeSignal}}
+\index{recvdErrorFreeSignal@{recvdErrorFreeSignal}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::recvd\-Error\-Free\-Signal (Wireless\-Comm\-Signal\-Ptr {\em signal}, double {\em recvd\-Signal\-Strength})\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classPhysicalLayer_da8f7573bc3b656dcba72f555d3e9cda}
+
+
+This function is called when an error free signal is received, just before its packet is passed to the upper layer. 
+
+This gives subclasses an opportunity to adjust their state in response to the signal reception if need be. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]the signal that was successfully received. \item[{\em recvd\-Signal\-Strength}]the strength at which the signal was received. \end{description}
+\end{Desc}
+
+
+Reimplemented in \bf{Rfid\-Tag\-Phy} \doxyref{p.}{classRfidTagPhy_50d54306eee24835918c4717808a339e}.
+
+Definition at line 84 of file physical\_\-layer.cpp.
+
+Referenced by recv\-Pending\-Signal().\index{PhysicalLayer@{Physical\-Layer}!recvFromLayer@{recvFromLayer}}
+\index{recvFromLayer@{recvFromLayer}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Physical\-Layer::recv\-From\-Layer (\bf{Communication\-Layer::Directions} {\em direction}, Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [virtual]}}\label{classPhysicalLayer_8b73c1305c681ec28abb81867694dc7a}
+
+
+Receives a packet from a sending layer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction the packet was sent. \item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the specified layer was able to receive the packet. \end{Desc}
+
+
+Reimplemented from \bf{Communication\-Layer} \doxyref{p.}{classCommunicationLayer_2f9736c44dce2f49dbb83eafeb418b74}.
+
+Definition at line 90 of file physical\_\-layer.cpp.
+
+References Wireless\-Comm\-Signal::create(), Communication\-Layer::Directions\_\-Upper, get\-Data\-Rate(), get\-Gain(), Communication\-Layer::get\-Node(), get\-Wavelength(), Log\-Stream\-Manager::instance(), Log\-Stream\-Manager::log\-Debug\-Item(), power\-To\-Decibels(), and send\-Signal().\index{PhysicalLayer@{Physical\-Layer}!recvPendingSignal@{recvPendingSignal}}
+\index{recvPendingSignal@{recvPendingSignal}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Physical\-Layer::recv\-Pending\-Signal (Wireless\-Comm\-Signal\-Ptr {\em signal}, double {\em recvd\-Signal\-Strength})}\label{classPhysicalLayer_e316791d423861629bcb92a45ee0dfb9}
+
+
+Handle the successfully received signal. 
+
+The caller of this function should ensure that a deep copy of the signal is being passed to this object since the signal may be modified locally and changes should not affect the signal globally. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]a pointer to a deep copy of the signal being received. \item[{\em recvd\-Signal\-Strength}]the strength of the signal at the receiver. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the signal was able to be handled by this object. \end{Desc}
+
+
+Definition at line 65 of file physical\_\-layer.cpp.
+
+References Communication\-Layer::Directions\_\-Upper, get\-Layer\-Type(), Communication\-Layer::get\-Node\-Id(), Log\-Stream\-Manager::instance(), Log\-Stream\-Manager::log\-Pkt\-Recv\-Item(), recvd\-Error\-Free\-Signal(), and Communication\-Layer::send\-To\-Layer().\index{PhysicalLayer@{Physical\-Layer}!removeSignal@{removeSignal}}
+\index{removeSignal@{removeSignal}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::remove\-Signal (Wireless\-Comm\-Signal\-Ptr {\em signal})}\label{classPhysicalLayer_3121ad16184a8da1d7efda14480c5e53}
+
+
+Remove a signal from the signals currently being received by this object. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]a pointer to the signal to remove. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{add\-Signal()}{p.}{classPhysicalLayer_d60020ca7c16de6a08ddcc60b2efc9c0} 
+
+\doxyref{get\-Culmulative\-Signal\-Strength()}{p.}{classPhysicalLayer_8abef29ab25bd26f5800e29d6e739682} \end{Desc}
+
+
+Definition at line 163 of file physical\_\-layer.cpp.\index{PhysicalLayer@{Physical\-Layer}!resetPendingSignal@{resetPendingSignal}}
+\index{resetPendingSignal@{resetPendingSignal}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::reset\-Pending\-Signal ()}\label{classPhysicalLayer_f653514f9bc43de102b7203fed6868bf}
+
+
+Reset this object such that there is no currently pending signal which is strong enough to receive right now. 
+
+\begin{Desc}
+\item[See also:]\doxyref{reset\-Recv\-Signals()}{p.}{classPhysicalLayer_0fc3d10ff814adaee9b62f414706e488} \end{Desc}
+
+
+Definition at line 272 of file physical\_\-layer.cpp.
+
+Referenced by reset\-Recv\-Signals().\index{PhysicalLayer@{Physical\-Layer}!resetRecvSignals@{resetRecvSignals}}
+\index{resetRecvSignals@{resetRecvSignals}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::reset\-Recv\-Signals ()}\label{classPhysicalLayer_0fc3d10ff814adaee9b62f414706e488}
+
+
+Reset this object such that there are {\em no\/} signals currently pending. 
+
+\begin{Desc}
+\item[See also:]\doxyref{reset\-Pending\-Signal()}{p.}{classPhysicalLayer_f653514f9bc43de102b7203fed6868bf} \end{Desc}
+
+
+Definition at line 278 of file physical\_\-layer.cpp.
+
+References reset\-Pending\-Signal().\index{PhysicalLayer@{Physical\-Layer}!scheduleSignal@{scheduleSignal}}
+\index{scheduleSignal@{scheduleSignal}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Physical\-Layer::schedule\-Signal (Wireless\-Comm\-Signal\-Ptr {\em signal})\hspace{0.3cm}{\tt  [protected]}}\label{classPhysicalLayer_7bfb37cf5946fd19ab3a7b427d669d6f}
+
+
+Schedule the signal to be received by the channel manager. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]the signal to be scheduled. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the signal was scheduled. \end{Desc}
+
+
+Definition at line 134 of file physical\_\-layer.cpp.
+
+References Communication\-Layer::get\-Node(), get\-Signal\-Sending\-Delay(), m\_\-wireless\-Channel\-Manager\-Ptr, Signal\-Recv\-Event, and this\-Physical\-Layer().
+
+Referenced by send\-Signal().\index{PhysicalLayer@{Physical\-Layer}!sendSignal@{sendSignal}}
+\index{sendSignal@{sendSignal}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Physical\-Layer::send\-Signal (Wireless\-Comm\-Signal\-Ptr {\em signal})\hspace{0.3cm}{\tt  [virtual]}}\label{classPhysicalLayer_3201656dc23f8a83b6ca3622007b73d9}
+
+
+Send a wireless signal on the channel. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]the signal to send. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the signal was sent successfully. \end{Desc}
+
+
+Definition at line 129 of file physical\_\-layer.cpp.
+
+References schedule\-Signal().
+
+Referenced by recv\-From\-Layer().\index{PhysicalLayer@{Physical\-Layer}!setBandwidth@{setBandwidth}}
+\index{setBandwidth@{setBandwidth}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Bandwidth (double {\em bandwidth})\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_e17adc45f4a82ac4ca2db000548cf616}
+
+
+Set the current radio bandwidth in Hz. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em bandwidth}]the new radio bandwidth. \end{description}
+\end{Desc}
+
+
+Definition at line 611 of file physical\_\-layer.hpp.\index{PhysicalLayer@{Physical\-Layer}!setCaptureThreshold@{setCaptureThreshold}}
+\index{setCaptureThreshold@{setCaptureThreshold}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Capture\-Threshold (double {\em capture\-Threshold})\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_ea7cebab22a6db84dab5c7796f5a4b72}
+
+
+Set the capture threshold for considering a SINR sufficiently strong. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em capture\-Threshold}]the new capture threshold. \end{description}
+\end{Desc}
+
+
+Definition at line 577 of file physical\_\-layer.hpp.\index{PhysicalLayer@{Physical\-Layer}!setCsThreshold@{setCsThreshold}}
+\index{setCsThreshold@{setCsThreshold}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Cs\-Threshold (double {\em cs\-Threshold})\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_a48fe57a986e77e44d0f75499057d851}
+
+
+Set the power threshold for carrier sensing a channel busy. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em cs\-Threshold}]the new carrier sense power threshold. \end{description}
+\end{Desc}
+
+
+Definition at line 566 of file physical\_\-layer.hpp.
+
+Referenced by Rfid\-Reader\-Phy::Rfid\-Reader\-Phy().\index{PhysicalLayer@{Physical\-Layer}!setCurrentTxPower@{setCurrentTxPower}}
+\index{setCurrentTxPower@{setCurrentTxPower}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Current\-Tx\-Power (double {\em tx\-Power})\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_01f4b82e908c65c8102d4cffe8c43fb4}
+
+
+Set the current transmit power for the physical layer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em tx\-Power}]the new power level in watts. Must be greater than zero. \end{description}
+\end{Desc}
+
+
+Definition at line 532 of file physical\_\-layer.hpp.
+
+Referenced by Rfid\-Tag\-Phy::recvd\-Error\-Free\-Signal().\index{PhysicalLayer@{Physical\-Layer}!setDataRate@{setDataRate}}
+\index{setDataRate@{setDataRate}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Data\-Rate (double {\em data\-Rate})\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_083c749440a19e728c358c2d37358ef5}
+
+
+Set the current data rate in bits per second. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-Rate}]the new data rate. \end{description}
+\end{Desc}
+
+
+Definition at line 600 of file physical\_\-layer.hpp.\index{PhysicalLayer@{Physical\-Layer}!setMaxTxPower@{setMaxTxPower}}
+\index{setMaxTxPower@{setMaxTxPower}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Max\-Tx\-Power (double {\em tx\-Power})\hspace{0.3cm}{\tt  [inline, protected]}}\label{classPhysicalLayer_f9f1e0449e22eb178df0f4a11420ca49}
+
+
+Set the maximum transmit power for the physical layer. 
+
+If the current transmit power level is less than the new max value, then it will be set to the new max value. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em tx\-Power}]the new maximum power level in watts. Must be greater than zero. \end{description}
+\end{Desc}
+
+
+Definition at line 543 of file physical\_\-layer.hpp.\index{PhysicalLayer@{Physical\-Layer}!setMinimumSignalStrength@{setMinimumSignalStrength}}
+\index{setMinimumSignalStrength@{setMinimumSignalStrength}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Minimum\-Signal\-Strength (double {\em minimum\-Signal\-Strength})\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_39966340e114f83efd591f93b354452a}
+
+
+Set the minimum signal strength for considering a signal stronger than thermal noise. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em minimum\-Signal\-Strength}]the new minimum signal strength. \end{description}
+\end{Desc}
+
+
+Definition at line 588 of file physical\_\-layer.hpp.\index{PhysicalLayer@{Physical\-Layer}!setPendingSignal@{setPendingSignal}}
+\index{setPendingSignal@{setPendingSignal}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Pending\-Signal (Wireless\-Comm\-Signal\-Ptr {\em signal})}\label{classPhysicalLayer_2112ec7ca280fb6e253cac1f4ce16497}
+
+
+Set a signal as the signal which would be received if it were to end right now. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]a pointer to the signal. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{get\-Pending\-Signal()}{p.}{classPhysicalLayer_76199f0741683e3b0d3dd2c6e21730f8} 
+
+\doxyref{reset\-Pending\-Signal()}{p.}{classPhysicalLayer_f653514f9bc43de102b7203fed6868bf} 
+
+\doxyref{get\-Pending\-Signal\-Strength()}{p.}{classPhysicalLayer_e6370bde18a9a21488d8b482adb09d9b} \end{Desc}
+
+
+Definition at line 246 of file physical\_\-layer.cpp.\index{PhysicalLayer@{Physical\-Layer}!setPendingSignalError@{setPendingSignalError}}
+\index{setPendingSignalError@{setPendingSignalError}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Pending\-Signal\-Error (bool {\em has\-Error})\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_0a2a0b75b624906c8bb5cc930c79eb3f}
+
+
+Set whether or not the currently pending signal will have an error when/if received. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em has\-Error}]true if the signal will have an error. \end{description}
+\end{Desc}
+
+
+Definition at line 634 of file physical\_\-layer.hpp.\index{PhysicalLayer@{Physical\-Layer}!setRxThreshold@{setRxThreshold}}
+\index{setRxThreshold@{setRxThreshold}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Rx\-Threshold (double {\em rx\-Threshold})\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_72b2bd12c79cddf1c12504c260aa2a78}
+
+
+Set the power threshold for receiving a packet. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em rx\-Threshold}]the new receive power threshold. \end{description}
+\end{Desc}
+
+
+Definition at line 555 of file physical\_\-layer.hpp.
+
+Referenced by Rfid\-Reader\-Phy::Rfid\-Reader\-Phy().\index{PhysicalLayer@{Physical\-Layer}!setSignalSendingDelay@{setSignalSendingDelay}}
+\index{setSignalSendingDelay@{setSignalSendingDelay}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Signal\-Sending\-Delay (\bf{Sim\-Time} {\em signal\-Sending\-Delay})\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_10a3c7c9d8f14d9eb77e779ea6a1a2fd}
+
+
+Set the delay for how long it takes before a signal is transmitted on the channel. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal\-Sending\-Delay}]the delay from the time a signal is sent by this object until it actually reaches the channel. \end{description}
+\end{Desc}
+
+
+Definition at line 649 of file physical\_\-layer.hpp.\index{PhysicalLayer@{Physical\-Layer}!setWirelessChannelManager@{setWirelessChannelManager}}
+\index{setWirelessChannelManager@{setWirelessChannelManager}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Physical\-Layer::set\-Wireless\-Channel\-Manager (Wireless\-Channel\-Manager\-Ptr {\em wireless\-Channel\-Manager})\hspace{0.3cm}{\tt  [inline]}}\label{classPhysicalLayer_16a3df01cbeff21a1e33620de3668088}
+
+
+Add the channel manager. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em wireless\-Channel\-Manager}]a pointer to the channel manager being added. \end{description}
+\end{Desc}
+
+
+Definition at line 526 of file physical\_\-layer.hpp.
+
+References m\_\-wireless\-Channel\-Manager\-Ptr.\index{PhysicalLayer@{Physical\-Layer}!thisPhysicalLayer@{thisPhysicalLayer}}
+\index{thisPhysicalLayer@{thisPhysicalLayer}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual \bf{Physical\-Layer\-Ptr} Physical\-Layer::this\-Physical\-Layer ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classPhysicalLayer_c9bc7a479ec06eb05894d6b24a6c6f33}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Physical\-Layer}{p.}{classPhysicalLayer}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implemented in \bf{Rfid\-Reader\-Phy} \doxyref{p.}{classRfidReaderPhy_81f488d88870c4783c983eac61b74223}, and \bf{Rfid\-Tag\-Phy} \doxyref{p.}{classRfidTagPhy_983e1873d2452b319e99a5fb01f53d75}.
+
+Referenced by schedule\-Signal().
+
+\subsection{Member Data Documentation}
+\index{PhysicalLayer@{Physical\-Layer}!m_wirelessChannelManagerPtr@{m\_\-wirelessChannelManagerPtr}}
+\index{m_wirelessChannelManagerPtr@{m\_\-wirelessChannelManagerPtr}!PhysicalLayer@{Physical\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Wireless\-Channel\-Manager\-Ptr \bf{Physical\-Layer::m\_\-wireless\-Channel\-Manager\-Ptr}\hspace{0.3cm}{\tt  [protected]}}\label{classPhysicalLayer_031abbc442181073fba1818bce576873}
+
+
+The channel manager being used by this object. 
+
+\begin{Desc}
+\item[See also:]\doxyref{set\-Wireless\-Channel\-Manager()}{p.}{classPhysicalLayer_16a3df01cbeff21a1e33620de3668088} \end{Desc}
+
+
+Definition at line 368 of file physical\_\-layer.hpp.
+
+Referenced by Rfid\-Tag\-Phy::reset\-All\-Listeners\-Channel(), Rfid\-Reader\-Phy::reset\-All\-Senders\-Channel(), Rfid\-Reader\-Phy::reset\-Regular\-Channel(), Rfid\-Tag\-Phy::reset\-Sending\-Channel(), Rfid\-Reader\-Phy::Rfid\-Reader\-Phy(), Rfid\-Tag\-Phy::Rfid\-Tag\-Phy(), schedule\-Signal(), Rfid\-Tag\-Phy::set\-All\-Listeners\-Channel(), Rfid\-Reader\-Phy::set\-All\-Senders\-Channel(), Rfid\-Reader\-Phy::set\-Regular\-Channel(), Rfid\-Tag\-Phy::set\-Sending\-Channel(), set\-Wireless\-Channel\-Manager(), Rfid\-Reader\-Phy::$\sim$Rfid\-Reader\-Phy(), and Rfid\-Tag\-Phy::$\sim$Rfid\-Tag\-Phy().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+physical\_\-layer.hpp\item 
+physical\_\-layer.cpp\end{CompactItemize}

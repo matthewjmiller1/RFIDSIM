@@ -1,0 +1,183 @@
+\section{Rfid\-Tag\-App\-Data Class Reference}
+\label{classRfidTagAppData}\index{RfidTagAppData@{RfidTagAppData}}
+The representation of the application data in an Rfid\-Tag\-App's data packet.  
+
+
+{\tt \#include $<$rfid\_\-tag\_\-app.hpp$>$}
+
+Inheritance diagram for Rfid\-Tag\-App\-Data::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classRfidTagAppData}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Tag\-App\-Data} $>$ \bf{Rfid\-Tag\-App\-Data\-Ptr}\label{classRfidTagAppData_92000c882ec816d803ce8c682c8fc4f9}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\item 
+\bf{Types\_\-No\-Type}
+\begin{CompactList}\small\item\em enum value Types\_\-No\-Type. \item\end{CompactList}\item 
+\bf{Types\_\-Reply}
+\begin{CompactList}\small\item\em enum value Types\_\-Reply. \item\end{CompactList}\item 
+enum \bf{Types} \{ \bf{Types\_\-No\-Type}, 
+\bf{Types\_\-Reply}
+ \}
+\begin{CompactList}\small\item\em Types enum. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{t\_\-uint} \bf{get\-Size\-In\-Bytes} () const 
+\begin{CompactList}\small\item\em Get the size of this data. \item\end{CompactList}\item 
+void \bf{set\-Tag\-Id} (const \bf{Node\-Id} \&node\-Id)
+\begin{CompactList}\small\item\em Write the node ID to the packet data. \item\end{CompactList}\item 
+\bf{Node\-Id} \bf{get\-Tag\-Id} () const 
+\begin{CompactList}\small\item\em Read the node ID from the packet data. \item\end{CompactList}\item 
+void \bf{set\-Type} (\bf{Types} type)
+\begin{CompactList}\small\item\em Write the type field to this packet data. \item\end{CompactList}\item 
+\bf{Types} \bf{get\-Type} () const 
+\begin{CompactList}\small\item\em Read the type field from this packet data. \item\end{CompactList}\item 
+ostream \& \bf{print} (ostream \&s) const \label{classRfidTagAppData_811762ccb251a9dd7eab800fcff16fe5}
+
+\begin{CompactList}\small\item\em Return the stream representation of the object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Tag\-App\-Data\-Ptr} \bf{create} ()\label{classRfidTagAppData_735b513afff96330182f0016eae98b7a}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Rfid\-Tag\-App\-Data\-Ptr} \bf{create} (const \bf{Rfid\-Tag\-App\-Data} \&rhs)\label{classRfidTagAppData_2ca680c03d0ac2cb0d6890670f6f35f3}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Tag\-App\-Data} ()\label{classRfidTagAppData_40428be2424594db45f775c82878046b}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Rfid\-Tag\-App\-Data} (const \bf{Rfid\-Tag\-App\-Data} \&rhs)\label{classRfidTagAppData_4fa9edccad82c40d1d69898623400034}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\item 
+virtual \bf{Packet\-Data\-Ptr} \bf{clone} () const 
+\begin{CompactList}\small\item\em Returns a pointer to a deep copy of this object. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The representation of the application data in an Rfid\-Tag\-App's data packet. 
+
+
+
+Definition at line 163 of file rfid\_\-tag\_\-app.hpp.
+
+\subsection{Member Enumeration Documentation}
+\index{RfidTagAppData@{Rfid\-Tag\-App\-Data}!Types@{Types}}
+\index{Types@{Types}!RfidTagAppData@{Rfid\-Tag\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum \bf{Rfid\-Tag\-App\-Data::Types}}\label{classRfidTagAppData_3b987cdbbf7e7f91090bc1585c4e245d}
+
+
+Types enum. 
+
+Specifies the types of packets that are sent. \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{Types_NoType@{Types\_\-NoType}!RfidTagAppData@{RfidTagAppData}}\index{RfidTagAppData@{RfidTagAppData}!Types_NoType@{Types\_\-NoType}}\item[{\em 
+Types\_\-No\-Type\label{classRfidTagAppData_3b987cdbbf7e7f91090bc1585c4e245d222977442274be7768914f65bcb8e875}
+}]enum value Types\_\-No\-Type. \index{Types_Reply@{Types\_\-Reply}!RfidTagAppData@{RfidTagAppData}}\index{RfidTagAppData@{RfidTagAppData}!Types_Reply@{Types\_\-Reply}}\item[{\em 
+Types\_\-Reply\label{classRfidTagAppData_3b987cdbbf7e7f91090bc1585c4e245d1dcfcac986dbafa00e741e832c69b338}
+}]enum value Types\_\-Reply. \end{description}
+\end{Desc}
+
+
+
+Definition at line 172 of file rfid\_\-tag\_\-app.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidTagAppData@{Rfid\-Tag\-App\-Data}!clone@{clone}}
+\index{clone@{clone}!RfidTagAppData@{Rfid\-Tag\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Packet\-Data\-Ptr} Rfid\-Tag\-App\-Data::clone () const\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classRfidTagAppData_b91624e1e6e1de1a8d36b4bbe9b8ca49}
+
+
+Returns a pointer to a deep copy of this object. 
+
+This is addresses the slicing problem with copy construction. \begin{Desc}
+\item[Returns:]a pointer to a deep copy of this object. \end{Desc}
+
+
+Reimplemented from \bf{Packet\-Data} \doxyref{p.}{classPacketData_b338f746c8a3825158c554b1468e7a13}.
+
+Definition at line 103 of file rfid\_\-tag\_\-app.cpp.
+
+References Rfid\-Tag\-App\-Data().
+
+Referenced by create().\index{RfidTagAppData@{Rfid\-Tag\-App\-Data}!getSizeInBytes@{getSizeInBytes}}
+\index{getSizeInBytes@{getSizeInBytes}!RfidTagAppData@{Rfid\-Tag\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Rfid\-Tag\-App\-Data::get\-Size\-In\-Bytes () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagAppData_6325dc5e3a5cdc8eec919f099217ced8}
+
+
+Get the size of this data. 
+
+\begin{Desc}
+\item[Returns:]the size of the data in bytes. \end{Desc}
+
+
+Reimplemented from \bf{Packet\-Data} \doxyref{p.}{classPacketData_d011a84f410ffd8fe2da792934fb77f2}.
+
+Definition at line 277 of file rfid\_\-tag\_\-app.hpp.\index{RfidTagAppData@{Rfid\-Tag\-App\-Data}!getTagId@{getTagId}}
+\index{getTagId@{getTagId}!RfidTagAppData@{Rfid\-Tag\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Id} Rfid\-Tag\-App\-Data::get\-Tag\-Id () const}\label{classRfidTagAppData_66d138a9fa7a36a07952defc6517504c}
+
+
+Read the node ID from the packet data. 
+
+\begin{Desc}
+\item[Returns:]the ID of the node in the packet. \end{Desc}
+
+
+Definition at line 114 of file rfid\_\-tag\_\-app.cpp.\index{RfidTagAppData@{Rfid\-Tag\-App\-Data}!getType@{getType}}
+\index{getType@{getType}!RfidTagAppData@{Rfid\-Tag\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Tag\-App\-Data::Types} Rfid\-Tag\-App\-Data::get\-Type () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidTagAppData_3cb896787a69c4f6dbf80b9af7c0e4d7}
+
+
+Read the type field from this packet data. 
+
+\begin{Desc}
+\item[Returns:]the type field of the packet. \end{Desc}
+
+
+Definition at line 287 of file rfid\_\-tag\_\-app.hpp.\index{RfidTagAppData@{Rfid\-Tag\-App\-Data}!setTagId@{setTagId}}
+\index{setTagId@{setTagId}!RfidTagAppData@{Rfid\-Tag\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-App\-Data::set\-Tag\-Id (const \bf{Node\-Id} \& {\em node\-Id})}\label{classRfidTagAppData_4030447e8cdc227798b4a1b8ac455218}
+
+
+Write the node ID to the packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node\-Id}]the ID to be written. \end{description}
+\end{Desc}
+
+
+Definition at line 109 of file rfid\_\-tag\_\-app.cpp.
+
+References Node\-Id::write\-To\-Byte\-Array().\index{RfidTagAppData@{Rfid\-Tag\-App\-Data}!setType@{setType}}
+\index{setType@{setType}!RfidTagAppData@{Rfid\-Tag\-App\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-App\-Data::set\-Type (\bf{Types} {\em type})\hspace{0.3cm}{\tt  [inline]}}\label{classRfidTagAppData_c80944d9c2b42e1eab53920c2d7eecfe}
+
+
+Write the type field to this packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em type}]the value for the type field. \end{description}
+\end{Desc}
+
+
+Definition at line 282 of file rfid\_\-tag\_\-app.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rfid\_\-tag\_\-app.hpp\item 
+rfid\_\-tag\_\-app.cpp\end{CompactItemize}

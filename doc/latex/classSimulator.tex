@@ -1,0 +1,244 @@
+\section{Simulator Class Reference}
+\label{classSimulator}\index{Simulator@{Simulator}}
+The main \doxyref{Simulator}{p.}{classSimulator} which class contains the event queues, nodes, and channels.  
+
+
+{\tt \#include $<$simulator.hpp$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef \bf{Simulator} $\ast$ \bf{Simulator\-Ptr}\label{classSimulator_d299a610fa90e0fd9f7e1c496976b696}
+
+\begin{CompactList}\small\item\em Pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{add\-Node} (Node\-Ptr node\-To\-Add)
+\begin{CompactList}\small\item\em Associate a node with this simulator object. \item\end{CompactList}\item 
+void \bf{run\-Simulation} (const \bf{Sim\-Time} \&stop\-Time)
+\begin{CompactList}\small\item\em Execute events on the event queue. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{current\-Time} () const 
+\begin{CompactList}\small\item\em Get the current time in the simulator. \item\end{CompactList}\item 
+bool \bf{schedule\-Event} (Event\-Ptr event\-To\-Schedule, const \bf{Sim\-Time} \&event\-Delay)
+\begin{CompactList}\small\item\em Add an event to the event queue. \item\end{CompactList}\item 
+bool \bf{cancel\-Event} (Event\-Ptr event\-To\-Cancel)
+\begin{CompactList}\small\item\em Cancel an event from the event queue. \item\end{CompactList}\item 
+void \bf{set\-Log\-Stream\-Manager} (\bf{Log\-Stream\-Manager\-Ptr} log\-Stream\-Manager) const 
+\begin{CompactList}\small\item\em Set the simulator's log stream manager. \item\end{CompactList}\item 
+\bf{Log\-Stream\-Manager\-Ptr} \bf{get\-Log\-Stream\-Manager} () const 
+\begin{CompactList}\small\item\em Get a pointer to the simulator's log stream manager. \item\end{CompactList}\item 
+void \bf{seed\-Rand\-Num\-Generator} (const \bf{t\_\-uint} seed) const 
+\begin{CompactList}\small\item\em Seed the random number generator. \item\end{CompactList}\item 
+Rand\-Num\-Generator\-Ptr \bf{get\-Rand\-Num\-Generator} () const 
+\begin{CompactList}\small\item\em Get a pointer to the simulator's random number generator. \item\end{CompactList}\item 
+void \bf{reset} ()
+\begin{CompactList}\small\item\em Reset the state of the simulator to its initial state. \item\end{CompactList}\item 
+void \bf{add\-Simulation\-End\-Listener} (Simulation\-End\-Listener\-Ptr listener)
+\begin{CompactList}\small\item\em Add a listener that will be notified when the simulation ends. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Simulator\-Ptr} \bf{instance} ()
+\begin{CompactList}\small\item\em The class uses the Singleton design pattern. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The main \doxyref{Simulator}{p.}{classSimulator} which class contains the event queues, nodes, and channels. 
+
+
+
+Definition at line 244 of file simulator.hpp.
+
+\subsection{Member Function Documentation}
+\index{Simulator@{Simulator}!addNode@{addNode}}
+\index{addNode@{addNode}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Simulator::add\-Node (Node\-Ptr {\em node\-To\-Add})\hspace{0.3cm}{\tt  [inline]}}\label{classSimulator_59a74311d4f24dbb2704a95de68f7c44}
+
+
+Associate a node with this simulator object. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node\-To\-Add}]the node that will be associated. \end{description}
+\end{Desc}
+
+
+Definition at line 422 of file simulator.hpp.\index{Simulator@{Simulator}!addSimulationEndListener@{addSimulationEndListener}}
+\index{addSimulationEndListener@{addSimulationEndListener}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Simulator::add\-Simulation\-End\-Listener (Simulation\-End\-Listener\-Ptr {\em listener})\hspace{0.3cm}{\tt  [inline]}}\label{classSimulator_fe651dc2a3e749aaa15266d8bc039c7b}
+
+
+Add a listener that will be notified when the simulation ends. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em listener}]a pointer to the object to be notified. \end{description}
+\end{Desc}
+
+
+Definition at line 513 of file simulator.hpp.
+
+Referenced by Rfid\-Tag\-Phy::create(), Rfid\-Tag\-Mac::create(), Rfid\-Tag\-App::create(), Rfid\-Reader\-Phy::create(), Rfid\-Reader\-Mac::create(), Rfid\-Reader\-App::create(), and Link\-Layer::create().\index{Simulator@{Simulator}!cancelEvent@{cancelEvent}}
+\index{cancelEvent@{cancelEvent}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Simulator::cancel\-Event (Event\-Ptr {\em event\-To\-Cancel})\hspace{0.3cm}{\tt  [inline]}}\label{classSimulator_9b27ba89f37ae2141279a1baeaa54390}
+
+
+Cancel an event from the event queue. 
+
+If the event pointer exists in the queue, it is removed. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em event\-To\-Cancel}]a pointer to the event being cancelled. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the event was found and erased. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{schedule\-Event()}{p.}{classSimulator_8aa7a96d26945218b1b3d9c0d54d744f} 
+
+\doxyref{current\-Time()}{p.}{classSimulator_38184caa07e9ec6a1f78d9092f6af4c9} 
+
+\doxyref{run\-Simulation()}{p.}{classSimulator_1cdffa510681f18c94b16c2040164941} \end{Desc}
+
+
+Definition at line 446 of file simulator.hpp.
+
+Referenced by Node::cancel\-Event().\index{Simulator@{Simulator}!currentTime@{currentTime}}
+\index{currentTime@{currentTime}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Simulator::current\-Time () const\hspace{0.3cm}{\tt  [inline]}}\label{classSimulator_38184caa07e9ec6a1f78d9092f6af4c9}
+
+
+Get the current time in the simulator. 
+
+\begin{Desc}
+\item[Returns:]The current time in the simulator. \end{Desc}
+
+
+Definition at line 417 of file simulator.hpp.
+
+Referenced by Node::current\-Time(), Rfid\-Reader\-App::do\-Read\-Process(), Ricean::fading\-Factor(), Rfid\-Reader\-App::get\-Next\-Read\-Time(), Rfid\-Reader\-App::handle\-Recvd\-Packet(), schedule\-Event(), Application\-Layer::start(), and Application\-Layer::stop().\index{Simulator@{Simulator}!getLogStreamManager@{getLogStreamManager}}
+\index{getLogStreamManager@{getLogStreamManager}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Log\-Stream\-Manager\-Ptr} Simulator::get\-Log\-Stream\-Manager () const\hspace{0.3cm}{\tt  [inline]}}\label{classSimulator_2c82db3d8c3d557965fe1959173209e4}
+
+
+Get a pointer to the simulator's log stream manager. 
+
+\begin{Desc}
+\item[Returns:]pointer to the simulator's log stream manager. \end{Desc}
+
+
+Definition at line 480 of file simulator.hpp.\index{Simulator@{Simulator}!getRandNumGenerator@{getRandNumGenerator}}
+\index{getRandNumGenerator@{getRandNumGenerator}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Rand\-Num\-Generator\-Ptr Simulator::get\-Rand\-Num\-Generator () const\hspace{0.3cm}{\tt  [inline]}}\label{classSimulator_15ceca72787cb8daea5502a29109d6e4}
+
+
+Get a pointer to the simulator's random number generator. 
+
+\begin{Desc}
+\item[Returns:]pointer to the simulator's random number generator. \end{Desc}
+
+
+Definition at line 474 of file simulator.hpp.
+
+Referenced by Ricean::fading\-Factor(), and Rfid\-Tag\-Mac::handle\-Request\-Packet().\index{Simulator@{Simulator}!instance@{instance}}
+\index{instance@{instance}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Simulator\-Ptr} Simulator::instance ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classSimulator_bbe443394a220bdf2d78dae21427e2ff}
+
+
+The class uses the Singleton design pattern. 
+
+\begin{Desc}
+\item[Returns:]Pointer to single instance of \doxyref{Simulator}{p.}{classSimulator} \end{Desc}
+
+
+Definition at line 486 of file simulator.hpp.
+
+Referenced by Node::cancel\-Event(), Rfid\-Tag\-Phy::create(), Rfid\-Tag\-Mac::create(), Rfid\-Tag\-App::create(), Rfid\-Reader\-Phy::create(), Rfid\-Reader\-Mac::create(), Rfid\-Reader\-App::create(), Link\-Layer::create(), Node::current\-Time(), Rfid\-Reader\-App::do\-Read\-Process(), Ricean::fading\-Factor(), Rfid\-Reader\-App::get\-Next\-Read\-Time(), Rfid\-Reader\-App::handle\-Recvd\-Packet(), Rfid\-Tag\-Mac::handle\-Request\-Packet(), Node::schedule\-Event(), Application\-Layer::start(), and Application\-Layer::stop().\index{Simulator@{Simulator}!reset@{reset}}
+\index{reset@{reset}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Simulator::reset ()}\label{classSimulator_ad68e1807b14ca5bfd11cb7ebba25645}
+
+
+Reset the state of the simulator to its initial state. 
+
+This clears the event queue and resets the clock to the original start time. 
+
+Definition at line 40 of file simulator.cpp.
+
+References Sim\-Time::set\-Time().\index{Simulator@{Simulator}!runSimulation@{runSimulation}}
+\index{runSimulation@{runSimulation}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Simulator::run\-Simulation (const \bf{Sim\-Time} \& {\em stop\-Time})}\label{classSimulator_1cdffa510681f18c94b16c2040164941}
+
+
+Execute events on the event queue. 
+
+While the event queue is not empty, this will continue to pop and execute events. After the simulation object is set up, this is called to start executing the events. The event queue is in ascending order by the execution time of events. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em stop\-Time}]the time at which the simulation should stop. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{schedule\-Event()}{p.}{classSimulator_8aa7a96d26945218b1b3d9c0d54d744f} \end{Desc}
+
+
+Definition at line 19 of file simulator.cpp.\index{Simulator@{Simulator}!scheduleEvent@{scheduleEvent}}
+\index{scheduleEvent@{scheduleEvent}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Simulator::schedule\-Event (Event\-Ptr {\em event\-To\-Schedule}, const \bf{Sim\-Time} \& {\em event\-Delay})\hspace{0.3cm}{\tt  [inline]}}\label{classSimulator_8aa7a96d26945218b1b3d9c0d54d744f}
+
+
+Add an event to the event queue. 
+
+The event is pushed onto the event queue and scheduled to fire after event\-Delay in the future. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em event\-To\-Schedule}]a pointer to the event being scheduled. \item[{\em event\-Delay}]how far in the future the event should be scheduled. event\-Delay is added to the current\-Time to schedule the time at which the event will fire. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if event was scheduled succesfully. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{cancel\-Event()}{p.}{classSimulator_9b27ba89f37ae2141279a1baeaa54390} 
+
+\doxyref{current\-Time()}{p.}{classSimulator_38184caa07e9ec6a1f78d9092f6af4c9} 
+
+\doxyref{run\-Simulation()}{p.}{classSimulator_1cdffa510681f18c94b16c2040164941} \end{Desc}
+
+
+Definition at line 427 of file simulator.hpp.
+
+References current\-Time().
+
+Referenced by Node::schedule\-Event(), Application\-Layer::start(), and Application\-Layer::stop().\index{Simulator@{Simulator}!seedRandNumGenerator@{seedRandNumGenerator}}
+\index{seedRandNumGenerator@{seedRandNumGenerator}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Simulator::seed\-Rand\-Num\-Generator (const \bf{t\_\-uint} {\em seed}) const}\label{classSimulator_1ffe97774797bc019c83bb6a3a11d964}
+
+
+Seed the random number generator. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em seed}]the new seed. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{get\-Rand\-Num\-Generator()}{p.}{classSimulator_15ceca72787cb8daea5502a29109d6e4} \end{Desc}
+
+
+Definition at line 34 of file simulator.cpp.\index{Simulator@{Simulator}!setLogStreamManager@{setLogStreamManager}}
+\index{setLogStreamManager@{setLogStreamManager}!Simulator@{Simulator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Simulator::set\-Log\-Stream\-Manager (\bf{Log\-Stream\-Manager\-Ptr} {\em log\-Stream\-Manager}) const\hspace{0.3cm}{\tt  [inline]}}\label{classSimulator_937256387d9765dc8f4ae8eb90aede78}
+
+
+Set the simulator's log stream manager. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em log\-Stream\-Manager}]a pointer to the simulator's log stream manager. \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+simulator.hpp\item 
+simulator.cpp\end{CompactItemize}

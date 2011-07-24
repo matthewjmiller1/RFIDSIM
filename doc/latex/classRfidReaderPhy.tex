@@ -1,0 +1,187 @@
+\section{Rfid\-Reader\-Phy Class Reference}
+\label{classRfidReaderPhy}\index{RfidReaderPhy@{RfidReaderPhy}}
+The physical layer class for a RFID reader.  
+
+
+{\tt \#include $<$rfid\_\-reader\_\-phy.hpp$>$}
+
+Inheritance diagram for Rfid\-Reader\-Phy::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classRfidReaderPhy}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Reader\-Phy} $>$ \bf{Rfid\-Reader\-Phy\-Ptr}\label{classRfidReaderPhy_c1a19ee8c361d403ca200a86c0b0ae55}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Rfid\-Reader\-Phy} ()\label{classRfidReaderPhy_0feffb7a7afbced354dc51824917716d}
+
+\begin{CompactList}\small\item\em A destructor A virtual destructor is recommended since the class has virtual functions. \item\end{CompactList}\item 
+\bf{Rfid\-Reader\-Phy\-Ptr} \bf{this\-Rfid\-Reader\-Phy} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Reader\-Phy}{p.}{classRfidReaderPhy}} object. \item\end{CompactList}\item 
+\bf{Physical\-Layer\-Ptr} \bf{this\-Physical\-Layer} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Physical\-Layer}{p.}{classPhysicalLayer}} object. \item\end{CompactList}\item 
+\bf{Simulation\-End\-Listener\-Ptr} \bf{this\-Simulation\-End\-Listener} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Simulation\-End\-Listener}{p.}{classSimulationEndListener}} object. \item\end{CompactList}\item 
+virtual void \bf{simulation\-End\-Handler} ()\label{classRfidReaderPhy_9b329fdc5536b96f520f9b35fa2e29f4}
+
+\begin{CompactList}\small\item\em The function called when the simulation ends. \item\end{CompactList}\item 
+bool \bf{set\-Regular\-Channel} (\bf{t\_\-uint} channel\-Id)
+\begin{CompactList}\small\item\em Set the listening channel for the RFID reader. \item\end{CompactList}\item 
+void \bf{reset\-Regular\-Channel} ()
+\begin{CompactList}\small\item\em Invalidate the current listening channel. \item\end{CompactList}\item 
+bool \bf{set\-All\-Senders\-Channel} (\bf{t\_\-uint} channel\-Id)
+\begin{CompactList}\small\item\em Set the channel on which this (and, presumably, all) readers are transmitting on. \item\end{CompactList}\item 
+void \bf{reset\-All\-Senders\-Channel} ()
+\begin{CompactList}\small\item\em Invalidate the current all senders channel. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Reader\-Phy\-Ptr} \bf{create} (Node\-Ptr node, Wireless\-Channel\-Manager\-Ptr wireless\-Channel\-Manager)\label{classRfidReaderPhy_16a3d22e00d2f541eb175047cc788c66}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Reader\-Phy} (Node\-Ptr node, Wireless\-Channel\-Manager\-Ptr wireless\-Channel\-Manager)\label{classRfidReaderPhy_debae06fefac1bce8ccddb9e06742944}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The physical layer class for a RFID reader. 
+
+
+
+Definition at line 14 of file rfid\_\-reader\_\-phy.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidReaderPhy@{Rfid\-Reader\-Phy}!resetAllSendersChannel@{resetAllSendersChannel}}
+\index{resetAllSendersChannel@{resetAllSendersChannel}!RfidReaderPhy@{Rfid\-Reader\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-Phy::reset\-All\-Senders\-Channel ()}\label{classRfidReaderPhy_d397b1e4ca14c7defc2b05b63b4542fe}
+
+
+Invalidate the current all senders channel. 
+
+After calling this function, the reader is no longer sending to any channels. \begin{Desc}
+\item[See also:]\doxyref{set\-All\-Senders\-Channel()}{p.}{classRfidReaderPhy_e9b7f07d989e0d2a0b2502d010ffbe91} 
+
+\doxyref{set\-Regular\-Channel()}{p.}{classRfidReaderPhy_3d65c57551ced9154dd5da67e970ce94} \end{Desc}
+
+
+Definition at line 90 of file rfid\_\-reader\_\-phy.cpp.
+
+References Physical\-Layer::m\_\-wireless\-Channel\-Manager\-Ptr, and this\-Physical\-Layer().
+
+Referenced by set\-All\-Senders\-Channel().\index{RfidReaderPhy@{Rfid\-Reader\-Phy}!resetRegularChannel@{resetRegularChannel}}
+\index{resetRegularChannel@{resetRegularChannel}!RfidReaderPhy@{Rfid\-Reader\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-Phy::reset\-Regular\-Channel ()}\label{classRfidReaderPhy_0962cd46660512d26907ecd6ee54a675}
+
+
+Invalidate the current listening channel. 
+
+After calling this function, the reader is no longer listening to any channels. \begin{Desc}
+\item[See also:]\doxyref{set\-Regular\-Channel()}{p.}{classRfidReaderPhy_3d65c57551ced9154dd5da67e970ce94} 
+
+\doxyref{set\-All\-Senders\-Channel()}{p.}{classRfidReaderPhy_e9b7f07d989e0d2a0b2502d010ffbe91} \end{Desc}
+
+
+Definition at line 40 of file rfid\_\-reader\_\-phy.cpp.
+
+References Physical\-Layer::m\_\-wireless\-Channel\-Manager\-Ptr, and this\-Physical\-Layer().
+
+Referenced by set\-Regular\-Channel().\index{RfidReaderPhy@{Rfid\-Reader\-Phy}!setAllSendersChannel@{setAllSendersChannel}}
+\index{setAllSendersChannel@{setAllSendersChannel}!RfidReaderPhy@{Rfid\-Reader\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-Phy::set\-All\-Senders\-Channel (\bf{t\_\-uint} {\em channel\-Id})}\label{classRfidReaderPhy_e9b7f07d989e0d2a0b2502d010ffbe91}
+
+
+Set the channel on which this (and, presumably, all) readers are transmitting on. 
+
+All readers should be set to transmit on this channel, though they will listen on a different channel where not necessarily all readers are listening. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel\-Id}]the ID of the channel on which the readers will transmit. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the object is attached to the channel successfully. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Regular\-Channel()}{p.}{classRfidReaderPhy_3d65c57551ced9154dd5da67e970ce94} 
+
+\doxyref{reset\-All\-Senders\-Channel()}{p.}{classRfidReaderPhy_d397b1e4ca14c7defc2b05b63b4542fe} \end{Desc}
+
+
+Definition at line 73 of file rfid\_\-reader\_\-phy.cpp.
+
+References Physical\-Layer::m\_\-wireless\-Channel\-Manager\-Ptr, reset\-All\-Senders\-Channel(), and this\-Physical\-Layer().\index{RfidReaderPhy@{Rfid\-Reader\-Phy}!setRegularChannel@{setRegularChannel}}
+\index{setRegularChannel@{setRegularChannel}!RfidReaderPhy@{Rfid\-Reader\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-Phy::set\-Regular\-Channel (\bf{t\_\-uint} {\em channel\-Id})}\label{classRfidReaderPhy_3d65c57551ced9154dd5da67e970ce94}
+
+
+Set the listening channel for the RFID reader. 
+
+This corresponds to setting the channel on which the reader is listening since we model the reader's transmission channel as being on which all readers send on and all tags listen on. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel\-Id}]the ID of the channel on which the RFID reader will listen. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the object is attached to the channel successfully. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-All\-Senders\-Channel()}{p.}{classRfidReaderPhy_e9b7f07d989e0d2a0b2502d010ffbe91} 
+
+\doxyref{reset\-Regular\-Channel()}{p.}{classRfidReaderPhy_0962cd46660512d26907ecd6ee54a675} \end{Desc}
+
+
+Definition at line 53 of file rfid\_\-reader\_\-phy.cpp.
+
+References Physical\-Layer::m\_\-wireless\-Channel\-Manager\-Ptr, reset\-Regular\-Channel(), and this\-Physical\-Layer().\index{RfidReaderPhy@{Rfid\-Reader\-Phy}!thisPhysicalLayer@{thisPhysicalLayer}}
+\index{thisPhysicalLayer@{thisPhysicalLayer}!RfidReaderPhy@{Rfid\-Reader\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Physical\-Layer\-Ptr} Rfid\-Reader\-Phy::this\-Physical\-Layer ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderPhy_81f488d88870c4783c983eac61b74223}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Physical\-Layer}{p.}{classPhysicalLayer}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Physical\-Layer} \doxyref{p.}{classPhysicalLayer_c9bc7a479ec06eb05894d6b24a6c6f33}.
+
+Definition at line 170 of file rfid\_\-reader\_\-phy.hpp.
+
+Referenced by reset\-All\-Senders\-Channel(), reset\-Regular\-Channel(), set\-All\-Senders\-Channel(), set\-Regular\-Channel(), and $\sim$Rfid\-Reader\-Phy().\index{RfidReaderPhy@{Rfid\-Reader\-Phy}!thisRfidReaderPhy@{thisRfidReaderPhy}}
+\index{thisRfidReaderPhy@{thisRfidReaderPhy}!RfidReaderPhy@{Rfid\-Reader\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Reader\-Phy\-Ptr} Rfid\-Reader\-Phy::this\-Rfid\-Reader\-Phy ()\hspace{0.3cm}{\tt  [inline]}}\label{classRfidReaderPhy_9620425e228d65483579b862f27d60b4}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Reader\-Phy}{p.}{classRfidReaderPhy}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Definition at line 164 of file rfid\_\-reader\_\-phy.hpp.\index{RfidReaderPhy@{Rfid\-Reader\-Phy}!thisSimulationEndListener@{thisSimulationEndListener}}
+\index{thisSimulationEndListener@{thisSimulationEndListener}!RfidReaderPhy@{Rfid\-Reader\-Phy}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Simulation\-End\-Listener\-Ptr} Rfid\-Reader\-Phy::this\-Simulation\-End\-Listener ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderPhy_8029ad13843c39be10835174a4a9ae62}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Simulation\-End\-Listener}{p.}{classSimulationEndListener}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Communication\-Layer} \doxyref{p.}{classCommunicationLayer_4a1f85319b7945b9b2c481c026bc69a8}.
+
+Definition at line 176 of file rfid\_\-reader\_\-phy.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rfid\_\-reader\_\-phy.hpp\item 
+rfid\_\-reader\_\-phy.cpp\end{CompactItemize}

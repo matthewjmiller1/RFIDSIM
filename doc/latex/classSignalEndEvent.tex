@@ -1,0 +1,47 @@
+\section{Signal\-End\-Event Class Reference}
+\label{classSignalEndEvent}\index{SignalEndEvent@{SignalEndEvent}}
+The event for when a signal ends (e.g., after accounting for latency and transmision delay) after being placed on the channel.  
+
+
+Inheritance diagram for Signal\-End\-Event::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classSignalEndEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Signal\-End\-Event} (Const\-Wireless\-Channel\-Manager\-Ptr channel\-Manager, Physical\-Layer\-Ptr receiver, Wireless\-Comm\-Signal\-Ptr signal)\label{classSignalEndEvent_00dd893c946ac3d3ea3e6a1b31cb6c6c}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+void \bf{execute} ()
+\begin{CompactList}\small\item\em The code that gets executed for the event. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The event for when a signal ends (e.g., after accounting for latency and transmision delay) after being placed on the channel. 
+
+The packet can the be passed to the receiver. 
+
+
+
+Definition at line 17 of file wireless\_\-channel\_\-manager.cpp.
+
+\subsection{Member Function Documentation}
+\index{SignalEndEvent@{Signal\-End\-Event}!execute@{execute}}
+\index{execute@{execute}!SignalEndEvent@{Signal\-End\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Signal\-End\-Event::execute ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classSignalEndEvent_5ef729ef7837eb7aa6c974524bb3bfee}
+
+
+The code that gets executed for the event. 
+
+Subclasses can override this to define their own actions. 
+
+Implements \bf{Event} \doxyref{p.}{classEvent_b53a925ac3b000c6f017a4a951aff3c7}.
+
+Definition at line 31 of file wireless\_\-channel\_\-manager.cpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+wireless\_\-channel\_\-manager.cpp\end{CompactItemize}

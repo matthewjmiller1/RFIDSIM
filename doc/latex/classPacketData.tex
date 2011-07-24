@@ -1,0 +1,97 @@
+\section{Packet\-Data Class Reference}
+\label{classPacketData}\index{PacketData@{PacketData}}
+A class which holds the data that is contained within a packet.  
+
+
+{\tt \#include $<$packet.hpp$>$}
+
+Inheritance diagram for Packet\-Data::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classPacketData}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Packet\-Data} $>$ \bf{Packet\-Data\-Ptr}\label{classPacketData_906e630e0d65c95c12eca3ee045ffe63}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Packet\-Data} ()\label{classPacketData_dc45be0348d5a3ee03c9d031e4a3f6f1}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual \bf{t\_\-uint} \bf{get\-Size\-In\-Bytes} () const 
+\begin{CompactList}\small\item\em Get the size of this data. \item\end{CompactList}\item 
+virtual ostream \& \bf{print} (ostream \&s) const \label{classPacketData_269dc08c7502ca70e31dad41f6e9a82c}
+
+\begin{CompactList}\small\item\em Return the stream representation of the object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Packet\-Data\-Ptr} \bf{create} ()\label{classPacketData_f97c29dc23559c178204111a6fa2db6c}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Packet\-Data\-Ptr} \bf{create} (const \bf{Packet\-Data} \&rhs)\label{classPacketData_968e4a35d664a3b1958d3fd050f289a3}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Packet\-Data} ()\label{classPacketData_6784b30e98d716bc3b6051d8ca44e1d3}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Packet\-Data} (const \bf{Packet\-Data} \&rhs)\label{classPacketData_430bfd8207460c9dd67cafa53a662df2}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\item 
+virtual \bf{Packet\-Data\-Ptr} \bf{clone} () const 
+\begin{CompactList}\small\item\em Returns a pointer to a deep copy of this object. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A class which holds the data that is contained within a packet. 
+
+
+
+Definition at line 18 of file packet.hpp.
+
+\subsection{Member Function Documentation}
+\index{PacketData@{Packet\-Data}!clone@{clone}}
+\index{clone@{clone}!PacketData@{Packet\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual \bf{Packet\-Data\-Ptr} Packet\-Data::clone () const\hspace{0.3cm}{\tt  [inline, protected, virtual]}}\label{classPacketData_b338f746c8a3825158c554b1468e7a13}
+
+
+Returns a pointer to a deep copy of this object. 
+
+This is addresses the slicing problem with copy construction. \begin{Desc}
+\item[Returns:]a pointer to a deep copy of this object. \end{Desc}
+
+
+Reimplemented in \bf{Rfid\-Reader\-App\-Data} \doxyref{p.}{classRfidReaderAppData_1c473b9597db1f246869f53869237853}, \bf{Rfid\-Reader\-Mac\-Data} \doxyref{p.}{classRfidReaderMacData_89652d1662200a62c5c987f70e48816c}, \bf{Rfid\-Tag\-App\-Data} \doxyref{p.}{classRfidTagAppData_b91624e1e6e1de1a8d36b4bbe9b8ca49}, and \bf{Rfid\-Tag\-Mac\-Data} \doxyref{p.}{classRfidTagMacData_9f6eca516807ed51d1481fe101abe464}.
+
+Definition at line 76 of file packet.hpp.
+
+References Packet\-Data().
+
+Referenced by create().\index{PacketData@{Packet\-Data}!getSizeInBytes@{getSizeInBytes}}
+\index{getSizeInBytes@{getSizeInBytes}!PacketData@{Packet\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual \bf{t\_\-uint} Packet\-Data::get\-Size\-In\-Bytes () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classPacketData_d011a84f410ffd8fe2da792934fb77f2}
+
+
+Get the size of this data. 
+
+\begin{Desc}
+\item[Returns:]the size of the data in bytes. \end{Desc}
+
+
+Reimplemented in \bf{Rfid\-Reader\-App\-Data} \doxyref{p.}{classRfidReaderAppData_77263b9a9467130801da5cfe5e40700a}, \bf{Rfid\-Reader\-Mac\-Data} \doxyref{p.}{classRfidReaderMacData_75fc23ca5463199f4f9ed9ad5482e0a0}, \bf{Rfid\-Tag\-App\-Data} \doxyref{p.}{classRfidTagAppData_6325dc5e3a5cdc8eec919f099217ced8}, and \bf{Rfid\-Tag\-Mac\-Data} \doxyref{p.}{classRfidTagMacData_adab26ed9650fe4b2aadb571919d9e78}.
+
+Definition at line 49 of file packet.hpp.
+
+Referenced by print().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+packet.hpp\end{CompactItemize}

@@ -1,0 +1,58 @@
+\begin{Desc}
+\item[Author:]Matthew J. Miller (\tt{matt@matthewjmiller.net}) \end{Desc}
+\begin{Desc}
+\item[Date:]2006 \end{Desc}
+\begin{Desc}
+\item[Version:]0.1\end{Desc}
+\section{Introduction}\label{index_sec_intro}
+RFIDSIM is intended to be an extensible simulator for RFID readers and tags as well as other types of wireless networks.
+
+Right now, it is in the very early stages and has not been well-tested, but hopefully it can serve as a foundation for someone looking to develop a more complete and robust RFID simulator. It is released under the GNU General Public License (\tt{http://www.gnu.org/licenses/gpl.html}).\section{Installation}\label{index_sec_install}
+\subsection{Step 1}\label{index_sec_install_step1}
+Install the Boost C++ libraries on your system (\tt{http://www.boost.org/}). I used Boost version 1.33.1 in development. In Debian, there are packages available that can be installed using {\tt aptitude}.\subsection{Step 2}\label{index_sec_install_step2}
+Run {\tt make}.\subsection{Step 3}\label{index_sec_install_step3}
+Modify \doxyref{main.cpp}{p.}{main_8cpp-source} as necessary to create new scenarios.\section{RFID Channel Model}\label{index_sec_channel}
+Each \doxyref{Physical\-Layer}{p.}{classPhysicalLayer} can select on which channel it transmits and receives independently. We use this to model RFID networks as follows. There is one master channel on which all readers transmit (but not receive) and all tags receive (but not transmit). Then, each reader chooses a regular channel on which packets are both send and received. Whenever a tag successfully receives a packet on the master channel, it will transmit a packet on the regular channel of the reader that sent the packet.
+
+Thus, tags are essentially listening on all channels concurrently and can experience collisions if multiple readers transmit simultaneously (even if the readers' regular channels are different). Once the tag receives a reader's packet, it locks on to that channel to transmit back the the reader. The tag's tranmission is only overheard by devices listening on the regular channel of the reader to which the packet is transmitted.
+
+As we understand it, this is the correct channel model for RFIDs. It has the important implication that readers cannot use different channels for their transmissions in order to avoid interference at tags.
+
+With respect to the transmit power, the tag is modelled as reflecting the reader's tranmit power. This is done by setting the transmit power of a tag to the received signal strength of the last packet that it received.
+
+One thing that we are {\em not\/} currently modelling is the fact that tags must have a sufficiently strong culmulative received energy or else they \char`\"{}turn off\char`\"{}.\section{Advantages Over ns-2}\label{index_sec_advantages}
+Most of my previous development was in {\tt ns-2} (\tt{http://nsnam.isi.edu/nsnam/}), but developed this to give several advantages over {\tt ns-2} (of course, there are many disadvantages as well, see \doxyref{Future Work}{p.}{index_sec_future_work}).
+
+\begin{itemize}
+\item {\bf More realistic physical layer}: I used the Qualnet model of culmulative interference rather than {\tt ns-2's} model of only considering the interference between two packets. Also, a \doxyref{Ricean}{p.}{classRicean} fading model is included by default. This is based on a {\tt ns-2} extension (\tt{http://www.ece.cmu.edu/wireless/downloads.html}), but improves on it by calculating the fading factor at a receiver as a function of {\em both\/} the current time {\em and\/} the specific receiver for which it is being calculated (by contrast, the {\tt ns-2} extension only calculates the fading factor as a function of the current time).\end{itemize}
+\begin{itemize}
+\item {\bf Multi-interface and multi-channel support}: From the beginning, I tried to make it easy to connect a network layer to multiple upper or lower layers in the stack. This allows, for example, multiple physical layers (i.e., radios) per device. Also, there is a \doxyref{Wireless\-Channel\-Manager}{p.}{classWirelessChannelManager} class to handle multiple channels easier and more with more flexibility than {\tt ns-2}.\end{itemize}
+\begin{itemize}
+\item {\bf Smart pointers}: This is my primarly motivation for using Boost because the entire project uses smart pointers (with the exception of singleton classes). This, by in large, frees the developer from worrying about memory management. Each pointer is reference counted and automatially {\tt delete'd} whenever the count reaches zero. Thus, you'll notice there are no explicit {\tt delete} or {\tt free} function calls in the code. Additionally, there is no overhead for garbage collection. The disadvantage of smart pointers is that cyclic references can arise and must be dealt with using {\tt weak\_\-ptr's} or else a memory leak may occur. Right now, the code is simple enough that such cycles rarely occur. Another difficult is handling the {\tt this} pointer to an object, particularly when inheritance is involved. You can peruse the code to see the approach I've taken to this problem.\end{itemize}
+\begin{itemize}
+\item {\bf Better use of the C++ STL}: I tried to use the STL wherever possible whereas {\tt ns-2} seems to use \char`\"{}homegrown\char`\"{} data structures for the most part. For example, my event scheduler is built on the STL's {\tt multimap}, which is very efficient, whereas {\tt ns-2} creates its own heap for this purpose which can be more bug-prone and exposes more code to the user.\end{itemize}
+\begin{itemize}
+\item {\bf Better object-oriented design}: Of course this is subjective, but I tried to incorporate more object-oriented design techniques than I have seen in the {\tt ns-2} wireless classes. I have used some design patterns, such as the singleton and factory method, in the project.\end{itemize}
+\begin{itemize}
+\item {\bf Improved random number generator}: I used the random number generation library from Boost, which claims industrial strength RNG. By contrast, the RNG of {\tt ns-2} is based on the default C++ RNG, which is not as strong.\end{itemize}
+\section{Future Work}\label{index_sec_future_work}
+This project is far from complete and should only be used if you are interested in developing it further. Some work that would benefit this project include:
+
+\begin{itemize}
+\item {\bf Scripting front-end}: Right now, every separate scenario must be recompiled which obviously is not feasible. Some possibilities for this include: (1) using the Python/C++ interface in Boost or (2) designing a relatively simple scenario specification file that can be input and parsed by the simulator (perhaps using Boost's regex library). I do not think that SWIG (\tt{http://www.swig.org/}) would work since it has issues with C++ and probably would not work with smart pointers. IMHO, the best option is probably (2) since it would give more portability (Boost's Python library seems quite difficult to install) and easier to debug.\end{itemize}
+\begin{itemize}
+\item {\bf Bit error model}: Right now there is no bit error model. Packets are received if their SINR is larger than a statically specified capture threshold.\end{itemize}
+\begin{itemize}
+\item {\bf  Queueing model}: Right now, there is a minimal queueing model, but I feel that this needs improved for experiments where queueing is a factor.\end{itemize}
+\begin{itemize}
+\item {\bf More protocols}: For RFID, a tree-walking MAC protocol would be useful. Beyond that, 802.11 and some ad hoc routing protocols would be useful for ad hoc network and wireless LAN simulations.\end{itemize}
+\begin{itemize}
+\item {\bf Energy model}: A model should be added to track the energy consumption of various commands.\end{itemize}
+\begin{itemize}
+\item {\bf More examples}: Right now, the only scenario example is that of \doxyref{main.cpp}{p.}{main_8cpp-source}. After a scripting front-end is added, creating more examples would be useful.\end{itemize}
+\section{GNU General Public License}\label{index_sec_license}
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA. 

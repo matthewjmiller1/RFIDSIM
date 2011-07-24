@@ -1,0 +1,205 @@
+\section{Application\-Layer Class Reference}
+\label{classApplicationLayer}\index{ApplicationLayer@{ApplicationLayer}}
+The application layer of the network stack.  
+
+
+{\tt \#include $<$application\_\-layer.hpp$>$}
+
+Inheritance diagram for Application\-Layer::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classApplicationLayer}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Application\-Layer} $>$ \bf{Application\-Layer\-Ptr}\label{classApplicationLayer_c728f2e1a9279e7210181041c44f54d1}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Application\-Layer} ()
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual \bf{Application\-Layer\-Ptr} \bf{this\-Application\-Layer} ()=0
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Application\-Layer}{p.}{classApplicationLayer}} object. \item\end{CompactList}\item 
+void \bf{start} (const \bf{Sim\-Time} \&start\-Time)
+\begin{CompactList}\small\item\em Start the application running. \item\end{CompactList}\item 
+void \bf{stop} (const \bf{Sim\-Time} \&stop\-Time)
+\begin{CompactList}\small\item\em Stop the application running. \item\end{CompactList}\item 
+bool \bf{recv\-From\-Layer} (\bf{Communication\-Layer::Directions} direction, Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Receives a packet from a sending layer. \item\end{CompactList}\item 
+\bf{Communication\-Layer::Types} \bf{get\-Layer\-Type} () const 
+\begin{CompactList}\small\item\em Get the layer type for an object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Application\-Layer} (Node\-Ptr node)\label{classApplicationLayer_9524a8481007f22c9815dd3fd1f4ffd3}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+virtual bool \bf{handle\-Recvd\-Packet} (Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)=0
+\begin{CompactList}\small\item\em Let each subclass handle a received packet in their own specific manner. \item\end{CompactList}\item 
+virtual void \bf{start\-Handler} ()=0\label{classApplicationLayer_712ff325d5ace0ce79f35081605138f2}
+
+\begin{CompactList}\small\item\em Function to execute when the application is started. \item\end{CompactList}\item 
+virtual void \bf{stop\-Handler} ()=0\label{classApplicationLayer_122af18abf893cb05c2d3925499200d6}
+
+\begin{CompactList}\small\item\em Function to execute when the application is stopped. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+bool \bf{m\_\-is\-Running}
+\begin{CompactList}\small\item\em Keeps track of whether the application is running. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class \bf{App\-Epoch\-Event}\label{classApplicationLayer_71eb678ee3552e20fc06c8261945fb58}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The application layer of the network stack. 
+
+This is the superclass from which application classes should be derived. 
+
+
+
+Definition at line 14 of file application\_\-layer.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{ApplicationLayer@{Application\-Layer}!~ApplicationLayer@{$\sim$ApplicationLayer}}
+\index{~ApplicationLayer@{$\sim$ApplicationLayer}!ApplicationLayer@{Application\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Application\-Layer::$\sim$Application\-Layer ()\hspace{0.3cm}{\tt  [virtual]}}\label{classApplicationLayer_a8d3b5b9709f29cd22a409bdc3a47291}
+
+
+A destructor. 
+
+A virtual destructor is recommended since the class has virtual functions. 
+
+Definition at line 11 of file application\_\-layer.cpp.
+
+\subsection{Member Function Documentation}
+\index{ApplicationLayer@{Application\-Layer}!getLayerType@{getLayerType}}
+\index{getLayerType@{getLayerType}!ApplicationLayer@{Application\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Communication\-Layer::Types} Application\-Layer::get\-Layer\-Type () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classApplicationLayer_69d6493129bd56a70e3f8c8933f596a9}
+
+
+Get the layer type for an object. 
+
+\begin{Desc}
+\item[Returns:]the type of the layer. \end{Desc}
+
+
+Implements \bf{Communication\-Layer} \doxyref{p.}{classCommunicationLayer_d03db488bd723170a093700a58cb3c9e}.
+
+Definition at line 103 of file application\_\-layer.hpp.
+
+References Communication\-Layer::Types\_\-Application.\index{ApplicationLayer@{Application\-Layer}!handleRecvdPacket@{handleRecvdPacket}}
+\index{handleRecvdPacket@{handleRecvdPacket}!ApplicationLayer@{Application\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool Application\-Layer::handle\-Recvd\-Packet (Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [protected, pure virtual]}}\label{classApplicationLayer_f660987e884efe4b88d14429eb731fff}
+
+
+Let each subclass handle a received packet in their own specific manner. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was handled successfully. \end{Desc}
+
+
+Implemented in \bf{Rfid\-Reader\-App} \doxyref{p.}{classRfidReaderApp_bb4d0d13fb8d5e6827f137056917e9d2}, and \bf{Rfid\-Tag\-App} \doxyref{p.}{classRfidTagApp_0358000672e15afdb13f58bbc09095aa}.
+
+Referenced by recv\-From\-Layer().\index{ApplicationLayer@{Application\-Layer}!recvFromLayer@{recvFromLayer}}
+\index{recvFromLayer@{recvFromLayer}!ApplicationLayer@{Application\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Application\-Layer::recv\-From\-Layer (\bf{Communication\-Layer::Directions} {\em direction}, Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [virtual]}}\label{classApplicationLayer_0e454dc59a287f3b1459762f0a9d645c}
+
+
+Receives a packet from a sending layer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction the packet was sent. \item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the specified layer was able to receive the packet. \end{Desc}
+
+
+Reimplemented from \bf{Communication\-Layer} \doxyref{p.}{classCommunicationLayer_2f9736c44dce2f49dbb83eafeb418b74}.
+
+Definition at line 36 of file application\_\-layer.cpp.
+
+References Communication\-Layer::Directions\_\-Lower, and handle\-Recvd\-Packet().\index{ApplicationLayer@{Application\-Layer}!start@{start}}
+\index{start@{start}!ApplicationLayer@{Application\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Application\-Layer::start (const \bf{Sim\-Time} \& {\em start\-Time})}\label{classApplicationLayer_6d1e54975190606a26fe571a83a4fbd4}
+
+
+Start the application running. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em start\-Time}]the time to start the application. \end{description}
+\end{Desc}
+
+
+Definition at line 16 of file application\_\-layer.cpp.
+
+References App\-Epoch\-Event::create(), Simulator::current\-Time(), App\-Epoch\-Event::Epochs\_\-Start, Simulator::instance(), Simulator::schedule\-Event(), and this\-Application\-Layer().\index{ApplicationLayer@{Application\-Layer}!stop@{stop}}
+\index{stop@{stop}!ApplicationLayer@{Application\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Application\-Layer::stop (const \bf{Sim\-Time} \& {\em stop\-Time})}\label{classApplicationLayer_d586608316881f660932e17f2211e01b}
+
+
+Stop the application running. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em stop\-Time}]the time stop the application. \end{description}
+\end{Desc}
+
+
+Definition at line 26 of file application\_\-layer.cpp.
+
+References App\-Epoch\-Event::create(), Simulator::current\-Time(), App\-Epoch\-Event::Epochs\_\-Stop, Simulator::instance(), Simulator::schedule\-Event(), and this\-Application\-Layer().\index{ApplicationLayer@{Application\-Layer}!thisApplicationLayer@{thisApplicationLayer}}
+\index{thisApplicationLayer@{thisApplicationLayer}!ApplicationLayer@{Application\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual \bf{Application\-Layer\-Ptr} Application\-Layer::this\-Application\-Layer ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classApplicationLayer_5def2dfec3b265c90545869d923be41d}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Application\-Layer}{p.}{classApplicationLayer}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implemented in \bf{Rfid\-Reader\-App} \doxyref{p.}{classRfidReaderApp_9dd696a4aad14434ce1a72c1d12b6203}, and \bf{Rfid\-Tag\-App} \doxyref{p.}{classRfidTagApp_716b586bba3264ddf2e6cc5e1d404ced}.
+
+Referenced by start(), and stop().
+
+\subsection{Member Data Documentation}
+\index{ApplicationLayer@{Application\-Layer}!m_isRunning@{m\_\-isRunning}}
+\index{m_isRunning@{m\_\-isRunning}!ApplicationLayer@{Application\-Layer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool \bf{Application\-Layer::m\_\-is\-Running}\hspace{0.3cm}{\tt  [protected]}}\label{classApplicationLayer_3697cab293ff42feb66a6214844f3b24}
+
+
+Keeps track of whether the application is running. 
+
+\begin{Desc}
+\item[See also:]\doxyref{start()}{p.}{classApplicationLayer_6d1e54975190606a26fe571a83a4fbd4} 
+
+\doxyref{stop()}{p.}{classApplicationLayer_d586608316881f660932e17f2211e01b} \end{Desc}
+
+
+Definition at line 92 of file application\_\-layer.hpp.
+
+Referenced by Rfid\-Tag\-App::handle\-Recvd\-Packet(), and Rfid\-Reader\-App::handle\-Recvd\-Packet().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+application\_\-layer.hpp\item 
+application\_\-layer.cpp\end{CompactItemize}

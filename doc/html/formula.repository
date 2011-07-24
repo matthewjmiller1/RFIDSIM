@@ -1,0 +1,12 @@
+\form#0:\[ P_r = \frac{P_t G_t G_r \lambda^2}{(4\pi)^2 d^2 L} \]
+\form#1:$P_r$
+\form#2:$P_t$
+\form#3:$G_t$
+\form#4:$G_r$
+\form#5:$\lambda$
+\form#6:$d$
+\form#7:$L$
+\form#8:\[ P_r = \frac{P_t G_t G_r H_t H_r}{d^4 L} \]
+\form#9:$H_t$
+\form#10:$H_r$
+\form#11:$H_t = H_r = 0.0$

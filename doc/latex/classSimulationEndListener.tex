@@ -1,0 +1,44 @@
+\section{Simulation\-End\-Listener Class Reference}
+\label{classSimulationEndListener}\index{SimulationEndListener@{SimulationEndListener}}
+This is an interface for classes which can be notified when the simulation ends.  
+
+
+{\tt \#include $<$simulation\_\-end\_\-listener.hpp$>$}
+
+Inheritance diagram for Simulation\-End\-Listener::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.59259cm]{classSimulationEndListener}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Simulation\-End\-Listener} ()\label{classSimulationEndListener_a867efc2c68267f7bba9f0b39abeeca5}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual void \bf{simulation\-End\-Handler} ()=0\label{classSimulationEndListener_3efc5ad516b436a9ae466bcd36f21ecc}
+
+\begin{CompactList}\small\item\em The function called when the simulation ends. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Simulation\-End\-Listener} ()\label{classSimulationEndListener_d243188605ff92418a7b15e6097f40df}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This is an interface for classes which can be notified when the simulation ends. 
+
+Each object that implements this interface {\em must\/} add itself to be notified by the simulator. N.B.: This should be treated as an interface and neither state nor function definitions should be added to it. \begin{Desc}
+\item[See also:]\doxyref{Simulator::add\-Simulation\-End\-Listener()}{p.}{classSimulator_fe651dc2a3e749aaa15266d8bc039c7b} \end{Desc}
+
+
+
+
+Definition at line 20 of file simulation\_\-end\_\-listener.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+simulation\_\-end\_\-listener.hpp\end{CompactItemize}

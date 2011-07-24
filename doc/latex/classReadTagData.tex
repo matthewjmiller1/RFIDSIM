@@ -1,0 +1,86 @@
+\section{Read\-Tag\-Data Class Reference}
+\label{classReadTagData}\index{ReadTagData@{ReadTagData}}
+This class keeps track of tag data received.  
+
+
+{\tt \#include $<$rfid\_\-reader\_\-app.hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Read\-Tag\-Data} (const \bf{Node\-Id} \&read\-Tag\-Id, const \bf{Sim\-Time} \&time\-Read, const \bf{Sim\-Time} \&time\-Read\-Sent)\label{classReadTagData_c67964cb156c308dd3ab6e939bcdcbdf}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Node\-Id} \bf{get\-Read\-Tag\-Id} () const 
+\begin{CompactList}\small\item\em Get the ID of the tag read. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{get\-Time\-Read} () const 
+\begin{CompactList}\small\item\em Get the time that the tag was read. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{get\-Time\-Read\-Sent} () const 
+\begin{CompactList}\small\item\em Get the time that the read packet was sent for the tag read. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{get\-Read\-Latency} () const 
+\begin{CompactList}\small\item\em Get the latency of the read time for the tag. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+ostream \& \bf{operator$<$$<$} (ostream \&s, const \bf{Read\-Tag\-Data} \&read\-Tag\-Data)\label{classReadTagData_7e440858f5c08073fa8e0e645a18d293}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class keeps track of tag data received. 
+
+
+
+Definition at line 22 of file rfid\_\-reader\_\-app.hpp.
+
+\subsection{Member Function Documentation}
+\index{ReadTagData@{Read\-Tag\-Data}!getReadLatency@{getReadLatency}}
+\index{getReadLatency@{getReadLatency}!ReadTagData@{Read\-Tag\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Read\-Tag\-Data::get\-Read\-Latency () const\hspace{0.3cm}{\tt  [inline]}}\label{classReadTagData_5dc744cf05c73ed5961b5fe9787ca14c}
+
+
+Get the latency of the read time for the tag. 
+
+\begin{Desc}
+\item[Returns:]the latency between the time the read packet was sent and the tag's reply was received. \end{Desc}
+
+
+Definition at line 64 of file rfid\_\-reader\_\-app.hpp.\index{ReadTagData@{Read\-Tag\-Data}!getReadTagId@{getReadTagId}}
+\index{getReadTagId@{getReadTagId}!ReadTagData@{Read\-Tag\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Id} Read\-Tag\-Data::get\-Read\-Tag\-Id () const\hspace{0.3cm}{\tt  [inline]}}\label{classReadTagData_421f227fba4cd563546c3454a2baeb95}
+
+
+Get the ID of the tag read. 
+
+\begin{Desc}
+\item[Returns:]the tag ID. \end{Desc}
+
+
+Definition at line 35 of file rfid\_\-reader\_\-app.hpp.\index{ReadTagData@{Read\-Tag\-Data}!getTimeRead@{getTimeRead}}
+\index{getTimeRead@{getTimeRead}!ReadTagData@{Read\-Tag\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Read\-Tag\-Data::get\-Time\-Read () const\hspace{0.3cm}{\tt  [inline]}}\label{classReadTagData_ccec15f76f1bb34c5799cfe2bd47db4f}
+
+
+Get the time that the tag was read. 
+
+\begin{Desc}
+\item[Returns:]the time the tag was read. \end{Desc}
+
+
+Definition at line 44 of file rfid\_\-reader\_\-app.hpp.\index{ReadTagData@{Read\-Tag\-Data}!getTimeReadSent@{getTimeReadSent}}
+\index{getTimeReadSent@{getTimeReadSent}!ReadTagData@{Read\-Tag\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Read\-Tag\-Data::get\-Time\-Read\-Sent () const\hspace{0.3cm}{\tt  [inline]}}\label{classReadTagData_5e114c8da846057b30f50fe469a7afde}
+
+
+Get the time that the read packet was sent for the tag read. 
+
+\begin{Desc}
+\item[Returns:]the time the read packet was sent. \end{Desc}
+
+
+Definition at line 54 of file rfid\_\-reader\_\-app.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+rfid\_\-reader\_\-app.hpp\end{CompactItemize}

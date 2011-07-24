@@ -1,0 +1,62 @@
+\section{Send\-To\-Link\-Layer\-Event Class Reference}
+\label{classSendToLinkLayerEvent}\index{SendToLinkLayerEvent@{SendToLinkLayerEvent}}
+The event for when a packet gets passed from a MAC object to a link layer object.  
+
+
+{\tt \#include $<$mac\_\-protocol.hpp$>$}
+
+Inheritance diagram for Send\-To\-Link\-Layer\-Event::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classSendToLinkLayerEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Send\-To\-Link\-Layer\-Event} $>$ \bf{Send\-To\-Link\-Layer\-Event\-Ptr}\label{classSendToLinkLayerEvent_e901a9e4a05c760c7483bcf27cae1e2d}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{execute} ()
+\begin{CompactList}\small\item\em The code that gets executed for the event. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Send\-To\-Link\-Layer\-Event\-Ptr} \bf{create} (Mac\-Protocol\-Ptr mac\-Protocol, \bf{Communication\-Layer::Directions} direction, Packet\-Ptr packet)\label{classSendToLinkLayerEvent_a51b324ec28a944508e93ffd175122ff}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Send\-To\-Link\-Layer\-Event} (Mac\-Protocol\-Ptr mac\-Protocol, \bf{Communication\-Layer::Directions} direction, Packet\-Ptr packet)\label{classSendToLinkLayerEvent_f744257cc6734f449d9006bf533a5505}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The event for when a packet gets passed from a MAC object to a link layer object. 
+
+
+
+Definition at line 317 of file mac\_\-protocol.hpp.
+
+\subsection{Member Function Documentation}
+\index{SendToLinkLayerEvent@{Send\-To\-Link\-Layer\-Event}!execute@{execute}}
+\index{execute@{execute}!SendToLinkLayerEvent@{Send\-To\-Link\-Layer\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Send\-To\-Link\-Layer\-Event::execute ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classSendToLinkLayerEvent_c1da52db74223b3280b95c9f8c2bdf45}
+
+
+The code that gets executed for the event. 
+
+Subclasses can override this to define their own actions. 
+
+Implements \bf{Event} \doxyref{p.}{classEvent_b53a925ac3b000c6f017a4a951aff3c7}.
+
+Definition at line 336 of file mac\_\-protocol.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+mac\_\-protocol.hpp\end{CompactItemize}

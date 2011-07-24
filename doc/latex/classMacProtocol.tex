@@ -1,0 +1,322 @@
+\section{Mac\-Protocol Class Reference}
+\label{classMacProtocol}\index{MacProtocol@{MacProtocol}}
+The class for handling medium access control (MAC) on a channel.  
+
+
+{\tt \#include $<$mac\_\-protocol.hpp$>$}
+
+Inheritance diagram for Mac\-Protocol::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classMacProtocol}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Mac\-Protocol} $>$ \bf{Mac\-Protocol\-Ptr}\label{classMacProtocol_0ac9382050c88b43fb031ef3f68be3ad}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\item 
+typedef boost::shared\_\-ptr$<$ \bf{Simulation\-End\-Listener} $>$ \bf{Simulation\-End\-Listener\-Ptr}\label{classMacProtocol_ed2eaef6e19ef3fddf18da588914e8df}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Mac\-Protocol} ()\label{classMacProtocol_63dc2d88399b57f784ebcc1aaad226fb}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual \bf{Mac\-Protocol\-Ptr} \bf{this\-Mac\-Protocol} ()=0
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Mac\-Protocol}{p.}{classMacProtocol}} object. \item\end{CompactList}\item 
+virtual \bf{Simulation\-End\-Listener\-Ptr} \bf{this\-Simulation\-End\-Listener} ()=0
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt Simulation\-End\-Listener\-Ptr} object. \item\end{CompactList}\item 
+bool \bf{start\-Send\-Timer} (\bf{Communication\-Layer::Directions} direction, Packet\-Ptr packet, const \bf{Sim\-Time} \&delay)
+\begin{CompactList}\small\item\em Starts a timer to send the packet with the specified delay. \item\end{CompactList}\item 
+virtual bool \bf{recv\-From\-Link\-Layer} (\bf{Communication\-Layer::Directions} direction, Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Receives a packet from a sending layer. \item\end{CompactList}\item 
+virtual bool \bf{handle\-Recvd\-Mac\-Packet} (Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)=0
+\begin{CompactList}\small\item\em Handle a MAC packet that is received. \item\end{CompactList}\item 
+virtual bool \bf{handle\-Recvd\-Upper\-Layer\-Packet} (Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)=0
+\begin{CompactList}\small\item\em Handle a packet received from upper layers. \item\end{CompactList}\item 
+virtual void \bf{handle\-Channel\-Busy} (Packet\-Ptr packet)=0
+\begin{CompactList}\small\item\em This is called when the MAC is scheduled to transmit a packet on the channel but the channel is busy. \item\end{CompactList}\item 
+virtual void \bf{handle\-Packet\-Sent} (Packet\-Ptr packet)=0
+\begin{CompactList}\small\item\em This is called when the MAC is scheduled to transmit a packet on the channel and it is sent on the channel. \item\end{CompactList}\item 
+void \bf{set\-Link\-Layer} (Link\-Layer\-Ptr link\-Layer)
+\begin{CompactList}\small\item\em Set the \doxyref{Link\-Layer}{p.}{classLinkLayer} associated with this MAC. \item\end{CompactList}\item 
+Node\-Ptr \bf{get\-Node} () const 
+\begin{CompactList}\small\item\em Get a pointer to the node associated with this MAC layer. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Mac\-Protocol} (Node\-Ptr node)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+bool \bf{send\-To\-Link\-Layer} (\bf{Communication\-Layer::Directions} direction, Packet\-Ptr packet)
+\begin{CompactList}\small\item\em Send a packet to the default receiving layer. \item\end{CompactList}\item 
+void \bf{block\-Upper\-Queues} ()\label{classMacProtocol_c528a70fd6f312b41ac97aa3b3d3cdfa}
+
+\begin{CompactList}\small\item\em Block all incoming queues from upper layers. \item\end{CompactList}\item 
+void \bf{unblock\-Upper\-Queues} ()\label{classMacProtocol_7ae3ca05c5b616563bdbe3f6190ffdda}
+
+\begin{CompactList}\small\item\em Unblock all incoming queues from upper layers. \item\end{CompactList}\item 
+bool \bf{get\-Queue\-Is\-Blocked} () const 
+\begin{CompactList}\small\item\em Determine whether incoming queues are currently blocked. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+Timer\-Ptr \bf{m\_\-send\-Timer}\label{classMacProtocol_81eb403a2cd17ec313d7c87f6f023cc1}
+
+\begin{CompactList}\small\item\em A timer for when a packet is sent to the link layer. \item\end{CompactList}\item 
+boost::weak\_\-ptr$<$ \bf{Link\-Layer} $>$ \bf{m\_\-link\-Layer}
+\begin{CompactList}\small\item\em A pointer to the link layer associated with this MAC object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class \bf{Send\-To\-Link\-Layer\-Event}\label{classMacProtocol_440dff6776f998668373dde3e7dbdaa3}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The class for handling medium access control (MAC) on a channel. 
+
+
+
+Definition at line 17 of file mac\_\-protocol.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{MacProtocol@{Mac\-Protocol}!MacProtocol@{MacProtocol}}
+\index{MacProtocol@{MacProtocol}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Mac\-Protocol::Mac\-Protocol (Node\-Ptr {\em node})\hspace{0.3cm}{\tt  [protected]}}\label{classMacProtocol_2b1739bfe7d41a4fdf5044d0380bb349}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node}]the node that owns this MAC. \end{description}
+\end{Desc}
+
+
+Definition at line 8 of file mac\_\-protocol.cpp.
+
+\subsection{Member Function Documentation}
+\index{MacProtocol@{Mac\-Protocol}!getNode@{getNode}}
+\index{getNode@{getNode}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Node\-Ptr Mac\-Protocol::get\-Node () const\hspace{0.3cm}{\tt  [inline]}}\label{classMacProtocol_0fdfa4c53b2405fe1742b4ef2270c472}
+
+
+Get a pointer to the node associated with this MAC layer. 
+
+\begin{Desc}
+\item[Returns:]a pointer to the node. \end{Desc}
+
+
+Definition at line 119 of file mac\_\-protocol.hpp.
+
+Referenced by Rfid\-Tag\-Mac::add\-Generic\-Header(), Rfid\-Reader\-Mac::add\-Generic\-Header(), Rfid\-Reader\-Mac::add\-Select\-Header(), Rfid\-Reader\-Mac::create\-Ack\-Packet(), Rfid\-Tag\-Mac::create\-Reply\-Packet(), Rfid\-Reader\-Mac::create\-Request\-Packet(), Rfid\-Tag\-Mac::handle\-Recvd\-Mac\-Packet(), Rfid\-Tag\-Mac::handle\-Request\-Packet(), Rfid\-Tag\-Mac::packet\-Is\-For\-Me(), Rfid\-Reader\-Mac::packet\-Is\-For\-Me(), Rfid\-Reader\-Mac::simulation\-End\-Handler(), and start\-Send\-Timer().\index{MacProtocol@{Mac\-Protocol}!getQueueIsBlocked@{getQueueIsBlocked}}
+\index{getQueueIsBlocked@{getQueueIsBlocked}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Mac\-Protocol::get\-Queue\-Is\-Blocked () const\hspace{0.3cm}{\tt  [protected]}}\label{classMacProtocol_84bdb83f05883119fe52d7c1293ac21e}
+
+
+Determine whether incoming queues are currently blocked. 
+
+\begin{Desc}
+\item[Returns:]true if the are blocked. \end{Desc}
+
+
+Definition at line 37 of file mac\_\-protocol.cpp.
+
+References m\_\-link\-Layer.
+
+Referenced by Rfid\-Reader\-Mac::begin\-Slot\-Event().\index{MacProtocol@{Mac\-Protocol}!handleChannelBusy@{handleChannelBusy}}
+\index{handleChannelBusy@{handleChannelBusy}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Mac\-Protocol::handle\-Channel\-Busy (Packet\-Ptr {\em packet})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classMacProtocol_554fdfd2535dc4f38658bbecc8966b57}
+
+
+This is called when the MAC is scheduled to transmit a packet on the channel but the channel is busy. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]the packet whose transmission was being attmpted. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{handle\-Packet\-Sent()}{p.}{classMacProtocol_69bc1e2b0efec1155b67edc7a1cf700f} \end{Desc}
+
+
+Implemented in \bf{Rfid\-Reader\-Mac} \doxyref{p.}{classRfidReaderMac_ee6687bd966a9c13bdddb0e5adfc3d3a}, and \bf{Rfid\-Tag\-Mac} \doxyref{p.}{classRfidTagMac_3c0b2da919439404120e46dee2e07e7f}.
+
+Referenced by send\-To\-Link\-Layer().\index{MacProtocol@{Mac\-Protocol}!handlePacketSent@{handlePacketSent}}
+\index{handlePacketSent@{handlePacketSent}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual void Mac\-Protocol::handle\-Packet\-Sent (Packet\-Ptr {\em packet})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classMacProtocol_69bc1e2b0efec1155b67edc7a1cf700f}
+
+
+This is called when the MAC is scheduled to transmit a packet on the channel and it is sent on the channel. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]the packet whose transmission was being attmpted. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{handle\-Channel\-Busy()}{p.}{classMacProtocol_554fdfd2535dc4f38658bbecc8966b57} \end{Desc}
+
+
+Implemented in \bf{Rfid\-Reader\-Mac} \doxyref{p.}{classRfidReaderMac_894d31adb55474a7d4ddf2f2a70cb035}, and \bf{Rfid\-Tag\-Mac} \doxyref{p.}{classRfidTagMac_a463f55305a16f6fdf132cbfc7b6abfb}.
+
+Referenced by send\-To\-Link\-Layer().\index{MacProtocol@{Mac\-Protocol}!handleRecvdMacPacket@{handleRecvdMacPacket}}
+\index{handleRecvdMacPacket@{handleRecvdMacPacket}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool Mac\-Protocol::handle\-Recvd\-Mac\-Packet (Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classMacProtocol_0511c3a8be71439f45182cedb2ace957}
+
+
+Handle a MAC packet that is received. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was able to be handled. \end{Desc}
+
+
+Implemented in \bf{Rfid\-Reader\-Mac} \doxyref{p.}{classRfidReaderMac_a97095861207185bac75004923f7896c}, and \bf{Rfid\-Tag\-Mac} \doxyref{p.}{classRfidTagMac_7a5164884df42c2c851c0a0b5667a0fa}.
+
+Referenced by recv\-From\-Link\-Layer().\index{MacProtocol@{Mac\-Protocol}!handleRecvdUpperLayerPacket@{handleRecvdUpperLayerPacket}}
+\index{handleRecvdUpperLayerPacket@{handleRecvdUpperLayerPacket}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual bool Mac\-Protocol::handle\-Recvd\-Upper\-Layer\-Packet (Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [pure virtual]}}\label{classMacProtocol_071f7addca0e24a0eaa13e9093767f42}
+
+
+Handle a packet received from upper layers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was able to be handled. \end{Desc}
+
+
+Implemented in \bf{Rfid\-Reader\-Mac} \doxyref{p.}{classRfidReaderMac_d73bb89c776e85c06cf7e8cc8c92af86}, and \bf{Rfid\-Tag\-Mac} \doxyref{p.}{classRfidTagMac_8de0877e4ce973c7f81940c3e027a47b}.
+
+Referenced by recv\-From\-Link\-Layer().\index{MacProtocol@{Mac\-Protocol}!recvFromLinkLayer@{recvFromLinkLayer}}
+\index{recvFromLinkLayer@{recvFromLinkLayer}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Mac\-Protocol::recv\-From\-Link\-Layer (\bf{Communication\-Layer::Directions} {\em direction}, Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [virtual]}}\label{classMacProtocol_bafa6ee3a12e00bdfef733488f6c9e7a}
+
+
+Receives a packet from a sending layer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction the packet was sent. \item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the specified layer was able to receive the packet. \end{Desc}
+
+
+Definition at line 75 of file mac\_\-protocol.cpp.
+
+References Communication\-Layer::Directions\_\-Lower, Communication\-Layer::Directions\_\-Upper, handle\-Recvd\-Mac\-Packet(), and handle\-Recvd\-Upper\-Layer\-Packet().\index{MacProtocol@{Mac\-Protocol}!sendToLinkLayer@{sendToLinkLayer}}
+\index{sendToLinkLayer@{sendToLinkLayer}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Mac\-Protocol::send\-To\-Link\-Layer (\bf{Communication\-Layer::Directions} {\em direction}, Packet\-Ptr {\em packet})\hspace{0.3cm}{\tt  [protected]}}\label{classMacProtocol_ede0b02a69a3887eefb1162098c7cb57}
+
+
+Send a packet to the default receiving layer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction the packet was sent. \item[{\em packet}]a pointer to the received packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the specified layer was able to receive the packet. \end{Desc}
+
+
+Definition at line 57 of file mac\_\-protocol.cpp.
+
+References Communication\-Layer::Directions\_\-Lower, handle\-Channel\-Busy(), handle\-Packet\-Sent(), and m\_\-link\-Layer.
+
+Referenced by Rfid\-Tag\-Mac::handle\-Recvd\-Mac\-Packet(), and Rfid\-Reader\-Mac::handle\-Recvd\-Mac\-Packet().\index{MacProtocol@{Mac\-Protocol}!setLinkLayer@{setLinkLayer}}
+\index{setLinkLayer@{setLinkLayer}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Mac\-Protocol::set\-Link\-Layer (Link\-Layer\-Ptr {\em link\-Layer})}\label{classMacProtocol_0f088813f31be741ad076b6b71d38f28}
+
+
+Set the \doxyref{Link\-Layer}{p.}{classLinkLayer} associated with this MAC. 
+
+A weak pointer to the layer is maintained to break a cyclic reference. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em link\-Layer}]a point to the \doxyref{Link\-Layer}{p.}{classLinkLayer} object. \end{description}
+\end{Desc}
+
+
+Definition at line 19 of file mac\_\-protocol.cpp.
+
+References m\_\-link\-Layer.\index{MacProtocol@{Mac\-Protocol}!startSendTimer@{startSendTimer}}
+\index{startSendTimer@{startSendTimer}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Mac\-Protocol::start\-Send\-Timer (\bf{Communication\-Layer::Directions} {\em direction}, Packet\-Ptr {\em packet}, const \bf{Sim\-Time} \& {\em delay})}\label{classMacProtocol_bfef22d9c4a04a1e3c50493524848a2f}
+
+
+Starts a timer to send the packet with the specified delay. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em direction}]the direction the packet will be sent. \item[{\em packet}]a pointer to the packet being sent. \item[{\em delay}]the delay with which the packet should be sent. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the timer is set successfully. \end{Desc}
+
+
+Definition at line 43 of file mac\_\-protocol.cpp.
+
+References Timer::create(), Send\-To\-Link\-Layer\-Event::create(), get\-Node(), m\_\-send\-Timer, and this\-Mac\-Protocol().
+
+Referenced by Rfid\-Tag\-Mac::begin\-Slot\-Event(), and Rfid\-Reader\-Mac::begin\-Slot\-Event().\index{MacProtocol@{Mac\-Protocol}!thisMacProtocol@{thisMacProtocol}}
+\index{thisMacProtocol@{thisMacProtocol}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual \bf{Mac\-Protocol\-Ptr} Mac\-Protocol::this\-Mac\-Protocol ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classMacProtocol_826334dae5fc3e12ae1c446fbb11a1f6}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Mac\-Protocol}{p.}{classMacProtocol}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implemented in \bf{Rfid\-Reader\-Mac} \doxyref{p.}{classRfidReaderMac_764e0cf20bf9329d40bdf1136575f78b}, and \bf{Rfid\-Tag\-Mac} \doxyref{p.}{classRfidTagMac_9e157b877bb2a4933e7385859450902e}.
+
+Referenced by start\-Send\-Timer().\index{MacProtocol@{Mac\-Protocol}!thisSimulationEndListener@{thisSimulationEndListener}}
+\index{thisSimulationEndListener@{thisSimulationEndListener}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}virtual \bf{Simulation\-End\-Listener\-Ptr} Mac\-Protocol::this\-Simulation\-End\-Listener ()\hspace{0.3cm}{\tt  [pure virtual]}}\label{classMacProtocol_56529b795e24f23950dc53d98ec38087}
+
+
+Gives {\tt this} pointer as a {\tt Simulation\-End\-Listener\-Ptr} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implemented in \bf{Rfid\-Reader\-Mac} \doxyref{p.}{classRfidReaderMac_da89bb83471e99ea2011e61e8b694fc3}, and \bf{Rfid\-Tag\-Mac} \doxyref{p.}{classRfidTagMac_392d01ea6bc6c2b3546ffc7cbdd39aa1}.
+
+\subsection{Member Data Documentation}
+\index{MacProtocol@{Mac\-Protocol}!m_linkLayer@{m\_\-linkLayer}}
+\index{m_linkLayer@{m\_\-linkLayer}!MacProtocol@{Mac\-Protocol}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}boost::weak\_\-ptr$<$\bf{Link\-Layer}$>$ \bf{Mac\-Protocol::m\_\-link\-Layer}\hspace{0.3cm}{\tt  [protected]}}\label{classMacProtocol_dad209cc46b420823905458e4d07698c}
+
+
+A pointer to the link layer associated with this MAC object. 
+
+This must be a weak pointer because there is a cyclic reference since MAC points to Link and Link points to MAC. 
+
+Definition at line 164 of file mac\_\-protocol.hpp.
+
+Referenced by block\-Upper\-Queues(), get\-Queue\-Is\-Blocked(), send\-To\-Link\-Layer(), set\-Link\-Layer(), and unblock\-Upper\-Queues().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+mac\_\-protocol.hpp\item 
+mac\_\-protocol.cpp\end{CompactItemize}

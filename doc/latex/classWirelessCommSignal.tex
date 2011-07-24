@@ -1,0 +1,170 @@
+\section{Wireless\-Comm\-Signal Class Reference}
+\label{classWirelessCommSignal}\index{WirelessCommSignal@{WirelessCommSignal}}
+A radio signal to transmitted over a \doxyref{Wireless\-Channel}{p.}{classWirelessChannel}.  
+
+
+{\tt \#include $<$wireless\_\-comm\_\-signal.hpp$>$}
+
+Inheritance diagram for Wireless\-Comm\-Signal::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classWirelessCommSignal}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Wireless\-Comm\-Signal} $>$ \bf{Wireless\-Comm\-Signal\-Ptr}\label{classWirelessCommSignal_0f7f71fa4a91e39075087b28f2d0a470}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+Packet\-Ptr \bf{get\-Packet\-Ptr} () const 
+\begin{CompactList}\small\item\em Get the packet encapsulated in this signal. \item\end{CompactList}\item 
+double \bf{get\-Wavelength} () const 
+\begin{CompactList}\small\item\em Get the wavelength of this signal. \item\end{CompactList}\item 
+double \bf{get\-Transmitter\-Gain} () const 
+\begin{CompactList}\small\item\em Get the gain of the transmitter of the signal. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{get\-Duration} () const 
+\begin{CompactList}\small\item\em Get the time duration of the signal. \item\end{CompactList}\item 
+void \bf{set\-Channel\-Id} (\bf{t\_\-uint} channel\-Id)
+\begin{CompactList}\small\item\em Set the channel ID of the signal. \item\end{CompactList}\item 
+\bf{t\_\-uint} \bf{get\-Channel\-Id} () const 
+\begin{CompactList}\small\item\em Get the channel ID of the signal. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Wireless\-Comm\-Signal\-Ptr} \bf{create} (const \bf{Location} \&location, double db\-Strength, double wavelength, double transmitter\-Gain, Packet\-Ptr packet)\label{classWirelessCommSignal_59b55b6191a9188b2cfa0cb58982b201}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Wireless\-Comm\-Signal\-Ptr} \bf{create} (const \bf{Wireless\-Comm\-Signal} \&rhs)\label{classWirelessCommSignal_3c3cf42b13d34e31195506e098c28971}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Wireless\-Comm\-Signal} (const \bf{Location} \&location, double db\-Strength, double wavelength, double transmitter\-Gain, Packet\-Ptr packet)\label{classWirelessCommSignal_4b975480714479ee63235c847562c42c}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Wireless\-Comm\-Signal} (const \bf{Wireless\-Comm\-Signal} \&rhs)\label{classWirelessCommSignal_22fe42052b0bc4410418989291428a7d}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\item 
+virtual \bf{Signal\-Ptr} \bf{clone} () const 
+\begin{CompactList}\small\item\em Returns a pointer to a deep copy of this object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+ostream \& \bf{operator$<$$<$} (ostream \&s, const \bf{Wireless\-Comm\-Signal} \&rhs)\label{classWirelessCommSignal_922c95089efe38716af2ddc8124d68a2}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A radio signal to transmitted over a \doxyref{Wireless\-Channel}{p.}{classWirelessChannel}. 
+
+
+
+Definition at line 15 of file wireless\_\-comm\_\-signal.hpp.
+
+\subsection{Member Function Documentation}
+\index{WirelessCommSignal@{Wireless\-Comm\-Signal}!clone@{clone}}
+\index{clone@{clone}!WirelessCommSignal@{Wireless\-Comm\-Signal}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Signal\-Ptr} Wireless\-Comm\-Signal::clone () const\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classWirelessCommSignal_299eae5b8c3f5a1ddae68c201e830e7f}
+
+
+Returns a pointer to a deep copy of this object. 
+
+This is addresses the slicing problem with copy construction. \begin{Desc}
+\item[Returns:]a pointer to a deep copy of this object. \end{Desc}
+
+
+Reimplemented from \bf{Signal} \doxyref{p.}{classSignal_f15e301b793db83c184d9c3cbf332f94}.
+
+Definition at line 25 of file wireless\_\-comm\_\-signal.cpp.
+
+References Wireless\-Comm\-Signal().
+
+Referenced by create().\index{WirelessCommSignal@{Wireless\-Comm\-Signal}!getChannelId@{getChannelId}}
+\index{getChannelId@{getChannelId}!WirelessCommSignal@{Wireless\-Comm\-Signal}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Wireless\-Comm\-Signal::get\-Channel\-Id () const\hspace{0.3cm}{\tt  [inline]}}\label{classWirelessCommSignal_afdb2040e0167b11706839fa17f54ae3}
+
+
+Get the channel ID of the signal. 
+
+\begin{Desc}
+\item[Returns:]the channel ID. \end{Desc}
+
+
+Definition at line 158 of file wireless\_\-comm\_\-signal.hpp.\index{WirelessCommSignal@{Wireless\-Comm\-Signal}!getDuration@{getDuration}}
+\index{getDuration@{getDuration}!WirelessCommSignal@{Wireless\-Comm\-Signal}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Wireless\-Comm\-Signal::get\-Duration () const}\label{classWirelessCommSignal_cc09f72e753cb69c8a1471314f953793}
+
+
+Get the time duration of the signal. 
+
+\begin{Desc}
+\item[Returns:]the time duration of the signal. \end{Desc}
+
+
+Definition at line 31 of file wireless\_\-comm\_\-signal.cpp.
+
+References get\-Packet\-Ptr().\index{WirelessCommSignal@{Wireless\-Comm\-Signal}!getPacketPtr@{getPacketPtr}}
+\index{getPacketPtr@{getPacketPtr}!WirelessCommSignal@{Wireless\-Comm\-Signal}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Packet\-Ptr Wireless\-Comm\-Signal::get\-Packet\-Ptr () const\hspace{0.3cm}{\tt  [inline]}}\label{classWirelessCommSignal_9ea9273b557531c4f6e2103ab6814b05}
+
+
+Get the packet encapsulated in this signal. 
+
+\begin{Desc}
+\item[Returns:]pointer to the packet. \end{Desc}
+
+
+Definition at line 138 of file wireless\_\-comm\_\-signal.hpp.
+
+Referenced by get\-Duration().\index{WirelessCommSignal@{Wireless\-Comm\-Signal}!getTransmitterGain@{getTransmitterGain}}
+\index{getTransmitterGain@{getTransmitterGain}!WirelessCommSignal@{Wireless\-Comm\-Signal}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Wireless\-Comm\-Signal::get\-Transmitter\-Gain () const\hspace{0.3cm}{\tt  [inline]}}\label{classWirelessCommSignal_496f3802993f6c8042cea8864e72a7f4}
+
+
+Get the gain of the transmitter of the signal. 
+
+\begin{Desc}
+\item[Returns:]the gain of the signal's transmitter (unit-less). \end{Desc}
+
+
+Definition at line 148 of file wireless\_\-comm\_\-signal.hpp.
+
+Referenced by Two\-Ray::get\-Recvd\-Strength(), and Free\-Space::get\-Recvd\-Strength().\index{WirelessCommSignal@{Wireless\-Comm\-Signal}!getWavelength@{getWavelength}}
+\index{getWavelength@{getWavelength}!WirelessCommSignal@{Wireless\-Comm\-Signal}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Wireless\-Comm\-Signal::get\-Wavelength () const\hspace{0.3cm}{\tt  [inline]}}\label{classWirelessCommSignal_91a26597c43acf20ed3162375331802e}
+
+
+Get the wavelength of this signal. 
+
+\begin{Desc}
+\item[Returns:]the wavelength of the signal in meters. \end{Desc}
+
+
+Definition at line 143 of file wireless\_\-comm\_\-signal.hpp.
+
+Referenced by Ricean::fading\-Factor(), Two\-Ray::get\-Recvd\-Strength(), and Free\-Space::get\-Recvd\-Strength().\index{WirelessCommSignal@{Wireless\-Comm\-Signal}!setChannelId@{setChannelId}}
+\index{setChannelId@{setChannelId}!WirelessCommSignal@{Wireless\-Comm\-Signal}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Wireless\-Comm\-Signal::set\-Channel\-Id (\bf{t\_\-uint} {\em channel\-Id})\hspace{0.3cm}{\tt  [inline]}}\label{classWirelessCommSignal_aaab8ed933b74f2b31061e07e4e8085a}
+
+
+Set the channel ID of the signal. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel\-Id}]the channel ID. \end{description}
+\end{Desc}
+
+
+Definition at line 153 of file wireless\_\-comm\_\-signal.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+wireless\_\-comm\_\-signal.hpp\item 
+wireless\_\-comm\_\-signal.cpp\end{CompactItemize}

@@ -1,0 +1,214 @@
+\section{Rfid\-Tag\-Mac\-Data Class Reference}
+\label{classRfidTagMacData}\index{RfidTagMacData@{RfidTagMacData}}
+The representation of the MAC data in a Rfid\-Tag\-Mac's packet.  
+
+
+{\tt \#include $<$rfid\_\-tag\_\-mac.hpp$>$}
+
+Inheritance diagram for Rfid\-Tag\-Mac\-Data::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classRfidTagMacData}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Tag\-Mac\-Data} $>$ \bf{Rfid\-Tag\-Mac\-Data\-Ptr}\label{classRfidTagMacData_cb269a79844a23f9ba25989db6a6f516}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\item 
+\bf{Types\_\-Generic}
+\begin{CompactList}\small\item\em enum value Types\_\-Generic. \item\end{CompactList}\item 
+\bf{Types\_\-Reply}
+\begin{CompactList}\small\item\em enum value Types\_\-Reply. \item\end{CompactList}\item 
+enum \bf{Types} \{ \bf{Types\_\-Generic}, 
+\bf{Types\_\-Reply}
+ \}
+\begin{CompactList}\small\item\em Types enum. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{t\_\-uint} \bf{get\-Size\-In\-Bytes} () const 
+\begin{CompactList}\small\item\em Get the size of this data. \item\end{CompactList}\item 
+void \bf{set\-Sender\-Id} (const \bf{Node\-Id} \&node\-Id)
+\begin{CompactList}\small\item\em Write the sender ID to the packet data. \item\end{CompactList}\item 
+\bf{Node\-Id} \bf{get\-Sender\-Id} () const 
+\begin{CompactList}\small\item\em Read the sender ID from the packet data. \item\end{CompactList}\item 
+void \bf{set\-Receiver\-Id} (const \bf{Node\-Id} \&node\-Id)
+\begin{CompactList}\small\item\em Write the receiver ID to the packet data. \item\end{CompactList}\item 
+\bf{Node\-Id} \bf{get\-Receiver\-Id} () const 
+\begin{CompactList}\small\item\em Read the receiver ID from the packet data. \item\end{CompactList}\item 
+void \bf{set\-Type} (\bf{Types} type)
+\begin{CompactList}\small\item\em Write the type field to this packet data. \item\end{CompactList}\item 
+\bf{Types} \bf{get\-Type} () const 
+\begin{CompactList}\small\item\em Read the type field from this packet data. \item\end{CompactList}\item 
+ostream \& \bf{print} (ostream \&s) const \label{classRfidTagMacData_38781caa975e883b7211b8ba6f4d93fb}
+
+\begin{CompactList}\small\item\em Return the stream representation of the object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Tag\-Mac\-Data\-Ptr} \bf{create} ()\label{classRfidTagMacData_569df2b154fc515e5d777cba30159f0d}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Rfid\-Tag\-Mac\-Data\-Ptr} \bf{create} (const \bf{Rfid\-Tag\-Mac\-Data} \&rhs)\label{classRfidTagMacData_04bceeced287c9a6d49d77f450475c8a}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Tag\-Mac\-Data} ()\label{classRfidTagMacData_e4a9d3622d34295a6b38908297d0049d}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Rfid\-Tag\-Mac\-Data} (const \bf{Rfid\-Tag\-Mac\-Data} \&rhs)\label{classRfidTagMacData_ac5df37f52be0d6d708cede4b86a306b}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\item 
+virtual \bf{Packet\-Data\-Ptr} \bf{clone} () const 
+\begin{CompactList}\small\item\em Returns a pointer to a deep copy of this object. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The representation of the MAC data in a Rfid\-Tag\-Mac's packet. 
+
+
+
+Definition at line 24 of file rfid\_\-tag\_\-mac.hpp.
+
+\subsection{Member Enumeration Documentation}
+\index{RfidTagMacData@{Rfid\-Tag\-Mac\-Data}!Types@{Types}}
+\index{Types@{Types}!RfidTagMacData@{Rfid\-Tag\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum \bf{Rfid\-Tag\-Mac\-Data::Types}}\label{classRfidTagMacData_a869eab50d675fd24f6265a33af5aa2f}
+
+
+Types enum. 
+
+Specifies the types of packets that are sent. \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{Types_Generic@{Types\_\-Generic}!RfidTagMacData@{RfidTagMacData}}\index{RfidTagMacData@{RfidTagMacData}!Types_Generic@{Types\_\-Generic}}\item[{\em 
+Types\_\-Generic\label{classRfidTagMacData_a869eab50d675fd24f6265a33af5aa2f3a51201d61e310440dc3b4f23c6cfcfd}
+}]enum value Types\_\-Generic. \index{Types_Reply@{Types\_\-Reply}!RfidTagMacData@{RfidTagMacData}}\index{RfidTagMacData@{RfidTagMacData}!Types_Reply@{Types\_\-Reply}}\item[{\em 
+Types\_\-Reply\label{classRfidTagMacData_a869eab50d675fd24f6265a33af5aa2f53382478a47c417a1ffcf6094c23b1d7}
+}]enum value Types\_\-Reply. \end{description}
+\end{Desc}
+
+
+
+Definition at line 33 of file rfid\_\-tag\_\-mac.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidTagMacData@{Rfid\-Tag\-Mac\-Data}!clone@{clone}}
+\index{clone@{clone}!RfidTagMacData@{Rfid\-Tag\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Packet\-Data\-Ptr} Rfid\-Tag\-Mac\-Data::clone () const\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classRfidTagMacData_9f6eca516807ed51d1481fe101abe464}
+
+
+Returns a pointer to a deep copy of this object. 
+
+This is addresses the slicing problem with copy construction. \begin{Desc}
+\item[Returns:]a pointer to a deep copy of this object. \end{Desc}
+
+
+Reimplemented from \bf{Packet\-Data} \doxyref{p.}{classPacketData_b338f746c8a3825158c554b1468e7a13}.
+
+Definition at line 269 of file rfid\_\-tag\_\-mac.cpp.
+
+References Rfid\-Tag\-Mac\-Data().
+
+Referenced by create().\index{RfidTagMacData@{Rfid\-Tag\-Mac\-Data}!getReceiverId@{getReceiverId}}
+\index{getReceiverId@{getReceiverId}!RfidTagMacData@{Rfid\-Tag\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Id} Rfid\-Tag\-Mac\-Data::get\-Receiver\-Id () const}\label{classRfidTagMacData_1225aa29cec6fcfe818a72017f18fbc4}
+
+
+Read the receiver ID from the packet data. 
+
+\begin{Desc}
+\item[Returns:]the ID of the node in the packet. \end{Desc}
+
+
+Definition at line 291 of file rfid\_\-tag\_\-mac.cpp.\index{RfidTagMacData@{Rfid\-Tag\-Mac\-Data}!getSenderId@{getSenderId}}
+\index{getSenderId@{getSenderId}!RfidTagMacData@{Rfid\-Tag\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Id} Rfid\-Tag\-Mac\-Data::get\-Sender\-Id () const}\label{classRfidTagMacData_7624c1a5828dd3df2c7825e752247159}
+
+
+Read the sender ID from the packet data. 
+
+\begin{Desc}
+\item[Returns:]the ID of the node in the packet. \end{Desc}
+
+
+Definition at line 280 of file rfid\_\-tag\_\-mac.cpp.\index{RfidTagMacData@{Rfid\-Tag\-Mac\-Data}!getSizeInBytes@{getSizeInBytes}}
+\index{getSizeInBytes@{getSizeInBytes}!RfidTagMacData@{Rfid\-Tag\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Rfid\-Tag\-Mac\-Data::get\-Size\-In\-Bytes () const\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagMacData_adab26ed9650fe4b2aadb571919d9e78}
+
+
+Get the size of this data. 
+
+\begin{Desc}
+\item[Returns:]the size of the data in bytes. \end{Desc}
+
+
+Reimplemented from \bf{Packet\-Data} \doxyref{p.}{classPacketData_d011a84f410ffd8fe2da792934fb77f2}.
+
+Definition at line 393 of file rfid\_\-tag\_\-mac.hpp.\index{RfidTagMacData@{Rfid\-Tag\-Mac\-Data}!getType@{getType}}
+\index{getType@{getType}!RfidTagMacData@{Rfid\-Tag\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Tag\-Mac\-Data::Types} Rfid\-Tag\-Mac\-Data::get\-Type () const\hspace{0.3cm}{\tt  [inline]}}\label{classRfidTagMacData_3f3029e7409f0f1f56b355fee78b6e6f}
+
+
+Read the type field from this packet data. 
+
+\begin{Desc}
+\item[Returns:]the type field of the packet. \end{Desc}
+
+
+Definition at line 387 of file rfid\_\-tag\_\-mac.hpp.\index{RfidTagMacData@{Rfid\-Tag\-Mac\-Data}!setReceiverId@{setReceiverId}}
+\index{setReceiverId@{setReceiverId}!RfidTagMacData@{Rfid\-Tag\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-Mac\-Data::set\-Receiver\-Id (const \bf{Node\-Id} \& {\em node\-Id})}\label{classRfidTagMacData_c277f3c22595c945a72d369f5d281dfa}
+
+
+Write the receiver ID to the packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node\-Id}]the ID to be written. \end{description}
+\end{Desc}
+
+
+Definition at line 286 of file rfid\_\-tag\_\-mac.cpp.
+
+References Node\-Id::write\-To\-Byte\-Array().\index{RfidTagMacData@{Rfid\-Tag\-Mac\-Data}!setSenderId@{setSenderId}}
+\index{setSenderId@{setSenderId}!RfidTagMacData@{Rfid\-Tag\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-Mac\-Data::set\-Sender\-Id (const \bf{Node\-Id} \& {\em node\-Id})}\label{classRfidTagMacData_5a9534c502ec28b1c360e99edb24a196}
+
+
+Write the sender ID to the packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node\-Id}]the ID to be written. \end{description}
+\end{Desc}
+
+
+Definition at line 275 of file rfid\_\-tag\_\-mac.cpp.
+
+References Node\-Id::write\-To\-Byte\-Array().\index{RfidTagMacData@{Rfid\-Tag\-Mac\-Data}!setType@{setType}}
+\index{setType@{setType}!RfidTagMacData@{Rfid\-Tag\-Mac\-Data}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-Mac\-Data::set\-Type (\bf{Types} {\em type})\hspace{0.3cm}{\tt  [inline]}}\label{classRfidTagMacData_8cbc26ddb2a576a2a99b9b69288ad2d3}
+
+
+Write the type field to this packet data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em type}]the value for the type field. \end{description}
+\end{Desc}
+
+
+Definition at line 382 of file rfid\_\-tag\_\-mac.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rfid\_\-tag\_\-mac.hpp\item 
+rfid\_\-tag\_\-mac.cpp\end{CompactItemize}

@@ -1,0 +1,64 @@
+\section{Dummy\-Event Class Reference}
+\label{classDummyEvent}\index{DummyEvent@{DummyEvent}}
+This class does nothing when the {\tt execute} function is called.  
+
+
+{\tt \#include $<$event.hpp$>$}
+
+Inheritance diagram for Dummy\-Event::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classDummyEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Dummy\-Event} $>$ \bf{Dummy\-Event\-Ptr}\label{classDummyEvent_233c391db94ded19adc65ac3513d960f}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{execute} ()
+\begin{CompactList}\small\item\em The code that gets executed for the event. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Dummy\-Event\-Ptr} \bf{create} ()\label{classDummyEvent_7b0d8f4994c70e01968626105257c6c6}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Dummy\-Event} ()\label{classDummyEvent_56db617e2bf94f1d6a0c3e80b2855f25}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class does nothing when the {\tt execute} function is called. 
+
+This can be used with timers that require no action upon firing. 
+
+
+
+Definition at line 141 of file event.hpp.
+
+\subsection{Member Function Documentation}
+\index{DummyEvent@{Dummy\-Event}!execute@{execute}}
+\index{execute@{execute}!DummyEvent@{Dummy\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Dummy\-Event::execute ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classDummyEvent_ef3e38f724c5bc69104f17223ae27aeb}
+
+
+The code that gets executed for the event. 
+
+Does nothing for this class. 
+
+Implements \bf{Event} \doxyref{p.}{classEvent_b53a925ac3b000c6f017a4a951aff3c7}.
+
+Definition at line 160 of file event.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+event.hpp\end{CompactItemize}

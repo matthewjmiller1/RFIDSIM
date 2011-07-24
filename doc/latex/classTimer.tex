@@ -1,0 +1,223 @@
+\section{Timer Class Reference}
+\label{classTimer}\index{Timer@{Timer}}
+Provides an interface to control events based on timers.  
+
+
+{\tt \#include $<$timer.hpp$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Timer} $>$ \bf{Timer\-Ptr}\label{classTimer_1384cf0ac0eb93391a77631e5ea827cd}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+bool \bf{start} (const \bf{Sim\-Time} \&delay) const 
+\begin{CompactList}\small\item\em Starts the timer running. \item\end{CompactList}\item 
+bool \bf{stop} () const 
+\begin{CompactList}\small\item\em Stops the timer. \item\end{CompactList}\item 
+bool \bf{reschedule} (const \bf{Sim\-Time} \&delay) const 
+\begin{CompactList}\small\item\em Reschedules the timer for the new delay. \item\end{CompactList}\item 
+bool \bf{is\-Running} () const 
+\begin{CompactList}\small\item\em Check if the timer is currently running. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{time\-Remaining} () const 
+\begin{CompactList}\small\item\em Get the time remaining on the timer. \item\end{CompactList}\item 
+void \bf{set\-Event} (const Event\-Ptr event\-On\-Fire)
+\begin{CompactList}\small\item\em Change the event executed when the timer fires. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Timer\-Ptr} \bf{create} (Node\-Ptr owner, Event\-Ptr event\-On\-Fire)
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Timer} (Node\-Ptr owner, Event\-Ptr event\-On\-Fire)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Provides an interface to control events based on timers. 
+
+An event is set for the timer and then the functions control the timer's operation for when the event is executed. 
+
+
+
+Definition at line 19 of file timer.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Timer@{Timer}!Timer@{Timer}}
+\index{Timer@{Timer}!Timer@{Timer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Timer::Timer (Node\-Ptr {\em owner}, Event\-Ptr {\em event\-On\-Fire})\hspace{0.3cm}{\tt  [protected]}}\label{classTimer_3a5ea8c40b9e695b9fd1957f410c2dcc}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em owner}]the node that owns this timer. \item[{\em event\-On\-Fire}]the event that will be executed whenever this timer fires. \end{description}
+\end{Desc}
+
+
+Definition at line 4 of file timer.cpp.
+
+Referenced by create().
+
+\subsection{Member Function Documentation}
+\index{Timer@{Timer}!create@{create}}
+\index{create@{create}!Timer@{Timer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Timer\-Ptr} Timer::create (Node\-Ptr {\em owner}, Event\-Ptr {\em event\-On\-Fire})\hspace{0.3cm}{\tt  [inline, static]}}\label{classTimer_1cd798163c2144aff0172a0c09d712ba}
+
+
+A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em owner}]the node that owns this timer. \item[{\em event\-On\-Fire}]the event that will be executed whenever this timer fires. \end{description}
+\end{Desc}
+
+
+Definition at line 135 of file timer.hpp.
+
+References Timer().
+
+Referenced by Rfid\-Tag\-Mac::create(), Rfid\-Reader\-Mac::create(), Rfid\-Reader\-App::create(), Physical\-Layer::Physical\-Layer(), and Mac\-Protocol::start\-Send\-Timer().\index{Timer@{Timer}!isRunning@{isRunning}}
+\index{isRunning@{isRunning}!Timer@{Timer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Timer::is\-Running () const\hspace{0.3cm}{\tt  [inline]}}\label{classTimer_daa7f9265e58b38e26b14476b0374e8d}
+
+
+Check if the timer is currently running. 
+
+The timer is considered to be running if the timer's event is currently in an event queue. \begin{Desc}
+\item[Returns:]true if the timer's event is in an event queue. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{start()}{p.}{classTimer_4354f571a09a6b8c3e3d6f96b8630c75} 
+
+\doxyref{stop()}{p.}{classTimer_124f263382d1e31cba0f8e827466b2c2} 
+
+\doxyref{reschedule()}{p.}{classTimer_b5f9c0f2c9fae2ff9e455d9a264009c6} \end{Desc}
+
+
+Definition at line 177 of file timer.hpp.
+
+Referenced by reschedule(), set\-Event(), start(), stop(), and time\-Remaining().\index{Timer@{Timer}!reschedule@{reschedule}}
+\index{reschedule@{reschedule}!Timer@{Timer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Timer::reschedule (const \bf{Sim\-Time} \& {\em delay}) const\hspace{0.3cm}{\tt  [inline]}}\label{classTimer_b5f9c0f2c9fae2ff9e455d9a264009c6}
+
+
+Reschedules the timer for the new delay. 
+
+The new value is scheduled regardless of whether the timer is running. If it is running, the timer is stopped and then started with the new value. \begin{Desc}
+\item[Returns:]true if a running timer was sucessfully stopped and and then started with the new delay or a non-running timer was started with the new delay. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{start()}{p.}{classTimer_4354f571a09a6b8c3e3d6f96b8630c75} 
+
+\doxyref{stop()}{p.}{classTimer_124f263382d1e31cba0f8e827466b2c2} 
+
+\doxyref{is\-Running()}{p.}{classTimer_daa7f9265e58b38e26b14476b0374e8d} \end{Desc}
+
+
+Definition at line 165 of file timer.hpp.
+
+References is\-Running(), start(), and stop().\index{Timer@{Timer}!setEvent@{setEvent}}
+\index{setEvent@{setEvent}!Timer@{Timer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Timer::set\-Event (const Event\-Ptr {\em event\-On\-Fire})}\label{classTimer_ddb3e404a6732e9f744337762794a10c}
+
+
+Change the event executed when the timer fires. 
+
+If the timer is currently running, it will be stopped and then the new event added to the timer. If the new event needs to be scheduled, \doxyref{start()}{p.}{classTimer_4354f571a09a6b8c3e3d6f96b8630c75} must be called separately. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em event\-On\-Fire}]the event that will be executed whenever the timer fires. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{start()}{p.}{classTimer_4354f571a09a6b8c3e3d6f96b8630c75} 
+
+\doxyref{stop()}{p.}{classTimer_124f263382d1e31cba0f8e827466b2c2} 
+
+\doxyref{reschedule()}{p.}{classTimer_b5f9c0f2c9fae2ff9e455d9a264009c6} \end{Desc}
+
+
+Definition at line 14 of file timer.cpp.
+
+References is\-Running(), and stop().\index{Timer@{Timer}!start@{start}}
+\index{start@{start}!Timer@{Timer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Timer::start (const \bf{Sim\-Time} \& {\em delay}) const\hspace{0.3cm}{\tt  [inline]}}\label{classTimer_4354f571a09a6b8c3e3d6f96b8630c75}
+
+
+Starts the timer running. 
+
+The event is not scheduled if the timer is already running. In this case, \doxyref{reschedule()}{p.}{classTimer_b5f9c0f2c9fae2ff9e455d9a264009c6} should be used instead. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em delay}]the time in the future when the event will be executed. If the current clock value for the node is current\-Time(), the event will be executed at current\-Time() + delay. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the timer is not already running and the event was successfully scheduled. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{stop()}{p.}{classTimer_124f263382d1e31cba0f8e827466b2c2} 
+
+\doxyref{reschedule()}{p.}{classTimer_b5f9c0f2c9fae2ff9e455d9a264009c6} 
+
+\doxyref{is\-Running()}{p.}{classTimer_daa7f9265e58b38e26b14476b0374e8d} 
+
+\doxyref{set\-Event()}{p.}{classTimer_ddb3e404a6732e9f744337762794a10c} \end{Desc}
+
+
+Definition at line 141 of file timer.hpp.
+
+References is\-Running().
+
+Referenced by reschedule().\index{Timer@{Timer}!stop@{stop}}
+\index{stop@{stop}!Timer@{Timer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Timer::stop () const\hspace{0.3cm}{\tt  [inline]}}\label{classTimer_124f263382d1e31cba0f8e827466b2c2}
+
+
+Stops the timer. 
+
+The timer is stopped if it is currently running. \begin{Desc}
+\item[Returns:]true if the timer is running and the event is successfully cancelled. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{start()}{p.}{classTimer_4354f571a09a6b8c3e3d6f96b8630c75} 
+
+\doxyref{reschedule()}{p.}{classTimer_b5f9c0f2c9fae2ff9e455d9a264009c6} 
+
+\doxyref{is\-Running()}{p.}{classTimer_daa7f9265e58b38e26b14476b0374e8d} \end{Desc}
+
+
+Definition at line 153 of file timer.hpp.
+
+References is\-Running().
+
+Referenced by reschedule(), and set\-Event().\index{Timer@{Timer}!timeRemaining@{timeRemaining}}
+\index{timeRemaining@{timeRemaining}!Timer@{Timer}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Timer::time\-Remaining () const\hspace{0.3cm}{\tt  [inline]}}\label{classTimer_66eb457c05b3312887b7d976860fbb58}
+
+
+Get the time remaining on the timer. 
+
+\begin{Desc}
+\item[Returns:]the time left until the event is executed or zero if the timer is not running. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{start()}{p.}{classTimer_4354f571a09a6b8c3e3d6f96b8630c75} 
+
+\doxyref{stop()}{p.}{classTimer_124f263382d1e31cba0f8e827466b2c2} 
+
+\doxyref{reschedule()}{p.}{classTimer_b5f9c0f2c9fae2ff9e455d9a264009c6} 
+
+\doxyref{is\-Running()}{p.}{classTimer_daa7f9265e58b38e26b14476b0374e8d} \end{Desc}
+
+
+Definition at line 183 of file timer.hpp.
+
+References is\-Running(), and Sim\-Time::is\-Valid().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+timer.hpp\item 
+timer.cpp\end{CompactItemize}

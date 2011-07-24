@@ -1,0 +1,62 @@
+\section{Rfid\-Reader\-App\-Read\-Event Class Reference}
+\label{classRfidReaderAppReadEvent}\index{RfidReaderAppReadEvent@{RfidReaderAppReadEvent}}
+The event for when the read process should begin at the application.  
+
+
+{\tt \#include $<$rfid\_\-reader\_\-app.hpp$>$}
+
+Inheritance diagram for Rfid\-Reader\-App\-Read\-Event::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classRfidReaderAppReadEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Reader\-App\-Read\-Event} $>$ \bf{Rfid\-Reader\-App\-Read\-Event\-Ptr}\label{classRfidReaderAppReadEvent_cde0607a9081696b30d79ca8fa743297}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{execute} ()
+\begin{CompactList}\small\item\em The code that gets executed for the event. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Reader\-App\-Read\-Event\-Ptr} \bf{create} (Rfid\-Reader\-App\-Ptr reader\-App)\label{classRfidReaderAppReadEvent_43535002c4637262f2230dbe11b9637f}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Reader\-App\-Read\-Event} (Rfid\-Reader\-App\-Ptr reader\-App)\label{classRfidReaderAppReadEvent_c2990a3cc5d34048858317896d474c80}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The event for when the read process should begin at the application. 
+
+
+
+Definition at line 348 of file rfid\_\-reader\_\-app.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidReaderAppReadEvent@{Rfid\-Reader\-App\-Read\-Event}!execute@{execute}}
+\index{execute@{execute}!RfidReaderAppReadEvent@{Rfid\-Reader\-App\-Read\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-App\-Read\-Event::execute ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderAppReadEvent_e0256ca851f172e09cb950c5c3d5d656}
+
+
+The code that gets executed for the event. 
+
+Subclasses can override this to define their own actions. 
+
+Implements \bf{Event} \doxyref{p.}{classEvent_b53a925ac3b000c6f017a4a951aff3c7}.
+
+Definition at line 365 of file rfid\_\-reader\_\-app.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+rfid\_\-reader\_\-app.hpp\end{CompactItemize}

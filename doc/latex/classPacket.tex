@@ -1,0 +1,446 @@
+\section{Packet Class Reference}
+\label{classPacket}\index{Packet@{Packet}}
+Defines a representation of the packets that are exchanged between nodes.  
+
+
+{\tt \#include $<$packet.hpp$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Packet} $>$ \bf{Packet\-Ptr}\label{classPacket_ae493852bf01dc874628c78d157927e3}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\item 
+typedef map$<$ \bf{Data\-Types}, Packet\-Data\-Ptr $>$ \bf{Data\-Type\-Map}\label{classPacket_c3c7bcd962ea290d033508b55d793a62}
+
+\begin{CompactList}\small\item\em Map of a packet pointer for each of the network stack layers. \item\end{CompactList}\item 
+\bf{Data\-Types\_\-Physical}
+\begin{CompactList}\small\item\em enum value Data\-Types\_\-Physical. \item\end{CompactList}\item 
+\bf{Data\-Types\_\-Link}
+\begin{CompactList}\small\item\em enum value Data\-Types\_\-Link. \item\end{CompactList}\item 
+\bf{Data\-Types\_\-Network}
+\begin{CompactList}\small\item\em enum value Data\-Types\_\-Network. \item\end{CompactList}\item 
+\bf{Data\-Types\_\-Transport}
+\begin{CompactList}\small\item\em enum value Data\-Types\_\-Transport. \item\end{CompactList}\item 
+\bf{Data\-Types\_\-Application}
+\begin{CompactList}\small\item\em enum value Data\-Types\_\-Application. \item\end{CompactList}\item 
+enum \bf{Data\-Types} \{ \par
+\bf{Data\-Types\_\-Physical}, 
+\bf{Data\-Types\_\-Link}, 
+\bf{Data\-Types\_\-Network}, 
+\bf{Data\-Types\_\-Transport}, 
+\par
+\bf{Data\-Types\_\-Application}
+ \}
+\begin{CompactList}\small\item\em Data\-Types enum. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Packet} ()\label{classPacket_48938391fb7e07460bb0e01198ae5ede}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+\bf{t\_\-uint} \bf{get\-Size\-In\-Bytes} () const 
+\begin{CompactList}\small\item\em Returns the packet size. \item\end{CompactList}\item 
+\bf{t\_\-uint} \bf{get\-Size\-In\-Bits} () const 
+\begin{CompactList}\small\item\em Returns the packet size. \item\end{CompactList}\item 
+double \bf{get\-Data\-Rate} () const 
+\begin{CompactList}\small\item\em Get the data rate at which the packet is sent. \item\end{CompactList}\item 
+void \bf{set\-Data\-Rate} (double data\-Rate)
+\begin{CompactList}\small\item\em Set the data rate at which the packet is sent. \item\end{CompactList}\item 
+bool \bf{get\-Has\-Error} () const 
+\begin{CompactList}\small\item\em Get whether or not the packet has an error. \item\end{CompactList}\item 
+void \bf{set\-Has\-Error} (bool has\-Error)
+\begin{CompactList}\small\item\em Set whether or not the packet has an error. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{get\-Duration} () const 
+\begin{CompactList}\small\item\em Get the time duration of the packet. \item\end{CompactList}\item 
+void \bf{add\-Data} (\bf{Data\-Types} data\-Type, const \bf{Packet\-Data} \&data)
+\begin{CompactList}\small\item\em Add a copy of the packet data to the packet as the specified type of data. \item\end{CompactList}\item 
+Packet\-Data\-Ptr \bf{get\-Data} (\bf{Data\-Types} data\-Type)
+\begin{CompactList}\small\item\em Get a pointer to the data of the specified type stored in this packet. \item\end{CompactList}\item 
+bool \bf{remove\-Data} (\bf{Data\-Types} data\-Types)
+\begin{CompactList}\small\item\em Remove the data stored in the packet associated with the specified type. \item\end{CompactList}\item 
+bool \bf{has\-Upper\-Layer\-Data} (\bf{Data\-Types} data\-Types)
+\begin{CompactList}\small\item\em Check if the packet has any data intended for upper layers. \item\end{CompactList}\item 
+void \bf{set\-Destination} (const \bf{Node\-Id} \&destination)
+\begin{CompactList}\small\item\em Set the destination field of the packet. \item\end{CompactList}\item 
+\bf{Node\-Id} \bf{get\-Destination} () const 
+\begin{CompactList}\small\item\em Get the destination field of the packet. \item\end{CompactList}\item 
+void \bf{set\-Tx\-Power} (double tx\-Power)
+\begin{CompactList}\small\item\em Set the transmit power of the packet. \item\end{CompactList}\item 
+double \bf{get\-Tx\-Power} () const 
+\begin{CompactList}\small\item\em Get the transmit power of the packet. \item\end{CompactList}\item 
+void \bf{set\-Do\-Max\-Tx\-Power} (bool do\-Max\-Tx\-Power)
+\begin{CompactList}\small\item\em Set whether the packet should be transmitted at the maximum power available. \item\end{CompactList}\item 
+bool \bf{get\-Do\-Max\-Tx\-Power} () const 
+\begin{CompactList}\small\item\em Get whether the packet should be transmitted at the maximum power available. \item\end{CompactList}\item 
+\bf{t\_\-ulong} \bf{get\-Unique\-Id} () const 
+\begin{CompactList}\small\item\em Return the unique ID of this packet (used for debugging traces). \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Packet\-Ptr} \bf{create} ()\label{classPacket_883febbc34eb085614bb53d8fac6a0b3}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Packet\-Ptr} \bf{create} (const \bf{Packet} \&rhs)\label{classPacket_a23f922db46494fd843e66aab10ba2f4}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Packet} ()\label{classPacket_abcfb963c0d5bc0fa554668f92989622}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Packet} (const \bf{Packet} \&rhs)\label{classPacket_a128b6cbf4452bc79867fbe9abbe51bc}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\item 
+virtual \bf{Packet\-Ptr} \bf{clone} () const 
+\begin{CompactList}\small\item\em Returns a pointer to a deep copy of this object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+ostream \& \bf{operator$<$$<$} (ostream \&s, const \bf{Packet} \&packet)\label{classPacket_e4e8e7f1291adde670e55afd7dbff5dc}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Defines a representation of the packets that are exchanged between nodes. 
+
+
+
+Definition at line 97 of file packet.hpp.
+
+\subsection{Member Enumeration Documentation}
+\index{Packet@{Packet}!DataTypes@{DataTypes}}
+\index{DataTypes@{DataTypes}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum \bf{Packet::Data\-Types}}\label{classPacket_7a20537bda8fe7958023c4861d1d4e63}
+
+
+Data\-Types enum. 
+
+The different data types that a packet may hold. \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{DataTypes_Physical@{DataTypes\_\-Physical}!Packet@{Packet}}\index{Packet@{Packet}!DataTypes_Physical@{DataTypes\_\-Physical}}\item[{\em 
+Data\-Types\_\-Physical\label{classPacket_7a20537bda8fe7958023c4861d1d4e63638e98f0137cc855d91b0aa8e0d1adb9}
+}]enum value Data\-Types\_\-Physical. \index{DataTypes_Link@{DataTypes\_\-Link}!Packet@{Packet}}\index{Packet@{Packet}!DataTypes_Link@{DataTypes\_\-Link}}\item[{\em 
+Data\-Types\_\-Link\label{classPacket_7a20537bda8fe7958023c4861d1d4e638eb1ea4d8728c5aaa23946b9cec32d84}
+}]enum value Data\-Types\_\-Link. \index{DataTypes_Network@{DataTypes\_\-Network}!Packet@{Packet}}\index{Packet@{Packet}!DataTypes_Network@{DataTypes\_\-Network}}\item[{\em 
+Data\-Types\_\-Network\label{classPacket_7a20537bda8fe7958023c4861d1d4e63a01d4f7f40cd55b96a1276b98d371dc7}
+}]enum value Data\-Types\_\-Network. \index{DataTypes_Transport@{DataTypes\_\-Transport}!Packet@{Packet}}\index{Packet@{Packet}!DataTypes_Transport@{DataTypes\_\-Transport}}\item[{\em 
+Data\-Types\_\-Transport\label{classPacket_7a20537bda8fe7958023c4861d1d4e639f4b10350fb230028c083c079b85239c}
+}]enum value Data\-Types\_\-Transport. \index{DataTypes_Application@{DataTypes\_\-Application}!Packet@{Packet}}\index{Packet@{Packet}!DataTypes_Application@{DataTypes\_\-Application}}\item[{\em 
+Data\-Types\_\-Application\label{classPacket_7a20537bda8fe7958023c4861d1d4e6357ba1ad3fc056b8dd62928473bdd1014}
+}]enum value Data\-Types\_\-Application. \end{description}
+\end{Desc}
+
+
+
+Definition at line 107 of file packet.hpp.
+
+\subsection{Member Function Documentation}
+\index{Packet@{Packet}!addData@{addData}}
+\index{addData@{addData}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Packet::add\-Data (\bf{Data\-Types} {\em data\-Type}, const \bf{Packet\-Data} \& {\em data})}\label{classPacket_639b8646f4c570ae6287406b9f521cb4}
+
+
+Add a copy of the packet data to the packet as the specified type of data. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-Type}]the type of the data within the packet. \item[{\em data}]the packet data; a deep copy of the data will be stored in the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{get\-Data()}{p.}{classPacket_3ae61a807bda1d3dd59640b1fa898445} 
+
+\doxyref{remove\-Data()}{p.}{classPacket_f007c854bc97f1ac82ac7e9c0b439ee3} \end{Desc}
+
+
+Definition at line 43 of file packet.cpp.
+
+References Packet\-Data::create().\index{Packet@{Packet}!clone@{clone}}
+\index{clone@{clone}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Packet\-Ptr} Packet::clone () const\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classPacket_cb164f37366d95d4391eec0271ed9bd5}
+
+
+Returns a pointer to a deep copy of this object. 
+
+This is addresses the slicing problem with copy construction. \begin{Desc}
+\item[Returns:]a pointer to a deep copy of this object. \end{Desc}
+
+
+Definition at line 37 of file packet.cpp.
+
+References Packet().
+
+Referenced by create().\index{Packet@{Packet}!getData@{getData}}
+\index{getData@{getData}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Packet\-Data\-Ptr Packet::get\-Data (\bf{Data\-Types} {\em data\-Type})}\label{classPacket_3ae61a807bda1d3dd59640b1fa898445}
+
+
+Get a pointer to the data of the specified type stored in this packet. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-Type}]the type of the data within the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]a pointer to the data of {\tt data\-Type} or an empty pointer if no data is stored for that {\tt data\-Type}. \end{Desc}
+
+
+Definition at line 49 of file packet.cpp.
+
+Referenced by has\-Upper\-Layer\-Data().\index{Packet@{Packet}!getDataRate@{getDataRate}}
+\index{getDataRate@{getDataRate}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Packet::get\-Data\-Rate () const\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_5b2712eda1d3a7b616d2d595a1b43298}
+
+
+Get the data rate at which the packet is sent. 
+
+\begin{Desc}
+\item[Returns:]the data rate in bps. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Data\-Rate()}{p.}{classPacket_2bd608ab1e5b39e51660193553f87c56} \end{Desc}
+
+
+Definition at line 430 of file packet.hpp.
+
+Referenced by get\-Duration().\index{Packet@{Packet}!getDestination@{getDestination}}
+\index{getDestination@{getDestination}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Id} Packet::get\-Destination () const\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_3bc7dddd53644a5e64f2747b3807bd7e}
+
+
+Get the destination field of the packet. 
+
+This is used by lower layers that are unaware of the data format of upper layers and does not count towards the size of the packet. \begin{Desc}
+\item[Returns:]the desintation. \end{Desc}
+
+
+Definition at line 456 of file packet.hpp.\index{Packet@{Packet}!getDoMaxTxPower@{getDoMaxTxPower}}
+\index{getDoMaxTxPower@{getDoMaxTxPower}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Packet::get\-Do\-Max\-Tx\-Power () const\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_cae687da761eb909517ccb698f262a9b}
+
+
+Get whether the packet should be transmitted at the maximum power available. 
+
+If this is set to true, then the value of {\tt \doxyref{get\-Tx\-Power()}{p.}{classPacket_b964ba432a15b9f77d45763f3879a127}} is ignored. \begin{Desc}
+\item[Returns:]true if the packet should be transmitted at the maximum power level. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Do\-Max\-Tx\-Power()}{p.}{classPacket_45c781babee04133aada3d3736a19a6f} 
+
+\doxyref{set\-Tx\-Power()}{p.}{classPacket_b4a910249661f6b9d957a0c31eed8746} 
+
+\doxyref{get\-Tx\-Power()}{p.}{classPacket_b964ba432a15b9f77d45763f3879a127} \end{Desc}
+
+
+Definition at line 477 of file packet.hpp.\index{Packet@{Packet}!getDuration@{getDuration}}
+\index{getDuration@{getDuration}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Packet::get\-Duration () const}\label{classPacket_0bd1ef3df0f04715ec40324ec100b077}
+
+
+Get the time duration of the packet. 
+
+\begin{Desc}
+\item[Returns:]the time duration of the packet. \end{Desc}
+
+
+Definition at line 109 of file packet.cpp.
+
+References get\-Data\-Rate(), and get\-Size\-In\-Bits().\index{Packet@{Packet}!getHasError@{getHasError}}
+\index{getHasError@{getHasError}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Packet::get\-Has\-Error () const\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_64c98981eb6aec1b6b78b18cac144f66}
+
+
+Get whether or not the packet has an error. 
+
+\begin{Desc}
+\item[Returns:]true if the packet has an error. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Has\-Error()}{p.}{classPacket_e26fddcaf09a203d7a3137b014292461} \end{Desc}
+
+
+Definition at line 441 of file packet.hpp.\index{Packet@{Packet}!getSizeInBits@{getSizeInBits}}
+\index{getSizeInBits@{getSizeInBits}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Packet::get\-Size\-In\-Bits () const\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_ea130906e6a3a6b62a4112ed6f7d23cb}
+
+
+Returns the packet size. 
+
+\begin{Desc}
+\item[Returns:]the number of {\em bits\/} in the packet. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{get\-Size\-In\-Bytes()}{p.}{classPacket_ada90c113f97fc1864de090833f42c5f} \end{Desc}
+
+
+Definition at line 425 of file packet.hpp.
+
+References get\-Size\-In\-Bytes().
+
+Referenced by get\-Duration().\index{Packet@{Packet}!getSizeInBytes@{getSizeInBytes}}
+\index{getSizeInBytes@{getSizeInBytes}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-uint} Packet::get\-Size\-In\-Bytes () const\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_ada90c113f97fc1864de090833f42c5f}
+
+
+Returns the packet size. 
+
+\begin{Desc}
+\item[Returns:]the number of bytes in the packet. \end{Desc}
+\begin{Desc}
+\item[See also:]get\-Size\-In\-Bites() \end{Desc}
+
+
+Definition at line 406 of file packet.hpp.
+
+Referenced by get\-Size\-In\-Bits().\index{Packet@{Packet}!getTxPower@{getTxPower}}
+\index{getTxPower@{getTxPower}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Packet::get\-Tx\-Power () const\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_b964ba432a15b9f77d45763f3879a127}
+
+
+Get the transmit power of the packet. 
+
+If this is set to zero, then the current power level will be used. The value must be greater than or equal to zero. This is superseded if {\tt \doxyref{get\-Do\-Max\-Tx\-Power()}{p.}{classPacket_cae687da761eb909517ccb698f262a9b}} is true. In this case, the packet will be transmitted at the physical layer's maximum power regardless of the input to this function. \begin{Desc}
+\item[Returns:]the transmit power to use or zero if the current power level should be used. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{set\-Tx\-Power()}{p.}{classPacket_b4a910249661f6b9d957a0c31eed8746} 
+
+\doxyref{set\-Do\-Max\-Tx\-Power()}{p.}{classPacket_45c781babee04133aada3d3736a19a6f} 
+
+\doxyref{get\-Do\-Max\-Tx\-Power()}{p.}{classPacket_cae687da761eb909517ccb698f262a9b} \end{Desc}
+
+
+Definition at line 467 of file packet.hpp.\index{Packet@{Packet}!getUniqueId@{getUniqueId}}
+\index{getUniqueId@{getUniqueId}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{t\_\-ulong} Packet::get\-Unique\-Id () const\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_2e3b8a631ea9cd8b5d3e6ab96d3fdc22}
+
+
+Return the unique ID of this packet (used for debugging traces). 
+
+\begin{Desc}
+\item[Returns:]the unique ID of the packet. \end{Desc}
+
+
+Definition at line 482 of file packet.hpp.\index{Packet@{Packet}!hasUpperLayerData@{hasUpperLayerData}}
+\index{hasUpperLayerData@{hasUpperLayerData}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Packet::has\-Upper\-Layer\-Data (\bf{Data\-Types} {\em data\-Types})}\label{classPacket_79d8006c8ce31727fb2e4998a39acb83}
+
+
+Check if the packet has any data intended for upper layers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-Types}]the type of data for the layer being checked. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if there is any data in the packet for layers above the once being checked. \end{Desc}
+
+
+Definition at line 70 of file packet.cpp.
+
+References Data\-Types\_\-Application, Data\-Types\_\-Link, Data\-Types\_\-Network, Data\-Types\_\-Physical, Data\-Types\_\-Transport, and get\-Data().\index{Packet@{Packet}!removeData@{removeData}}
+\index{removeData@{removeData}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Packet::remove\-Data (\bf{Data\-Types} {\em data\-Types})}\label{classPacket_f007c854bc97f1ac82ac7e9c0b439ee3}
+
+
+Remove the data stored in the packet associated with the specified type. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em data\-Types}]the type of the data within the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the data of {\tt data\-Types} was successfully removed. \end{Desc}
+
+
+Definition at line 63 of file packet.cpp.\index{Packet@{Packet}!setDataRate@{setDataRate}}
+\index{setDataRate@{setDataRate}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Packet::set\-Data\-Rate (double {\em data\-Rate})\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_2bd608ab1e5b39e51660193553f87c56}
+
+
+Set the data rate at which the packet is sent. 
+
+\begin{Desc}
+\item[Returns:]the data rate in bps. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{get\-Data\-Rate()}{p.}{classPacket_5b2712eda1d3a7b616d2d595a1b43298} \end{Desc}
+
+
+Definition at line 435 of file packet.hpp.\index{Packet@{Packet}!setDestination@{setDestination}}
+\index{setDestination@{setDestination}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Packet::set\-Destination (const \bf{Node\-Id} \& {\em destination})\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_f49e6ac6dbe89fcd6c23ed7bccfb5d11}
+
+
+Set the destination field of the packet. 
+
+This is used by lower layers that are unaware of the data format of upper layers and does not count towards the size of the packet. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em destination}]the desintation. \end{description}
+\end{Desc}
+
+
+Definition at line 451 of file packet.hpp.\index{Packet@{Packet}!setDoMaxTxPower@{setDoMaxTxPower}}
+\index{setDoMaxTxPower@{setDoMaxTxPower}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Packet::set\-Do\-Max\-Tx\-Power (bool {\em do\-Max\-Tx\-Power})\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_45c781babee04133aada3d3736a19a6f}
+
+
+Set whether the packet should be transmitted at the maximum power available. 
+
+If this is set to true, then the value of {\tt \doxyref{get\-Tx\-Power()}{p.}{classPacket_b964ba432a15b9f77d45763f3879a127}} is ignored. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em do\-Max\-Tx\-Power}]set to true if the packet should be transmitted at the maximum power level. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{get\-Do\-Max\-Tx\-Power()}{p.}{classPacket_cae687da761eb909517ccb698f262a9b} 
+
+\doxyref{set\-Tx\-Power()}{p.}{classPacket_b4a910249661f6b9d957a0c31eed8746} 
+
+\doxyref{get\-Tx\-Power()}{p.}{classPacket_b964ba432a15b9f77d45763f3879a127} \end{Desc}
+
+
+Definition at line 472 of file packet.hpp.\index{Packet@{Packet}!setHasError@{setHasError}}
+\index{setHasError@{setHasError}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Packet::set\-Has\-Error (bool {\em has\-Error})\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_e26fddcaf09a203d7a3137b014292461}
+
+
+Set whether or not the packet has an error. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em has\-Error}]set to true if the packet has an error. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{get\-Has\-Error()}{p.}{classPacket_64c98981eb6aec1b6b78b18cac144f66} \end{Desc}
+
+
+Definition at line 446 of file packet.hpp.\index{Packet@{Packet}!setTxPower@{setTxPower}}
+\index{setTxPower@{setTxPower}!Packet@{Packet}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Packet::set\-Tx\-Power (double {\em tx\-Power})\hspace{0.3cm}{\tt  [inline]}}\label{classPacket_b4a910249661f6b9d957a0c31eed8746}
+
+
+Set the transmit power of the packet. 
+
+If this is set to zero, then the current power level will be used. The value must be greater than or equal to zero. This is superseded if {\tt \doxyref{get\-Do\-Max\-Tx\-Power()}{p.}{classPacket_cae687da761eb909517ccb698f262a9b}} is true. In this case, the packet will be transmitted at the physical layer's maximum power regardless of the input to this function. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em tx\-Power}]the transmit power to use or zero if the current power level should be used. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{get\-Tx\-Power()}{p.}{classPacket_b964ba432a15b9f77d45763f3879a127} 
+
+\doxyref{set\-Do\-Max\-Tx\-Power()}{p.}{classPacket_45c781babee04133aada3d3736a19a6f} 
+
+\doxyref{get\-Do\-Max\-Tx\-Power()}{p.}{classPacket_cae687da761eb909517ccb698f262a9b} \end{Desc}
+
+
+Definition at line 461 of file packet.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+packet.hpp\item 
+packet.cpp\end{CompactItemize}

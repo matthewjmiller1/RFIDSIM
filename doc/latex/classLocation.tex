@@ -1,0 +1,140 @@
+\section{Location Class Reference}
+\label{classLocation}\index{Location@{Location}}
+Represents the geographic location of an object in the simulator.  
+
+
+{\tt \#include $<$location.hpp$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Location} $>$ \bf{Location\-Ptr}\label{classLocation_52c6ff0b7b0364451af4c32d4a53020b}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Location} ()\label{classLocation_87790c14997fd8cdd12080c78c9794bb}
+
+\begin{CompactList}\small\item\em A constructor All coordinates are set to 0.0. \item\end{CompactList}\item 
+\bf{Location} (float x, float y, float z)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+void \bf{set\-Coordinates} (float x, float y, float z)
+\begin{CompactList}\small\item\em Reset the coordinates. \item\end{CompactList}\item 
+float \bf{get\-X} () const 
+\begin{CompactList}\small\item\em Get the x coordinate. \item\end{CompactList}\item 
+float \bf{get\-Y} () const 
+\begin{CompactList}\small\item\em Get the y coordinate. \item\end{CompactList}\item 
+float \bf{get\-Z} () const 
+\begin{CompactList}\small\item\em Get the z coordinate. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static float \bf{distance} (const \bf{Location} \&loc1, const \bf{Location} \&loc2)
+\begin{CompactList}\small\item\em Get the distance in meters between two locations. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Represents the geographic location of an object in the simulator. 
+
+
+
+Definition at line 14 of file location.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Location@{Location}!Location@{Location}}
+\index{Location@{Location}!Location@{Location}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Location::Location (float {\em x}, float {\em y}, float {\em z})}\label{classLocation_6b4c565f8373e1c97eb2cb659166d628}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]x coordinate in meters. \item[{\em y}]y coordinate in meters \item[{\em z}]z coordinate in meters \end{description}
+\end{Desc}
+
+
+Definition at line 10 of file location.cpp.
+
+\subsection{Member Function Documentation}
+\index{Location@{Location}!distance@{distance}}
+\index{distance@{distance}!Location@{Location}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float Location::distance (const \bf{Location} \& {\em loc1}, const \bf{Location} \& {\em loc2})\hspace{0.3cm}{\tt  [inline, static]}}\label{classLocation_941604bbcd08a5807fe1d9e5e841636e}
+
+
+Get the distance in meters between two locations. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em loc1}]one of the locations. \item[{\em loc2}]the other location. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the Euclidean distance in meters between the two locations. \end{Desc}
+
+
+Definition at line 90 of file location.hpp.
+
+References get\-X(), get\-Y(), and get\-Z().
+
+Referenced by Two\-Ray::get\-Recvd\-Strength(), Free\-Space::get\-Recvd\-Strength(), and Channel::propagation\-Delay().\index{Location@{Location}!getX@{getX}}
+\index{getX@{getX}!Location@{Location}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float Location::get\-X () const\hspace{0.3cm}{\tt  [inline]}}\label{classLocation_4c2db6e6aaea0d3bfde4d1a640aa38e8}
+
+
+Get the x coordinate. 
+
+\begin{Desc}
+\item[Returns:]the x coordinate in meters. \end{Desc}
+
+
+Definition at line 105 of file location.hpp.
+
+Referenced by distance().\index{Location@{Location}!getY@{getY}}
+\index{getY@{getY}!Location@{Location}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float Location::get\-Y () const\hspace{0.3cm}{\tt  [inline]}}\label{classLocation_4db1347cb238d35ac0b597057d243cfe}
+
+
+Get the y coordinate. 
+
+\begin{Desc}
+\item[Returns:]the y coordinate in meters. \end{Desc}
+
+
+Definition at line 110 of file location.hpp.
+
+Referenced by distance().\index{Location@{Location}!getZ@{getZ}}
+\index{getZ@{getZ}!Location@{Location}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float Location::get\-Z () const\hspace{0.3cm}{\tt  [inline]}}\label{classLocation_a4e1c298e3f7cbe6659af6320e6de50a}
+
+
+Get the z coordinate. 
+
+\begin{Desc}
+\item[Returns:]the z coordinate in meters. \end{Desc}
+
+
+Definition at line 115 of file location.hpp.
+
+Referenced by distance().\index{Location@{Location}!setCoordinates@{setCoordinates}}
+\index{setCoordinates@{setCoordinates}!Location@{Location}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Location::set\-Coordinates (float {\em x}, float {\em y}, float {\em z})\hspace{0.3cm}{\tt  [inline]}}\label{classLocation_cf1453cf1c6555cbe0724d639696755d}
+
+
+Reset the coordinates. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em x}]the new x coordinate in meters. \item[{\em y}]the new y coordinate in meters. \item[{\em z}]the new z coordinate in meters. \end{description}
+\end{Desc}
+
+
+Definition at line 98 of file location.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+location.hpp\item 
+location.cpp\end{CompactItemize}

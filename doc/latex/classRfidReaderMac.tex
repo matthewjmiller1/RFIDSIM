@@ -1,0 +1,445 @@
+\section{Rfid\-Reader\-Mac Class Reference}
+\label{classRfidReaderMac}\index{RfidReaderMac@{RfidReaderMac}}
+A MAC protocol for RFID readers that uses slotted ALOHA.  
+
+
+{\tt \#include $<$rfid\_\-reader\_\-mac.hpp$>$}
+
+Inheritance diagram for Rfid\-Reader\-Mac::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classRfidReaderMac}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Reader\-Mac} $>$ \bf{Rfid\-Reader\-Mac\-Ptr}\label{classRfidReaderMac_6f36ba2cda0526db8ebba0037b018b38}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Rfid\-Reader\-Mac} ()\label{classRfidReaderMac_3cd59ae953c972ec72670d377f615ccd}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual \bf{Rfid\-Reader\-Mac\-Ptr} \bf{this\-Rfid\-Reader\-Mac} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Reader\-Mac}{p.}{classRfidReaderMac}} object. \item\end{CompactList}\item 
+virtual \bf{Slotted\-Mac\-Ptr} \bf{this\-Slotted\-Mac} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Slotted\-Mac}{p.}{classSlottedMac}} object. \item\end{CompactList}\item 
+virtual \bf{Mac\-Protocol\-Ptr} \bf{this\-Mac\-Protocol} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Mac\-Protocol}{p.}{classMacProtocol}} object. \item\end{CompactList}\item 
+virtual \bf{Simulation\-End\-Listener\-Ptr} \bf{this\-Simulation\-End\-Listener} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt Simulation\-End\-Listener\-Ptr} object. \item\end{CompactList}\item 
+virtual void \bf{simulation\-End\-Handler} ()\label{classRfidReaderMac_1539767ae06e6fab8ae70546f0111576}
+
+\begin{CompactList}\small\item\em The function called when the simulation ends. \item\end{CompactList}\item 
+bool \bf{handle\-Recvd\-Mac\-Packet} (Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Handle a MAC packet that is received. \item\end{CompactList}\item 
+bool \bf{handle\-Recvd\-Upper\-Layer\-Packet} (Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Handle a packet received from an upper layer. \item\end{CompactList}\item 
+virtual void \bf{handle\-Channel\-Busy} (Packet\-Ptr packet)
+\begin{CompactList}\small\item\em This is called when the MAC is scheduled to transmit a packet on the channel but the channel is busy. \item\end{CompactList}\item 
+virtual void \bf{handle\-Packet\-Sent} (Packet\-Ptr packet)
+\begin{CompactList}\small\item\em This is called when the MAC is scheduled to transmit a packet on the channel and it is sent on the channel. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Reader\-Mac\-Ptr} \bf{create} (Node\-Ptr node, Rfid\-Reader\-App\-Ptr reader\-App)
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Reader\-Mac} (Node\-Ptr node, Rfid\-Reader\-App\-Ptr reader\-App)\label{classRfidReaderMac_97a2ffd287aedeec682338ae88269f9b}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+virtual void \bf{begin\-Slot\-Event} ()\label{classRfidReaderMac_a47e9b5a8f6fe1f2d2a9d529e1fcd2e5}
+
+\begin{CompactList}\small\item\em The function called when a slot begins. \item\end{CompactList}\item 
+virtual void \bf{end\-Request\-Cycle\-Event} ()\label{classRfidReaderMac_182e9934569a4c318a7da6f9c910284b}
+
+\begin{CompactList}\small\item\em The function called when a request cycle ends. \item\end{CompactList}\item 
+Packet\-Ptr \bf{create\-Request\-Packet} () const 
+\begin{CompactList}\small\item\em Create a request packet for the node. \item\end{CompactList}\item 
+Packet\-Ptr \bf{create\-Ack\-Packet} (\bf{Node\-Id} destination) const 
+\begin{CompactList}\small\item\em Create a acknowledgement packet for the node. \item\end{CompactList}\item 
+void \bf{add\-Generic\-Header} (Packet\-Ptr packet, \bf{Node\-Id} receiver\-Id) const 
+\begin{CompactList}\small\item\em Add a generic header to the packet. \item\end{CompactList}\item 
+void \bf{add\-Select\-Header} (Packet\-Ptr packet, \bf{Node\-Id} receiver\-Id) const 
+\begin{CompactList}\small\item\em Add a {\tt SELECT} header to the packet. \item\end{CompactList}\item 
+bool \bf{packet\-Is\-For\-Me} (Rfid\-Tag\-Mac\-Data\-Ptr mac\-Data) const 
+\begin{CompactList}\small\item\em Determine if the packet is for me based on the receiver address (i.e., has my address or the broadcast address). \item\end{CompactList}\item 
+bool \bf{is\-Enough\-Time\-For\-Contention\-Cycle} () const 
+\begin{CompactList}\small\item\em Determine if there is enough time left in the current request cycle to start a new contention cycle. \item\end{CompactList}\item 
+void \bf{start\-Next\-Contention\-Cycle} ()\label{classRfidReaderMac_4b159194237788b20414685da79eec26}
+
+\begin{CompactList}\small\item\em Send out a request packet to start a new contention cycle. \item\end{CompactList}\item 
+bool \bf{is\-Packet\-Type} (Packet\-Ptr packet, \bf{Rfid\-Reader\-Mac\-Data::Types} type) const 
+\begin{CompactList}\small\item\em Determine whether the packet is a packet of the given type by looking at it's header. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+bool \bf{m\_\-do\-Reset\-Slot}\label{classRfidReaderMac_b6faf7d3094187795c43a9daf887e07b}
+
+\begin{CompactList}\small\item\em Determines whether m\_\-reset\-Slot\-Number should be considered valid. \item\end{CompactList}\item 
+\bf{t\_\-uint} \bf{m\_\-reset\-Slot\-Number}\label{classRfidReaderMac_822c4c4665af35943241dceab975cbdd}
+
+\begin{CompactList}\small\item\em If this slot number is reached, then the request cycle should be reset if m\_\-do\-Reset\-Slot is true. \item\end{CompactList}\item 
+bool \bf{m\_\-do\-Entire\-Read\-Cycle}\label{classRfidReaderMac_2f4d94d0b68d60df4b98f16e10736f72}
+
+\begin{CompactList}\small\item\em Determines whether we should do the entire read cycle or stop early after several consecutive contention cycles are unsuccessful. \item\end{CompactList}\item 
+\bf{t\_\-uint} \bf{m\_\-missed\-Read\-Count}\label{classRfidReaderMac_435d41600f8143e131c6a1740005170e}
+
+\begin{CompactList}\small\item\em Counts the number of consecutive times that we are unable to successfully read a packet in a contention cycle. \item\end{CompactList}\item 
+Timer\-Ptr \bf{m\_\-cycle\-Timer}\label{classRfidReaderMac_aacfac2d51d6edcf382b97ee91624a74}
+
+\begin{CompactList}\small\item\em A timer to keep track of when request cycles end. \item\end{CompactList}\item 
+Packet\-Ptr \bf{m\_\-current\-App\-Read\-Packet}\label{classRfidReaderMac_e13f892ee8fa8bcf3a752dc4013a8175}
+
+\begin{CompactList}\small\item\em The application packet for which we are currently doing the MAC. \item\end{CompactList}\item 
+\bf{t\_\-uint} \bf{m\_\-next\-Cycle\-Number\-Of\-Slots}\label{classRfidReaderMac_3a8a5fbaaa055253d10796a754f414e7}
+
+\begin{CompactList}\small\item\em The number of slots we are currently using in contention intervals. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{m\_\-next\-Cycle\-Time}\label{classRfidReaderMac_29664c7702ef45185876770ef7e0e43b}
+
+\begin{CompactList}\small\item\em How long the next cycle lasts. \item\end{CompactList}\item 
+Rfid\-Reader\-App\-Ptr \bf{m\_\-reader\-App}\label{classRfidReaderMac_67db5fd469075b69e57e3e2377bc18cb}
+
+\begin{CompactList}\small\item\em A pointer to the application layer associated with this MAC. \item\end{CompactList}\item 
+vector$<$ pair$<$ \bf{Node\-Id}, \bf{t\_\-uint} $>$ $>$ \bf{m\_\-winning\-Slot\-Numbers}\label{classRfidReaderMac_17154a89ce3efa370ee4838fa18f7bce}
+
+\begin{CompactList}\small\item\em Keep track of the winning slot number for each received payload for statistics. \item\end{CompactList}\item 
+vector$<$ \bf{t\_\-uint} $>$ \bf{m\_\-missed\-Reads}\label{classRfidReaderMac_da52d0aecd100a3d68b9ffb468e6bdb4}
+
+\begin{CompactList}\small\item\em Keep track of the slot number for when a missed read occurs for statistics. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static const double \bf{m\_\-READER\_\-IFS} = 10e-6
+\begin{CompactList}\small\item\em The interframe spacing of reader packets. \item\end{CompactList}\item 
+static const \bf{t\_\-uint} \bf{m\_\-DEFAULT\_\-NUMBER\_\-OF\_\-SLOTS} = 10\label{classRfidReaderMac_e04623eeb83c8c667fda35b0acfd54ec}
+
+\begin{CompactList}\small\item\em The default number of slots the reader will use in contention intervals. \item\end{CompactList}\item 
+static const double \bf{m\_\-DEFAULT\_\-CYCLE\_\-TIME} = 5.25\label{classRfidReaderMac_e71e33361009ae9fbb2b27c3146ba162}
+
+\begin{CompactList}\small\item\em The default time for how long a request cycle lasts. \item\end{CompactList}\item 
+static const \bf{t\_\-uint} \bf{m\_\-MISSED\_\-READ\_\-THRESHOLD} = 3\label{classRfidReaderMac_c17e06d6635f62bc1700646d90dd9cc6}
+
+\begin{CompactList}\small\item\em The threshold for how many consecutive tag reads we can miss before we manually end a cycle. \item\end{CompactList}\end{CompactItemize}
+\begin{Indent}{\bf }\par
+\begin{CompactItemize}
+\item 
+static const string \bf{m\_\-MISSED\_\-READ\_\-TOTAL\_\-STRING} = \char`\"{}missed\-Read\-Total\char`\"{}\label{classRfidReaderMac_bc17a93839eb829c1a2cca3d918859f0}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-MISSED\_\-READ\_\-SLOT\_\-AVG\_\-STRING} = \char`\"{}missed\-Read\-Slot\-Avg\char`\"{}\label{classRfidReaderMac_da886801a95efeecf63550986f1bb617}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\item 
+static const string \bf{m\_\-WINNING\_\-SLOT\_\-AVG\_\-STRING} = \char`\"{}winning\-Slot\-Avg\char`\"{}\label{classRfidReaderMac_f4160dde25a71341c380ce3b732557ed}
+
+\begin{CompactList}\small\item\em String for the stats file output. \item\end{CompactList}\end{CompactItemize}
+\end{Indent}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+class \bf{Rfid\-Mac\-Cycle\-Event}\label{classRfidReaderMac_77482d51dcb66a5bcd15cda9ff3b32da}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A MAC protocol for RFID readers that uses slotted ALOHA. 
+
+
+
+Definition at line 167 of file rfid\_\-reader\_\-mac.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidReaderMac@{Rfid\-Reader\-Mac}!addGenericHeader@{addGenericHeader}}
+\index{addGenericHeader@{addGenericHeader}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-Mac::add\-Generic\-Header (Packet\-Ptr {\em packet}, \bf{Node\-Id} {\em receiver\-Id}) const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidReaderMac_376bab78bbb08ad633de239e75ee206f}
+
+
+Add a generic header to the packet. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the packet to which the header will be added. \item[{\em receiver\-Id}]the ID of the packet's destination. \end{description}
+\end{Desc}
+
+
+Definition at line 363 of file rfid\_\-reader\_\-mac.cpp.
+
+References Rfid\-Reader\-Mac\-Data::create(), Packet::Data\-Types\_\-Link, Mac\-Protocol::get\-Node(), and Rfid\-Reader\-Mac\-Data::Types\_\-Generic.
+
+Referenced by handle\-Recvd\-Upper\-Layer\-Packet().\index{RfidReaderMac@{Rfid\-Reader\-Mac}!addSelectHeader@{addSelectHeader}}
+\index{addSelectHeader@{addSelectHeader}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-Mac::add\-Select\-Header (Packet\-Ptr {\em packet}, \bf{Node\-Id} {\em receiver\-Id}) const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidReaderMac_feff7c6515d438329fb07fc3d501df0f}
+
+
+Add a {\tt SELECT} header to the packet. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the packet to which the header will be added. \item[{\em receiver\-Id}]the ID of the packet's destination. \end{description}
+\end{Desc}
+
+
+Definition at line 373 of file rfid\_\-reader\_\-mac.cpp.
+
+References Rfid\-Reader\-Mac\-Data::create(), Packet::Data\-Types\_\-Link, Mac\-Protocol::get\-Node(), and Rfid\-Reader\-Mac\-Data::Types\_\-Select.
+
+Referenced by handle\-Recvd\-Mac\-Packet().\index{RfidReaderMac@{Rfid\-Reader\-Mac}!create@{create}}
+\index{create@{create}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Reader\-Mac\-Ptr} Rfid\-Reader\-Mac::create (Node\-Ptr {\em node}, Rfid\-Reader\-App\-Ptr {\em reader\-App})\hspace{0.3cm}{\tt  [inline, static]}}\label{classRfidReaderMac_de9230a8e1cbc2a45e9561581a98452b}
+
+
+A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node}]the node that owns this object. \item[{\em reader\-App}]the application using this MAC. \end{description}
+\end{Desc}
+
+
+Definition at line 468 of file rfid\_\-reader\_\-mac.hpp.
+
+References Simulator::add\-Simulation\-End\-Listener(), Rfid\-Mac\-Cycle\-Event::create(), Timer::create(), Slotted\-Mac\-Slot\-Event::create(), Simulator::instance(), and Rfid\-Reader\-Mac().\index{RfidReaderMac@{Rfid\-Reader\-Mac}!createAckPacket@{createAckPacket}}
+\index{createAckPacket@{createAckPacket}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Packet\-Ptr Rfid\-Reader\-Mac::create\-Ack\-Packet (\bf{Node\-Id} {\em destination}) const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidReaderMac_bada4f766e338f31a9c493d4fae35e7d}
+
+
+Create a acknowledgement packet for the node. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em destination}]the destination of the node to which we are sending the ACK. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]a pointer to the read packet created by the function. \end{Desc}
+
+
+Definition at line 350 of file rfid\_\-reader\_\-mac.cpp.
+
+References Packet::create(), Rfid\-Reader\-Mac\-Data::create(), Packet::Data\-Types\_\-Link, Mac\-Protocol::get\-Node(), and Rfid\-Reader\-Mac\-Data::Types\_\-Ack.
+
+Referenced by handle\-Recvd\-Mac\-Packet().\index{RfidReaderMac@{Rfid\-Reader\-Mac}!createRequestPacket@{createRequestPacket}}
+\index{createRequestPacket@{createRequestPacket}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Packet\-Ptr Rfid\-Reader\-Mac::create\-Request\-Packet () const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidReaderMac_1c49eb5ba1a54f3873ea4bb81647a00e}
+
+
+Create a request packet for the node. 
+
+\begin{Desc}
+\item[Returns:]a pointer to the read packet created by the function. \end{Desc}
+
+
+Definition at line 331 of file rfid\_\-reader\_\-mac.cpp.
+
+References Node\-Id::broadcast\-Destination(), Packet::create(), Rfid\-Reader\-Mac\-Data::create(), Packet::Data\-Types\_\-Link, Mac\-Protocol::get\-Node(), m\_\-current\-App\-Read\-Packet, m\_\-next\-Cycle\-Number\-Of\-Slots, and Rfid\-Reader\-Mac\-Data::Types\_\-Request.
+
+Referenced by begin\-Slot\-Event(), and start\-Next\-Contention\-Cycle().\index{RfidReaderMac@{Rfid\-Reader\-Mac}!handleChannelBusy@{handleChannelBusy}}
+\index{handleChannelBusy@{handleChannelBusy}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-Mac::handle\-Channel\-Busy (Packet\-Ptr {\em packet})\hspace{0.3cm}{\tt  [virtual]}}\label{classRfidReaderMac_ee6687bd966a9c13bdddb0e5adfc3d3a}
+
+
+This is called when the MAC is scheduled to transmit a packet on the channel but the channel is busy. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]the packet whose transmission was being attmpted. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{handle\-Packet\-Sent()}{p.}{classRfidReaderMac_894d31adb55474a7d4ddf2f2a70cb035} \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_554fdfd2535dc4f38658bbecc8966b57}.
+
+Definition at line 186 of file rfid\_\-reader\_\-mac.cpp.
+
+References is\-Packet\-Type(), Rfid\-Reader\-Mac\-Data::Types\_\-Request, Rfid\-Reader\-Mac\-Data::Types\_\-Select, and Mac\-Protocol::unblock\-Upper\-Queues().\index{RfidReaderMac@{Rfid\-Reader\-Mac}!handlePacketSent@{handlePacketSent}}
+\index{handlePacketSent@{handlePacketSent}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Reader\-Mac::handle\-Packet\-Sent (Packet\-Ptr {\em packet})\hspace{0.3cm}{\tt  [virtual]}}\label{classRfidReaderMac_894d31adb55474a7d4ddf2f2a70cb035}
+
+
+This is called when the MAC is scheduled to transmit a packet on the channel and it is sent on the channel. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]the packet whose transmission was being attmpted. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{handle\-Channel\-Busy()}{p.}{classRfidReaderMac_ee6687bd966a9c13bdddb0e5adfc3d3a} \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_69bc1e2b0efec1155b67edc7a1cf700f}.
+
+Definition at line 196 of file rfid\_\-reader\_\-mac.cpp.
+
+References Packet::Data\-Types\_\-Link, is\-Enough\-Time\-For\-Contention\-Cycle(), is\-Packet\-Type(), Slotted\-Mac::m\_\-current\-Slot\-Number, m\_\-do\-Reset\-Slot, Slotted\-Mac::m\_\-number\-Of\-Slots, m\_\-reset\-Slot\-Number, start\-Next\-Contention\-Cycle(), Rfid\-Reader\-Mac\-Data::Types\_\-Ack, Rfid\-Reader\-Mac\-Data::Types\_\-Request, Rfid\-Reader\-Mac\-Data::Types\_\-Select, and Mac\-Protocol::unblock\-Upper\-Queues().\index{RfidReaderMac@{Rfid\-Reader\-Mac}!handleRecvdMacPacket@{handleRecvdMacPacket}}
+\index{handleRecvdMacPacket@{handleRecvdMacPacket}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-Mac::handle\-Recvd\-Mac\-Packet (Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [virtual]}}\label{classRfidReaderMac_a97095861207185bac75004923f7896c}
+
+
+Handle a MAC packet that is received. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was able to be handled. \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_0511c3a8be71439f45182cedb2ace957}.
+
+Definition at line 264 of file rfid\_\-reader\_\-mac.cpp.
+
+References add\-Select\-Header(), create\-Ack\-Packet(), Packet::Data\-Types\_\-Link, Communication\-Layer::Directions\_\-Upper, m\_\-current\-App\-Read\-Packet, Slotted\-Mac::m\_\-current\-Slot\-Number, m\_\-cycle\-Timer, Slotted\-Mac::m\_\-packet\-To\-Transmit, Slotted\-Mac::m\_\-slot\-Timer, Slotted\-Mac::m\_\-tx\-Slot\-Number, m\_\-winning\-Slot\-Numbers, packet\-Is\-For\-Me(), Mac\-Protocol::send\-To\-Link\-Layer(), Rfid\-Tag\-Mac\-Data::Types\_\-Generic, and Rfid\-Tag\-Mac\-Data::Types\_\-Reply.\index{RfidReaderMac@{Rfid\-Reader\-Mac}!handleRecvdUpperLayerPacket@{handleRecvdUpperLayerPacket}}
+\index{handleRecvdUpperLayerPacket@{handleRecvdUpperLayerPacket}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-Mac::handle\-Recvd\-Upper\-Layer\-Packet (Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [virtual]}}\label{classRfidReaderMac_d73bb89c776e85c06cf7e8cc8c92af86}
+
+
+Handle a packet received from an upper layer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was able to be handled. \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_071f7addca0e24a0eaa13e9093767f42}.
+
+Definition at line 384 of file rfid\_\-reader\_\-mac.cpp.
+
+References add\-Generic\-Header(), Mac\-Protocol::block\-Upper\-Queues(), Node\-Id::broadcast\-Destination(), Packet::Data\-Types\_\-Application, Log\-Stream\-Manager::instance(), is\-Enough\-Time\-For\-Contention\-Cycle(), Log\-Stream\-Manager::log\-Debug\-Item(), m\_\-current\-App\-Read\-Packet, Slotted\-Mac::m\_\-current\-Slot\-Number, m\_\-cycle\-Timer, m\_\-do\-Entire\-Read\-Cycle, m\_\-next\-Cycle\-Time, Slotted\-Mac::m\_\-packet\-To\-Transmit, Slotted\-Mac::m\_\-slot\-Timer, Slotted\-Mac::m\_\-tx\-Slot\-Number, start\-Next\-Contention\-Cycle(), Rfid\-Reader\-App\-Data::Types\_\-Read, and Rfid\-Reader\-App\-Data::Types\_\-Reset.\index{RfidReaderMac@{Rfid\-Reader\-Mac}!isEnoughTimeForContentionCycle@{isEnoughTimeForContentionCycle}}
+\index{isEnoughTimeForContentionCycle@{isEnoughTimeForContentionCycle}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-Mac::is\-Enough\-Time\-For\-Contention\-Cycle () const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidReaderMac_3cf257bb90140675aa8b816d990b1a01}
+
+
+Determine if there is enough time left in the current request cycle to start a new contention cycle. 
+
+\begin{Desc}
+\item[Returns:]true if there is enough time remaning. \end{Desc}
+
+
+Definition at line 69 of file rfid\_\-reader\_\-mac.cpp.
+
+References Log\-Stream\-Manager::instance(), Log\-Stream\-Manager::log\-Debug\-Item(), m\_\-cycle\-Timer, Slotted\-Mac::m\_\-DEFAULT\_\-SLOT\_\-TIME, and m\_\-next\-Cycle\-Number\-Of\-Slots.
+
+Referenced by begin\-Slot\-Event(), handle\-Packet\-Sent(), and handle\-Recvd\-Upper\-Layer\-Packet().\index{RfidReaderMac@{Rfid\-Reader\-Mac}!isPacketType@{isPacketType}}
+\index{isPacketType@{isPacketType}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-Mac::is\-Packet\-Type (Packet\-Ptr {\em packet}, \bf{Rfid\-Reader\-Mac\-Data::Types} {\em type}) const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidReaderMac_495e072c23f342f07ac500fb767919c0}
+
+
+Determine whether the packet is a packet of the given type by looking at it's header. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the packet under consideration. \item[{\em type}]the type for which we are checking. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if it is a request packet. \end{Desc}
+
+
+Definition at line 225 of file rfid\_\-reader\_\-mac.cpp.
+
+References Packet::Data\-Types\_\-Link.
+
+Referenced by handle\-Channel\-Busy(), and handle\-Packet\-Sent().\index{RfidReaderMac@{Rfid\-Reader\-Mac}!packetIsForMe@{packetIsForMe}}
+\index{packetIsForMe@{packetIsForMe}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Reader\-Mac::packet\-Is\-For\-Me (Rfid\-Tag\-Mac\-Data\-Ptr {\em mac\-Data}) const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidReaderMac_59a3015c9245de8e5d175a3f87d88fc3}
+
+
+Determine if the packet is for me based on the receiver address (i.e., has my address or the broadcast address). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mac\-Data}]the MAC header of the packet. \end{description}
+\end{Desc}
+
+
+Definition at line 238 of file rfid\_\-reader\_\-mac.cpp.
+
+References Node\-Id::broadcast\-Destination(), and Mac\-Protocol::get\-Node().
+
+Referenced by handle\-Recvd\-Mac\-Packet().\index{RfidReaderMac@{Rfid\-Reader\-Mac}!thisMacProtocol@{thisMacProtocol}}
+\index{thisMacProtocol@{thisMacProtocol}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Mac\-Protocol\-Ptr} Rfid\-Reader\-Mac::this\-Mac\-Protocol ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderMac_764e0cf20bf9329d40bdf1136575f78b}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Mac\-Protocol}{p.}{classMacProtocol}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_826334dae5fc3e12ae1c446fbb11a1f6}.
+
+Definition at line 502 of file rfid\_\-reader\_\-mac.hpp.\index{RfidReaderMac@{Rfid\-Reader\-Mac}!thisRfidReaderMac@{thisRfidReaderMac}}
+\index{thisRfidReaderMac@{thisRfidReaderMac}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Reader\-Mac\-Ptr} Rfid\-Reader\-Mac::this\-Rfid\-Reader\-Mac ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderMac_49a14ba698e23ae64e79a990dd57cbe8}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Reader\-Mac}{p.}{classRfidReaderMac}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Definition at line 490 of file rfid\_\-reader\_\-mac.hpp.\index{RfidReaderMac@{Rfid\-Reader\-Mac}!thisSimulationEndListener@{thisSimulationEndListener}}
+\index{thisSimulationEndListener@{thisSimulationEndListener}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Simulation\-End\-Listener\-Ptr} Rfid\-Reader\-Mac::this\-Simulation\-End\-Listener ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderMac_da89bb83471e99ea2011e61e8b694fc3}
+
+
+Gives {\tt this} pointer as a {\tt Simulation\-End\-Listener\-Ptr} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_56529b795e24f23950dc53d98ec38087}.
+
+Definition at line 508 of file rfid\_\-reader\_\-mac.hpp.\index{RfidReaderMac@{Rfid\-Reader\-Mac}!thisSlottedMac@{thisSlottedMac}}
+\index{thisSlottedMac@{thisSlottedMac}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Slotted\-Mac\-Ptr} Rfid\-Reader\-Mac::this\-Slotted\-Mac ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidReaderMac_833baa01bf1532b4616092c6117aa3c2}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Slotted\-Mac}{p.}{classSlottedMac}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Definition at line 496 of file rfid\_\-reader\_\-mac.hpp.
+
+\subsection{Member Data Documentation}
+\index{RfidReaderMac@{Rfid\-Reader\-Mac}!m_READER_IFS@{m\_\-READER\_\-IFS}}
+\index{m_READER_IFS@{m\_\-READER\_\-IFS}!RfidReaderMac@{Rfid\-Reader\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const double \bf{Rfid\-Reader\-Mac::m\_\-READER\_\-IFS} = 10e-6\hspace{0.3cm}{\tt  [static, protected]}}\label{classRfidReaderMac_c219fc833e2651d69cb03a22accbdb10}
+
+
+The interframe spacing of reader packets. 
+
+The time which the node defers before transmitting a packet in a slot. 
+
+Definition at line 264 of file rfid\_\-reader\_\-mac.hpp.
+
+Referenced by begin\-Slot\-Event().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rfid\_\-reader\_\-mac.hpp\item 
+rfid\_\-reader\_\-mac.cpp\end{CompactItemize}

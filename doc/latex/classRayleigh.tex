@@ -1,0 +1,90 @@
+\section{Rayleigh Class Reference}
+\label{classRayleigh}\index{Rayleigh@{Rayleigh}}
+Computes fading according to the \doxyref{Rayleigh}{p.}{classRayleigh} model.  
+
+
+{\tt \#include $<$fading.hpp$>$}
+
+Inheritance diagram for Rayleigh::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classRayleigh}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rayleigh} $>$ \bf{Rayleigh\-Ptr}\label{classRayleigh_d0024462cd5ef01daf6270d95d001379}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rayleigh\-Ptr} \bf{create} ()\label{classRayleigh_6d2bbd35716620f476b618edf32efcde}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Rayleigh\-Ptr} \bf{create} (const \bf{Rayleigh} \&rhs)\label{classRayleigh_87d3a49d67db041c2b7c309644f5b5e0}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Rayleigh\-Ptr} \bf{create} (double max\-Velocity)
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rayleigh} ()\label{classRayleigh_eb8e4497adf1cd3cda684ffd574615b5}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Rayleigh} (double max\-Velocity)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Rayleigh} (const \bf{Rayleigh} \&rhs)\label{classRayleigh_d51425fe51078f594593573c66a07eb9}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Computes fading according to the \doxyref{Rayleigh}{p.}{classRayleigh} model. 
+
+
+
+Definition at line 156 of file fading.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Rayleigh@{Rayleigh}!Rayleigh@{Rayleigh}}
+\index{Rayleigh@{Rayleigh}!Rayleigh@{Rayleigh}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Rayleigh::Rayleigh (double {\em max\-Velocity})\hspace{0.3cm}{\tt  [protected]}}\label{classRayleigh_90d6d4817c56c028f5ce53d15b162fa4}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em max\-Velocity}]the maximum velocity for objects in the environment in m/s (used for computing doppler). \end{description}
+\end{Desc}
+
+
+Definition at line 53 of file fading.cpp.
+
+\subsection{Member Function Documentation}
+\index{Rayleigh@{Rayleigh}!create@{create}}
+\index{create@{create}!Rayleigh@{Rayleigh}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rayleigh\-Ptr} Rayleigh::create (double {\em max\-Velocity})\hspace{0.3cm}{\tt  [inline, static]}}\label{classRayleigh_d690055bd7b1126942b7253305a3b37e}
+
+
+A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em max\-Velocity}]the maximum velocity for objects in the environment in m/s (used for computing doppler). \end{description}
+\end{Desc}
+
+
+Definition at line 230 of file fading.hpp.
+
+References Rayleigh().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+fading.hpp\item 
+fading.cpp\end{CompactItemize}

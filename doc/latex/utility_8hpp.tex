@@ -1,0 +1,85 @@
+\section{utility.hpp File Reference}
+\label{utility_8hpp}\index{utility.hpp@{utility.hpp}}
+This includes some {\tt typedef's}, functions, and constants that are used globally. 
+
+{\tt \#include $<$iostream$>$}\par
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include $<$boost/shared\_\-ptr.hpp$>$}\par
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef unsigned int \bf{t\_\-uint}\label{utility_8hpp_b393a696e0318c8ab53ae2a1592e3770}
+
+\begin{CompactList}\small\item\em Shorten the name for unsigned primitives. \item\end{CompactList}\item 
+typedef unsigned long \bf{t\_\-ulong}\label{utility_8hpp_53477cde5ad1c263a6a3183c0756808e}
+
+\begin{CompactList}\small\item\em Shorten the name for unsigned primitives. \item\end{CompactList}\item 
+typedef unsigned char \bf{t\_\-uchar}\label{utility_8hpp_0a4a98abf39e826ef67f8c547f3c9be5}
+
+\begin{CompactList}\small\item\em Shorten the name for unsigned primitives. \item\end{CompactList}\item 
+typedef boost::shared\_\-ptr$<$ ostream $>$ \bf{ostream\-Ptr}\label{utility_8hpp_80994bec368911c9409385effc01c3d0}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double \bf{power\-To\-Decibels} (double power\-Value)
+\begin{CompactList}\small\item\em Convert a power value to decibels (d\-B). \item\end{CompactList}\item 
+double \bf{decibels\-To\-Power} (double decibel\-Value)
+\begin{CompactList}\small\item\em Convert a decibel (d\-B) value to a power value. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+const double \bf{SPEED\_\-OF\_\-LIGHT} = 299792458.0\label{utility_8hpp_a9d062184e1c09d26080c7fe53b33b9e}
+
+\begin{CompactList}\small\item\em Speed of light constant in meters per seconds (m/s). \item\end{CompactList}\item 
+const double \bf{PI} = 3.14159265\label{utility_8hpp_952eac791b596a61bba0a133a3bb439f}
+
+\begin{CompactList}\small\item\em The constant for PI. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This includes some {\tt typedef's}, functions, and constants that are used globally. 
+
+
+
+Definition in file \bf{utility.hpp}.
+
+\subsection{Function Documentation}
+\index{utility.hpp@{utility.hpp}!decibelsToPower@{decibelsToPower}}
+\index{decibelsToPower@{decibelsToPower}!utility.hpp@{utility.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double decibels\-To\-Power (double {\em decibel\-Value})\hspace{0.3cm}{\tt  [inline]}}\label{utility_8hpp_63d6a479f3a8afb8c62e4dd404918523}
+
+
+Convert a decibel (d\-B) value to a power value. 
+
+The denominator of the ratio is 1.0. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em decibel\-Value}]the value in d\-B. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the d\-B value converted to its original power value. \end{Desc}
+
+
+Definition at line 46 of file utility.hpp.
+
+Referenced by Two\-Ray::get\-Recvd\-Strength(), and Free\-Space::get\-Recvd\-Strength().\index{utility.hpp@{utility.hpp}!powerToDecibels@{powerToDecibels}}
+\index{powerToDecibels@{powerToDecibels}!utility.hpp@{utility.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double power\-To\-Decibels (double {\em power\-Value})\hspace{0.3cm}{\tt  [inline]}}\label{utility_8hpp_5a6d9dd7000e7af2d1b9d4d3204f8fd3}
+
+
+Convert a power value to decibels (d\-B). 
+
+The denominator of the ratio is 1.0. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em power\-Value}]the original power value. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the power value converted to d\-B. \end{Desc}
+
+
+Definition at line 34 of file utility.hpp.
+
+Referenced by Physical\-Layer::recv\-From\-Layer().

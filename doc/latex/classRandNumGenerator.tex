@@ -1,0 +1,147 @@
+\section{Rand\-Num\-Generator Class Reference}
+\label{classRandNumGenerator}\index{RandNumGenerator@{RandNumGenerator}}
+Handles the generation of random numbers from several distributions.  
+
+
+{\tt \#include $<$rand\_\-num\_\-generator.hpp$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rand\-Num\-Generator} $>$ \bf{Rand\-Num\-Generator\-Ptr}\label{classRandNumGenerator_6a66f8e312a44856f47f655d7cae85ea}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{set\-Seed} (const \bf{t\_\-uint} seed)
+\begin{CompactList}\small\item\em Change the seed being used. \item\end{CompactList}\item 
+int \bf{uniform\-Int} (const int min, const int max)
+\begin{CompactList}\small\item\em Generate an int unformly at random from the range [min,max]. \item\end{CompactList}\item 
+double \bf{uniform\-Zero\-One} ()
+\begin{CompactList}\small\item\em Generate a real number uniformly at random between [0,1). \item\end{CompactList}\item 
+double \bf{uniform\-Real} (const double min, const double max)
+\begin{CompactList}\small\item\em Generate a real number uniformly at random between [min,max). \item\end{CompactList}\item 
+double \bf{exponential} (const double lambda)
+\begin{CompactList}\small\item\em Generate a random number from an exponential distribution. \item\end{CompactList}\item 
+double \bf{normal\-Distribution} (const double mean, const double sigma)
+\begin{CompactList}\small\item\em Generate a random number from a normal distributin. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rand\-Num\-Generator\-Ptr} \bf{create} ()\label{classRandNumGenerator_6f7ea6ab681743da81244ab3815e9be1}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+ostream \& \bf{operator$<$$<$} (ostream \&s, const \bf{Rand\-Num\-Generator} \&rand\-Num\-Generator)\label{classRandNumGenerator_58096b7f31bb31da493e1cd8cd1979eb}
+
+\begin{CompactList}\small\item\em Make the output operator a friend for direct access to class state. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Handles the generation of random numbers from several distributions. 
+
+Uses the singleton design pattern. 
+
+
+
+Definition at line 18 of file rand\_\-num\_\-generator.hpp.
+
+\subsection{Member Function Documentation}
+\index{RandNumGenerator@{Rand\-Num\-Generator}!exponential@{exponential}}
+\index{exponential@{exponential}!RandNumGenerator@{Rand\-Num\-Generator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Rand\-Num\-Generator::exponential (const double {\em lambda})\hspace{0.3cm}{\tt  [inline]}}\label{classRandNumGenerator_e6cc0ca4aa542ee2bcd8b964f4c6cc57}
+
+
+Generate a random number from an exponential distribution. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em lambda}]the expected value of the distribution. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]a double from an exponential distribution. \end{Desc}
+
+
+Definition at line 145 of file rand\_\-num\_\-generator.hpp.\index{RandNumGenerator@{Rand\-Num\-Generator}!normalDistribution@{normalDistribution}}
+\index{normalDistribution@{normalDistribution}!RandNumGenerator@{Rand\-Num\-Generator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Rand\-Num\-Generator::normal\-Distribution (const double {\em mean}, const double {\em sigma})\hspace{0.3cm}{\tt  [inline]}}\label{classRandNumGenerator_00f7a84700c1222bc3f204574b56fca8}
+
+
+Generate a random number from a normal distributin. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mean}]the mean of the distribution. \item[{\em sigma}]the standard deviation of the distribution. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]a double from a normal distribution. \end{Desc}
+
+
+Definition at line 155 of file rand\_\-num\_\-generator.hpp.\index{RandNumGenerator@{Rand\-Num\-Generator}!setSeed@{setSeed}}
+\index{setSeed@{setSeed}!RandNumGenerator@{Rand\-Num\-Generator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rand\-Num\-Generator::set\-Seed (const \bf{t\_\-uint} {\em seed})\hspace{0.3cm}{\tt  [inline]}}\label{classRandNumGenerator_9eccd5378059e094ee3aab931bf28432}
+
+
+Change the seed being used. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em seed}]the new seed. \end{description}
+\end{Desc}
+
+
+Definition at line 113 of file rand\_\-num\_\-generator.hpp.\index{RandNumGenerator@{Rand\-Num\-Generator}!uniformInt@{uniformInt}}
+\index{uniformInt@{uniformInt}!RandNumGenerator@{Rand\-Num\-Generator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Rand\-Num\-Generator::uniform\-Int (const int {\em min}, const int {\em max})\hspace{0.3cm}{\tt  [inline]}}\label{classRandNumGenerator_5fbb12224e41a4ae4dc7f6a9faa00820}
+
+
+Generate an int unformly at random from the range [min,max]. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em min}]the minimum value that can be returned. \item[{\em max}]the maximum value that can be returned. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]an int in the range [min,max]. \end{Desc}
+
+
+Definition at line 119 of file rand\_\-num\_\-generator.hpp.\index{RandNumGenerator@{Rand\-Num\-Generator}!uniformReal@{uniformReal}}
+\index{uniformReal@{uniformReal}!RandNumGenerator@{Rand\-Num\-Generator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Rand\-Num\-Generator::uniform\-Real (const double {\em min}, const double {\em max})\hspace{0.3cm}{\tt  [inline]}}\label{classRandNumGenerator_7f44fe6e85086631638b03fa7477e050}
+
+
+Generate a real number uniformly at random between [min,max). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em min}]the minimum value that can be returned (inclusive). \item[{\em max}]the maximum value that can be returned (exclusive). \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]a double in the range [min,max). \end{Desc}
+
+
+Definition at line 135 of file rand\_\-num\_\-generator.hpp.\index{RandNumGenerator@{Rand\-Num\-Generator}!uniformZeroOne@{uniformZeroOne}}
+\index{uniformZeroOne@{uniformZeroOne}!RandNumGenerator@{Rand\-Num\-Generator}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Rand\-Num\-Generator::uniform\-Zero\-One ()\hspace{0.3cm}{\tt  [inline]}}\label{classRandNumGenerator_30eca9cbfae084672a3ef73ccda2d941}
+
+
+Generate a real number uniformly at random between [0,1). 
+
+\begin{Desc}
+\item[Returns:]a double in the range [0,1). \end{Desc}
+
+
+Definition at line 128 of file rand\_\-num\_\-generator.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rand\_\-num\_\-generator.hpp\item 
+rand\_\-num\_\-generator.cpp\end{CompactItemize}

@@ -1,0 +1,117 @@
+\section{Signal Class Reference}
+\label{classSignal}\index{Signal@{Signal}}
+A signal that can be transmitted over a channel.  
+
+
+{\tt \#include $<$signal.hpp$>$}
+
+Inheritance diagram for Signal::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classSignal}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Signal} $>$ \bf{Signal\-Ptr}\label{classSignal_97d071d4adb0bc5a6379608ca2a040b4}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Signal} ()\label{classSignal_e7a1d116cda63e790bf9aab549d57d3a}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+\bf{Location} \bf{get\-Location} () const 
+\begin{CompactList}\small\item\em Get the geographic location of the signal source. \item\end{CompactList}\item 
+double \bf{get\-Db\-Strength} () const 
+\begin{CompactList}\small\item\em Get the strength in decibels of this signal. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Signal\-Ptr} \bf{create} (const \bf{Location} \&location, double db\-Strength)\label{classSignal_3e46dfc6267d26c7d529f2a65acb7c4b}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Signal\-Ptr} \bf{create} (const \bf{Signal} \&rhs)\label{classSignal_a38cf11c5fcad1eeac2651aa0523cf6c}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Signal} (const \bf{Location} \&location, double db\-Strength)\label{classSignal_6e77a676d32836cfc9f6a44fa8ee6faf}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Signal} (const \bf{Signal} \&rhs)\label{classSignal_e59e8344e97f6978b670f0022f9692ca}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\item 
+virtual \bf{Signal\-Ptr} \bf{clone} () const 
+\begin{CompactList}\small\item\em Returns a pointer to a deep copy of this object. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+ostream \& \bf{operator$<$$<$} (ostream \&s, const \bf{Signal} \&rhs)\label{classSignal_237f5360e5941ee04539f5fc0e5d2273}
+
+\item 
+ostream \& \bf{operator$<$$<$} (ostream \&s, const \bf{Wireless\-Comm\-Signal} \&rhs)\label{classSignal_922c95089efe38716af2ddc8124d68a2}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A signal that can be transmitted over a channel. 
+
+
+
+Definition at line 17 of file signal.hpp.
+
+\subsection{Member Function Documentation}
+\index{Signal@{Signal}!clone@{clone}}
+\index{clone@{clone}!Signal@{Signal}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Signal\-Ptr} Signal::clone () const\hspace{0.3cm}{\tt  [protected, virtual]}}\label{classSignal_f15e301b793db83c184d9c3cbf332f94}
+
+
+Returns a pointer to a deep copy of this object. 
+
+This is addresses the slicing problem with copy construction. \begin{Desc}
+\item[Returns:]a pointer to a deep copy of this object. \end{Desc}
+
+
+Reimplemented in \bf{Wireless\-Comm\-Signal} \doxyref{p.}{classWirelessCommSignal_299eae5b8c3f5a1ddae68c201e830e7f}.
+
+Definition at line 21 of file signal.cpp.
+
+References Signal().
+
+Referenced by create().\index{Signal@{Signal}!getDbStrength@{getDbStrength}}
+\index{getDbStrength@{getDbStrength}!Signal@{Signal}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Signal::get\-Db\-Strength () const\hspace{0.3cm}{\tt  [inline]}}\label{classSignal_d470062a80d6fe3f034abfef8b33cda6}
+
+
+Get the strength in decibels of this signal. 
+
+\begin{Desc}
+\item[Returns:]the strength in decibels. \end{Desc}
+
+
+Definition at line 105 of file signal.hpp.
+
+Referenced by Two\-Ray::get\-Recvd\-Strength(), and Free\-Space::get\-Recvd\-Strength().\index{Signal@{Signal}!getLocation@{getLocation}}
+\index{getLocation@{getLocation}!Signal@{Signal}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Location} Signal::get\-Location () const\hspace{0.3cm}{\tt  [inline]}}\label{classSignal_b37b0435a830caa69171b9d39c3b0335}
+
+
+Get the geographic location of the signal source. 
+
+\begin{Desc}
+\item[Returns:]a pointer to the location object. \end{Desc}
+
+
+Definition at line 100 of file signal.hpp.
+
+Referenced by Two\-Ray::get\-Recvd\-Strength(), and Free\-Space::get\-Recvd\-Strength().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+signal.hpp\item 
+signal.cpp\end{CompactItemize}

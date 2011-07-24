@@ -1,0 +1,252 @@
+\section{Sim\-Time Class Reference}
+\label{classSimTime}\index{SimTime@{SimTime}}
+Defines the class for managing time in the simulator.  
+
+
+{\tt \#include $<$sim\_\-time.hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Sim\-Time} ()
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Sim\-Time} (double sim\-Time)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+void \bf{set\-Time\-In\-Micro\-Seconds} (double time\-In\-Micro\-Seconds)
+\begin{CompactList}\small\item\em Set the internal time by specifying microseconds. \item\end{CompactList}\item 
+void \bf{set\-Time\-In\-Milli\-Seconds} (double time\-In\-Milli\-Seconds)
+\begin{CompactList}\small\item\em Set the internal time by specifying milliseconds. \item\end{CompactList}\item 
+void \bf{set\-Time\-In\-Seconds} (double time\-In\-Seconds)
+\begin{CompactList}\small\item\em Set the internal time by specifying seconds. \item\end{CompactList}\item 
+void \bf{set\-Time\-In\-Minutes} (double time\-In\-Minutes)
+\begin{CompactList}\small\item\em Set the internal time by specifying minutes. \item\end{CompactList}\item 
+double \bf{get\-Time\-In\-Micro\-Seconds} () const 
+\begin{CompactList}\small\item\em Get the internal time in microseconds. \item\end{CompactList}\item 
+double \bf{get\-Time\-In\-Milli\-Seconds} () const 
+\begin{CompactList}\small\item\em Get the internal time in milliseconds. \item\end{CompactList}\item 
+double \bf{get\-Time\-In\-Seconds} () const 
+\begin{CompactList}\small\item\em Get the internal time in seconds. \item\end{CompactList}\item 
+double \bf{get\-Time\-In\-Minutes} () const 
+\begin{CompactList}\small\item\em Get the internal time in minutes. \item\end{CompactList}\item 
+void \bf{set\-Time} (double time\-In\-Seconds)
+\begin{CompactList}\small\item\em Set the internal time (by specifying seconds). \item\end{CompactList}\item 
+double \bf{get\-Time} () const 
+\begin{CompactList}\small\item\em Get the internal time (in seconds). \item\end{CompactList}\item 
+bool \bf{is\-Valid} () const 
+\begin{CompactList}\small\item\em Check that the internal format of time is valid. \item\end{CompactList}\end{CompactItemize}
+\begin{Indent}{\bf }\par
+\begin{CompactItemize}
+\item 
+\bf{Sim\-Time} \& \bf{operator+=} (const \bf{Sim\-Time} \&rhs)\label{classSimTime_b0162385e018569fd54932f20a9baa88}
+
+\begin{CompactList}\small\item\em An operator for the class. \item\end{CompactList}\item 
+\bf{Sim\-Time} \& \bf{operator-=} (const \bf{Sim\-Time} \&rhs)\label{classSimTime_6cd824edfd490b1083a4aec3be1935e9}
+
+\begin{CompactList}\small\item\em An operator for the class. \item\end{CompactList}\item 
+bool \bf{operator$<$} (const \bf{Sim\-Time} \&rhs) const \label{classSimTime_9a45054c3930595ce629b167f74c7cc9}
+
+\begin{CompactList}\small\item\em An operator for the class. \item\end{CompactList}\item 
+bool \bf{operator$<$=} (const \bf{Sim\-Time} \&rhs) const \label{classSimTime_ffd9218317db3e90935c62a83626cd28}
+
+\begin{CompactList}\small\item\em An operator for the class. \item\end{CompactList}\item 
+bool \bf{operator$>$} (const \bf{Sim\-Time} \&rhs) const \label{classSimTime_23fc71d5fa69974a96ed3dc89abc52db}
+
+\begin{CompactList}\small\item\em An operator for the class. \item\end{CompactList}\item 
+bool \bf{operator$>$=} (const \bf{Sim\-Time} \&rhs) const \label{classSimTime_af081bdc46f0aa1ab28aae99e31100a3}
+
+\begin{CompactList}\small\item\em An operator for the class. \item\end{CompactList}\end{CompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+Defines the class for managing time in the simulator. 
+
+
+
+Definition at line 13 of file sim\_\-time.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{SimTime@{Sim\-Time}!SimTime@{SimTime}}
+\index{SimTime@{SimTime}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sim\-Time::Sim\-Time ()}\label{classSimTime_ad8d1396857e60887b0b890fd126ed8d}
+
+
+A constructor. 
+
+Time is set to zero by default. 
+
+Definition at line 4 of file sim\_\-time.cpp.
+
+References set\-Time().\index{SimTime@{Sim\-Time}!SimTime@{SimTime}}
+\index{SimTime@{SimTime}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Sim\-Time::Sim\-Time (double {\em sim\-Time})}\label{classSimTime_ea951cac501a0a77b79f47cd322bd1d8}
+
+
+A constructor. 
+
+Sets time in seconds. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sim\-Time}]time (in seconds) to initialize object. \end{description}
+\end{Desc}
+
+
+Definition at line 9 of file sim\_\-time.cpp.
+
+References set\-Time().
+
+\subsection{Member Function Documentation}
+\index{SimTime@{Sim\-Time}!getTime@{getTime}}
+\index{getTime@{getTime}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Sim\-Time::get\-Time () const\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_962f03a0482fc73f32976f94ef91e844}
+
+
+Get the internal time (in seconds). 
+
+\begin{Desc}
+\item[Returns:]time in seconds. \end{Desc}
+
+
+Definition at line 166 of file sim\_\-time.hpp.
+
+References get\-Time\-In\-Seconds().\index{SimTime@{Sim\-Time}!getTimeInMicroSeconds@{getTimeInMicroSeconds}}
+\index{getTimeInMicroSeconds@{getTimeInMicroSeconds}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Sim\-Time::get\-Time\-In\-Micro\-Seconds () const\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_6fc5712331fdd39a3f5cac85830afb5c}
+
+
+Get the internal time in microseconds. 
+
+Note: does not handle overflow. \begin{Desc}
+\item[Returns:]time in microseconds. \end{Desc}
+
+
+Definition at line 141 of file sim\_\-time.hpp.\index{SimTime@{Sim\-Time}!getTimeInMilliSeconds@{getTimeInMilliSeconds}}
+\index{getTimeInMilliSeconds@{getTimeInMilliSeconds}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Sim\-Time::get\-Time\-In\-Milli\-Seconds () const\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_9ffa677730083f5ef0fc74bbbc0f3237}
+
+
+Get the internal time in milliseconds. 
+
+Note: does not handle overflow. \begin{Desc}
+\item[Returns:]time in milliseconds. \end{Desc}
+
+
+Definition at line 146 of file sim\_\-time.hpp.\index{SimTime@{Sim\-Time}!getTimeInMinutes@{getTimeInMinutes}}
+\index{getTimeInMinutes@{getTimeInMinutes}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Sim\-Time::get\-Time\-In\-Minutes () const\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_71435a2c259e3bcf89a6d952b464e7c2}
+
+
+Get the internal time in minutes. 
+
+\begin{Desc}
+\item[Returns:]time in minutes. \end{Desc}
+
+
+Definition at line 156 of file sim\_\-time.hpp.\index{SimTime@{Sim\-Time}!getTimeInSeconds@{getTimeInSeconds}}
+\index{getTimeInSeconds@{getTimeInSeconds}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Sim\-Time::get\-Time\-In\-Seconds () const\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_4525fb479682c17294f646fb48c7d9ee}
+
+
+Get the internal time in seconds. 
+
+\begin{Desc}
+\item[Returns:]time in seconds. \end{Desc}
+
+
+Definition at line 151 of file sim\_\-time.hpp.
+
+Referenced by Ricean::fading\-Factor(), get\-Time(), and Rfid\-Reader\-App::simulation\-End\-Handler().\index{SimTime@{Sim\-Time}!isValid@{isValid}}
+\index{isValid@{isValid}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Sim\-Time::is\-Valid () const\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_7aa2ac42b19f7fe629f47b6eed7904a4}
+
+
+Check that the internal format of time is valid. 
+
+Can be used in assert statements. \begin{Desc}
+\item[Returns:]whether or not the internal format is valid. \end{Desc}
+
+
+Definition at line 171 of file sim\_\-time.hpp.
+
+Referenced by Timer::time\-Remaining().\index{SimTime@{Sim\-Time}!setTime@{setTime}}
+\index{setTime@{setTime}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Sim\-Time::set\-Time (double {\em time\-In\-Seconds})\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_146f426d5761487511ee02a0c14f7ef1}
+
+
+Set the internal time (by specifying seconds). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em time\-In\-Seconds}]new time specified in seconds. \end{description}
+\end{Desc}
+
+
+Definition at line 161 of file sim\_\-time.hpp.
+
+References set\-Time\-In\-Seconds().
+
+Referenced by Simulator::reset(), and Sim\-Time().\index{SimTime@{Sim\-Time}!setTimeInMicroSeconds@{setTimeInMicroSeconds}}
+\index{setTimeInMicroSeconds@{setTimeInMicroSeconds}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Sim\-Time::set\-Time\-In\-Micro\-Seconds (double {\em time\-In\-Micro\-Seconds})\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_7fb16a92ef70ac95eb938741c014526d}
+
+
+Set the internal time by specifying microseconds. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em time\-In\-Micro\-Seconds}]new time specified in microseconds. \end{description}
+\end{Desc}
+
+
+Definition at line 117 of file sim\_\-time.hpp.\index{SimTime@{Sim\-Time}!setTimeInMilliSeconds@{setTimeInMilliSeconds}}
+\index{setTimeInMilliSeconds@{setTimeInMilliSeconds}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Sim\-Time::set\-Time\-In\-Milli\-Seconds (double {\em time\-In\-Milli\-Seconds})\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_f720e375d0d99c1a83d49957a4dfd2cd}
+
+
+Set the internal time by specifying milliseconds. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em time\-In\-Milli\-Seconds}]new time specified in milliseconds. \end{description}
+\end{Desc}
+
+
+Definition at line 123 of file sim\_\-time.hpp.\index{SimTime@{Sim\-Time}!setTimeInMinutes@{setTimeInMinutes}}
+\index{setTimeInMinutes@{setTimeInMinutes}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Sim\-Time::set\-Time\-In\-Minutes (double {\em time\-In\-Minutes})\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_20bef1aec2826e2e3afb5e173e036edc}
+
+
+Set the internal time by specifying minutes. 
+
+Note: does not handle overflow. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em time\-In\-Minutes}]new time specified in minutes. \end{description}
+\end{Desc}
+
+
+Definition at line 135 of file sim\_\-time.hpp.\index{SimTime@{Sim\-Time}!setTimeInSeconds@{setTimeInSeconds}}
+\index{setTimeInSeconds@{setTimeInSeconds}!SimTime@{Sim\-Time}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Sim\-Time::set\-Time\-In\-Seconds (double {\em time\-In\-Seconds})\hspace{0.3cm}{\tt  [inline]}}\label{classSimTime_58a06868d2a01a1ed4bef8134f3ac615}
+
+
+Set the internal time by specifying seconds. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em time\-In\-Seconds}]new time specified in seconds. \end{description}
+\end{Desc}
+
+
+Definition at line 129 of file sim\_\-time.hpp.
+
+Referenced by set\-Time().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+sim\_\-time.hpp\item 
+sim\_\-time.cpp\end{CompactItemize}

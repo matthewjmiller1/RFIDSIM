@@ -1,0 +1,27 @@
+\section{Event\-Ptr\-Comparator Class Reference}
+\label{classEventPtrComparator}\index{EventPtrComparator@{EventPtrComparator}}
+Helper class to define how \doxyref{Event}{p.}{classEvent} objects are compared for use with the Simulator's \doxyref{Event}{p.}{classEvent} queue.  
+
+
+{\tt \#include $<$simulator.hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+bool \bf{operator()} (Const\-Event\-Ptr event1, Const\-Event\-Ptr event2) const \label{classEventPtrComparator_d6fc0f756747ab25d620c471410dbf79}
+
+\begin{CompactList}\small\item\em Operator to prioritize event pointers since they must be dereference before applying the less than operator. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Helper class to define how \doxyref{Event}{p.}{classEvent} objects are compared for use with the Simulator's \doxyref{Event}{p.}{classEvent} queue. 
+
+This is necessary since the queue contains pointers that must be dereferenced before they can be compared. 
+
+
+
+Definition at line 214 of file simulator.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+simulator.hpp\end{CompactItemize}

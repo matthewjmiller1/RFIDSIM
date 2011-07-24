@@ -1,0 +1,131 @@
+\section{Free\-Space Class Reference}
+\label{classFreeSpace}\index{FreeSpace@{FreeSpace}}
+This computes the received signal strength using the Friis free space model.  
+
+
+{\tt \#include $<$path\_\-loss.hpp$>$}
+
+Inheritance diagram for Free\-Space::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classFreeSpace}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Free\-Space} $>$ \bf{Free\-Space\-Ptr}\label{classFreeSpace_b28c20334ee42e660d04ecb9277e3d0f}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual double \bf{get\-Recvd\-Strength} (const \bf{Wireless\-Comm\-Signal} \&signal, const \bf{Physical\-Layer} \&receiver) const 
+\begin{CompactList}\small\item\em Compute the signal strength for the signal at the receiver. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Free\-Space\-Ptr} \bf{create} ()\label{classFreeSpace_03ca91970bc6553a398d2c940b981dec}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Free\-Space\-Ptr} \bf{create} (double loss\-Factor)
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Free\-Space} ()\label{classFreeSpace_3cdcb2a6fdeb75ad2ffecf9b5fee4d4a}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Free\-Space} (double loss\-Factor)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+double \bf{m\_\-loss\-Factor}\label{classFreeSpace_1df41cb2f4d5445311e585142b51d1d9}
+
+\begin{CompactList}\small\item\em The multiplier for how much signal loss a signal experiences. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static const double \bf{m\_\-DEFAULT\_\-LOSS\_\-FACTOR} = 1.0\label{classFreeSpace_73f6ef0c434bfff1d8361aed644e4aba}
+
+\begin{CompactList}\small\item\em The default loss factor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This computes the received signal strength using the Friis free space model. 
+
+The equation for the model $\ast$ is given by: \[ P_r = \frac{P_t G_t G_r \lambda^2}{(4\pi)^2 d^2 L} \] where $P_r$ is the receiver power, $P_t$ is the transmitted power, $G_t$ and $G_r$ are the gains of the transmitter and receiver antennas, respectively, $\lambda$ is the wavelength, $d$ is the distance between the transmitter and receiver, and $L$ is the loss factor. 
+
+
+
+Definition at line 59 of file path\_\-loss.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{FreeSpace@{Free\-Space}!FreeSpace@{FreeSpace}}
+\index{FreeSpace@{FreeSpace}!FreeSpace@{Free\-Space}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Free\-Space::Free\-Space (double {\em loss\-Factor})\hspace{0.3cm}{\tt  [protected]}}\label{classFreeSpace_6703ec9bd2cc3b233389ab5354a1ceaa}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em loss\-Factor}]the loss factor of the model (must be $>$= 1). \end{description}
+\end{Desc}
+
+
+Definition at line 26 of file path\_\-loss.cpp.
+
+References m\_\-DEFAULT\_\-LOSS\_\-FACTOR, and m\_\-loss\-Factor.
+
+\subsection{Member Function Documentation}
+\index{FreeSpace@{Free\-Space}!create@{create}}
+\index{create@{create}!FreeSpace@{Free\-Space}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Free\-Space\-Ptr} Free\-Space::create (double {\em loss\-Factor})\hspace{0.3cm}{\tt  [inline, static]}}\label{classFreeSpace_54b4c79b5864b7beff884779f652d400}
+
+
+A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em loss\-Factor}]the loss factor of the model (must be $>$= 1). \end{description}
+\end{Desc}
+
+
+Reimplemented in \bf{Two\-Ray} \doxyref{p.}{classTwoRay_1c024cdcab4941e43d4bd99a546941c0}.
+
+Definition at line 184 of file path\_\-loss.hpp.
+
+References Free\-Space().\index{FreeSpace@{Free\-Space}!getRecvdStrength@{getRecvdStrength}}
+\index{getRecvdStrength@{getRecvdStrength}!FreeSpace@{Free\-Space}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Free\-Space::get\-Recvd\-Strength (const \bf{Wireless\-Comm\-Signal} \& {\em signal}, const \bf{Physical\-Layer} \& {\em receiver}) const\hspace{0.3cm}{\tt  [virtual]}}\label{classFreeSpace_d5c42c93d44098bd496fa66bf3facdb4}
+
+
+Compute the signal strength for the signal at the receiver. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]the signal being transmitted. \item[{\em receiver}]the object receiving the signal. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the signal strength in Watts. \end{Desc}
+
+
+Implements \bf{Path\-Loss} \doxyref{p.}{classPathLoss_0bbf29f4653d6584331b2377934d9d93}.
+
+Reimplemented in \bf{Two\-Ray} \doxyref{p.}{classTwoRay_84918f64853e520d837424d01f0915a4}.
+
+Definition at line 46 of file path\_\-loss.cpp.
+
+References decibels\-To\-Power(), Location::distance(), Signal::get\-Db\-Strength(), Physical\-Layer::get\-Gain(), Physical\-Layer::get\-Location(), Signal::get\-Location(), Wireless\-Comm\-Signal::get\-Transmitter\-Gain(), Wireless\-Comm\-Signal::get\-Wavelength(), m\_\-loss\-Factor, and PI.
+
+Referenced by Two\-Ray::get\-Recvd\-Strength().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+path\_\-loss.hpp\item 
+path\_\-loss.cpp\end{CompactItemize}

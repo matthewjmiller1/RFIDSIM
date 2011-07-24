@@ -1,0 +1,96 @@
+\section{App\-Epoch\-Event Class Reference}
+\label{classAppEpochEvent}\index{AppEpochEvent@{AppEpochEvent}}
+An event subclass for when an application begins and ends.  
+
+
+{\tt \#include $<$application\_\-layer.hpp$>$}
+
+Inheritance diagram for App\-Epoch\-Event::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classAppEpochEvent}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{App\-Epoch\-Event} $>$ \bf{App\-Epoch\-Event\-Ptr}\label{classAppEpochEvent_e3a4fca3ab67ea25b89400e006050f8c}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\item 
+\bf{Epochs\_\-Start}
+\begin{CompactList}\small\item\em enum value Epochs\_\-Start. \item\end{CompactList}\item 
+\bf{Epochs\_\-Stop}
+\begin{CompactList}\small\item\em enum value Epochs\_\-Stop. \item\end{CompactList}\item 
+enum \bf{Epochs} \{ \bf{Epochs\_\-Start}, 
+\bf{Epochs\_\-Stop}
+ \}
+\begin{CompactList}\small\item\em Epochs enum. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{execute} ()
+\begin{CompactList}\small\item\em The code that gets executed for the event. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{App\-Epoch\-Event\-Ptr} \bf{create} (\bf{Epochs} epoch\-Type, Application\-Layer\-Ptr app\-Layer)\label{classAppEpochEvent_3545516992af84e48fc60d9e81638f44}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{App\-Epoch\-Event} (\bf{Epochs} epoch\-Type, Application\-Layer\-Ptr app\-Layer)\label{classAppEpochEvent_833cf9272e050932417cba12b3aafc3a}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+An event subclass for when an application begins and ends. 
+
+This is the event that starts and ends an application at a node. 
+
+
+
+Definition at line 122 of file application\_\-layer.hpp.
+
+\subsection{Member Enumeration Documentation}
+\index{AppEpochEvent@{App\-Epoch\-Event}!Epochs@{Epochs}}
+\index{Epochs@{Epochs}!AppEpochEvent@{App\-Epoch\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum \bf{App\-Epoch\-Event::Epochs}}\label{classAppEpochEvent_618255a3a58641b14f8234031ccf6971}
+
+
+Epochs enum. 
+
+Specifies the type of epochs possible. \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{Epochs_Start@{Epochs\_\-Start}!AppEpochEvent@{AppEpochEvent}}\index{AppEpochEvent@{AppEpochEvent}!Epochs_Start@{Epochs\_\-Start}}\item[{\em 
+Epochs\_\-Start\label{classAppEpochEvent_618255a3a58641b14f8234031ccf6971b2f8904afa52489c050c1924b9482d72}
+}]enum value Epochs\_\-Start. \index{Epochs_Stop@{Epochs\_\-Stop}!AppEpochEvent@{AppEpochEvent}}\index{AppEpochEvent@{AppEpochEvent}!Epochs_Stop@{Epochs\_\-Stop}}\item[{\em 
+Epochs\_\-Stop\label{classAppEpochEvent_618255a3a58641b14f8234031ccf6971ecd59abd8340fb854ffba7ee50d1c4e0}
+}]enum value Epochs\_\-Stop. \end{description}
+\end{Desc}
+
+
+
+Definition at line 131 of file application\_\-layer.hpp.
+
+\subsection{Member Function Documentation}
+\index{AppEpochEvent@{App\-Epoch\-Event}!execute@{execute}}
+\index{execute@{execute}!AppEpochEvent@{App\-Epoch\-Event}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void App\-Epoch\-Event::execute ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classAppEpochEvent_462a31e7050b68b1e1a8be2275c69286}
+
+
+The code that gets executed for the event. 
+
+Subclasses can override this to define their own actions. 
+
+Implements \bf{Event} \doxyref{p.}{classEvent_b53a925ac3b000c6f017a4a951aff3c7}.
+
+Definition at line 147 of file application\_\-layer.hpp.
+
+References Epochs\_\-Start, and Epochs\_\-Stop.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+application\_\-layer.hpp\end{CompactItemize}

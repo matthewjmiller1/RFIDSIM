@@ -1,0 +1,339 @@
+\section{Rfid\-Tag\-Mac Class Reference}
+\label{classRfidTagMac}\index{RfidTagMac@{RfidTagMac}}
+A MAC protocol for RFID tags that uses slotted ALOHA.  
+
+
+{\tt \#include $<$rfid\_\-tag\_\-mac.hpp$>$}
+
+Inheritance diagram for Rfid\-Tag\-Mac::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4cm]{classRfidTagMac}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Rfid\-Tag\-Mac} $>$ \bf{Rfid\-Tag\-Mac\-Ptr}\label{classRfidTagMac_3dd448199edee560ac1137c14b46f599}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Rfid\-Tag\-Mac} ()\label{classRfidTagMac_2f2a80c09f5cf85e02d440e5fac66325}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+virtual \bf{Rfid\-Tag\-Mac\-Ptr} \bf{this\-Rfid\-Tag\-Mac} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Tag\-Mac}{p.}{classRfidTagMac}} object. \item\end{CompactList}\item 
+virtual \bf{Slotted\-Mac\-Ptr} \bf{this\-Slotted\-Mac} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Slotted\-Mac}{p.}{classSlottedMac}} object. \item\end{CompactList}\item 
+virtual \bf{Mac\-Protocol\-Ptr} \bf{this\-Mac\-Protocol} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt \doxyref{Mac\-Protocol}{p.}{classMacProtocol}} object. \item\end{CompactList}\item 
+virtual \bf{Simulation\-End\-Listener\-Ptr} \bf{this\-Simulation\-End\-Listener} ()
+\begin{CompactList}\small\item\em Gives {\tt this} pointer as a {\tt Simulation\-End\-Listener\-Ptr} object. \item\end{CompactList}\item 
+virtual void \bf{simulation\-End\-Handler} ()\label{classRfidTagMac_3be6920356cb24037e195fa7d18366d2}
+
+\begin{CompactList}\small\item\em The function called when the simulation ends. \item\end{CompactList}\item 
+bool \bf{handle\-Recvd\-Mac\-Packet} (Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Handle a MAC packet the is received. \item\end{CompactList}\item 
+bool \bf{handle\-Recvd\-Upper\-Layer\-Packet} (Packet\-Ptr packet, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Handle a packet received from an upper layer. \item\end{CompactList}\item 
+virtual void \bf{handle\-Channel\-Busy} (Packet\-Ptr packet)
+\begin{CompactList}\small\item\em This is called when the MAC is scheduled to transmit a packet on the channel but the channel is busy. \item\end{CompactList}\item 
+virtual void \bf{handle\-Packet\-Sent} (Packet\-Ptr packet)
+\begin{CompactList}\small\item\em This is called when the MAC is scheduled to transmit a packet on the channel and it is sent on the channel. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Rfid\-Tag\-Mac\-Ptr} \bf{create} (Node\-Ptr node, Rfid\-Tag\-App\-Ptr tag\-App)
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Rfid\-Tag\-Mac} (Node\-Ptr node, Rfid\-Tag\-App\-Ptr tag\-App)\label{classRfidTagMac_a89240ce5289996824252e43b6421ca0}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+virtual void \bf{begin\-Slot\-Event} ()\label{classRfidTagMac_30b10a7fb115a81585e4c01bc59c0f48}
+
+\begin{CompactList}\small\item\em The function called when a slot begins. \item\end{CompactList}\item 
+bool \bf{handle\-Request\-Packet} (Rfid\-Reader\-Mac\-Data\-Ptr mac\-Data, \bf{t\_\-uint} sending\-Layer\-Idx)
+\begin{CompactList}\small\item\em Handle the request packet by generating a reply packet and choosing a packet in which to send it. \item\end{CompactList}\item 
+Packet\-Ptr \bf{create\-Reply\-Packet} (\bf{Node\-Id} receiver\-Id) const 
+\begin{CompactList}\small\item\em Create a reply packet for the node. \item\end{CompactList}\item 
+void \bf{add\-Generic\-Header} (Packet\-Ptr packet, \bf{Node\-Id} receiver\-Id) const 
+\begin{CompactList}\small\item\em Add a generic header to the packet. \item\end{CompactList}\item 
+bool \bf{packet\-Is\-For\-Me} (Rfid\-Reader\-Mac\-Data\-Ptr mac\-Data) const 
+\begin{CompactList}\small\item\em Determine if the packet is for me based on the receiver address (i.e., has my address or the broadcast address). \item\end{CompactList}\item 
+bool \bf{is\-Packet\-Type} (Packet\-Ptr packet, \bf{Rfid\-Tag\-Mac\-Data::Types} type) const 
+\begin{CompactList}\small\item\em Determine whether the packet is a packet of the given type by looking at it's header. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+Rfid\-Tag\-App\-Ptr \bf{m\_\-tag\-App}\label{classRfidTagMac_ea7890a3d6d8449c4731fc32ee641811}
+
+\begin{CompactList}\small\item\em A pointer to the application that uses this MAC. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static const double \bf{m\_\-TAG\_\-GENERIC\_\-IFS} = 15e-6\label{classRfidTagMac_5227f7e88888c66626229e18d43b0175}
+
+\begin{CompactList}\small\item\em The time which the node defers before transmitting an upper layer packet in a slot. \item\end{CompactList}\item 
+static const double \bf{m\_\-TAG\_\-REPLY\_\-IFS} = 20e-6\label{classRfidTagMac_bc03fd9d3109f4c64bdd646647bfde51}
+
+\begin{CompactList}\small\item\em The time which the node defers before transmitting an reply packet in a slot. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A MAC protocol for RFID tags that uses slotted ALOHA. 
+
+
+
+Definition at line 145 of file rfid\_\-tag\_\-mac.hpp.
+
+\subsection{Member Function Documentation}
+\index{RfidTagMac@{Rfid\-Tag\-Mac}!addGenericHeader@{addGenericHeader}}
+\index{addGenericHeader@{addGenericHeader}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-Mac::add\-Generic\-Header (Packet\-Ptr {\em packet}, \bf{Node\-Id} {\em receiver\-Id}) const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidTagMac_deed31bca72d3a90e72cb6e3eba5d461}
+
+
+Add a generic header to the packet. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the packet to which the header will be added. \item[{\em receiver\-Id}]the ID of the packet's destination. \end{description}
+\end{Desc}
+
+
+Definition at line 195 of file rfid\_\-tag\_\-mac.cpp.
+
+References Rfid\-Tag\-Mac\-Data::create(), Packet::Data\-Types\_\-Link, Mac\-Protocol::get\-Node(), and Rfid\-Tag\-Mac\-Data::Types\_\-Generic.
+
+Referenced by handle\-Recvd\-Upper\-Layer\-Packet().\index{RfidTagMac@{Rfid\-Tag\-Mac}!create@{create}}
+\index{create@{create}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Tag\-Mac\-Ptr} Rfid\-Tag\-Mac::create (Node\-Ptr {\em node}, Rfid\-Tag\-App\-Ptr {\em tag\-App})\hspace{0.3cm}{\tt  [inline, static]}}\label{classRfidTagMac_c4d89c7f9ea292085f677a07d183243b}
+
+
+A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node}]the node that owns this object. \item[{\em tag\-App}]a pointer to the application using this MAC. \end{description}
+\end{Desc}
+
+
+Definition at line 317 of file rfid\_\-tag\_\-mac.hpp.
+
+References Simulator::add\-Simulation\-End\-Listener(), Timer::create(), Slotted\-Mac\-Slot\-Event::create(), Simulator::instance(), and Rfid\-Tag\-Mac().\index{RfidTagMac@{Rfid\-Tag\-Mac}!createReplyPacket@{createReplyPacket}}
+\index{createReplyPacket@{createReplyPacket}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Packet\-Ptr Rfid\-Tag\-Mac::create\-Reply\-Packet (\bf{Node\-Id} {\em receiver\-Id}) const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidTagMac_55ad4c4b59636e44399c8d32bef8eaa7}
+
+
+Create a reply packet for the node. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em receiver\-Id}]the ID of the destination for the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]a pointer to the reply packet created by the function. \end{Desc}
+
+
+Definition at line 85 of file rfid\_\-tag\_\-mac.cpp.
+
+References Packet::create(), Rfid\-Tag\-Mac\-Data::create(), Packet::Data\-Types\_\-Link, Mac\-Protocol::get\-Node(), and Rfid\-Tag\-Mac\-Data::Types\_\-Reply.
+
+Referenced by handle\-Request\-Packet().\index{RfidTagMac@{Rfid\-Tag\-Mac}!handleChannelBusy@{handleChannelBusy}}
+\index{handleChannelBusy@{handleChannelBusy}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-Mac::handle\-Channel\-Busy (Packet\-Ptr {\em packet})\hspace{0.3cm}{\tt  [virtual]}}\label{classRfidTagMac_3c0b2da919439404120e46dee2e07e7f}
+
+
+This is called when the MAC is scheduled to transmit a packet on the channel but the channel is busy. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]the packet whose transmission was being attempted. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{handle\-Packet\-Sent()}{p.}{classRfidTagMac_a463f55305a16f6fdf132cbfc7b6abfb} \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_554fdfd2535dc4f38658bbecc8966b57}.
+
+Definition at line 57 of file rfid\_\-tag\_\-mac.cpp.
+
+References is\-Packet\-Type(), Slotted\-Mac::stop\-Contention\-Cycle(), Rfid\-Tag\-Mac\-Data::Types\_\-Reply, and Mac\-Protocol::unblock\-Upper\-Queues().\index{RfidTagMac@{Rfid\-Tag\-Mac}!handlePacketSent@{handlePacketSent}}
+\index{handlePacketSent@{handlePacketSent}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Rfid\-Tag\-Mac::handle\-Packet\-Sent (Packet\-Ptr {\em packet})\hspace{0.3cm}{\tt  [virtual]}}\label{classRfidTagMac_a463f55305a16f6fdf132cbfc7b6abfb}
+
+
+This is called when the MAC is scheduled to transmit a packet on the channel and it is sent on the channel. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]the packet whose transmission was being attmpted. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{handle\-Channel\-Busy()}{p.}{classRfidTagMac_3c0b2da919439404120e46dee2e07e7f} \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_69bc1e2b0efec1155b67edc7a1cf700f}.
+
+Definition at line 64 of file rfid\_\-tag\_\-mac.cpp.
+
+References is\-Packet\-Type(), Slotted\-Mac::stop\-Contention\-Cycle(), Rfid\-Tag\-Mac\-Data::Types\_\-Generic, and Mac\-Protocol::unblock\-Upper\-Queues().\index{RfidTagMac@{Rfid\-Tag\-Mac}!handleRecvdMacPacket@{handleRecvdMacPacket}}
+\index{handleRecvdMacPacket@{handleRecvdMacPacket}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Tag\-Mac::handle\-Recvd\-Mac\-Packet (Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [virtual]}}\label{classRfidTagMac_7a5164884df42c2c851c0a0b5667a0fa}
+
+
+Handle a MAC packet the is received. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was able to be handled. \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_0511c3a8be71439f45182cedb2ace957}.
+
+Definition at line 141 of file rfid\_\-tag\_\-mac.cpp.
+
+References Node\-Id::broadcast\-Destination(), Packet::Data\-Types\_\-Link, Communication\-Layer::Directions\_\-Upper, Mac\-Protocol::get\-Node(), handle\-Request\-Packet(), Slotted\-Mac::m\_\-packet\-To\-Transmit, m\_\-tag\-App, packet\-Is\-For\-Me(), Mac\-Protocol::send\-To\-Link\-Layer(), Slotted\-Mac::stop\-Contention\-Cycle(), Rfid\-Reader\-Mac\-Data::Types\_\-Ack, Rfid\-Reader\-Mac\-Data::Types\_\-Generic, Rfid\-Reader\-Mac\-Data::Types\_\-Request, Rfid\-Reader\-Mac\-Data::Types\_\-Select, and Mac\-Protocol::unblock\-Upper\-Queues().\index{RfidTagMac@{Rfid\-Tag\-Mac}!handleRecvdUpperLayerPacket@{handleRecvdUpperLayerPacket}}
+\index{handleRecvdUpperLayerPacket@{handleRecvdUpperLayerPacket}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Tag\-Mac::handle\-Recvd\-Upper\-Layer\-Packet (Packet\-Ptr {\em packet}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [virtual]}}\label{classRfidTagMac_8de0877e4ce973c7f81940c3e027a47b}
+
+
+Handle a packet received from an upper layer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the received packet. \item[{\em sending\-Layer\-Idx}]the index of the layer that sent the packet. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was able to be handled. \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_071f7addca0e24a0eaa13e9093767f42}.
+
+Definition at line 205 of file rfid\_\-tag\_\-mac.cpp.
+
+References add\-Generic\-Header(), Mac\-Protocol::block\-Upper\-Queues(), Packet::Data\-Types\_\-Application, Slotted\-Mac::in\-Contention\-Cycle(), Log\-Stream\-Manager::instance(), Log\-Stream\-Manager::log\-Debug\-Item(), Slotted\-Mac::m\_\-current\-Slot\-Number, Slotted\-Mac::m\_\-number\-Of\-Slots, Slotted\-Mac::m\_\-packet\-To\-Transmit, Slotted\-Mac::m\_\-slot\-Timer, and Slotted\-Mac::m\_\-tx\-Slot\-Number.\index{RfidTagMac@{Rfid\-Tag\-Mac}!handleRequestPacket@{handleRequestPacket}}
+\index{handleRequestPacket@{handleRequestPacket}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Tag\-Mac::handle\-Request\-Packet (Rfid\-Reader\-Mac\-Data\-Ptr {\em mac\-Data}, \bf{t\_\-uint} {\em sending\-Layer\-Idx})\hspace{0.3cm}{\tt  [protected]}}\label{classRfidTagMac_631e22e0a603de6f3248045c7f1acb38}
+
+
+Handle the request packet by generating a reply packet and choosing a packet in which to send it. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mac\-Data}]the MAC data from the reader's packet. \item[{\em sending\-Layer\-Idx}]the layer from which the packet was received. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the packet was handled successfully. \end{Desc}
+
+
+Definition at line 96 of file rfid\_\-tag\_\-mac.cpp.
+
+References create\-Reply\-Packet(), Mac\-Protocol::get\-Node(), Simulator::get\-Rand\-Num\-Generator(), Slotted\-Mac::in\-Contention\-Cycle(), Log\-Stream\-Manager::instance(), Simulator::instance(), Log\-Stream\-Manager::log\-Debug\-Item(), Slotted\-Mac::m\_\-current\-Slot\-Number, Slotted\-Mac::m\_\-number\-Of\-Slots, Slotted\-Mac::m\_\-packet\-To\-Transmit, m\_\-tag\-App, and Slotted\-Mac::m\_\-tx\-Slot\-Number.
+
+Referenced by handle\-Recvd\-Mac\-Packet().\index{RfidTagMac@{Rfid\-Tag\-Mac}!isPacketType@{isPacketType}}
+\index{isPacketType@{isPacketType}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Tag\-Mac::is\-Packet\-Type (Packet\-Ptr {\em packet}, \bf{Rfid\-Tag\-Mac\-Data::Types} {\em type}) const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidTagMac_e52231a65822745bcce154e2935c3fd7}
+
+
+Determine whether the packet is a packet of the given type by looking at it's header. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em packet}]a pointer to the packet under consideration. \item[{\em type}]the type for which we are checking. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if it is a request packet. \end{Desc}
+
+
+Definition at line 72 of file rfid\_\-tag\_\-mac.cpp.
+
+References Packet::Data\-Types\_\-Link.
+
+Referenced by begin\-Slot\-Event(), handle\-Channel\-Busy(), and handle\-Packet\-Sent().\index{RfidTagMac@{Rfid\-Tag\-Mac}!packetIsForMe@{packetIsForMe}}
+\index{packetIsForMe@{packetIsForMe}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Rfid\-Tag\-Mac::packet\-Is\-For\-Me (Rfid\-Reader\-Mac\-Data\-Ptr {\em mac\-Data}) const\hspace{0.3cm}{\tt  [protected]}}\label{classRfidTagMac_1e6b064988183aba7a65b645002f4707}
+
+
+Determine if the packet is for me based on the receiver address (i.e., has my address or the broadcast address). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mac\-Data}]the MAC header of the packet. \end{description}
+\end{Desc}
+
+
+Definition at line 135 of file rfid\_\-tag\_\-mac.cpp.
+
+References Node\-Id::broadcast\-Destination(), and Mac\-Protocol::get\-Node().
+
+Referenced by handle\-Recvd\-Mac\-Packet().\index{RfidTagMac@{Rfid\-Tag\-Mac}!thisMacProtocol@{thisMacProtocol}}
+\index{thisMacProtocol@{thisMacProtocol}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Mac\-Protocol\-Ptr} Rfid\-Tag\-Mac::this\-Mac\-Protocol ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagMac_9e157b877bb2a4933e7385859450902e}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Mac\-Protocol}{p.}{classMacProtocol}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_826334dae5fc3e12ae1c446fbb11a1f6}.
+
+Definition at line 347 of file rfid\_\-tag\_\-mac.hpp.\index{RfidTagMac@{Rfid\-Tag\-Mac}!thisRfidTagMac@{thisRfidTagMac}}
+\index{thisRfidTagMac@{thisRfidTagMac}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Rfid\-Tag\-Mac\-Ptr} Rfid\-Tag\-Mac::this\-Rfid\-Tag\-Mac ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagMac_42ee0181f11fded77af7f1cac29f1222}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Rfid\-Tag\-Mac}{p.}{classRfidTagMac}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Definition at line 335 of file rfid\_\-tag\_\-mac.hpp.\index{RfidTagMac@{Rfid\-Tag\-Mac}!thisSimulationEndListener@{thisSimulationEndListener}}
+\index{thisSimulationEndListener@{thisSimulationEndListener}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Simulation\-End\-Listener\-Ptr} Rfid\-Tag\-Mac::this\-Simulation\-End\-Listener ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagMac_392d01ea6bc6c2b3546ffc7cbdd39aa1}
+
+
+Gives {\tt this} pointer as a {\tt Simulation\-End\-Listener\-Ptr} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Implements \bf{Mac\-Protocol} \doxyref{p.}{classMacProtocol_56529b795e24f23950dc53d98ec38087}.
+
+Definition at line 353 of file rfid\_\-tag\_\-mac.hpp.\index{RfidTagMac@{Rfid\-Tag\-Mac}!thisSlottedMac@{thisSlottedMac}}
+\index{thisSlottedMac@{thisSlottedMac}!RfidTagMac@{Rfid\-Tag\-Mac}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Slotted\-Mac\-Ptr} Rfid\-Tag\-Mac::this\-Slotted\-Mac ()\hspace{0.3cm}{\tt  [inline, virtual]}}\label{classRfidTagMac_30db982a69e95968710c9e31286b9682}
+
+
+Gives {\tt this} pointer as a {\tt \doxyref{Slotted\-Mac}{p.}{classSlottedMac}} object. 
+
+This is used to deal with {\tt shared\_\-ptr's}, {\tt this}, and inheritance. \begin{Desc}
+\item[Returns:]a pointer to {\tt this} object. \end{Desc}
+
+
+Definition at line 341 of file rfid\_\-tag\_\-mac.hpp.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+rfid\_\-tag\_\-mac.hpp\item 
+rfid\_\-tag\_\-mac.cpp\end{CompactItemize}

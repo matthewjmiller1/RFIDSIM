@@ -1,0 +1,322 @@
+\section{Log\-Stream\-Manager Class Reference}
+\label{classLogStreamManager}\index{LogStreamManager@{LogStreamManager}}
+Keeps track of which stream should be used for logging various types of events.  
+
+
+{\tt \#include $<$log\_\-stream\_\-manager.hpp$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef \bf{Log\-Stream\-Manager} $\ast$ \bf{Log\-Stream\-Manager\-Ptr}\label{classLogStreamManager_ca82456aacd3c9ac7c1dde76997179c1}
+
+\begin{CompactList}\small\item\em Pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \bf{log\-Pkt\-Send\-Item} (const \bf{Node\-Id} \&node\-Id, const \bf{Communication\-Layer::Types} \&layer, const \bf{Packet} \&recv\-Pkt)
+\begin{CompactList}\small\item\em Log the packet being sent to the appropriate stream. \item\end{CompactList}\item 
+void \bf{log\-Pkt\-Recv\-Item} (const \bf{Node\-Id} \&node\-Id, const \bf{Communication\-Layer::Types} \&layer, const \bf{Packet} \&recv\-Pkt)
+\begin{CompactList}\small\item\em Log the packet being received to the appropriate stream. \item\end{CompactList}\item 
+void \bf{log\-Stats\-Item} (const string \&stats\-Key\-String, const string \&stats\-Value\-String)
+\begin{CompactList}\small\item\em Log the user-specified string to the appropriate stream. \item\end{CompactList}\item 
+void \bf{log\-Stats\-Item} (const \bf{Node\-Id} \&node\-Id, const string \&stats\-Key\-String, const string \&stats\-Value\-String)
+\begin{CompactList}\small\item\em Log the user-specified string to the appropriate stream. \item\end{CompactList}\item 
+void \bf{log\-User\-Defined\-Item} (const string \&user\-String)
+\begin{CompactList}\small\item\em Log the user-specified string to the appropriate stream. \item\end{CompactList}\item 
+void \bf{log\-Debug\-Item} (const string \&debug\-String)
+\begin{CompactList}\small\item\em Log the debug string to the appropriate stream. \item\end{CompactList}\item 
+void \bf{set\-All\-Streams} (\bf{ostream\-Ptr} new\-Stream)
+\begin{CompactList}\small\item\em Set all of the streams to point to the given ostream. \item\end{CompactList}\item 
+void \bf{set\-Pkt\-Send\-Stream} (\bf{ostream\-Ptr} new\-Stream)
+\begin{CompactList}\small\item\em Set the packet send stream to point to the given ostream. \item\end{CompactList}\item 
+void \bf{set\-Pkt\-Recv\-Stream} (\bf{ostream\-Ptr} new\-Stream)
+\begin{CompactList}\small\item\em Set the packet receive stream to point to the given ostream. \item\end{CompactList}\item 
+void \bf{set\-Energy\-Stream} (\bf{ostream\-Ptr} new\-Stream)
+\begin{CompactList}\small\item\em Set the energy stream to point to the given ostream. \item\end{CompactList}\item 
+void \bf{set\-New\-Sense\-Event\-Stream} (\bf{ostream\-Ptr} new\-Stream)
+\begin{CompactList}\small\item\em Set the new sense event stream to point to the given ostream. \item\end{CompactList}\item 
+void \bf{set\-Sensed\-Event\-Stream} (\bf{ostream\-Ptr} new\-Stream)
+\begin{CompactList}\small\item\em Set the sensed event stream to point to the given ostream. \item\end{CompactList}\item 
+void \bf{set\-Stats\-Stream} (\bf{ostream\-Ptr} new\-Stream)
+\begin{CompactList}\small\item\em Set the stats stream to point to the given ostream. \item\end{CompactList}\item 
+void \bf{set\-User\-Defined\-Stream} (\bf{ostream\-Ptr} new\-Stream)
+\begin{CompactList}\small\item\em Set the user defined stream to point to the given ostream. \item\end{CompactList}\item 
+void \bf{set\-Debug\-Stream} (\bf{ostream\-Ptr} new\-Stream)
+\begin{CompactList}\small\item\em Set the debug stream to point to the given ostream. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Log\-Stream\-Manager\-Ptr} \bf{instance} ()
+\begin{CompactList}\small\item\em The class uses the Singleton design pattern. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Friends}
+\begin{CompactItemize}
+\item 
+ostream \& \textbf{operator$<$$<$} (ostream \&s, const Log\-Events \&log\-Event)\label{classLogStreamManager_fa9c8b68c3f62907e35faa79e450e049}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Keeps track of which stream should be used for logging various types of events. 
+
+
+
+Definition at line 25 of file log\_\-stream\_\-manager.hpp.
+
+\subsection{Member Function Documentation}
+\index{LogStreamManager@{Log\-Stream\-Manager}!instance@{instance}}
+\index{instance@{instance}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Log\-Stream\-Manager\-Ptr} Log\-Stream\-Manager::instance ()\hspace{0.3cm}{\tt  [inline, static]}}\label{classLogStreamManager_0fdcc09a0156011d2e1f85d8cfeee4ea}
+
+
+The class uses the Singleton design pattern. 
+
+\begin{Desc}
+\item[Returns:]Pointer to the single instance of \doxyref{Log\-Stream\-Manager}{p.}{classLogStreamManager} \end{Desc}
+
+
+Definition at line 279 of file log\_\-stream\_\-manager.hpp.
+
+Referenced by Rfid\-Reader\-Mac::begin\-Slot\-Event(), Physical\-Layer::capture\-Signal(), Signal\-Recv\-Event::execute(), Wireless\-Channel::get\-Recvd\-Strength(), Two\-Ray::get\-Recvd\-Strength(), Rfid\-Tag\-Mac::handle\-Recvd\-Upper\-Layer\-Packet(), Rfid\-Reader\-Mac::handle\-Recvd\-Upper\-Layer\-Packet(), Rfid\-Tag\-Mac::handle\-Request\-Packet(), Rfid\-Reader\-Mac::is\-Enough\-Time\-For\-Contention\-Cycle(), Physical\-Layer::recv\-From\-Layer(), Communication\-Layer::recv\-From\-Layer(), Physical\-Layer::recv\-Pending\-Signal(), Communication\-Layer::send\-To\-Layer(), Rfid\-Reader\-Mac::simulation\-End\-Handler(), Rfid\-Reader\-App::simulation\-End\-Handler(), and Rfid\-Reader\-Mac::start\-Next\-Contention\-Cycle().\index{LogStreamManager@{Log\-Stream\-Manager}!logDebugItem@{logDebugItem}}
+\index{logDebugItem@{logDebugItem}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::log\-Debug\-Item (const string \& {\em debug\-String})}\label{classLogStreamManager_d3a8ead838e88af11940188c67a37dba}
+
+
+Log the debug string to the appropriate stream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em debug\-String}]the string that should be logged. \end{description}
+\end{Desc}
+
+
+Definition at line 85 of file log\_\-stream\_\-manager.cpp.
+
+Referenced by Rfid\-Reader\-Mac::begin\-Slot\-Event(), Physical\-Layer::capture\-Signal(), Wireless\-Channel::get\-Recvd\-Strength(), Two\-Ray::get\-Recvd\-Strength(), Rfid\-Tag\-Mac::handle\-Recvd\-Upper\-Layer\-Packet(), Rfid\-Reader\-Mac::handle\-Recvd\-Upper\-Layer\-Packet(), Rfid\-Tag\-Mac::handle\-Request\-Packet(), Rfid\-Reader\-Mac::is\-Enough\-Time\-For\-Contention\-Cycle(), Physical\-Layer::recv\-From\-Layer(), and Rfid\-Reader\-Mac::start\-Next\-Contention\-Cycle().\index{LogStreamManager@{Log\-Stream\-Manager}!logPktRecvItem@{logPktRecvItem}}
+\index{logPktRecvItem@{logPktRecvItem}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::log\-Pkt\-Recv\-Item (const \bf{Node\-Id} \& {\em node\-Id}, const \bf{Communication\-Layer::Types} \& {\em layer}, const \bf{Packet} \& {\em recv\-Pkt})}\label{classLogStreamManager_28551c81d5832eda393db1235a810cfa}
+
+
+Log the packet being received to the appropriate stream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node\-Id}]the ID of the node logging the event. \item[{\em layer}]the layer that should be logged. \item[{\em recv\-Pkt}]the packet that should be logged. \end{description}
+\end{Desc}
+
+
+Definition at line 43 of file log\_\-stream\_\-manager.cpp.
+
+Referenced by Physical\-Layer::recv\-Pending\-Signal().\index{LogStreamManager@{Log\-Stream\-Manager}!logPktSendItem@{logPktSendItem}}
+\index{logPktSendItem@{logPktSendItem}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::log\-Pkt\-Send\-Item (const \bf{Node\-Id} \& {\em node\-Id}, const \bf{Communication\-Layer::Types} \& {\em layer}, const \bf{Packet} \& {\em recv\-Pkt})}\label{classLogStreamManager_0a542a281026fbebafd23e7e2d84d5b3}
+
+
+Log the packet being sent to the appropriate stream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node\-Id}]the ID of the node logging the event. \item[{\em layer}]the layer that should be logged. \item[{\em recv\-Pkt}]the packet that should be logged. \end{description}
+\end{Desc}
+
+
+Definition at line 32 of file log\_\-stream\_\-manager.cpp.
+
+Referenced by Signal\-Recv\-Event::execute(), and Communication\-Layer::send\-To\-Layer().\index{LogStreamManager@{Log\-Stream\-Manager}!logStatsItem@{logStatsItem}}
+\index{logStatsItem@{logStatsItem}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::log\-Stats\-Item (const \bf{Node\-Id} \& {\em node\-Id}, const string \& {\em stats\-Key\-String}, const string \& {\em stats\-Value\-String})}\label{classLogStreamManager_294543c91401e985d244808387256ee1}
+
+
+Log the user-specified string to the appropriate stream. 
+
+Each stat will be logged in the stream as: -stats\-Key\-String stats\-Value\-String \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em node\-Id}]the ID of the node logging the event. \item[{\em stats\-Key\-String}]a string representing the key for the stat being logged. \item[{\em stats\-Value\-String}]a string representing the value for the stat being logged. \end{description}
+\end{Desc}
+
+
+Definition at line 65 of file log\_\-stream\_\-manager.cpp.\index{LogStreamManager@{Log\-Stream\-Manager}!logStatsItem@{logStatsItem}}
+\index{logStatsItem@{logStatsItem}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::log\-Stats\-Item (const string \& {\em stats\-Key\-String}, const string \& {\em stats\-Value\-String})}\label{classLogStreamManager_29e588986b5e6a7a726184c91baf8dc0}
+
+
+Log the user-specified string to the appropriate stream. 
+
+This function is for a global stat rather than a node-specifc stat. Each stat will be logged in the stream as: -stats\-Key\-String stats\-Value\-String \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em stats\-Key\-String}]a string representing the key for the stat being logged. \item[{\em stats\-Value\-String}]a string representing the value for the stat being logged. \end{description}
+\end{Desc}
+
+
+Definition at line 54 of file log\_\-stream\_\-manager.cpp.
+
+Referenced by Rfid\-Reader\-Mac::simulation\-End\-Handler(), and Rfid\-Reader\-App::simulation\-End\-Handler().\index{LogStreamManager@{Log\-Stream\-Manager}!logUserDefinedItem@{logUserDefinedItem}}
+\index{logUserDefinedItem@{logUserDefinedItem}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::log\-User\-Defined\-Item (const string \& {\em user\-String})}\label{classLogStreamManager_f14d89f213ef8cb00279c41d2b17c5e7}
+
+
+Log the user-specified string to the appropriate stream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em user\-String}]the string that should be logged. \end{description}
+\end{Desc}
+
+
+Definition at line 76 of file log\_\-stream\_\-manager.cpp.\index{LogStreamManager@{Log\-Stream\-Manager}!setAllStreams@{setAllStreams}}
+\index{setAllStreams@{setAllStreams}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::set\-All\-Streams (\bf{ostream\-Ptr} {\em new\-Stream})\hspace{0.3cm}{\tt  [inline]}}\label{classLogStreamManager_546b5ccc78110bc08d20cd9926861b5b}
+
+
+Set all of the streams to point to the given ostream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em new\-Stream}]the ostream to which all streams will point. \end{description}
+\end{Desc}
+
+
+Definition at line 288 of file log\_\-stream\_\-manager.hpp.
+
+References set\-Debug\-Stream(), set\-Energy\-Stream(), set\-New\-Sense\-Event\-Stream(), set\-Pkt\-Recv\-Stream(), set\-Pkt\-Send\-Stream(), set\-Sensed\-Event\-Stream(), set\-Stats\-Stream(), and set\-User\-Defined\-Stream().\index{LogStreamManager@{Log\-Stream\-Manager}!setDebugStream@{setDebugStream}}
+\index{setDebugStream@{setDebugStream}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::set\-Debug\-Stream (\bf{ostream\-Ptr} {\em new\-Stream})\hspace{0.3cm}{\tt  [inline]}}\label{classLogStreamManager_b541488d91a638a7d569cbf6101203fd}
+
+
+Set the debug stream to point to the given ostream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em new\-Stream}]the ostream to which the debug stream will point. \end{description}
+\end{Desc}
+
+
+Definition at line 344 of file log\_\-stream\_\-manager.hpp.
+
+Referenced by set\-All\-Streams().\index{LogStreamManager@{Log\-Stream\-Manager}!setEnergyStream@{setEnergyStream}}
+\index{setEnergyStream@{setEnergyStream}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::set\-Energy\-Stream (\bf{ostream\-Ptr} {\em new\-Stream})\hspace{0.3cm}{\tt  [inline]}}\label{classLogStreamManager_de0837e9ecbc30feb2ba471cc87ce612}
+
+
+Set the energy stream to point to the given ostream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em new\-Stream}]the ostream to which the energy stream will point. \end{description}
+\end{Desc}
+
+
+Definition at line 314 of file log\_\-stream\_\-manager.hpp.
+
+Referenced by set\-All\-Streams().\index{LogStreamManager@{Log\-Stream\-Manager}!setNewSenseEventStream@{setNewSenseEventStream}}
+\index{setNewSenseEventStream@{setNewSenseEventStream}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::set\-New\-Sense\-Event\-Stream (\bf{ostream\-Ptr} {\em new\-Stream})\hspace{0.3cm}{\tt  [inline]}}\label{classLogStreamManager_1c944d1f619ec21fcf9a9a23afab3b64}
+
+
+Set the new sense event stream to point to the given ostream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em new\-Stream}]the ostream to which the new sense event stream will point. \end{description}
+\end{Desc}
+
+
+Definition at line 320 of file log\_\-stream\_\-manager.hpp.
+
+Referenced by set\-All\-Streams().\index{LogStreamManager@{Log\-Stream\-Manager}!setPktRecvStream@{setPktRecvStream}}
+\index{setPktRecvStream@{setPktRecvStream}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::set\-Pkt\-Recv\-Stream (\bf{ostream\-Ptr} {\em new\-Stream})\hspace{0.3cm}{\tt  [inline]}}\label{classLogStreamManager_f157840679b97fb5930c1adc78664403}
+
+
+Set the packet receive stream to point to the given ostream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em new\-Stream}]the ostream to which the packet receive stream will point. \end{description}
+\end{Desc}
+
+
+Definition at line 308 of file log\_\-stream\_\-manager.hpp.
+
+Referenced by set\-All\-Streams().\index{LogStreamManager@{Log\-Stream\-Manager}!setPktSendStream@{setPktSendStream}}
+\index{setPktSendStream@{setPktSendStream}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::set\-Pkt\-Send\-Stream (\bf{ostream\-Ptr} {\em new\-Stream})\hspace{0.3cm}{\tt  [inline]}}\label{classLogStreamManager_51bcf033fe9b39fd9b9dc5d2092f924d}
+
+
+Set the packet send stream to point to the given ostream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em new\-Stream}]the ostream to which the packet send stream will point. \end{description}
+\end{Desc}
+
+
+Definition at line 302 of file log\_\-stream\_\-manager.hpp.
+
+Referenced by set\-All\-Streams().\index{LogStreamManager@{Log\-Stream\-Manager}!setSensedEventStream@{setSensedEventStream}}
+\index{setSensedEventStream@{setSensedEventStream}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::set\-Sensed\-Event\-Stream (\bf{ostream\-Ptr} {\em new\-Stream})\hspace{0.3cm}{\tt  [inline]}}\label{classLogStreamManager_895422301554f1b5eefd934ebe532d46}
+
+
+Set the sensed event stream to point to the given ostream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em new\-Stream}]the ostream to which the sensed event stream will point. \end{description}
+\end{Desc}
+
+
+Definition at line 326 of file log\_\-stream\_\-manager.hpp.
+
+Referenced by set\-All\-Streams().\index{LogStreamManager@{Log\-Stream\-Manager}!setStatsStream@{setStatsStream}}
+\index{setStatsStream@{setStatsStream}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::set\-Stats\-Stream (\bf{ostream\-Ptr} {\em new\-Stream})\hspace{0.3cm}{\tt  [inline]}}\label{classLogStreamManager_9953d6e51603d3c89ba8c88b262ad4da}
+
+
+Set the stats stream to point to the given ostream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em new\-Stream}]the ostream to which the stats stream will point. \end{description}
+\end{Desc}
+
+
+Definition at line 332 of file log\_\-stream\_\-manager.hpp.
+
+Referenced by set\-All\-Streams().\index{LogStreamManager@{Log\-Stream\-Manager}!setUserDefinedStream@{setUserDefinedStream}}
+\index{setUserDefinedStream@{setUserDefinedStream}!LogStreamManager@{Log\-Stream\-Manager}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Log\-Stream\-Manager::set\-User\-Defined\-Stream (\bf{ostream\-Ptr} {\em new\-Stream})\hspace{0.3cm}{\tt  [inline]}}\label{classLogStreamManager_ee0c0fb322facc22119c061ae6a02e02}
+
+
+Set the user defined stream to point to the given ostream. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em new\-Stream}]the ostream to which the user defined stream will point. \end{description}
+\end{Desc}
+
+
+Definition at line 338 of file log\_\-stream\_\-manager.hpp.
+
+Referenced by set\-All\-Streams().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+log\_\-stream\_\-manager.hpp\item 
+log\_\-stream\_\-manager.cpp\end{CompactItemize}

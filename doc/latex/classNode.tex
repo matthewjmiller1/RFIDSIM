@@ -1,0 +1,167 @@
+\section{Node Class Reference}
+\label{classNode}\index{Node@{Node}}
+The class for a node in our system, which consists of a stack of \doxyref{Communication\-Layer}{p.}{classCommunicationLayer} objects connected together.  
+
+
+{\tt \#include $<$node.hpp$>$}
+
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Node} $>$ \bf{Node\-Ptr}\label{classNode_715e58098d27b93b903b5c7cacb402f8}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual \bf{$\sim$Node} ()\label{classNode_a0840c3cb5c7159be6d992adecd2097c}
+
+\begin{CompactList}\small\item\em A destructor. \item\end{CompactList}\item 
+\bf{Location} \bf{get\-Location} () const 
+\begin{CompactList}\small\item\em Get a copy of the location of this node. \item\end{CompactList}\item 
+\bf{Node\-Id} \bf{get\-Node\-Id} () const 
+\begin{CompactList}\small\item\em Get a copy of the ID of this node. \item\end{CompactList}\item 
+\bf{Sim\-Time} \bf{current\-Time} () const 
+\begin{CompactList}\small\item\em Get the current time at the node. \item\end{CompactList}\item 
+bool \bf{schedule\-Event} (Event\-Ptr event\-To\-Schedule, const \bf{Sim\-Time} \&event\-Delay)
+\begin{CompactList}\small\item\em Add an event to the simulator's event queue. \item\end{CompactList}\item 
+bool \bf{cancel\-Event} (Event\-Ptr event\-To\-Cancel)
+\begin{CompactList}\small\item\em Cancel an event from the event queue. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Node\-Ptr} \bf{create} (const \bf{Location} \&location, const \bf{Node\-Id} \&node\-Id)
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Node} (const \bf{Location} \&location, const \bf{Node\-Id} \&node\-Id)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The class for a node in our system, which consists of a stack of \doxyref{Communication\-Layer}{p.}{classCommunicationLayer} objects connected together. 
+
+Eventually, this could contain things like an energy consumption tracker and sensors as well. 
+
+
+
+Definition at line 153 of file node.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Node::Node (const \bf{Location} \& {\em location}, const \bf{Node\-Id} \& {\em node\-Id})\hspace{0.3cm}{\tt  [protected]}}\label{classNode_87e6c22c6679104e752b2507f0dee143}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em location}]the location object for this node. \item[{\em node\-Id}]the ID for this node. \end{description}
+\end{Desc}
+
+
+Definition at line 5 of file node.cpp.
+
+Referenced by create().
+
+\subsection{Member Function Documentation}
+\index{Node@{Node}!cancelEvent@{cancelEvent}}
+\index{cancelEvent@{cancelEvent}!Node@{Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Node::cancel\-Event (Event\-Ptr {\em event\-To\-Cancel})}\label{classNode_8d5f0b62e87d0736b341c6f1175ebc03}
+
+
+Cancel an event from the event queue. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em event\-To\-Cancel}]a pointer to the event being cancelled. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the event was found and erased. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{schedule\-Event()}{p.}{classNode_b9be0ba6748b1e8c55e86478a161be9b} \end{Desc}
+
+
+Definition at line 46 of file node.cpp.
+
+References Simulator::cancel\-Event(), and Simulator::instance().\index{Node@{Node}!create@{create}}
+\index{create@{create}!Node@{Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Ptr} Node::create (const \bf{Location} \& {\em location}, const \bf{Node\-Id} \& {\em node\-Id})\hspace{0.3cm}{\tt  [inline, static]}}\label{classNode_41862de133b24c83c735a3690f03ca5c}
+
+
+A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em location}]the location object for this node. \item[{\em node\-Id}]the ID of this node. \end{description}
+\end{Desc}
+
+
+Definition at line 238 of file node.hpp.
+
+References Node().\index{Node@{Node}!currentTime@{currentTime}}
+\index{currentTime@{currentTime}!Node@{Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Sim\-Time} Node::current\-Time () const}\label{classNode_598082674e370e351178454d4ab4ed9e}
+
+
+Get the current time at the node. 
+
+Note that this may incorporate clock drift to be different that the simulator's \doxyref{current\-Time()}{p.}{classNode_598082674e370e351178454d4ab4ed9e}. \begin{Desc}
+\item[Returns:]The current time at the node. \end{Desc}
+
+
+Definition at line 32 of file node.cpp.
+
+References Simulator::current\-Time(), and Simulator::instance().\index{Node@{Node}!getLocation@{getLocation}}
+\index{getLocation@{getLocation}!Node@{Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Location} Node::get\-Location () const\hspace{0.3cm}{\tt  [inline]}}\label{classNode_88b1184c928535e14a3eca586ae0d13b}
+
+
+Get a copy of the location of this node. 
+
+\begin{Desc}
+\item[Returns:]a copy of the location of this node. \end{Desc}
+
+
+Definition at line 245 of file node.hpp.\index{Node@{Node}!getNodeId@{getNodeId}}
+\index{getNodeId@{getNodeId}!Node@{Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Node\-Id} Node::get\-Node\-Id () const\hspace{0.3cm}{\tt  [inline]}}\label{classNode_482b556a7212d106285fad0836661391}
+
+
+Get a copy of the ID of this node. 
+
+\begin{Desc}
+\item[Returns:]a copy of the ID of this node. \end{Desc}
+
+
+Definition at line 250 of file node.hpp.\index{Node@{Node}!scheduleEvent@{scheduleEvent}}
+\index{scheduleEvent@{scheduleEvent}!Node@{Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Node::schedule\-Event (Event\-Ptr {\em event\-To\-Schedule}, const \bf{Sim\-Time} \& {\em event\-Delay})}\label{classNode_b9be0ba6748b1e8c55e86478a161be9b}
+
+
+Add an event to the simulator's event queue. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em event\-To\-Schedule}]a pointer to the event being scheduled. \item[{\em event\-Delay}]how far in the future (from the node's local time) the event should be scheduled. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]true if the event was successfully scheduled. \end{Desc}
+\begin{Desc}
+\item[See also:]\doxyref{cancel\-Event()}{p.}{classNode_8d5f0b62e87d0736b341c6f1175ebc03} \end{Desc}
+
+
+Definition at line 39 of file node.cpp.
+
+References Simulator::instance(), and Simulator::schedule\-Event().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+node.hpp\item 
+node.cpp\end{CompactItemize}

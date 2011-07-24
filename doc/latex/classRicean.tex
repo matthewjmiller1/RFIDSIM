@@ -1,0 +1,123 @@
+\section{Ricean Class Reference}
+\label{classRicean}\index{Ricean@{Ricean}}
+The \doxyref{Ricean}{p.}{classRicean} fading model.  
+
+
+{\tt \#include $<$fading.hpp$>$}
+
+Inheritance diagram for Ricean::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classRicean}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+typedef boost::shared\_\-ptr$<$ \bf{Ricean} $>$ \bf{Ricean\-Ptr}\label{classRicean_cf4a7798c10e259226f1d62ed0c9a273}
+
+\begin{CompactList}\small\item\em Smart pointer that clients should use. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual double \bf{fading\-Factor} (const \bf{Wireless\-Comm\-Signal} \&signal, const \bf{Node\-Id} \&node\-Id)
+\begin{CompactList}\small\item\em Compute the fading factor for the signal. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \bf{Ricean\-Ptr} \bf{create} ()\label{classRicean_771c2beb6387069887a207552694b35a}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Ricean\-Ptr} \bf{create} (const \bf{Ricean} \&rhs)\label{classRicean_5408ebde64da33a991ca04f4fdcc59c9}
+
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\item 
+static \bf{Ricean\-Ptr} \bf{create} (double max\-Velocity, double k)
+\begin{CompactList}\small\item\em A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\bf{Ricean} ()\label{classRicean_c3bba4b547797fbcbaedcdc3f19a8771}
+
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Ricean} (double max\-Velocity, double k)
+\begin{CompactList}\small\item\em A constructor. \item\end{CompactList}\item 
+\bf{Ricean} (const \bf{Ricean} \&rhs)\label{classRicean_9b64db7eb26d779516750b6793d4259b}
+
+\begin{CompactList}\small\item\em A copy constructor. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static const double \bf{m\_\-DEFAULT\_\-MAX\_\-VELOCITY} = 6.5\label{classRicean_3507d87d7fa1585c374f9cd6be92e2d7}
+
+\begin{CompactList}\small\item\em The default maximum velocity of objects in the environment. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Ricean}{p.}{classRicean} fading model. 
+
+This is based on the ns-2 implementation from the paper {\em Efficient Simulation of Ricean Fading within a Packet Simulator\/} by Punnoose et al. See the paper for details about the model. 
+
+
+
+Definition at line 64 of file fading.hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Ricean@{Ricean}!Ricean@{Ricean}}
+\index{Ricean@{Ricean}!Ricean@{Ricean}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Ricean::Ricean (double {\em max\-Velocity}, double {\em k})\hspace{0.3cm}{\tt  [protected]}}\label{classRicean_05637fd61879a78397a32a0d9860329d}
+
+
+A constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em max\-Velocity}]the maximum velocity for objects in the environment in m/s (used for computing doppler). \item[{\em k}]a \doxyref{Ricean}{p.}{classRicean} parameter. \end{description}
+\end{Desc}
+
+
+Definition at line 35 of file fading.cpp.
+
+\subsection{Member Function Documentation}
+\index{Ricean@{Ricean}!create@{create}}
+\index{create@{create}!Ricean@{Ricean}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\bf{Ricean\-Ptr} Ricean::create (double {\em max\-Velocity}, double {\em k})\hspace{0.3cm}{\tt  [inline, static]}}\label{classRicean_c024456d4d85f5cc3dabd0c1548fa123}
+
+
+A factory method to ensure that all objects are created via {\tt new} since we are using smart pointers. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em max\-Velocity}]the maximum velocity for objects in the environment in m/s (used for computing doppler). \item[{\em k}]a \doxyref{Ricean}{p.}{classRicean} parameter. \end{description}
+\end{Desc}
+
+
+Definition at line 212 of file fading.hpp.
+
+References Ricean().\index{Ricean@{Ricean}!fadingFactor@{fadingFactor}}
+\index{fadingFactor@{fadingFactor}!Ricean@{Ricean}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Ricean::fading\-Factor (const \bf{Wireless\-Comm\-Signal} \& {\em signal}, const \bf{Node\-Id} \& {\em node\-Id})\hspace{0.3cm}{\tt  [virtual]}}\label{classRicean_b855b93dce316ab317c2f039c6d8d692}
+
+
+Compute the fading factor for the signal. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em signal}]the signal being transmitted. \item[{\em node\-Id}]the ID of the receiver for which fading is being calculated. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]the fading factor. \end{Desc}
+
+
+Implements \bf{Fading} \doxyref{p.}{classFading_130c2e91eaabeabe25f850e20fd713ae}.
+
+Definition at line 65 of file fading.cpp.
+
+References Simulator::current\-Time(), Simulator::get\-Rand\-Num\-Generator(), Sim\-Time::get\-Time\-In\-Seconds(), Wireless\-Comm\-Signal::get\-Wavelength(), Simulator::instance(), and Fading::m\_\-node\-Offset.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+fading.hpp\item 
+fading.cpp\end{CompactItemize}
